@@ -4,7 +4,6 @@ class Sezami extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'My app title',
         home: Scaffold(
             appBar: AppBar(title: Text('SEZAMI')),
             body: Padding(

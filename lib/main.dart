@@ -6,6 +6,7 @@ import 'dart:ui';
 
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,20 +49,29 @@ class MyHome extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     InkWell(
+                       onTap: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Sezami(),
+                        ),
+                      ),
+                      //Navigator.pop(context),
+                    },
                       child: Container(
+                        
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment(0.1, 0.0),
-                            colors: [
-                              const Color(0xff00FF70),
-                              const Color(0xFF00e86e),  
-                            ], // whitish to gray
-                            tileMode: TileMode
-                                .clamp, // repeats the gradient over the canvas
+                         color: Color(0xFF20b9c0),
+                         
+                        ),
+                        
+                        child: Center(
+                          child: Container(
+                            //child: Image.asset('images/icons/icon3.jpg'),
+                            child: Text('Directorio'),
+                            
                           ),
                         ),
-                        child: Text('hola'),
                         height: 200.0,
                         width: 180.0,
                       ),
@@ -69,16 +79,7 @@ class MyHome extends StatelessWidget {
                     InkWell(
                       child: Container(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment(1.0, 0.0),
-                            colors: [
-                              const Color(0xFFfbf5bd),
-                              const Color(0xFFf5e557)
-                            ], // whitish to gray
-                            tileMode: TileMode
-                                .clamp, // repeats the gradient over the canvas
-                          ),
+                          color: Color(0xFF20b9c0)
                         ),
                         child: Text('hola'),
                         height: 200.0,
@@ -92,16 +93,7 @@ class MyHome extends StatelessWidget {
                     InkWell(
                       child: Container(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment(0.8, 0.0),
-                            colors: [
-                              const Color(0xFF00ffbc),
-                              const Color(0xFF00c8aa)
-                            ], // whitish to gray
-                            tileMode: TileMode
-                                .clamp, // repeats the gradient over the canvas
-                          ),
+                         color: Color(0xFF20b9c0)
                         ),
                         child: Text('hola'),
                         height: 200.0,
@@ -111,16 +103,7 @@ class MyHome extends StatelessWidget {
                     InkWell(
                       child: Container(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment(0.8, 0.0),
-                            colors: [
-                              const Color(0xFF9e9da0),
-                              const Color(0xFF786281)
-                            ], // whitish to gray
-                            tileMode: TileMode
-                                .clamp, // repeats the gradient over the canvas
-                          ),
+                          color: Color(0xFF20b9c0)
                         ),
                         child: Text('hola'),
                         height: 200.0,
@@ -145,8 +128,9 @@ class Mybanner extends StatelessWidget {
       images: [
         AssetImage('images/images1.jpg'),
         AssetImage('images/images2.jpg'),
-        AssetImage('images/images3.jpg'),
-        //AssetImage('images/images4.jpg')
+        //AssetImage('images/images3.jpg'),
+        //AssetImage('images/image119.png')
+        //AssetImage('images/banner/ima2.jpeg'),
       ],
     );
   }
