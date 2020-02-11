@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Sezami extends StatelessWidget {
+
+  void customLaunch(command) async{
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print('no se ejecuta el comando $command');
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,10 +33,16 @@ class Sezami extends StatelessWidget {
                         ListTile(
                           leading: Icon(Icons.phone),
                           title: Text('Ext. 37100'),
+                          onTap: (){
+                            customLaunch('tel: 37100');
+                          },
                         ),
                         ListTile(
                           leading: Icon(Icons.mail),
                           title: Text('jose.estrada@zacatecas.gob.mx'),
+                          onTap: (){
+                            customLaunch('mailto:jose.estrada@zacatecas.gob.mx?subject=test%20subject&body=test%20body');
+                          },
                         ),
                       ],
                     ),
