@@ -49,27 +49,42 @@ class MyHome extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     InkWell(
-                       onTap: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Sezami(),
+                      onTap: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Sezami(),
+                          ),
                         ),
-                      ),
-                      //Navigator.pop(context),
-                    },
+                      },
                       child: Container(
-                        
                         decoration: BoxDecoration(
-                         color: Color(0xFF20b9c0),
-                         
+                          color: Color(0xFF20b9c0),
                         ),
-                        
                         child: Center(
-                          child: Container(
-                            //child: Image.asset('images/icons/icon3.jpg'),
-                            child: Text('Directorio'),
-                            
+                          child: Stack(
+                            children: <Widget>[
+                              Center(
+                                child: Container(
+                                  
+                                ),
+                              ),
+                              Center(
+                                child: Container(
+                                  width: 150.0,
+                                  height: 30.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFffffff),
+                                    borderRadius: BorderRadius.circular(30.0),
+                                  ),
+                                  child: new Center(
+                                    child: Container(
+                                      child: Text('Directorio'),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
                         height: 200.0,
@@ -78,9 +93,7 @@ class MyHome extends StatelessWidget {
                     ),
                     InkWell(
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF20b9c0)
-                        ),
+                        decoration: BoxDecoration(color: Color(0xFF20b9c0)),
                         child: Text('hola'),
                         height: 200.0,
                         width: 180.0,
@@ -92,9 +105,7 @@ class MyHome extends StatelessWidget {
                   children: <Widget>[
                     InkWell(
                       child: Container(
-                        decoration: BoxDecoration(
-                         color: Color(0xFF20b9c0)
-                        ),
+                        decoration: BoxDecoration(color: Color(0xFF20b9c0)),
                         child: Text('hola'),
                         height: 200.0,
                         width: 180.0,
@@ -102,9 +113,7 @@ class MyHome extends StatelessWidget {
                     ),
                     InkWell(
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF20b9c0)
-                        ),
+                        decoration: BoxDecoration(color: Color(0xFF20b9c0)),
                         child: Text('hola'),
                         height: 200.0,
                         width: 180.0,
