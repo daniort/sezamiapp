@@ -7,6 +7,7 @@ import 'dart:ui';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 
 void main() => runApp(MyApp());
@@ -35,6 +36,7 @@ class MyHome extends StatelessWidget {
       body: new Stack(
         children: <Widget>[
           Back(), //Buttom Futter
+          //Footer(),
           Container(
             //Banner
             color: Colors.blueGrey,
@@ -358,7 +360,7 @@ class Back extends StatelessWidget {
                     ),
                   ),
                   new IconButton(
-                    color: Colors.white,
+                     color: Colors.white,
                     icon: new Icon(FontAwesomeIcons.facebookF),
                     onPressed: () {/* Your code */},
                   ),
@@ -370,6 +372,7 @@ class Back extends StatelessWidget {
                   ),
                   new IconButton(
                     color: Colors.white,
+                    // color: Color(0xFF0076a6),
                     icon: new Icon(FontAwesomeIcons.twitter),
                     onPressed: () {/* Your code */},
                   ),
