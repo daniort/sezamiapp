@@ -34,7 +34,7 @@ class MyHome extends StatelessWidget {
       ),
       body: new Stack(
         children: <Widget>[
-          Back(),
+          Back(), //Buttom Futter
           Container(
             //Banner
             color: Colors.blueGrey,
@@ -330,48 +330,61 @@ class Mybanner extends StatelessWidget {
 class Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //const med = MediaQuery.of(context).size.wid
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+
     return new Container(
       child: Stack(
         children: <Widget>[
           Positioned(
             bottom: 0.0,
-            child: Center(
-              child: Container(              
-                //color: Color.fromRGBO(254, 211, 0, 0),
-                color: Color(0xFFfed300),
-                height: 60.0,
-                width: MediaQuery.of(context).size.width,
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                        new IconButton(
-                          color: Colors.white,
-                          icon: new Icon(FontAwesomeIcons.globe),
-                          onPressed: () {/* Your code */},
-                        ),
-                        new IconButton(
-                          color: Colors.white,
-                          icon: new Icon(FontAwesomeIcons.facebookF),
-                          onPressed: () {/* Your code */},
-                        ),
-                        new IconButton(
-                          color: Colors.white,
-                          icon: new Icon(FontAwesomeIcons.twitter),
-                          onPressed: () {/* Your code */},
-                        )
-                      ],
+            child: Container(
+              color: Color(0xFFfed300),
+              height: 60.0,
+              width: queryData.size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new IconButton(
+                    color: Colors.white,
+                    icon: new Icon(FontAwesomeIcons.globe),
+                    onPressed: () {/* Your code */},
                   ),
-                ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: VerticalDivider(
+                      color: Colors.white,
+                    ),
+                  ),
+                  new IconButton(
+                    color: Colors.white,
+                    icon: new Icon(FontAwesomeIcons.facebookF),
+                    onPressed: () {/* Your code */},
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: VerticalDivider(
+                      color: Colors.white,
+                    ),
+                  ),
+                  new IconButton(
+                    color: Colors.white,
+                    icon: new Icon(FontAwesomeIcons.twitter),
+                    onPressed: () {/* Your code */},
+                  ),
+                ],
               ),
             ),
           ),
           Positioned(
-              bottom: 0.0,
-              child: Container(
-                color: Color(0xFF0076a6),
-                height: 6.0,
-                width: MediaQuery.of(context).size.width,
-              ))
+            bottom: 0.0,
+            child: Container(
+              color: Color(0xFF0076a6),
+              height: 6.0,
+              width: queryData.size.width,
+            ),
+          )
         ],
       ),
     );
