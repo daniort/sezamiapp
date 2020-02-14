@@ -7,7 +7,7 @@ class Sezami extends StatelessWidget {
     if (await canLaunch(command)) {
       await launch(command);
     } else {
-      print('no se ejecuta el comando $command');
+      print('no sre ejecuta el comando $command');
     }
   }
 
