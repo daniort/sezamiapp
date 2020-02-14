@@ -1,32 +1,24 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-import 'dart:ui';
-
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/widget_directorio/DIRECTORIO.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
+import 'package:sezamiapp/main.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class Directorio extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'SEZAMI',
-      theme: ThemeData(
-        primaryColor: Color(0xFF0076a6),
-      ),
-      home: MyHome(),
-    );
-  }
+  _DirectorioState createState() => _DirectorioState();
 }
 
-class MyHome extends StatelessWidget {
-  //final pantalla =MediaQuery.of().size.width;
+class _DirectorioState extends State<Directorio>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this);
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -311,70 +303,4 @@ class MyHome extends StatelessWidget {
   }
 }
 
-class Mybanner extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Carousel(
-      images: [
-        AssetImage('images/banner/banner1.jpg'),
-        AssetImage('images/banner/banner2.jpg'),
-        AssetImage('images/banner/banner3.jpg'),
-        //AssetImage('images/images2.jpg'),
-        //AssetImage('images/images3.jpg'),
-        //AssetImage('images/image119.png')
-        //AssetImage('images/banner/ima2.jpeg'),
-      ],
-    );
-  }
-}
-
-class Back extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new Container(
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            bottom: 0.0,
-            child: Center(
-              child: Container(              
-                //color: Color.fromRGBO(254, 211, 0, 0),
-                color: Color(0xFFfed300),
-                height: 60.0,
-                width: MediaQuery.of(context).size.width,
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                        new IconButton(
-                          color: Colors.white,
-                          icon: new Icon(FontAwesomeIcons.globe),
-                          onPressed: () {/* Your code */},
-                        ),
-                        new IconButton(
-                          color: Colors.white,
-                          icon: new Icon(FontAwesomeIcons.facebookF),
-                          onPressed: () {/* Your code */},
-                        ),
-                        new IconButton(
-                          color: Colors.white,
-                          icon: new Icon(FontAwesomeIcons.twitter),
-                          onPressed: () {/* Your code */},
-                        )
-                      ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-              bottom: 0.0,
-              child: Container(
-                color: Color(0xFF0076a6),
-                height: 6.0,
-                width: MediaQuery.of(context).size.width,
-              ))
-        ],
-      ),
-    );
-  }
 }
