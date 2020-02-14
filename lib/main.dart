@@ -48,7 +48,6 @@ class MyHome extends StatelessWidget {
             padding: EdgeInsets.only(
                 top: ((MediaQuery.of(context).size.height) * .20)),
             child: new Container(
-              color: Colors.grey,
               height: ((MediaQuery.of(context).size.height) * .62),
               width: MediaQuery.of(context).size.width,
               child: MisBotonesHome(),

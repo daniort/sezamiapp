@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 
 class Directorio extends StatefulWidget {
   @override
@@ -17,53 +17,150 @@ class _DirectorioState extends State<Directorio>
     _controller = AnimationController(vsync: this);
   }
 
-
-
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sezami Digital'),
+        title: Text('Directorio'),
       ),
-      body: new Stack(
+      body: Stack(
         children: <Widget>[
-
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
+          Column(
+        children: <Widget>[
+          new Padding(
+            padding: EdgeInsets.all((queryData.size.width) * 0.02),
+            child: InkWell(
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sezami(),
+                  ),
+                ),
+              },
+              child: Container(
+                height: (queryData.size.height) * 0.25,
+                color: Color(0xFF20b9c0),
+                child: Stack(
+                  children: <Widget>[
+                    Center(
+                      child: Container(
+                        width: (queryData.size.width) * 0.20,
+                        child: Image.asset('images/icons/ico7.png'),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        child: new Center(
+                          child: Container(
+                            child: Text(
+                              'SEZAMI',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 30.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
-            width: MediaQuery.of(context).size.width,
-            height: 400.0,
-            margin: new EdgeInsets.only(
-              top: 180.0,
-            ),
-           
           ),
-          Container(
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-            ),
-            width: MediaQuery.of(context).size.width,
-            height: 400.0,
-            margin: new EdgeInsets.only(
-              top: 180.0,
+          new Padding(
+            padding: EdgeInsets.all((queryData.size.width) * 0.02),
+            child: InkWell(
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sezami(),
+                  ),
+                ),
+              },
+              child: Container(
+                height: (queryData.size.height) * 0.25,
+                color: Color(0xFF20b9c0),
+                child: Stack(
+                  children: <Widget>[
+                    Center(
+                      child: Container(
+                        width: (queryData.size.width) * 0.20,
+                        child: Image.asset('images/icons/ico7.png'),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        child: new Center(
+                          child: Container(
+                            child: Text(
+                              'SEZAMI',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 30.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
-          Container(
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-            ),
-            width: MediaQuery.of(context).size.width,
-            height: 400.0,
-            margin: new EdgeInsets.only(
-              top: 180.0,
+          new Padding(
+            padding: EdgeInsets.all((queryData.size.width) * 0.02),
+            child: InkWell(
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sezami(),
+                  ),
+                ),
+              },
+              child: Container(
+                height: (queryData.size.height) * 0.25,
+                color: Color(0xFF20b9c0),
+                child: Stack(
+                  children: <Widget>[
+                    Center(
+                      child: Container(
+                        width: (queryData.size.width) * 0.20,
+                        child: Image.asset('images/icons/ico7.png'),
+                      ),
+                    ),
+                    Center(
+                      child: Container(
+                        child: new Center(
+                          child: Container(
+                            child: Text(
+                              'SEZAMI',
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 30.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
         ],
       ),
+          Padding(
+            padding: EdgeInsets.only(top: queryData.size.height * 0.82 ),
+            child: Container(
+              height: (queryData.size.height) * 0.08,
+              
+              child: Footer(),
+            ),
+          ),
+        ],
+      )
     );
   }
 }
-

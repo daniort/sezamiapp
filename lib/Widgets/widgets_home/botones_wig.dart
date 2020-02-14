@@ -16,6 +16,14 @@ class MisBotonesHome extends StatelessWidget {
             new Padding(
               padding: EdgeInsets.all((queryData.size.width) * 0.02),
               child: InkWell(
+                 onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Directorio(),
+                            ),
+                          ),
+                        },
                 child: Container(
                   width: (queryData.size.width) * 0.45,
                   height: (queryData.size.height) * 0.28,

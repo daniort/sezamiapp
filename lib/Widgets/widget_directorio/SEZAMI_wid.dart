@@ -13,13 +13,13 @@ class Sezami extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xFF0076a6),
-      ),
-      home: Scaffold(
-        appBar: AppBar(title: Text('SEZAMI')),
-        body: Padding(
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('SEZAMI'),
+        ),
+        body: new Padding(
           padding: EdgeInsets.all(0.0),
           child: Stack(
             children: <Widget>[
@@ -60,13 +60,8 @@ class Sezami extends StatelessWidget {
                   ),
                 ),
               ),
-              new Container(
-                child: Footer(),
-              )
             ],
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
