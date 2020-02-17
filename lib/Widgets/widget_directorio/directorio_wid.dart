@@ -155,7 +155,6 @@ class _DirectorioState extends State<Directorio>
             padding: EdgeInsets.only(top: queryData.size.height * 0.82 ),
             child: Container(
               height: (queryData.size.height) * 0.08,
-              
               child: Footer(),
             ),
           ),

@@ -42,7 +42,7 @@ class MisBotonesHome extends StatelessWidget {
                             //color: Color(0xFFfff344f),
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                          child: Image.asset('images/icons/ico1.png'),
+                          child: Image.asset('images/icons/icodire.png'),
                         ),
                       ),
                       Center(
@@ -90,7 +90,7 @@ class MisBotonesHome extends StatelessWidget {
                             //color: Color(0xFFfff344f),
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                          child: Image.asset('images/icons/ico2.png'),
+                          child: Image.asset('images/icons/icoprog.png'),
                         ),
                       ),
                       Center(
@@ -143,7 +143,7 @@ class MisBotonesHome extends StatelessWidget {
                             //color: Color(0xFFfff344f),
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                          child: Image.asset('images/icons/ico3.png'),
+                          child: Image.asset('images/icons/icosev.png'),
                         ),
                       ),
                       Center(
@@ -191,7 +191,7 @@ class MisBotonesHome extends StatelessWidget {
                             //color: Color(0xFFfff344f),
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                          child: Image.asset('images/icons/ico4.png'),
+                          child: Image.asset('images/icons/icocal.png'),
                         ),
                       ),
                       Center(
