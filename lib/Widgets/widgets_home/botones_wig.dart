@@ -288,7 +288,7 @@ class Botonesservicios extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico7.png"),
+                            image: AssetImage("images/icons/ico17.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -311,79 +311,7 @@ class Botonesservicios extends StatelessWidget {
                             ),
                             new Container(
                               child: Text(
-                                "Servicios",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 16.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.1,
-                      height: (queryData.size.height) * 0.08,
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 40.0,
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new InkWell(
-              child: Container(
-                width: (queryData.size.width) * 0.90,
-                height: (queryData.size.height) * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.20,
-                      child: Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.04,
-                          child: Image(
-                            image: AssetImage("images/icons/ico6.png"),
-                            color: Colors.blueGrey,
-                          ),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.60,
-                      height: (queryData.size.height) * 0.08,
-                      child: Container(
-                        child: Row(
-                          children: <Widget>[
-                            new Container(
-                              height: (queryData.size.height) * 0.06,
-                              child: VerticalDivider(
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                            new Container(
-                              child: Text(
-                                "VISA",
+                                "Asesoría Migratoria",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Colors.blueGrey, fontSize: 16.0),
@@ -432,7 +360,7 @@ class Botonesservicios extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico5.png"),
+                            image: AssetImage("images/icons/ico18.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -455,7 +383,79 @@ class Botonesservicios extends StatelessWidget {
                             ),
                             new Container(
                               child: Text(
-                                "Localizar Personas",
+                                "Tramite de VISA",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: Colors.blueGrey, fontSize: 16.0),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    new Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      width: (queryData.size.width) * 0.1,
+                      height: (queryData.size.height) * 0.08,
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 40.0,
+                        color: Colors.blueGrey,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: new InkWell(
+              child: Container(
+                width: (queryData.size.width) * 0.90,
+                height: (queryData.size.height) * 0.08,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    new Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      width: (queryData.size.width) * 0.20,
+                      child: Center(
+                        child: Container(
+                          width: (queryData.size.width) * 0.20,
+                          height: (queryData.size.height) * 0.06,
+                          child: Image(
+                            image: AssetImage("images/icons/ico16.png"),
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                      ),
+                    ),
+                    new Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      width: (queryData.size.width) * 0.60,
+                      height: (queryData.size.height) * 0.08,
+                      child: Container(
+                        child: Row(
+                          children: <Widget>[
+                            new Container(
+                              height: (queryData.size.height) * 0.06,
+                              child: VerticalDivider(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            new Container(
+                              child: Text(
+                                "Localización de Personas",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Colors.blueGrey, fontSize: 16.0),
@@ -762,7 +762,7 @@ class BotonesProgramas extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico7.png"),
+                            image: AssetImage("images/icons/ico10.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -834,7 +834,7 @@ class BotonesProgramas extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico7.png"),
+                            image: AssetImage("images/icons/ico15.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -906,7 +906,7 @@ class BotonesProgramas extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico7.png"),
+                            image: AssetImage("images/icons/ico13.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -978,7 +978,7 @@ class BotonesProgramas extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico7.png"),
+                            image: AssetImage("images/icons/ico11.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -1048,9 +1048,9 @@ class BotonesProgramas extends StatelessWidget {
                       child: Center(
                         child: Container(
                           width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.04,
+                          height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico6.png"),
+                            image: AssetImage("images/icons/ico12.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -1122,7 +1122,7 @@ class BotonesProgramas extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico5.png"),
+                            image: AssetImage("images/icons/ico14.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
