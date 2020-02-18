@@ -1,7 +1,11 @@
-import 'package:carousel_pro/carousel_pro.dart';
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/widget_directorio/directorio_wid.dart';
+
+
+import 'package:sezamiapp/Widgets/widget_programas/asesoria_migra_wid.dart';
+import 'package:sezamiapp/Widgets/widget_programas/local_personas_wid.dart';
+
+
 
 class MisBotonesHome extends StatelessWidget {
   @override
@@ -76,7 +80,7 @@ class MisBotonesHome extends StatelessWidget {
             new Padding(
               padding: EdgeInsets.all((queryData.size.width) * 0.02),
               child: InkWell(
-                 onTap: () => {
+                onTap: () => {
                   showModalBottomSheet(
                       //elevation: (queryData.size.height) * .2,
                       backgroundColor: Color.fromRGBO(0, 0, 0, 0),
@@ -269,6 +273,14 @@ class Botonesservicios extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Asesoria(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -413,6 +425,14 @@ class Botonesservicios extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LocalPersonas(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
