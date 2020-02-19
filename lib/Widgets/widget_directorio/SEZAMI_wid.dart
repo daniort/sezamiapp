@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:sezamiapp/models/sezami_model.dart';
 
 class Sezami extends StatefulWidget {
@@ -11,28 +10,34 @@ class Sezami extends StatefulWidget {
   _SezamiState createState() => _SezamiState();
 }
 
-final sezamiReference =    FirebaseDatabase.instance.reference().child('directorio_sezami');
-
 class _SezamiState extends State<Sezami> {
-  List<SezamiModel> items;
-  StreamSubscription<Event> _onSezamiAddedSubscription;
-  StreamSubscription<Event> _onSezamiChangedSubscription;
-  @override
-  void initState() {
-    super.initState();
-    items = new List();
-    _onSezamiAddedSubscription =sezamiReference.onChildAdded.listen(_onSezamiAdd);
-    _onSezamiChangedSubscription =sezamiReference.onChildChanged.listen(_onSezamiUp);
-  }
-
+  List<SezamiModel> list = new List();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Sezami'),
       ),
-      body: Center(
-        child: Text('data'),
+      body: StreamBuilder(
+        stream:
+            Firestore.instance.collection('{directorio_sezami}').snapshots(),
+        builder:
+            ((BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) return CircularProgressIndicator();
+          return ListView.builder(
+              itemCount: snapshot.data.documents.length,
+              itemBuilder: (BuildContext context, int index) {
+                return new Card(
+                  child: new Column(
+                    children: <Widget>[
+                      //new Text(snapshot.data.documents[index].title),
+                      //new Text(snapshot.data.documents[index].content)
+                      new Text('data')
+                    ],
+                  ),
+                );
+              });
+        }),
       ),
     );
   }
