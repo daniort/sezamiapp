@@ -51,7 +51,7 @@ customLaunch('http://www.facebook.com/sezami');
             color: Colors.white,
             icon: new Icon(FontAwesomeIcons.twitter),
             onPressed: () {
-customLaunch('http://www.twitter.com/sezami');
+customLaunch('http://www.twitter.com/_sezami');
             },
           ),
         ],
