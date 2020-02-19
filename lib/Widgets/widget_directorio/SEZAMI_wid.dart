@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Sezami extends StatelessWidget {
