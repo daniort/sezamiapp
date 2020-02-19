@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "631544872348",
+    "firebase_url": "https://sezami.firebaseio.com",
+    "project_id": "sezami",
+    "storage_bucket": "sezami.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631544872348:android:749cfa9b3198588759dc59",
+        "android_client_info": {
+          "package_name": "com.example.sezamiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631544872348-9rgnhp0g9uib7pnaqk17k2orlcs0esjq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sezamiapp",
+            "certificate_hash": "e13d38be116751e41f7d99bfe690798b5013646c"
+          }
+        },
+        {
+          "client_id": "631544872348-nscvkhpg166665io634oorq16l9rihe9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC-1yezGLJKRUMVa1cbEY07Lu8YigB70A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631544872348-nscvkhpg166665io634oorq16l9rihe9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
