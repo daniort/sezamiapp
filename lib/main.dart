@@ -4,9 +4,8 @@
 
 import 'dart:ui';
 
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:sezamiapp/Widgets/widgets_home/banner_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_home/botones_wig.dart';
 
@@ -62,7 +61,6 @@ class MyHome extends StatelessWidget {
               child: Footer(),
             ),
           ),
-    
         ],
       ),
     );

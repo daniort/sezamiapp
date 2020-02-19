@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class Calendario extends StatelessWidget {
+import '../../main.dart';
+
+class Calendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Calendario'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(12.0),
-        child: HomePage(),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('hfhf'),
+          leading: GestureDetector(
+            onTap: ()=>{
+              Navigator.pop(context),
+               Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyApp(),
+                    ),
+                  ),
+            },
+          ),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(12.0),
+          child: HomePage(),
+        ));
   }
 }
 
