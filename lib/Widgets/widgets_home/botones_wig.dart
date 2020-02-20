@@ -1,18 +1,18 @@
-
 import 'package:flutter/material.dart';
-
+import 'package:sezamiapp/Widgets/calendario_wid.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';
 
 import 'package:sezamiapp/Widgets/widget_programas/asesoria_migra_wid.dart';
 import 'package:sezamiapp/Widgets/widget_programas/local_personas_wid.dart';
-
-
+import 'package:sezamiapp/Widgets/widgets_home/calendar_wid.dart';
 
 class MisBotonesHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
-
     return new Column(
       children: <Widget>[
         new Row(
@@ -203,6 +203,15 @@ class MisBotonesHome extends StatelessWidget {
             new Padding(
               padding: EdgeInsets.all((queryData.size.width) * 0.02),
               child: InkWell(
+                onTap: () => {
+                  Navigator.pop(context),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Calendar(),
+                    ),
+                  ),
+                },
                 child: Container(
                   width: (queryData.size.width) * 0.45,
                   height: (queryData.size.height) * 0.28,
@@ -274,6 +283,7 @@ class Botonesservicios extends StatelessWidget {
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
               onTap: () => {
+                Navigator.pop(context),
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -426,6 +436,7 @@ class Botonesservicios extends StatelessWidget {
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
               onTap: () => {
+                Navigator.pop(context),
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -526,6 +537,15 @@ class BotonesDirectorio extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sezami(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -545,7 +565,7 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico7.png"),
+                            image: AssetImage("images/icons/ico20.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -598,6 +618,15 @@ class BotonesDirectorio extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Federaciones(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -615,9 +644,9 @@ class BotonesDirectorio extends StatelessWidget {
                       child: Center(
                         child: Container(
                           width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.04,
+                          height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico6.png"),
+                            image: AssetImage("images/icons/ico22.png"),
                             color: Colors.blueGrey,
                           ),
                         ),
@@ -670,6 +699,15 @@ class BotonesDirectorio extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Representaciones(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -689,7 +727,7 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico5.png"),
+                            image: AssetImage("images/icons/ico21.png"),
                             color: Colors.blueGrey,
                           ),
                         ),

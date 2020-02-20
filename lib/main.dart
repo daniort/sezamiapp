@@ -61,7 +61,6 @@ class MyHome extends StatelessWidget {
               child: Footer(),
             ),
           ),
-    
         ],
       ),
     );

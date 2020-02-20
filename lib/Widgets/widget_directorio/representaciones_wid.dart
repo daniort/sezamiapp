@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class Representaciones extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(title: Text('Representaciones')),
+    return  Scaffold(
+            appBar: AppBar(
+              title: Text('Representaciones')),
             body: Padding(
               padding: EdgeInsets.all(12.0),
               child: Container(
@@ -71,6 +71,6 @@ class Representaciones extends StatelessWidget {
                   ],
                 ),
               ),
-            )));
+            ));
   }
 }

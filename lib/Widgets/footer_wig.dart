@@ -38,7 +38,7 @@ class Footer extends StatelessWidget {
             color: Colors.white,
             icon: new Icon(FontAwesomeIcons.facebookF),
             onPressed: () {
-customLaunch('http://www.facebook.com/sezami');
+              customLaunch('http://www.facebook.com/sezami');
             },
           ),
           Padding(
@@ -51,7 +51,7 @@ customLaunch('http://www.facebook.com/sezami');
             color: Colors.white,
             icon: new Icon(FontAwesomeIcons.twitter),
             onPressed: () {
-customLaunch('http://www.twitter.com/_sezami');
+              customLaunch('http://www.twitter.com/_sezami');
             },
           ),
         ],
