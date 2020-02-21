@@ -34,38 +34,31 @@ class MyHome extends StatelessWidget {
       appBar: AppBar(
         title: Text('Sezami Digital'),
       ),
-      body: new Stack(
+       body: Center(
+       child: Column(
         children: <Widget>[
-          new Padding(
-            padding: EdgeInsets.only(top: 0.0),
-            child: new Container(
-              height: ((MediaQuery.of(context).size.height) * .3),
+          Container(
+            color: Colors.blue,
+             height: ((MediaQuery.of(context).size.height) * .25),
               width: MediaQuery.of(context).size.width,
               child: MiBanner(),
-            ),
           ),
-          new Padding(
-            padding: EdgeInsets.only(
-                top: ((MediaQuery.of(context).size.height) * .30)),
-            child: new Container(
-              color: Colors.red,
-              height: ((MediaQuery.of(context).size.height) * .52),
+          Expanded(
+            child: Container(
+              color: Colors.amber,
               width: MediaQuery.of(context).size.width,
               child: MisBotonesHome(),
             ),
           ),
-          new Padding(
-            padding: EdgeInsets.only(
-                top: ((MediaQuery.of(context).size.height) * .82)),
-            child: new Container(
-              height: ((MediaQuery.of(context).size.height) * .08),
+          Container(
+            color: Colors.blue,
+             height: ((MediaQuery.of(context).size.height) * .08),
               width: MediaQuery.of(context).size.width,
               child: Footer(),
-            ),
           ),
-    
         ],
       ),
+    ),
     );
   }
 }

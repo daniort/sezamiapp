@@ -1,6 +1,7 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sezamiapp/Widgets/calendario_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/directorio_wid.dart';
 
 class MisBotonesHome extends StatelessWidget {
@@ -11,232 +12,199 @@ class MisBotonesHome extends StatelessWidget {
 
     return new Column(
       children: <Widget>[
-        new Row(
-          children: <Widget>[
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.0),
-              child: InkWell(
-                onTap: () => {
-                  showModalBottomSheet(
-                      elevation: (queryData.size.height) * 0.8,
-                      backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                      //shape:
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) {
-                        return BotonesDirectorio();
-                      }),
-                },
-                child: Container(
-                  width: (queryData.size.width) * 0.5,
-                  height: (queryData.size.height) * 0.26,
-                  decoration: BoxDecoration(
+        new Expanded(
+          child: Row(
+            children: <Widget>[
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    showModalBottomSheet(
+                        elevation: (queryData.size.height) * 0.8,
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                        //shape:
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return BotonesDirectorio();
+                        }),
+                  },
+                  child: Container(
                     color: Color(0xFF00e074),
-                    //color: Color(0xFFf2f2f2),
-                    borderRadius: BorderRadius.circular(0.0),
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      new Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.35,
-                          height: (queryData.size.height) * 0.20,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30.0),
-                            //color: Colors.red,
-                          ),
-                          child: Image.asset('images/icons/icodire.png'),
-                        ),
-                      ),
-                      new Container(
-                        width: (queryData.size.width) * 0.45,
-                        height: (queryData.size.height) * 0.06,
-                        decoration: BoxDecoration(
-                            //color: Color(0xfff2f2f2),
-                            ),
-                        child: new Center(
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
                           child: Container(
-                            child: Text(
-                              'Directorio',
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                color: Colors.black,
-                              ),
-                            ),
+                            width: (queryData.size.width) * 0.35,
+                            //color: Colors.purple,
+                            child: Image.asset('images/icons/icodire.png'),
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.0),
-              child: InkWell(
-                onTap: () => {
-                  showModalBottomSheet(
-                      //elevation: (queryData.size.height) * .2,
-                      backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                      //shape:
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) {
-                        return BotonesProgramas();
-                      }),
-                },
-                child: Container(
-                  width: (queryData.size.width) * 0.5,
-                  height: (queryData.size.height) * 0.26,
-                  color: Color(0xFFfadb63),
-                  child: Column(
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.30,
-                          height: (queryData.size.height) * 0.20,
-                          //height: 60.0,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: Image.asset('images/icons/icoprog.png'),
-                        ),
-                      ),
-                      Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.45,
-                          height: (queryData.size.height) * 0.06,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFF006fa5),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
-                            child: Container(
-                              child: Text(
-                                'Programas',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 23.0,
+                        Expanded(
+                          flex: 1,
+                          child: new Container(
+                            child: new Center(
+                              child: Container(
+                                child: Text(
+                                  'Directorio',
+                                  style: TextStyle(
+                                    fontSize: 24.0,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    showModalBottomSheet(
+                        elevation: (queryData.size.height) * 0.8,
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                        //shape:
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return BotonesProgramas();
+                        }),
+                  },
+                  child: Container(
+                    color: Color(0xFFfadb63),
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            width: (queryData.size.width) * 0.30,
+                            child: Image.asset('images/icons/icoprog.png'),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: new Container(
+                            child: new Center(
+                              child: Container(
+                                child: Text(
+                                  'Programas',
+                                  style: TextStyle(
+                                    fontSize: 24.0,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-        new Row(
-          children: <Widget>[
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.0),
-              child: InkWell(
-                onTap: () => {
-                  showModalBottomSheet(
-                      elevation: (queryData.size.height) * 0.8,
-                      //backgroundColor: Colors.blueGrey,
-                      backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) {
-                        return Botonesservicios();
-                      }),
-                },
-                child: Container(
-                  width: (queryData.size.width) * 0.5,
-                  height: (queryData.size.height) * 0.26,
-                  color: Color(0xFF00bba8),
-                  child: Column(
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.30,
-                          height: (queryData.size.height) * 0.20,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
-                            borderRadius: BorderRadius.circular(30.0),
+        new Expanded(
+          child: Row(
+            children: <Widget>[
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    showModalBottomSheet(
+                        elevation: (queryData.size.height) * 0.8,
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                        //shape:
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return Botonesservicios();
+                        }),
+                  },
+                  child: Container(
+                    color: Color(0xFF00bba8),
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            width: (queryData.size.width) * 0.35,
+                            //color: Colors.purple,
+                            child: Image.asset('images/icons/icosev.png'),
                           ),
-                          child: Image.asset('images/icons/icosev.png'),
                         ),
-                      ),
-                      Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.45,
-                          height: (queryData.size.height) * 0.06,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFF006fa5),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
-                            child: Container(
-                              child: Text(
-                                'Programas',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 23.0,
+                        Expanded(
+                          flex: 1,
+                          child: new Container(
+                            child: new Center(
+                              child: Container(
+                                child: Text(
+                                  'Servicios',
+                                  style: TextStyle(
+                                    fontSize: 24.0,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.0),
-              child: InkWell(
-                child: Container(
-                  width: (queryData.size.width) * 0.5,
-                  height: (queryData.size.height) * 0.26,
-                  color: Color(0xFF766a80),
-                  child: Column(
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.30,
-                          height: (queryData.size.height) * 0.20,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
-                            borderRadius: BorderRadius.circular(30.0),
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    showModalBottomSheet(
+                        elevation: (queryData.size.height) * 0.8,
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                        //shape:
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return Calendario();
+                        }),
+                  },
+                  child: Container(
+                    color: Color(0xFF766a80),
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            width: (queryData.size.width) * 0.30,
+                                child: Image.asset('images/icons/icocal.png'),
                           ),
-                          child: Image.asset('images/icons/icocal.png'),
                         ),
-                      ),
-                      Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.45,
-                          height: (queryData.size.height) * 0.06,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFF006fa5),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
-                            child: Container(
-                              child: Text(
-                                'Calendario',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 23.0,
+                        Expanded(
+                          flex: 1,
+                          child: new Container(
+                            child: new Center(
+                              child: Container(
+                                child: Text(
+                                  'Calendario',
+                                  style: TextStyle(
+                                    fontSize: 24.0,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
