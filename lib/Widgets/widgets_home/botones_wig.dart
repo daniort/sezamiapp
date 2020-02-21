@@ -12,10 +12,9 @@ class MisBotonesHome extends StatelessWidget {
     return new Column(
       children: <Widget>[
         new Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
+              padding: EdgeInsets.all((queryData.size.width) * 0.0),
               child: InkWell(
                 onTap: () => {
                   showModalBottomSheet(
@@ -29,41 +28,40 @@ class MisBotonesHome extends StatelessWidget {
                       }),
                 },
                 child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
+                  width: (queryData.size.width) * 0.5,
+                  height: (queryData.size.height) * 0.26,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF00e074),
+                    //color: Color(0xFFf2f2f2),
+                    borderRadius: BorderRadius.circular(0.0),
+                  ),
+                  child: Column(
                     children: <Widget>[
-                      Center(
+                      new Center(
                         child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
-                          width: (queryData.size.width) * 0.30,
-                          //height: 60.0,
+                          width: (queryData.size.width) * 0.35,
+                          height: (queryData.size.height) * 0.20,
                           decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
                             borderRadius: BorderRadius.circular(30.0),
+                            //color: Colors.red,
                           ),
                           child: Image.asset('images/icons/icodire.png'),
                         ),
                       ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
-                            child: Container(
-                              child: Text('Directorio'),
+                      new Container(
+                        width: (queryData.size.width) * 0.45,
+                        height: (queryData.size.height) * 0.06,
+                        decoration: BoxDecoration(
+                            //color: Color(0xfff2f2f2),
+                            ),
+                        child: new Center(
+                          child: Container(
+                            child: Text(
+                              'Directorio',
+                              style: TextStyle(
+                                fontSize: 24.0,
+                                color: Colors.black,
+                              ),
                             ),
                           ),
                         ),
@@ -74,9 +72,9 @@ class MisBotonesHome extends StatelessWidget {
               ),
             ),
             new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
+              padding: EdgeInsets.all((queryData.size.width) * 0.0),
               child: InkWell(
-                 onTap: () => {
+                onTap: () => {
                   showModalBottomSheet(
                       //elevation: (queryData.size.height) * .2,
                       backgroundColor: Color.fromRGBO(0, 0, 0, 0),
@@ -88,18 +86,15 @@ class MisBotonesHome extends StatelessWidget {
                       }),
                 },
                 child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
+                  width: (queryData.size.width) * 0.5,
+                  height: (queryData.size.height) * 0.26,
+                  color: Color(0xFFfadb63),
+                  child: Column(
                     children: <Widget>[
                       Center(
                         child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
                           width: (queryData.size.width) * 0.30,
+                          height: (queryData.size.height) * 0.20,
                           //height: 60.0,
                           decoration: BoxDecoration(
                             //color: Color(0xFFfff344f),
@@ -110,19 +105,21 @@ class MisBotonesHome extends StatelessWidget {
                       ),
                       Center(
                         child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
+                          width: (queryData.size.width) * 0.45,
+                          height: (queryData.size.height) * 0.06,
                           decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
+                            //color: Color(0xFF006fa5),
                             borderRadius: BorderRadius.circular(30.0),
                           ),
                           child: new Center(
                             child: Container(
-                              child: Text('Programas'),
+                              child: Text(
+                                'Programas',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 23.0,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -135,10 +132,9 @@ class MisBotonesHome extends StatelessWidget {
           ],
         ),
         new Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
+              padding: EdgeInsets.all((queryData.size.width) * 0.0),
               child: InkWell(
                 onTap: () => {
                   showModalBottomSheet(
@@ -152,19 +148,15 @@ class MisBotonesHome extends StatelessWidget {
                       }),
                 },
                 child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
+                  width: (queryData.size.width) * 0.5,
+                  height: (queryData.size.height) * 0.26,
+                  color: Color(0xFF00bba8),
+                  child: Column(
                     children: <Widget>[
                       Center(
                         child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
                           width: (queryData.size.width) * 0.30,
-                          //height: 60.0,
+                          height: (queryData.size.height) * 0.20,
                           decoration: BoxDecoration(
                             //color: Color(0xFFfff344f),
                             borderRadius: BorderRadius.circular(30.0),
@@ -174,19 +166,21 @@ class MisBotonesHome extends StatelessWidget {
                       ),
                       Center(
                         child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
+                          width: (queryData.size.width) * 0.45,
+                          height: (queryData.size.height) * 0.06,
                           decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
+                            //color: Color(0xFF006fa5),
                             borderRadius: BorderRadius.circular(30.0),
                           ),
                           child: new Center(
                             child: Container(
-                              child: Text('Servicios'),
+                              child: Text(
+                                'Programas',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 23.0,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -197,22 +191,18 @@ class MisBotonesHome extends StatelessWidget {
               ),
             ),
             new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
+              padding: EdgeInsets.all((queryData.size.width) * 0.0),
               child: InkWell(
                 child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
+                  width: (queryData.size.width) * 0.5,
+                  height: (queryData.size.height) * 0.26,
+                  color: Color(0xFF766a80),
+                  child: Column(
                     children: <Widget>[
                       Center(
                         child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
                           width: (queryData.size.width) * 0.30,
-                          //height: 60.0,
+                          height: (queryData.size.height) * 0.20,
                           decoration: BoxDecoration(
                             //color: Color(0xFFfff344f),
                             borderRadius: BorderRadius.circular(30.0),
@@ -222,19 +212,21 @@ class MisBotonesHome extends StatelessWidget {
                       ),
                       Center(
                         child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
+                          width: (queryData.size.width) * 0.45,
+                          height: (queryData.size.height) * 0.06,
                           decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
+                            //color: Color(0xFF006fa5),
                             borderRadius: BorderRadius.circular(30.0),
                           ),
                           child: new Center(
                             child: Container(
-                              child: Text('Calendario'),
+                              child: Text(
+                                'Calendario',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 23.0,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -289,7 +281,7 @@ class Botonesservicios extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico17.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF005F66),
                           ),
                         ),
                       ),
@@ -361,7 +353,7 @@ class Botonesservicios extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico18.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFFD67500),
                           ),
                         ),
                       ),
@@ -433,7 +425,7 @@ class Botonesservicios extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico16.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF00709E),
                           ),
                         ),
                       ),
@@ -525,8 +517,8 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico7.png"),
-                            color: Colors.blueGrey,
+                            image: AssetImage("images/icons/ico21.png"),
+                            color: Color(0xFF008849),
                           ),
                         ),
                       ),
@@ -595,10 +587,10 @@ class BotonesDirectorio extends StatelessWidget {
                       child: Center(
                         child: Container(
                           width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.04,
+                          height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico6.png"),
-                            color: Colors.blueGrey,
+                            image: AssetImage("images/icons/ico22.png"),
+                            color: Color(0xFF005B9F),
                           ),
                         ),
                       ),
@@ -669,8 +661,8 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico5.png"),
-                            color: Colors.blueGrey,
+                            image: AssetImage("images/icons/ico20.png"),
+                            color: Color(0xFF009C49),
                           ),
                         ),
                       ),
@@ -763,7 +755,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico10.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF006CAB),
                           ),
                         ),
                       ),
@@ -835,7 +827,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico15.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFFC85C06),
                           ),
                         ),
                       ),
@@ -907,7 +899,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico13.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFFBD8F00),
                           ),
                         ),
                       ),
@@ -979,7 +971,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico11.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF8B9020),
                           ),
                         ),
                       ),
@@ -1001,7 +993,7 @@ class BotonesProgramas extends StatelessWidget {
                             ),
                             new Container(
                               child: Text(
-                                "3x1",
+                                "2x1",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Colors.blueGrey, fontSize: 16.0),
@@ -1051,7 +1043,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico12.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF005DFB),
                           ),
                         ),
                       ),
@@ -1123,7 +1115,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico14.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF454545),
                           ),
                         ),
                       ),

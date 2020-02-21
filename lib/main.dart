@@ -39,16 +39,17 @@ class MyHome extends StatelessWidget {
           new Padding(
             padding: EdgeInsets.only(top: 0.0),
             child: new Container(
-              height: ((MediaQuery.of(context).size.height) * .20),
+              height: ((MediaQuery.of(context).size.height) * .3),
               width: MediaQuery.of(context).size.width,
               child: MiBanner(),
             ),
           ),
           new Padding(
             padding: EdgeInsets.only(
-                top: ((MediaQuery.of(context).size.height) * .20)),
+                top: ((MediaQuery.of(context).size.height) * .30)),
             child: new Container(
-              height: ((MediaQuery.of(context).size.height) * .62),
+              color: Colors.red,
+              height: ((MediaQuery.of(context).size.height) * .52),
               width: MediaQuery.of(context).size.width,
               child: MisBotonesHome(),
             ),

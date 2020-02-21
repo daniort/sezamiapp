@@ -17,12 +17,12 @@ class Footer extends StatelessWidget {
     queryData = MediaQuery.of(context);
     var _altura = (queryData.size.height);
     return new Container(
-      color: Color(0xFFfed300),
+      color: Color(0xFF262626),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           new IconButton(
-            color: Colors.white,
+            color: Colors.grey,
             icon: new Icon(FontAwesomeIcons.globe),
             onPressed: () {
               customLaunch('http://sezami.zacatecas.gob.mx/');
@@ -35,7 +35,7 @@ class Footer extends StatelessWidget {
             ),
           ),
           new IconButton(
-            color: Colors.white,
+            color: Colors.grey,
             icon: new Icon(FontAwesomeIcons.facebookF),
             onPressed: () {
 customLaunch('http://www.facebook.com/sezami');
@@ -48,7 +48,7 @@ customLaunch('http://www.facebook.com/sezami');
             ),
           ),
           new IconButton(
-            color: Colors.white,
+            color: Colors.grey,
             icon: new Icon(FontAwesomeIcons.twitter),
             onPressed: () {
 customLaunch('http://www.twitter.com/_sezami');
