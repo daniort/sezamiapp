@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SEZAMI',
+      title: 'SEZAMI Digitalllll',
       theme: ThemeData(
         primaryColor: Color(0xFF0076a6),
       ),
