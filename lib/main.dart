@@ -2,9 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
-
-
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/widgets_home/banner_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_home/botones_wig.dart';
@@ -65,4 +62,4 @@ class MyHome extends StatelessWidget {
       ),
     );
   }
-}df
+}
