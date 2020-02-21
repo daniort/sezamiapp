@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SEZAMI',
+      title: 'tucola',
       theme: ThemeData(
         primaryColor: Color(0xFF0076a6),
       ),
@@ -63,4 +63,3 @@ class MyHome extends StatelessWidget {
     );
   }
 }
-djfh
