@@ -8,20 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:631544872348:android:749cfa9b3198588759dc59",
+        "mobilesdk_app_id": "1:631544872348:android:f3f95ef8861f47af59dc59",
         "android_client_info": {
           "package_name": "com.example.sezamiapp"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "631544872348-9rgnhp0g9uib7pnaqk17k2orlcs0esjq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.sezamiapp",
-            "certificate_hash": "e13d38be116751e41f7d99bfe690798b5013646c"
-          }
-        },
         {
           "client_id": "631544872348-nscvkhpg166665io634oorq16l9rihe9.apps.googleusercontent.com",
           "client_type": 3
