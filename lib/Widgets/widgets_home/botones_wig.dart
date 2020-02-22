@@ -2,6 +2,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/calendario_wid.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/directorio_wid.dart';
 
 class MisBotonesHome extends StatelessWidget {
@@ -29,7 +30,8 @@ class MisBotonesHome extends StatelessWidget {
                         }),
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(top:8.0, bottom: 4.0, left: 8.0, right: 4.0),
+                    padding: const EdgeInsets.only(
+                        top: 8.0, bottom: 4.0, left: 8.0, right: 4.0),
                     child: Container(
                       color: Color(0xFF00bec1),
                       child: Column(
@@ -42,7 +44,7 @@ class MisBotonesHome extends StatelessWidget {
                               child: Image.asset('images/icons/icodire.png'),
                             ),
                           ),
-                         Expanded(
+                          Expanded(
                             flex: 1,
                             child: new Container(
                               //color: Colors.orange,
@@ -51,9 +53,9 @@ class MisBotonesHome extends StatelessWidget {
                                   width: (queryData.size.width) * 0.40,
                                   height: (queryData.size.height) * 0.05,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(40.0)
-                                  ),
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(40.0)),
                                   child: Center(
                                     child: Text(
                                       'Directorio',
@@ -87,7 +89,8 @@ class MisBotonesHome extends StatelessWidget {
                         }),
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(top:8.0, bottom: 4.0, left: 4.0, right: 8.0),
+                    padding: const EdgeInsets.only(
+                        top: 8.0, bottom: 4.0, left: 4.0, right: 8.0),
                     child: Container(
                       color: Color(0xFF00bec1),
                       child: Column(
@@ -99,7 +102,7 @@ class MisBotonesHome extends StatelessWidget {
                               child: Image.asset('images/icons/icoprog.png'),
                             ),
                           ),
-                         Expanded(
+                          Expanded(
                             flex: 1,
                             child: new Container(
                               //color: Colors.orange,
@@ -108,9 +111,9 @@ class MisBotonesHome extends StatelessWidget {
                                   width: (queryData.size.width) * 0.40,
                                   height: (queryData.size.height) * 0.05,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(40.0)
-                                  ),
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(40.0)),
                                   child: Center(
                                     child: Text(
                                       'Programas',
@@ -150,7 +153,8 @@ class MisBotonesHome extends StatelessWidget {
                         }),
                   },
                   child: Padding(
-                   padding: const EdgeInsets.only(top:4.0, bottom: 8.0, left: 8.0, right: 4.0),
+                    padding: const EdgeInsets.only(
+                        top: 4.0, bottom: 8.0, left: 8.0, right: 4.0),
                     child: Container(
                       color: Color(0xFF00bec1),
                       child: Column(
@@ -163,7 +167,7 @@ class MisBotonesHome extends StatelessWidget {
                               child: Image.asset('images/icons/icosev.png'),
                             ),
                           ),
-                       Expanded(
+                          Expanded(
                             flex: 1,
                             child: new Container(
                               //color: Colors.orange,
@@ -172,9 +176,9 @@ class MisBotonesHome extends StatelessWidget {
                                   width: (queryData.size.width) * 0.40,
                                   height: (queryData.size.height) * 0.05,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(40.0)
-                                  ),
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(40.0)),
                                   child: Center(
                                     child: Text(
                                       'Servicios',
@@ -208,7 +212,8 @@ class MisBotonesHome extends StatelessWidget {
                         }),
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(top:4.0, bottom: 8.0, left: 4.0, right: 8.0),
+                    padding: const EdgeInsets.only(
+                        top: 4.0, bottom: 8.0, left: 4.0, right: 8.0),
                     child: Container(
                       color: Color(0xFF00bec1),
                       child: Column(
@@ -217,7 +222,7 @@ class MisBotonesHome extends StatelessWidget {
                             flex: 3,
                             child: Container(
                               width: (queryData.size.width) * 0.30,
-                                  child: Image.asset('images/icons/icocal.png'),
+                              child: Image.asset('images/icons/icocal.png'),
                             ),
                           ),
                           Expanded(
@@ -229,9 +234,9 @@ class MisBotonesHome extends StatelessWidget {
                                   width: (queryData.size.width) * 0.40,
                                   height: (queryData.size.height) * 0.05,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(40.0)
-                                  ),
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(40.0)),
                                   child: Center(
                                     child: Text(
                                       'Calendario',
@@ -514,6 +519,15 @@ class BotonesDirectorio extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Sezami(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
