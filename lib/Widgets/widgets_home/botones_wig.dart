@@ -1,9 +1,9 @@
-import 'package:carousel_pro/carousel_pro.dart';
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/calendario_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
-import 'package:sezamiapp/Widgets/widget_directorio/directorio_wid.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';
 
 class MisBotonesHome extends StatelessWidget {
   @override
@@ -600,6 +600,15 @@ class BotonesDirectorio extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Federaciones(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -672,6 +681,15 @@ class BotonesDirectorio extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+               onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Representaciones(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
