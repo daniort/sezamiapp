@@ -28,35 +28,47 @@ class MisBotonesHome extends StatelessWidget {
                           return BotonesDirectorio();
                         }),
                   },
-                  child: Container(
-                    color: Color(0xFF00e074),
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            width: (queryData.size.width) * 0.35,
-                            //color: Colors.purple,
-                            child: Image.asset('images/icons/icodire.png'),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top:8.0, bottom: 4.0, left: 8.0, right: 4.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              width: (queryData.size.width) * 0.35,
+                              //color: Colors.purple,
+                              child: Image.asset('images/icons/icodire.png'),
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: new Container(
-                            child: new Center(
-                              child: Container(
-                                child: Text(
-                                  'Directorio',
-                                  style: TextStyle(
-                                    fontSize: 24.0,
-                                    color: Colors.black,
+                         Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(40.0)
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Directorio',
+                                      style: TextStyle(
+                                        fontSize: 21.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -74,34 +86,46 @@ class MisBotonesHome extends StatelessWidget {
                           return BotonesProgramas();
                         }),
                   },
-                  child: Container(
-                    color: Color(0xFFfadb63),
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            width: (queryData.size.width) * 0.30,
-                            child: Image.asset('images/icons/icoprog.png'),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top:8.0, bottom: 4.0, left: 4.0, right: 8.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              width: (queryData.size.width) * 0.30,
+                              child: Image.asset('images/icons/icoprog.png'),
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: new Container(
-                            child: new Center(
-                              child: Container(
-                                child: Text(
-                                  'Programas',
-                                  style: TextStyle(
-                                    fontSize: 24.0,
-                                    color: Colors.black,
+                         Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(40.0)
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Programas',
+                                      style: TextStyle(
+                                        fontSize: 21.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -125,35 +149,47 @@ class MisBotonesHome extends StatelessWidget {
                           return Botonesservicios();
                         }),
                   },
-                  child: Container(
-                    color: Color(0xFF00bba8),
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            width: (queryData.size.width) * 0.35,
-                            //color: Colors.purple,
-                            child: Image.asset('images/icons/icosev.png'),
+                  child: Padding(
+                   padding: const EdgeInsets.only(top:4.0, bottom: 8.0, left: 8.0, right: 4.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              width: (queryData.size.width) * 0.35,
+                              //color: Colors.purple,
+                              child: Image.asset('images/icons/icosev.png'),
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: new Container(
-                            child: new Center(
-                              child: Container(
-                                child: Text(
-                                  'Servicios',
-                                  style: TextStyle(
-                                    fontSize: 24.0,
+                       Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
+                                    borderRadius: BorderRadius.circular(40.0)
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Servicios',
+                                      style: TextStyle(
+                                        fontSize: 21.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -171,34 +207,46 @@ class MisBotonesHome extends StatelessWidget {
                           return Calendario();
                         }),
                   },
-                  child: Container(
-                    color: Color(0xFF766a80),
-                    child: Column(
-                      children: <Widget>[
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            width: (queryData.size.width) * 0.30,
-                                child: Image.asset('images/icons/icocal.png'),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top:4.0, bottom: 8.0, left: 4.0, right: 8.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              width: (queryData.size.width) * 0.30,
+                                  child: Image.asset('images/icons/icocal.png'),
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: new Container(
-                            child: new Center(
-                              child: Container(
-                                child: Text(
-                                  'Calendario',
-                                  style: TextStyle(
-                                    fontSize: 24.0,
+                          Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
+                                    borderRadius: BorderRadius.circular(40.0)
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'Calendario',
+                                      style: TextStyle(
+                                        fontSize: 21.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

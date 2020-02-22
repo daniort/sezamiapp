@@ -45,7 +45,7 @@ class MyHome extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              color: Colors.amber,
+              color: Colors.white,
               width: MediaQuery.of(context).size.width,
               child: MisBotonesHome(),
             ),
