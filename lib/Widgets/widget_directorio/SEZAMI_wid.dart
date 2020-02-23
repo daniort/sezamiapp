@@ -45,13 +45,13 @@ class Sezami extends StatelessWidget {
                           .compareTo(b['nombre'].toLowerCase());
                     });
                     return ListView.builder(
-                      itemCount: (docs.length) - 1,
+                      itemCount: (docs.length),
                       itemBuilder: (context, index) {
                         Map<String, dynamic> data = docs[index].data;
 
                         return ExpansionTile(
                           backgroundColor: Color(0x1D605e5f),
-                          //trailing: Icon(Icons.arrow_drop_down),
+                          
                           title: Text(
                             data['nombre'],
                             style: TextStyle(
