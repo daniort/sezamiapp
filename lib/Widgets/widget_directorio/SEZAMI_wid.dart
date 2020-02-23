@@ -51,7 +51,7 @@ class Sezami extends StatelessWidget {
 
                         return ExpansionTile(
                           backgroundColor: Color(0x1D605e5f),
-                          //trailing: Icon(Icons.arrow_drop_down),
+                          
                           title: Text(
                             data['nombre'],
                             style: TextStyle(
