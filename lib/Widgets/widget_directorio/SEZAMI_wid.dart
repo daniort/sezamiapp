@@ -45,7 +45,7 @@ class Sezami extends StatelessWidget {
                           .compareTo(b['nombre'].toLowerCase());
                     });
                     return ListView.builder(
-                      itemCount: (docs.length) - 1,
+                      itemCount: (docs.length),
                       itemBuilder: (context, index) {
                         Map<String, dynamic> data = docs[index].data;
 
@@ -82,7 +82,7 @@ class Sezami extends StatelessWidget {
               ),
             ),
             Container(
-              height: ((MediaQuery.of(context).size.height) * .07),
+              //height: ((MediaQuery.of(context).size.height) * .07),
               width: MediaQuery.of(context).size.width,
               child: Footer(),
             ),
