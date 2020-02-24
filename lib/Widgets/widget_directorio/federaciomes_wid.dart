@@ -2,8 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Federaciones extends StatelessWidget {
+  void customLaunch(command) async {
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print('no se ejecuto $command');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -65,26 +74,45 @@ class Federaciones extends StatelessWidget {
                               ListTile(
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo']),
+                                onTap: () {
+                                  customLaunch('mailto:' +
+                                      data['correo'] +
+                                      '?subject=Asunto: ');
+                                },
                               ),
                             if (data['correo1'] != null)
                               ListTile(
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo1']),
+                                onTap: () {
+                                  customLaunch('mailto:' +
+                                      data['correo1'] +
+                                      '?subject=Asunto: ');
+                                },
                               ),
                             if (data['celular'] != null)
                               ListTile(
                                 leading: Icon(Icons.phone_iphone),
                                 title: Text(data['celular']),
+                                onTap: () {
+                                  customLaunch('tel:' + data['celular']);
+                                },
                               ),
                             if (data['celular1'] != null)
                               ListTile(
                                 leading: Icon(Icons.phone_iphone),
                                 title: Text(data['celular1']),
+                                onTap: () {
+                                  customLaunch('tel:' + data['celular1']);
+                                },
                               ),
                             if (data['oficina'] != null)
                               ListTile(
                                 leading: Icon(Icons.phone),
                                 title: Text(data['oficina']),
+                                onTap: () {
+                                  customLaunch('tel:' + data['oficina']);
+                                },
                               ),
                           ],
                         );

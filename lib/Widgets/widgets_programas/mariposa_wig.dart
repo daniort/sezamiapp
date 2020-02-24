@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 
-class Corazon extends StatelessWidget {
+class Mariposa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Corazon de Plata'),
+        title: Text('Mariposa'),
       ),
       body: Center(
         child: Column(
@@ -21,7 +21,7 @@ class Corazon extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: StreamBuilder(
                   stream: Firestore.instance
-                      .collection('corazonplata_objetivo')
+                      .collection('mariposa_objetico')
                       .snapshots(),
                   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (!snapshot.hasData) {
@@ -52,33 +52,18 @@ class Corazon extends StatelessWidget {
                           ),
                           children: <Widget>[
                             ListTile(
-                              title: Text(data['general']),
-                            ),
-                            ListTile(
                               leading: Icon(Icons.done),
-                              title: Text(data['especifico']),
+                              title: Text(data['objetivo']),
                             ),
-                            ListTile(
-                              leading: Icon(Icons.done),
-                              title: Text(data['especifico1']),
-                            ),
-                            ListTile(
-                              leading: Icon(Icons.done),
-                              title: Text(data['especifico2']),
-                            ),
-                            if (data['especifico3'] != null)
+                            if (data['objetivo1'] != null)
                               ListTile(
                                 leading: Icon(Icons.done),
-                                title: Text(data['especifico3']),
+                                title: Text(data['objetivo1']),
                               ),
-                            if (data['especifico4'] != null)
+                            if (data['objetivo2'] != null)
                               ListTile(
                                 leading: Icon(Icons.done),
-                                title: Text(data['especifico4']),
-                              ),
-                            if (data['bota'] != null)
-                              ListTile(
-                                title: Text(data['bota']),
+                                title: Text(data['objetivo2']),
                               ),
                           ],
                         );

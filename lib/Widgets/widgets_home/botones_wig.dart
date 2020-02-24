@@ -4,6 +4,8 @@ import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/corazonplata_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/exbraceros_wid.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/mariposa_wig.dart';
 
 class MisBotonesHome extends StatelessWidget {
   @override
@@ -864,6 +866,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Mariposa(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -1080,6 +1091,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Exbraceros(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
