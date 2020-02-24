@@ -60,7 +60,7 @@ class Exbraceros extends StatelessWidget {
                               ),
                             if (data['1'] != null)
                               ListTile(
-                                //leading: Icon(Icons.done),
+                                leading: Icon(Icons.done),
                                 title: Text(data['1']),
                               ),
                             if (data['2'] != null)
