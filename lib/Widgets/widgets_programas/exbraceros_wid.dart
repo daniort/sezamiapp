@@ -54,15 +54,50 @@ class Exbraceros extends StatelessWidget {
                             ListTile(
                               title: Text(data['general']),
                             ),
+
+
                             if (data['especifico'] != null)
                               ListTile(
+                                
                                 title: Text(data['especifico']),
                               ),
+
+
+
+                              
                             if (data['1'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['1']),
+                              Container(
+                              width: (queryData.size.width),
+                              height: (queryData.size.height) * 0.08,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5.0),
                               ),
+                              child: Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
+                                    child: Center(
+                                        child: Text(
+                                      '·',
+                                      style: TextStyle(fontSize: 50.0),
+                                    )),
+                                  ),
+                                  Expanded(
+                                    flex: 6,
+                                    child: Container(
+                                      child: Text(
+                                        data['1'],
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            //color: Colors.blueGrey,
+                                            fontSize: 16.0),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
                             if (data['2'] != null)
                               ListTile(
                                 leading: Icon(Icons.done, size: 20),
