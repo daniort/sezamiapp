@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
@@ -158,8 +157,6 @@ class Federaciones extends StatelessWidget {
     );
   }
 }
-
-
 
 class BotomModal extends StatelessWidget {
   void customLaunch(command) async {

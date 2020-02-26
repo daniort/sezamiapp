@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -45,8 +44,6 @@ class Mariposa extends StatelessWidget {
                         'Los talleres van dirigidos a personas que atienden a zacatecanos migrantes y sus familias que sean víctimas de violencia doméstica y que soliciten el apoyo para ser asesorados y apoyados sin distinción alguna, particularmente de los estados de la Unión Americana señalados. ',
                         style: TextStyle(fontSize: 13.0),
                       ),
-                      
-                    
                     ),
                   ],
                 ),

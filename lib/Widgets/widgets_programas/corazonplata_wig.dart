@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -48,28 +47,28 @@ class Corazon extends StatelessWidget {
                       ),
                       leading: Icon(Icons.done),
                     ),
-                     ListTile(
+                    ListTile(
                       title: Text(
                         'Cualquiera de los padres debe tener cumplidos los 60 años',
                         style: TextStyle(fontSize: 13.0),
                       ),
                       leading: Icon(Icons.done),
                     ),
-                     ListTile(
+                    ListTile(
                       title: Text(
                         'Cualquiera de los padres debe haber nacido en el Estado de Zacatecas',
                         style: TextStyle(fontSize: 13.0),
                       ),
                       leading: Icon(Icons.done),
                     ),
-                     ListTile(
+                    ListTile(
                       title: Text(
                         'El hijo deberá pertenecer a un club u organización en Estados Unidos.',
                         style: TextStyle(fontSize: 13.0),
                       ),
                       leading: Icon(Icons.done),
                     ),
-                     ListTile(
+                    ListTile(
                       title: Text(
                         'Contar con pasaporte con una vigencia mínima de seís meses.',
                         style: TextStyle(fontSize: 13.0),

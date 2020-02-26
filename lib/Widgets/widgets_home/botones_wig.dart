@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/calendario_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
+import 'package:sezamiapp/Widgets/widget_directorio/boletines_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/2x1_wid.dart';
@@ -516,7 +517,7 @@ class BotonesDirectorio extends StatelessWidget {
         borderRadius: BorderRadius.circular(30.0),
       ),
       width: queryData.size.width,
-      height: (queryData.size.height) * 0.35,
+      height: (queryData.size.height) * 0.55,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -737,6 +738,87 @@ class BotonesDirectorio extends StatelessWidget {
                             new Container(
                               child: Text(
                                 "Representaciones",
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: Colors.blueGrey, fontSize: 16.0),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    new Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      width: (queryData.size.width) * 0.1,
+                      height: (queryData.size.height) * 0.08,
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 40.0,
+                        color: Colors.blueGrey,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Boletines(),
+                  ),
+                ),
+              },
+              child: Container(
+                width: (queryData.size.width) * 0.90,
+                height: (queryData.size.height) * 0.08,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.white,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    new Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      width: (queryData.size.width) * 0.20,
+                      child: Center(
+                        child: Container(
+                          width: (queryData.size.width) * 0.20,
+                          height: (queryData.size.height) * 0.06,
+                          child: Image(
+                            image: AssetImage("images/icons/ico22.png"),
+                            color: Color(0xFF005B9F),
+                          ),
+                        ),
+                      ),
+                    ),
+                    new Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      width: (queryData.size.width) * 0.60,
+                      height: (queryData.size.height) * 0.08,
+                      child: Container(
+                        child: Row(
+                          children: <Widget>[
+                            new Container(
+                              height: (queryData.size.height) * 0.06,
+                              child: VerticalDivider(
+                                color: Colors.blueGrey,
+                              ),
+                            ),
+                            new Container(
+                              child: Text(
+                                "Boletines",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Colors.blueGrey, fontSize: 16.0),

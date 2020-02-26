@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -154,11 +153,11 @@ class DosporUno extends StatelessWidget {
                             ),
                           ),
                           new Expanded(
-                            
                             flex: 10,
                             child: InkWell(
-                              onTap:() {
-                                customLaunch('http://sezami.zacatecas.gob.mx/docs/2x1.pdf');
+                              onTap: () {
+                                customLaunch(
+                                    'http://sezami.zacatecas.gob.mx/docs/2x1.pdf');
                               },
                               child: Text('Descargar',
                                   style: TextStyle(
