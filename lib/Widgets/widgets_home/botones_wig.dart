@@ -513,11 +513,10 @@ class BotonesDirectorio extends StatelessWidget {
     queryData = MediaQuery.of(context);
     return Container(
       decoration: BoxDecoration(
-        //color: Color(0xFFffffff),
         borderRadius: BorderRadius.circular(30.0),
       ),
       width: queryData.size.width,
-      height: (queryData.size.height) * 0.55,
+      height: (queryData.size.height) * 0.43,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -795,8 +794,8 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico22.png"),
-                            color: Color(0xFF005B9F),
+                            image: AssetImage("images/icons/boletinicon.png"),
+                            color: Colors.deepOrange
                           ),
                         ),
                       ),

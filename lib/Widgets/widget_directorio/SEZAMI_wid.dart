@@ -39,19 +39,19 @@ class Sezami extends StatelessWidget {
                     }
 
                     List<DocumentSnapshot> docs = snapshot.data.documents;
+
                     docs.sort((a, b) {
-                      return a['nombre']
-                          .toLowerCase()
-                          .compareTo(b['nombre'].toLowerCase());
+                      return a['num']
+                          .compareTo(b['num']);
                     });
                     return ListView.builder(
                       itemCount: (docs.length),
                       itemBuilder: (context, index) {
                         Map<String, dynamic> data = docs[index].data;
+                        //data['num'].sort();
 
                         return ExpansionTile(
                           backgroundColor: Color(0x1D605e5f),
-                          
                           title: Text(
                             data['nombre'],
                             style: TextStyle(
