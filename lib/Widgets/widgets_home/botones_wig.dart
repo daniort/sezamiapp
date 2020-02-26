@@ -65,7 +65,7 @@ class MisBotonesHome extends StatelessWidget {
                                     child: Text(
                                       'Directorio',
                                       style: TextStyle(
-                                        fontSize: 21.0,
+                                        fontSize: 18.0,
                                         color: Color(0xFF262626),
                                       ),
                                     ),
@@ -123,7 +123,7 @@ class MisBotonesHome extends StatelessWidget {
                                     child: Text(
                                       'Programas',
                                       style: TextStyle(
-                                        fontSize: 21.0,
+                                        fontSize: 18.0,
                                         color: Color(0xFF262626),
                                       ),
                                     ),
@@ -183,12 +183,12 @@ class MisBotonesHome extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius:
-                                          BorderRadius.circular(40.0)),
+                                          BorderRadius.circular(18.0)),
                                   child: Center(
                                     child: Text(
                                       'Servicios',
                                       style: TextStyle(
-                                        fontSize: 21.0,
+                                        fontSize: 18.0,
                                         color: Color(0xFF262626),
                                       ),
                                     ),
@@ -246,7 +246,7 @@ class MisBotonesHome extends StatelessWidget {
                                     child: Text(
                                       'Calendario',
                                       style: TextStyle(
-                                        fontSize: 21.0,
+                                        fontSize: 18.0,
                                         color: Color(0xFF262626),
                                       ),
                                     ),
