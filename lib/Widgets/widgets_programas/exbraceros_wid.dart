@@ -103,139 +103,8 @@ class Exbraceros extends StatelessWidget {
                                 leading: Icon(Icons.done, size: 20),
                                 title: Text(data['2']),
                               ),
-                            if (data['3'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['3']),
-                              ),
-                            if (data['4'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['4']),
-                              ),
-                            if (data['5'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['5']),
-                              ),
-                            if (data['6'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['6']),
-                              ),
-                            if (data['10'] != null)
-                              ListTile(
-                                title: Text(data['10']),
-                              ),
-                            if (data['11'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['11']),
-                              ),
-                            if (data['12'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['12']),
-                              ),
-                            if (data['13'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['13']),
-                              ),
-                            if (data['14'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['14']),
-                              ),
-                            if (data['15'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['15']),
-                              ),
-                            if (data['16'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['16']),
-                              ),
-                            if (data['17'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['17']),
-                              ),
-                            if (data['18'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['18']),
-                              ),
-                            if (data['19'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['19']),
-                              ),
-                            if (data['20'] != null)
-                              ListTile(
-                                title: Text(data['20']),
-                              ),
-                            if (data['21'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['21']),
-                              ),
-                            if (data['22'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['22']),
-                              ),
-                            if (data['23'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['23']),
-                              ),
-                            if (data['24'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['24']),
-                              ),
-                            if (data['25'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['25']),
-                              ),
-                            if (data['26'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['26']),
-                              ),
-                            if (data['27'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['27']),
-                              ),
-                            if (data['28'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['28']),
-                              ),
-                            if (data['29'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['29']),
-                              ),
-                            if (data['30'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['30']),
-                              ),
-                            if (data['31'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['31']),
-                              ),
-                            if (data['32'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['32']),
-                              ),
+             
+                           
                           ],
                         );
                       },
@@ -252,6 +121,207 @@ class Exbraceros extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+
+
+class RequisitosUno extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        Center(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Title(
+              color: Colors.amber,
+              child: Text(
+                'EX BRACERO:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Solicitud dirigida al C. Gobernador',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Identificación Oficial',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'C.U.R.P. y R.F.C.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Documento original que acredite que fue Ex bracero',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Acta de Nacimiento',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Carta bajo protesta de decir verdad',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        Center(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Title(
+              color: Colors.amber,
+              child: Text(
+                'Requisitos para solicitar la Toma de Nota de una Organización de Migrantes:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Conformar un grupo de al menos 10 mexicanos mayores de 18 años de edad radicados en el extranjero, que no pertenezcan a una Organización de Migrantes con Toma de Nota vigente.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Para acreditar el origen mexicano, cada integrante deberá contar con la Clave Única de Registro de Población (CURP).',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Para acreditar su identidad y domicilio en el extranjero, cada integrante deberá proporcionar digitalmente una identificación oficial vigente y comprobante de domicilio.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'De este grupo, se designará a una persona que funja como Presidente de la Organización de Migrantes y se establecerá una mesa directiva.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Contar y proporcionar una cuenta de correo electrónico para la o el Presidente de la Organización de Migrantes y de cada uno de sus integrantes, con el propósito de obtener la clave de acceso al Módulo de Toma de Nota.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Las y los mexicanos mayores de 18 años de edad radicados en el extranjero denominados migrantes interesados en participar en el Programa 2x1 Trabajando Unidos con los Migrantes, deberán solicitar su registro como Organizaciones de Migrantes o como Federación de Organizaciones de Migrantes ante los Consulados Mexicanos.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Para el caso de clubes que estén conformados con hijos de mexicanos, que no cuenten con la Clave Única de Registro de Población (CURP), y que por esa circunstancia el Consulado les niegue el registro o Toma de Nota, podrán presentar la misma, validada por la Federación de Clubes a la que pertenezcan, anexando copia de las respectivas actas de nacimiento de los hijos.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+      ],
     );
   }
 }

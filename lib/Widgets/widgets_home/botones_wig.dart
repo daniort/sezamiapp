@@ -7,6 +7,7 @@ import 'package:sezamiapp/Widgets/widgets_programas/2x1_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/corazonplata_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/exbraceros_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/mariposa_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/wid_fam.dart';
 
 class MisBotonesHome extends StatelessWidget {
   @override
@@ -948,6 +949,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Fam(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -990,7 +1000,7 @@ class BotonesProgramas extends StatelessWidget {
                             ),
                             new Container(
                               child: Text(
-                                "FAM",
+                                "Apoyo a Deportados",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Colors.blueGrey, fontSize: 16.0),

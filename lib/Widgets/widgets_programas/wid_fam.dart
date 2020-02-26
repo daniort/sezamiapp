@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Corazon extends StatelessWidget {
+class Fam extends StatelessWidget {
   void customLaunch(command) async {
     if (await canLaunch(command)) {
       await launch(command);
@@ -18,7 +18,7 @@ class Corazon extends StatelessWidget {
     queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Corazón de Plata'),
+        title: Text('Apoyo a Deportados'),
       ),
       body: Column(
         children: <Widget>[
@@ -31,8 +31,8 @@ class Corazon extends StatelessWidget {
                   initiallyExpanded: true,
                   children: <Widget>[
                     ListTile(
-                      title: Text(
-                          'Reunificar a las familias separadas por la migración, así como promover la unidad de la comunidad migrante.'),
+                      //title: Text(
+                      //  'Reunificar a las familias separadas por la migración, así como promover la unidad de la comunidad migrante.'),
                       subtitle: Obetivoscorazon(),
                     ),
                   ],
@@ -43,44 +43,105 @@ class Corazon extends StatelessWidget {
                   children: <Widget>[
                     ListTile(
                       title: Text(
-                        'Padres con hijos indocumentados en Estados Unidos',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                     ListTile(
-                      title: Text(
-                        'Cualquiera de los padres debe tener cumplidos los 60 años',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                     ListTile(
-                      title: Text(
-                        'Cualquiera de los padres debe haber nacido en el Estado de Zacatecas',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                     ListTile(
-                      title: Text(
-                        'El hijo deberá pertenecer a un club u organización en Estados Unidos.',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                     ListTile(
-                      title: Text(
-                        'Contar con pasaporte con una vigencia mínima de seís meses.',
+                        'Credencial INE',
                         style: TextStyle(fontSize: 13.0),
                       ),
                       leading: Icon(Icons.done),
                     ),
                     ListTile(
-                      //title: Obetivoscorazon(),
+                      title: Text(
+                        'C.U.R.P.',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Recibo Oficial',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'R.F.C.',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Solictud al Gobernador',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Seguro Popular o Anexo 5',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Hoja de Deportación',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Proyecto Productivo',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Comprobante de Domicilio no mayor a 3 meses a la fecha de apertura del programa',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Cotización',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Constancia de Capacitación',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
+                      title: Text(
+                        'Factura a nombre de la Secretaría de Finanzas (Esta se sentraga a la SEZAMI el día que se haga entrega del apoyo)',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      leading: Icon(Icons.done),
+                    ),
+                    ListTile(
                       subtitle: Text(
-                        'NOTA: TODOS LOS SERVICIOS SON GRATUITOS(excepto el pago de derechos de entrevista consular, este pago se realiza para poder programar la cita consular, después que se realizó el llenado de formatos en la SEZAMI).',
-                        style: TextStyle(fontSize: 10.0),
+                        'FAVOR DE TRAER LOS DOCUMENTOS EN EL ORDEN LISTADO',
+                        style: TextStyle(fontSize: 11.0),
+                      ),
+                      //leading: Icon(Icons.done),
+                    ),
+                  ],
+                ),
+                ExpansionTile(
+                  backgroundColor: Color(0x1D605e5f),
+                  title: Text('Beneficiarios'),
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(
+                        'Migrantes deportados en los años 2017, 2018 y 2019',
+                        style: TextStyle(fontSize: 14.0),
                       ),
                     ),
                   ],
@@ -143,7 +204,7 @@ class Obetivoscorazon extends StatelessWidget {
         ]),
         ListTile(
           title: Text(
-            'Obtener una visa para que los padres visiten a sus hijos en los Estados Unidos.',
+            'Contribuir a la reincorporación de los migrantes zacatecanos deportados en la vida social y productiva en sus comunidades a través de apoyos económicos para su traslado o el desarrollo de proyectos productivos.',
             textAlign: TextAlign.left,
             style: TextStyle(
                 //color: Colors.blueGrey,
@@ -155,7 +216,7 @@ class Obetivoscorazon extends StatelessWidget {
         ]),
         ListTile(
           title: Text(
-            'Fortalecer las representaciones del Gobierno del Estado de Zacatecas en los Estados Unidos.',
+            'Apoyar a los trabajadores zacatecanos migrantes deportados o repatriados a instalar un proyecto productivo en esta Entidad con el fin de que generen ingresos.',
             textAlign: TextAlign.left,
             style: TextStyle(
                 //color: Colors.blueGrey,
@@ -167,7 +228,7 @@ class Obetivoscorazon extends StatelessWidget {
         ]),
         ListTile(
           title: Text(
-            'Fortalecer a las Organización de Zacatecanos Migrantes, brindando beneficios a sus miembros que trabajan activamente y de manera voluntaria.',
+            'Apoyar a los zacatecanos migrantes que son deportados a regresar a su lugar de origen.',
             textAlign: TextAlign.left,
             style: TextStyle(
                 //color: Colors.blueGrey,

@@ -1,8 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Mariposa extends StatelessWidget {
+  void customLaunch(command) async {
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print('no se ejecuto $command');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -11,76 +20,129 @@ class Mariposa extends StatelessWidget {
       appBar: AppBar(
         title: Text('Mariposa'),
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                //color: Colors.lightGreen,
-                height: ((MediaQuery.of(context).size.height) * .4),
-                width: MediaQuery.of(context).size.width,
-                child: StreamBuilder(
-                  stream: Firestore.instance
-                      .collection('mariposa_objetico')
-                      .snapshots(),
-                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-
-                    List<DocumentSnapshot> docs = snapshot.data.documents;
-                    docs.sort((a, b) {
-                      return a['titulo']
-                          .toLowerCase()
-                          .compareTo(b['titulo'].toLowerCase());
-                    });
-                    return ListView.builder(
-                      itemCount: (docs.length),
-                      itemBuilder: (context, index) {
-                        Map<String, dynamic> data = docs[index].data;
-
-                        return ExpansionTile(
-                          backgroundColor: Color(0x1D605e5f),
-                          //trailing: Icon(Icons.arrow_drop_down),
-                          title: Text(
-                            data['titulo'],
-                            style: TextStyle(
-                                color: Color(0xFF262626),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          children: <Widget>[
-                            ListTile(
-                              leading: Icon(Icons.done),
-                              title: Text(data['objetivo']),
-                            ),
-                            if (data['objetivo1'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['objetivo1']),
-                              ),
-                            if (data['objetivo2'] != null)
-                              ListTile(
-                                leading: Icon(Icons.done),
-                                title: Text(data['objetivo2']),
-                              ),
-                          ],
-                        );
-                      },
-                    );
-                  },
+      body: Column(
+        children: <Widget>[
+          new Expanded(
+            child: ListView(
+              children: <Widget>[
+                ExpansionTile(
+                  backgroundColor: Color(0x1D605e5f),
+                  title: Text('Objetivo del Programa'),
+                  initiallyExpanded: true,
+                  children: <Widget>[
+                    ListTile(
+                      //title: Text(                          'Reunificar a las familias separadas por la migración, así como promover la unidad de la comunidad migrante.'),
+                      subtitle: Obetivoscorazon(),
+                    ),
+                  ],
                 ),
-              ),
+                ExpansionTile(
+                  backgroundColor: Color(0x1D605e5f),
+                  title: Text('Beneficiarios'),
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(
+                        'Los talleres van dirigidos a personas que atienden a zacatecanos migrantes y sus familias que sean víctimas de violencia doméstica y que soliciten el apoyo para ser asesorados y apoyados sin distinción alguna, particularmente de los estados de la Unión Americana señalados. ',
+                        style: TextStyle(fontSize: 13.0),
+                      ),
+                      
+                    
+                    ),
+                  ],
+                ),
+                ExpansionTile(
+                  backgroundColor: Color(0x1D605e5f),
+                  title: Text('Reglas de Operación'),
+                  children: <Widget>[
+                    ListTile(
+                      //title: Text('Descargar', style:
+                      //TextStyle(color:Colors.lightBlue,decoration: TextDecoration.underline, fontSize: 14.0)),
+                      //leading: Icon(Icons.file_download, color: Colors.lightBlue,),
+                      title: Row(
+                        children: <Widget>[
+                          new Expanded(
+                            flex: 1,
+                            child: Icon(
+                              Icons.file_download,
+                              color: Colors.lightBlue,
+                            ),
+                          ),
+                          new Expanded(
+                            flex: 10,
+                            child: InkWell(
+                              onTap: () {
+                                customLaunch(
+                                    'http://sezami.zacatecas.gob.mx/docs/2x1.pdf');
+                              },
+                              child: Text('Descargar',
+                                  style: TextStyle(
+                                      color: Colors.lightBlue,
+                                      decoration: TextDecoration.underline,
+                                      fontSize: 14.0)),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Container(
-              //height: ((MediaQuery.of(context).size.height) * .07),
-              //width: MediaQuery.of(context).size.width,
-              child: Footer(),
-            ),
-          ],
-        ),
+          ),
+          new Container(
+            child: Footer(),
+          )
+        ],
       ),
+    );
+  }
+}
+
+class Obetivoscorazon extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Contribuir a hacer frente a la violencia doméstica a la población zacatecana migrante y en especial a la indocumentada, a través de las Organizaciones de Zacatecanos Migrantes con talleres informativos y capacitaciones.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Brindar asesoría y una cartera de organizaciones locales que ofrecen ayuda para superar el problema de violencia familiar a las y los migrantes zacatecanos que radican en la Unión Americana.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+        ListTile(
+          title: Text(
+            'Crear redes de apoyo con instituciones u organizaciones, en caso de presentarse la situación, para recibir el servicio y contar con la debida información.',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                //color: Colors.blueGrey,
+                fontSize: 13.0),
+          ),
+        ),
+        Row(children: <Widget>[
+          Expanded(child: Divider()),
+        ]),
+      ],
     );
   }
 }
