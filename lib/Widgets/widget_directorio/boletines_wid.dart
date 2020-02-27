@@ -5,7 +5,7 @@ class Boletines extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('BOLETINES')),
+      appBar: AppBar(title: Text('Boletines'),backgroundColor: Colors.deepOrange,),
       body: Boletin(),
     );
   }
