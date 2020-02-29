@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/pdf.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DosporUno extends StatelessWidget {
@@ -169,6 +170,12 @@ class DosporUno extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Container(
+                      height: ((MediaQuery.of(context).size.width) * 1),
+                      child: SingleChildScrollView(
+                        child: PDF(),
+                      ),
+                    )
                   ],
                 ),
               ],
