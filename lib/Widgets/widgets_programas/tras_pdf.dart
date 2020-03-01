@@ -1,19 +1,12 @@
 import 'dart:io';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
+import 'package:image/image.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
-import 'package:image/image.dart';
 
 Future<String> myPDF(String data) async {
   final Document pdf = Document();
-  final img = decodeImage(File('images/icons/ico22.png').readAsBytesSync());
-  final image = PdfImage(
-    pdf.document,
-    image: img.data.buffer.asUint8List(),
-    width: img.width,
-    height: img.height,
-  );
 
   pdf.addPage(
     MultiPage(
@@ -59,11 +52,6 @@ Future<String> myPDF(String data) async {
           child: Center(
             child: Text('Nombre del Fallecido: $data',
                 style: TextStyle(fontSize: 20.0)),
-          ),
-        ),
-        Container(
-          child: Center(
-            child: Text('Oficion No. 078-MAR'),
           ),
         ),
       ],
