@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 
-Future<String> myPDF(String data) async {
+Future<String> myPDF(String nombre ,String edad) async {
   final Document pdf = Document();
 
   pdf.addPage(
@@ -44,20 +44,48 @@ Future<String> myPDF(String data) async {
       build: (Context context) => <Widget>[
         Container(
           child: Center(
-            child:
-                Text('Solicitud de Traslado', style: TextStyle(fontSize: 20.0)),
+            child: Text('SOLICITUD DE TRASLADO',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
           ),
         ),
-        Container(
-          child: Center(
-            child: Text('Nombre del Fallecido: $data',
-                style: TextStyle(fontSize: 20.0)),
-          ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Row(children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('NOMBRE DEL FALLECIDO:',
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('$nombre', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+          ]),
+        ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Row(children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('FECHA DE NACIMIENTO:',
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('$edad', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+          ]),
         ),
       ],
     ),
   );
-  print(data);
+  //print(data);
   final output =
       await getExternalStorageDirectory(); // use the [path_provider (https://pub.dartlang.org/packages/path_provider) library:
   final file = File("${output.path}/goku.pdf");
@@ -65,7 +93,7 @@ Future<String> myPDF(String data) async {
   final Email email = Email(
     body: 'Generado desde Sezamo Digital Movil',
     subject: 'Solcititud de Traslado',
-    recipients: ['dqniort@gmail.com'],
+    recipients: ['sezami.prueba22@gmail.com'],
     //cc:['juanjosepelaez84@gmail.com'],
     attachmentPath: "${output.path}/goku.pdf",
     isHTML: false,

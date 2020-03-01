@@ -9,14 +9,13 @@ class Traslados extends StatefulWidget {
 }
 
 class _TrasladosState extends State<Traslados> {
-  TextEditingController data;
-  TextEditingController _controller;
+  TextEditingController nombre;
+  TextEditingController edad;
   String dropdownValue = "Menos de 1 Año";
   @override
   void initState() {
-    _controller = TextEditingController();
-    data = TextEditingController();
-
+    nombre = TextEditingController();
+    edad = TextEditingController();
     super.initState();
   }
 
@@ -59,7 +58,7 @@ class _TrasladosState extends State<Traslados> {
                         ]),
                       ),
                       TextField(
-                        controller: data,
+                        controller: nombre,
                         decoration: InputDecoration(
                           labelText: 'Nombre del Fallecido:',
                           icon: Icon(Icons.account_circle),
@@ -68,7 +67,9 @@ class _TrasladosState extends State<Traslados> {
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
+                        controller: edad,
                         decoration: InputDecoration(
+
                             labelText: 'Fecha de Necimiento:',
                             filled: true,
                             icon: Icon(Icons.date_range)),
@@ -285,8 +286,8 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    print(data.text);
-                    myPDF(data.text);
+                    //print(data.text);
+                    myPDF(nombre.text,edad.text);
 
                   },
                   child: Container(
