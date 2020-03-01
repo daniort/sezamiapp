@@ -2,10 +2,16 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 //
+=======
+import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
+>>>>>>> 66c661817c61fa9831927ddf162911dd2665448a
 
 class PDF extends StatefulWidget {
   @override
