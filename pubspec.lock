@@ -139,7 +139,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   flutter_email_sender:
     dependency: "direct main"
     description:
@@ -147,8 +146,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.2"
-=======
->>>>>>> 66c661817c61fa9831927ddf162911dd2665448a
   flutter_full_pdf_viewer:
     dependency: "direct main"
     description:

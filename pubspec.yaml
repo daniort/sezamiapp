@@ -38,11 +38,8 @@ dependencies:
   flutter_full_pdf_viewer: ^1.0.6
   firebase_database: ^3.1.1
   image: ^2.1.4
-<<<<<<< HEAD
   flutter_email_sender: ^2.2.2
   pdf: ^1.5.0
-=======
->>>>>>> 66c661817c61fa9831927ddf162911dd2665448a
 
 dev_dependencies:
   flutter_test:
