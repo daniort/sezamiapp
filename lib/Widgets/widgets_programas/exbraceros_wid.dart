@@ -1,6 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/pdf.dart';
 
 class Exbraceros extends StatelessWidget {
   @override
@@ -87,6 +87,12 @@ class Exbraceros extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Container(
+                      height: ((MediaQuery.of(context).size.width) * 1),
+                      child: SingleChildScrollView(
+                        child: PDF(),
+                      ),
+                    )
                   ],
                 ),
               ],

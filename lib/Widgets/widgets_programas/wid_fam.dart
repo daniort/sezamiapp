@@ -1,6 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/pdf.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Fam extends StatelessWidget {
@@ -180,6 +180,12 @@ class Fam extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Container(
+                      height: ((MediaQuery.of(context).size.width) * 1),
+                      child: SingleChildScrollView(
+                        child: PDF(),
+                      ),
+                    )
                   ],
                 ),
               ],

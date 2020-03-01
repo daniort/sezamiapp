@@ -795,9 +795,8 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/boletinicon.png"),
-                            color: Colors.deepOrange
-                          ),
+                              image: AssetImage("images/icons/boletinicon.png"),
+                              color: Colors.deepOrange),
                         ),
                       ),
                     ),

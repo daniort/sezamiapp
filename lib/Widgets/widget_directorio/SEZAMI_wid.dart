@@ -62,7 +62,12 @@ class Sezami extends StatelessWidget {
                           children: <Widget>[
                             ListTile(
                               leading: Icon(Icons.phone),
-                              title: Text('Ext: ' + data['extension']),
+                              title: Text('492 49 15000 ' +
+                                  ' Ext: ' +
+                                  data['extension']),
+                              onTap: () {
+                                customLaunch('tel:492 49 15000');
+                              },
                             ),
                             ListTile(
                               leading: Icon(Icons.mail),

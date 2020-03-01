@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/pdf.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Corazon extends StatelessWidget {
+class Corazon extends StatefulWidget {
+  @override
+  _CorazonState createState() => _CorazonState();
+}
+
+class _CorazonState extends State<Corazon> {
   void customLaunch(command) async {
     if (await canLaunch(command)) {
       await launch(command);
@@ -89,9 +95,6 @@ class Corazon extends StatelessWidget {
                   title: Text('Reglas de Operación'),
                   children: <Widget>[
                     ListTile(
-                      //title: Text('Descargar', style:
-                      //TextStyle(color:Colors.lightBlue,decoration: TextDecoration.underline, fontSize: 14.0)),
-                      //leading: Icon(Icons.file_download, color: Colors.lightBlue,),
                       title: Row(
                         children: <Widget>[
                           new Expanded(
@@ -102,11 +105,11 @@ class Corazon extends StatelessWidget {
                             ),
                           ),
                           new Expanded(
-                            flex: 10,
+                            flex: 2,
                             child: InkWell(
                               onTap: () {
                                 customLaunch(
-                                    'http://sezami.zacatecas.gob.mx/docs/2x1.pdf');
+                                    'http://sezami.zacatecas.gob.mx/docs/rop2019.pdf');
                               },
                               child: Text('Descargar',
                                   style: TextStyle(
@@ -116,6 +119,15 @@ class Corazon extends StatelessWidget {
                             ),
                           )
                         ],
+                      ),
+                    ),
+
+                    //color: Colors.amber, SingleChildScrollView(
+
+                    Container(
+                      height: ((MediaQuery.of(context).size.width) * 1),
+                      child: SingleChildScrollView(
+                        child: PDF(),
                       ),
                     ),
                   ],

@@ -1,7 +1,6 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
-
 class MiBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,7 +9,6 @@ class MiBanner extends StatelessWidget {
     );
   }
 }
-
 
 class Mybanner extends StatelessWidget {
   @override
