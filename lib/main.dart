@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'SEZAMI Digitalllll',
       theme: ThemeData(
         primaryColor: Color(0xFF0076a6),
+        buttonColor: Colors.red
       ),
       home: MyHome(),
     );
