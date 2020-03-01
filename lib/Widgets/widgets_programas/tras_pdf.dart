@@ -1,11 +1,13 @@
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:image/image.dart';
+import 'package:printing/printing.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 
-Future<String> myPDF(String nombre ,String edad) async {
+Future<String> myPDF(String nombreMay, String edad) async {
   final Document pdf = Document();
 
   pdf.addPage(
@@ -42,42 +44,142 @@ Future<String> myPDF(String nombre ,String edad) async {
         );
       },
       build: (Context context) => <Widget>[
-        Container(
-          child: Center(
-            child: Text('SOLICITUD DE TRASLADO',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-          ),
-        ),
+        Header(
+            level: 0,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('SOLICITUD DE TRASLADO', textScaleFactor: 1.5),
+                  Text('Ofi.No. 022-MAR', textScaleFactor: 1),
+                ])),
+        Header(level: 2, text: 'Datos del Fallecido'),
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(4.0),
           child: Row(children: <Widget>[
             Container(
               child: Center(
-                child: Text('NOMBRE DEL FALLECIDO:',
-                    style:
-                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+                child: Text('NOMBRE DEL FALLECIDO:  ',
+                    style: TextStyle(fontSize: 12.0)),
               ),
             ),
             Container(
-              child: Center(
-                child: Text('$nombre', style: TextStyle(fontSize: 12.0)),
+              alignment: Alignment.centerRight,
+              child: Text(
+                '$nombreMay',
+                style: TextStyle(
+                  fontSize: 12.0,
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
           ]),
         ),
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(4.0),
           child: Row(children: <Widget>[
             Container(
               child: Center(
-                child: Text('FECHA DE NACIMIENTO:',
-                    style:
-                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+                child: Text('EDAD:  ', style: TextStyle(fontSize: 12.0)),
               ),
             ),
             Container(
               child: Center(
                 child: Text('$edad', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15.0),
+              child: Container(
+                child: Center(
+                  child: Text('FECHA DE NACIMIENTO:  ',
+                      style: TextStyle(fontSize: 12.0)),
+                ),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('____', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+          ]),
+        ),
+        Padding(
+          padding: EdgeInsets.all(4.0),
+          child: Row(children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('CAUSA DE LA MUERTE:  ',
+                    style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('00', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+          ]),
+        ),
+        Padding(
+          padding: EdgeInsets.all(4.0),
+          child: Row(children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('LUGAR DEL DECESO:  ',
+                    style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('00', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+          ]),
+        ),
+        Padding(
+          padding: EdgeInsets.all(4.0),
+          child: Row(children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('LUGAR DEL ORIGEN:  ',
+                    style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('00', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+          ]),
+        ),
+        Padding(
+          padding: EdgeInsets.all(4.0),
+          child: Row(children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('TIEMPO EN ESTADOS UNIDOS:  ',
+                    style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('00', style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+          ]),
+        ),
+        Header(level: 2, text: 'Datos del Familiar en México'),
+        Padding(
+          padding: EdgeInsets.all(4.0),
+          child: Row(children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('NOMBRE COMPLETO:  ',
+                    style: TextStyle(fontSize: 12.0)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('00', style: TextStyle(fontSize: 12.0)),
               ),
             ),
           ]),

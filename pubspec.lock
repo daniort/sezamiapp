@@ -261,7 +261,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.1"
-<<<<<<< HEAD
   pdf:
     dependency: "direct main"
     description:
@@ -269,8 +268,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.0"
-=======
->>>>>>> 66c661817c61fa9831927ddf162911dd2665448a
   pdf_viewer_plugin:
     dependency: "direct main"
     description:
@@ -306,6 +303,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  printing:
+    dependency: "direct main"
+    description:
+      name: printing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
   qr:
     dependency: transitive
     description:

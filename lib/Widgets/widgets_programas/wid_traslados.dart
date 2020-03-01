@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
@@ -11,9 +10,26 @@ class Traslados extends StatefulWidget {
 class _TrasladosState extends State<Traslados> {
   TextEditingController nombre;
   TextEditingController edad;
-  String dropdownValue = "Menos de 1 Año";
+
+  var meses = [
+    'Mayo',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre'
+  ];
+  String dropdownValue = "UNO";
+  String mes;
   @override
   void initState() {
+    String mes = "Elegir...";
     nombre = TextEditingController();
     edad = TextEditingController();
     super.initState();
@@ -57,70 +73,103 @@ class _TrasladosState extends State<Traslados> {
                           ),
                         ]),
                       ),
-                      TextField(
-                        controller: nombre,
-                        decoration: InputDecoration(
-                          labelText: 'Nombre del Fallecido:',
-                          icon: Icon(Icons.account_circle),
-                          filled: true,
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: nombre,
+                          decoration: InputDecoration(
+                            labelText: 'Nombre del Fallecido:',
+                            //icon: Icon(Icons.account_circle),
+                            filled: true,
+                            prefixIcon: Icon(Icons.account_circle),
+                          ),
+                          onSubmitted: (String textfinal) {},
                         ),
-                        onSubmitted: (String textfinal) {},
                       ),
-                      TextField(
-                        controller: edad,
-                        decoration: InputDecoration(
-
-                            labelText: 'Fecha de Necimiento:',
+                      Padding(
+                        padding: EdgeInsets.all(2.0),
+                        child: Container(
+                          color: Colors.grey[250],
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                //color: Colors.deepPurpleAccent,
+                                width: queryData.size.width,
+                                margin: EdgeInsets.only(
+                                    left: (queryData.size.width) * 0.13),
+                                child: Text(
+                                  'Fecha de Nacimiento:',
+                                  style: TextStyle(
+                                      fontSize: 12.0, color: Colors.grey),
+                                ),
+                              ),
+                              Container(
+                                color: Colors.deepOrange[100],
+                                child: Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 300.0,
+                                      
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: nombre,
+                          decoration: InputDecoration(
+                            labelText: 'Causa de la Muerte:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.date_range)),
-                        keyboardType: TextInputType.datetime,
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.fiber_manual_record),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Fecha de Deceso:',
-                            filled: true,
-                            icon: Icon(Icons.date_range)),
-                        keyboardType: TextInputType.datetime,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Causa de Muerte:',
-                            filled: true,
-                            icon: Icon(Icons.fiber_manual_record)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: nombre,
+                          decoration: InputDecoration(
                             labelText: 'Lugar del Deceso:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.location_on)),
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.location_on),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Lugar de Origen:',
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: nombre,
+                          decoration: InputDecoration(
+                            labelText: 'Lugar del Origen:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.location_on)),
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.location_on),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                      
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Tiempo en Estados Unidos:',
-                            filled: true,
-                            icon: Icon(Icons.timelapse)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: nombre,
+                          decoration: InputDecoration(
                             labelText: 'Situación Migratoria:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.question_answer)),
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.question_answer),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                    
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
@@ -286,9 +335,8 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    //print(data.text);
-                    myPDF(nombre.text,edad.text);
-
+                    var nombreMay = nombre.text.toUpperCase();
+                    myPDF(nombreMay, edad.text);
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -310,4 +358,3 @@ class _TrasladosState extends State<Traslados> {
     );
   }
 }
-
