@@ -335,8 +335,8 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    var nombreMay = nombre.text.toUpperCase();
-                    myPDF(nombreMay, edad.text);
+                    //var nombreMay = nombre.text.toUpperCase();
+                    //myPDF(nombreMay, edad.text);
                   },
                   child: Container(
                     width: (queryData.size.width),
