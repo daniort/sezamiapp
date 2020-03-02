@@ -1,4 +1,4 @@
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
@@ -9,14 +9,42 @@ class Traslados extends StatefulWidget {
 }
 
 class _TrasladosState extends State<Traslados> {
-  TextEditingController data;
-  TextEditingController _controller;
-  String dropdownValue = "Menos de 1 Año";
+  TextEditingController nombre;
+  TextEditingController edad;
+  TextEditingController causa;
+  TextEditingController lugarmuerte;
+  TextEditingController lugarorigen;
+  TextEditingController situacion;
+  TextEditingController nombreparmex;
+  TextEditingController telparmex;
+  TextEditingController nombrepareu;
+  TextEditingController telpareu;
+  TextEditingController nombrefune;
+  TextEditingController telfune;
+  TextEditingController correofune;
+  TextEditingController parmex;
+  TextEditingController pareu;
+
+  var now = new DateTime.now();
+  String ofi = '';
+
   @override
   void initState() {
-    _controller = TextEditingController();
-    data = TextEditingController();
-
+    nombre = TextEditingController();
+    edad = TextEditingController();
+    causa = TextEditingController();
+    lugarmuerte = TextEditingController();
+    lugarorigen = TextEditingController();
+    situacion = TextEditingController();
+    nombreparmex = TextEditingController();
+    telparmex = TextEditingController();
+    nombrepareu = TextEditingController();
+    telpareu = TextEditingController();
+    nombrefune = TextEditingController();
+    telfune = TextEditingController();
+    correofune = TextEditingController();
+    pareu = TextEditingController();
+    parmex = TextEditingController();
     super.initState();
   }
 
@@ -58,68 +86,102 @@ class _TrasladosState extends State<Traslados> {
                           ),
                         ]),
                       ),
-                      TextField(
-                        controller: data,
-                        decoration: InputDecoration(
-                          labelText: 'Nombre del Fallecido:',
-                          icon: Icon(Icons.account_circle),
-                          filled: true,
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: nombre,
+                          decoration: InputDecoration(
+                            labelText: 'Nombre del Fallecido:',
+                            //icon: Icon(Icons.account_circle),
+                            filled: true,
+                            prefixIcon: Icon(Icons.account_circle),
+                          ),
+                          onSubmitted: (String textfinal) {},
                         ),
-                        onSubmitted: (String textfinal) {},
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Fecha de Necimiento:',
+                      Padding(
+                        padding: EdgeInsets.all(2.0),
+                        child: Container(
+                          color: Colors.grey[250],
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                //color: Colors.deepPurpleAccent,
+                                width: queryData.size.width,
+                                margin: EdgeInsets.only(
+                                    left: (queryData.size.width) * 0.13),
+                                child: Text(
+                                  'Fecha de Nacimiento:',
+                                  style: TextStyle(
+                                      fontSize: 12.0, color: Colors.grey),
+                                ),
+                              ),
+                              Container(
+                                color: Colors.deepOrange[100],
+                                child: Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 300.0,
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: causa,
+                          decoration: InputDecoration(
+                            labelText: 'Causa de la Muerte:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.date_range)),
-                        keyboardType: TextInputType.datetime,
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.fiber_manual_record),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Fecha de Deceso:',
-                            filled: true,
-                            icon: Icon(Icons.date_range)),
-                        keyboardType: TextInputType.datetime,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Causa de Muerte:',
-                            filled: true,
-                            icon: Icon(Icons.fiber_manual_record)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: lugarmuerte,
+                          decoration: InputDecoration(
                             labelText: 'Lugar del Deceso:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.location_on)),
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.location_on),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Lugar de Origen:',
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: lugarorigen,
+                          decoration: InputDecoration(
+                            labelText: 'Lugar del Origen:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.location_on)),
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.location_on),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                      
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Tiempo en Estados Unidos:',
-                            filled: true,
-                            icon: Icon(Icons.timelapse)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        decoration: InputDecoration(
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: situacion,
+                          decoration: InputDecoration(
                             labelText: 'Situación Migratoria:',
+                            //icon: Icon(Icons.account_circle),
                             filled: true,
-                            icon: Icon(Icons.question_answer)),
-                        onSubmitted: (String textfinal) {},
+                            prefixIcon: Icon(Icons.question_answer),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
                       ),
-                    
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
@@ -144,9 +206,11 @@ class _TrasladosState extends State<Traslados> {
                             labelText: 'Nombre de Familiar en Mex.:',
                             filled: true,
                             icon: Icon(Icons.account_circle)),
+                        controller: nombreparmex,
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
+                        controller: telparmex,
                         decoration: InputDecoration(
                             labelText: 'Telefono:',
                             filled: true,
@@ -155,6 +219,7 @@ class _TrasladosState extends State<Traslados> {
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
+                        controller: parmex,
                         decoration: InputDecoration(
                             labelText: 'Parentesco:',
                             filled: true,
@@ -181,6 +246,7 @@ class _TrasladosState extends State<Traslados> {
                         ]),
                       ),
                       TextField(
+                        controller: nombrepareu,
                         decoration: InputDecoration(
                             labelText: 'Nombre de Familiar en EU:',
                             filled: true,
@@ -188,6 +254,7 @@ class _TrasladosState extends State<Traslados> {
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
+                        controller: telpareu,
                         decoration: InputDecoration(
                             labelText: 'Telefono:',
                             filled: true,
@@ -196,6 +263,7 @@ class _TrasladosState extends State<Traslados> {
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
+                        controller: pareu,
                         decoration: InputDecoration(
                             labelText: 'Parentesco:',
                             filled: true,
@@ -222,6 +290,7 @@ class _TrasladosState extends State<Traslados> {
                         ]),
                       ),
                       TextField(
+                        controller: nombrefune,
                         decoration: InputDecoration(
                             labelText: 'Nombre de Funeraria en EU:',
                             filled: true,
@@ -229,6 +298,7 @@ class _TrasladosState extends State<Traslados> {
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
+                        controller: telfune,
                         decoration: InputDecoration(
                           labelText: 'Telefono:',
                           filled: true,
@@ -238,6 +308,7 @@ class _TrasladosState extends State<Traslados> {
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
+                        controller: correofune,
                         decoration: InputDecoration(
                             labelText: 'Email:',
                             filled: true,
@@ -285,9 +356,23 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    print(data.text);
-                    myPDF(data.text);
-
+                    print("-------");
+                    print(oficioServer());
+                    print("-------");
+                    myPDF(
+                      nombre.text.toUpperCase(),
+                      causa.text.toUpperCase(),
+                      lugarmuerte.text.toUpperCase(),
+                      lugarorigen.text.toUpperCase(),
+                      situacion.text.toUpperCase(),
+                      nombreparmex.text.toUpperCase(),
+                      telparmex.text.toUpperCase(),
+                      nombrepareu.text.toUpperCase(),
+                      telpareu.text.toUpperCase(),
+                      nombrefune.text.toUpperCase(),
+                      telfune.text.toUpperCase(),
+                      correofune.text.toUpperCase(),
+                    );
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -310,3 +395,19 @@ class _TrasladosState extends State<Traslados> {
   }
 }
 
+oficioServer() async {
+  var aca='';
+  StreamBuilder(
+    stream: Firestore.instance.collection('oficio').snapshots(),
+    builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+      List<DocumentSnapshot> docs = snapshot.data.documents;
+      ListView.builder(
+          itemCount: (docs.length),
+          itemBuilder: (context, index) {
+            Map<String, dynamic> data = docs[index].data;
+             aca = data['number'].toString();
+          });
+    },
+  );
+  return aca;
+}
