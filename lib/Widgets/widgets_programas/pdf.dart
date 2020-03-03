@@ -21,38 +21,62 @@ class _MyAppState extends State<PDF> {
   }
 
   Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
+    try {
+      final directory = await getApplicationDocumentsDirectory();
 
-    return directory.path;
+      return directory.path;
+    } catch (e) {
+      print('localpath $e');
+      path = 'DESCARGA EL PDF';
+    }
   }
 
   Future<File> get _localFile async {
-    final path = await _localPath;
-    return File('$path/teste.pdf');
+    try {
+      final path = await _localPath;
+      return File('$path/opera.pdf');
+    } catch (e) {
+      print('localfile $e');
+      path = 'DESCARGA EL PDF';
+    }
   }
 
   Future<File> writeCounter(Uint8List stream) async {
-    final file = await _localFile;
+    try {
+      final file = await _localFile;
 
-    // Write the file
-    return file.writeAsBytes(stream);
+      return file.writeAsBytes(stream);
+    } catch (e) {
+      print('WriteCounter $e');
+      path = 'DESCARGA EL PDF';
+    }
   }
 
   Future<Uint8List> fetchPost() async {
-    final response =
-        await http.get('http://sezami.zacatecas.gob.mx/docs/rop2019.pdf');
-    final responseJson = response.bodyBytes;
+    try {
+      final response = await http.get('http://sezami.zacatecas.gob.mx/docs');
+      final responseJson = response.bodyBytes;
 
-    return responseJson;
+      return responseJson;
+    } catch (e) {
+      print('FetchPost $e');
+      path = 'DESCARGA EL PDF';
+    }
   }
 
   loadPdf() async {
-    writeCounter(await fetchPost());
-    path = (await _localFile).path;
+    try {
+      writeCounter(await fetchPost());
 
-    if (!mounted) return;
+      path = (await _localFile).path;
 
-    setState(() {});
+      if (!mounted) return;
+
+      setState(() {});
+    } catch (e) {
+      print('¿Hola $e');
+      path = 'DESCARGA EL PDF';
+    }
   }
 
   @override
@@ -74,12 +98,18 @@ class _MyAppState extends State<PDF> {
         //),
       );
     } else {
-      return Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
-      );
+      try {
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
+        );
+      } catch (e) {
+        print('Error $e');
+        path = ('error al cargar');
+        path = 'DESCARGA EL PDF';
+      }
     }
   }
 }

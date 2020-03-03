@@ -68,6 +68,11 @@ class _CalendarioState extends State<Calendario> {
               calendarController: _controller,
             ),
           ),
+          Padding(
+              padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+              child: VerticalDivider(
+                color: Colors.white,
+              )),
           Expanded(
             //width: MediaQuery.of(context).size.width,
             //height: ((MediaQuery.of(context).size.height) * .28),

@@ -41,13 +41,12 @@ class Evento extends StatelessWidget {
                   ),
                   children: <Widget>[
                     ListTile(
-                      leading: Icon(Icons.texture),
+                      leading: Icon(Icons.event_available),
                       title: Text(data['evento']),
                     ),
                     if (data['observacion'] != null)
                       ListTile(
-                        title: Text('Observacion'),
-                        subtitle: Text(data['observacion']),
+                        title: Text(data['observacion']),
                       ),
                   ],
                 );
@@ -61,14 +60,12 @@ class Evento extends StatelessWidget {
                   ),
                   children: <Widget>[
                     ListTile(
-                      leading: Icon(Icons.texture),
+                      leading: Icon(Icons.event_available),
                       title: Text(data['evento']),
                     ),
                     if (data['observacion'] != null)
                       ListTile(
-                        leading: Icon(Icons.mail),
-                        title: Text('Observacion'),
-                        subtitle: Text(data['observacion']),
+                        title: Text(data['observacion']),
                       ),
                   ],
                 );
