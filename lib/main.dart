@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       title: 'SEZAMI Digitalllll',
       theme: ThemeData(
         primaryColor: Color(0xFF0076a6),
-        buttonColor: Colors.red
       ),
       home: MyHome(),
     );
@@ -37,7 +36,6 @@ class MyHome extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              color: Colors.blue,
               height: ((MediaQuery.of(context).size.height) * .25),
               width: MediaQuery.of(context).size.width,
               child: MiBanner(),
