@@ -27,7 +27,7 @@ class _TrasladosState extends State<Traslados> {
 
   var now = new DateTime.now();
   String ofi = '';
-
+  String dropdownValue = 'Día';
   @override
   void initState() {
     nombre = TextEditingController();
@@ -117,12 +117,29 @@ class _TrasladosState extends State<Traslados> {
                                 ),
                               ),
                               Container(
-                                color: Colors.deepOrange[100],
+                                //color: Colors.deepOrange[100],
                                 child: Row(
                                   children: <Widget>[
-                                    Container(
-                                      width: 300.0,
-                                    ),
+                                    DropdownButton<String>(
+                                      value: dropdownValue,
+                                      icon: Icon(Icons.arrow_drop_down),
+                                      iconSize: 24,
+                                      elevation: 16,
+                                      style:
+                                          TextStyle(color: Colors.deepPurple),
+                                      onChanged: (String newValue) {
+                                        setState(() {
+                                          dropdownValue = newValue;
+                                        });
+                                      },
+                                      items: <String>['A', 'B', 'C', 'D']
+                                          .map((String value) {
+                                        return new DropdownMenuItem<String>(
+                                          value: value,
+                                          child: new Text(value),
+                                        );
+                                      }).toList(),
+                                    )
                                   ],
                                 ),
                               )
@@ -357,7 +374,7 @@ class _TrasladosState extends State<Traslados> {
                 child: InkWell(
                   onTap: () {
                     print("-------");
-                    print(oficioServer());
+                    //print(oficioServer());
                     print("-------");
                     myPDF(
                       nombre.text.toUpperCase(),
@@ -393,21 +410,4 @@ class _TrasladosState extends State<Traslados> {
       ),
     );
   }
-}
-
-oficioServer() async {
-  var aca='';
-  StreamBuilder(
-    stream: Firestore.instance.collection('oficio').snapshots(),
-    builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-      List<DocumentSnapshot> docs = snapshot.data.documents;
-      ListView.builder(
-          itemCount: (docs.length),
-          itemBuilder: (context, index) {
-            Map<String, dynamic> data = docs[index].data;
-             aca = data['number'].toString();
-          });
-    },
-  );
-  return aca;
 }
