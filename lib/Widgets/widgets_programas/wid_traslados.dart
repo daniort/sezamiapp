@@ -24,10 +24,9 @@ class _TrasladosState extends State<Traslados> {
   TextEditingController correofune;
   TextEditingController parmex;
   TextEditingController pareu;
-
+  TextEditingController extra;
+  
   var now = new DateTime.now();
-  String ofi = '';
-  String dropdownValue = 'Día';
   @override
   void initState() {
     nombre = TextEditingController();
@@ -45,6 +44,7 @@ class _TrasladosState extends State<Traslados> {
     correofune = TextEditingController();
     pareu = TextEditingController();
     parmex = TextEditingController();
+    extra = TextEditingController();
     super.initState();
   }
 
@@ -71,18 +71,24 @@ class _TrasladosState extends State<Traslados> {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
                           Expanded(
-                            child: Divider(color: Colors.deepPurpleAccent,),
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                           Expanded(
                             flex: 3,
                             child: Center(
                                 child: Text(
                               'Datos del Fallecido',
-                              style: TextStyle(color: Colors.deepPurpleAccent,),
+                              style: TextStyle(
+                                color: Color(0xFF0076a6),
+                              ),
                             )),
                           ),
                           Expanded(
-                            child: Divider(color: Colors.deepPurpleAccent,),
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                         ]),
                       ),
@@ -112,17 +118,6 @@ class _TrasladosState extends State<Traslados> {
                           child: Column(
                             children: <Widget>[
                               Container(
-                                //color: Colors.deepPurpleAccent,
-                                width: queryData.size.width,
-                                margin: EdgeInsets.only(
-                                    left: (queryData.size.width) * 0.13),
-                                child: Text(
-                                  'Fecha del Deceso:',
-                                  style: TextStyle(
-                                      fontSize: 12.0, color: Colors.grey),
-                                ),
-                              ),
-                              Container(
                                 child: Row(
                                   children: <Widget>[
                                     Expanded(
@@ -131,17 +126,25 @@ class _TrasladosState extends State<Traslados> {
                                           color: Color(0xFF838383)),
                                     ),
                                     Expanded(
-                                      flex: 2,
-                                      child: Dropdowndia(),
-                                    ),
+                                        flex: 2,
+                                        child: Center(
+                                            child: Text(
+                                          'Fecha de Deceso:',
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              color: Color(0xFF838383)),
+                                        ))),
                                     Expanded(
-                                      flex: 2,
-                                      child: Dropdownmes(),
-                                    ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Dropdownano(),
-                                    ),
+                                        flex: 6,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: <Widget>[
+                                            Dropdowndiaf(),
+                                            Dropdownmesf(),
+                                            Dropdownanof(),
+                                          ],
+                                        )),
                                   ],
                                 ),
                               )
@@ -162,17 +165,6 @@ class _TrasladosState extends State<Traslados> {
                           child: Column(
                             children: <Widget>[
                               Container(
-                                //color: Colors.deepPurpleAccent,
-                                width: queryData.size.width,
-                                margin: EdgeInsets.only(
-                                    left: (queryData.size.width) * 0.13),
-                                child: Text(
-                                  'Fecha de Nacimiento:',
-                                  style: TextStyle(
-                                      fontSize: 12.0, color: Colors.grey),
-                                ),
-                              ),
-                              Container(
                                 child: Row(
                                   children: <Widget>[
                                     Expanded(
@@ -181,17 +173,25 @@ class _TrasladosState extends State<Traslados> {
                                           color: Color(0xFF838383)),
                                     ),
                                     Expanded(
-                                      flex: 2,
-                                      child: Dropdowndia(),
-                                    ),
+                                        flex: 2,
+                                        child: Center(
+                                            child: Text(
+                                          'Fecha de Nacimiento:',
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              color: Color(0xFF838383)),
+                                        ))),
                                     Expanded(
-                                      flex: 2,
-                                      child: Dropdownmes(),
-                                    ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Dropdownano(),
-                                    ),
+                                        flex: 6,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: <Widget>[
+                                            Dropdowndia(),
+                                            Dropdownmes(),
+                                            Dropdownano(),
+                                          ],
+                                        )),
                                   ],
                                 ),
                               )
@@ -318,13 +318,12 @@ class _TrasladosState extends State<Traslados> {
                           ),
                         ),
                       ),
-                      
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
                           Expanded(
                             child: Divider(
-                              color: Colors.deepPurpleAccent,
+                              color: Color(0xFF0076a6),
                             ),
                           ),
                           Expanded(
@@ -332,12 +331,14 @@ class _TrasladosState extends State<Traslados> {
                             child: Center(
                                 child: Text(
                               'Datos de Familiar en México',
-                              style: TextStyle(color: Colors.deepPurpleAccent,),
+                              style: TextStyle(
+                                color: Color(0xFF0076a6),
+                              ),
                             )),
                           ),
                           Expanded(
                             child: Divider(
-                              color: Colors.deepPurpleAccent,
+                              color: Color(0xFF0076a6),
                             ),
                           ),
                         ]),
@@ -346,7 +347,7 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                             labelText: 'Nombre de Familiar en Mex.:',
                             filled: true,
-                            icon: Icon(Icons.account_circle)),
+                            prefixIcon: Icon(Icons.account_circle)),
                         controller: nombreparmex,
                         onSubmitted: (String textfinal) {},
                       ),
@@ -355,7 +356,7 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                             labelText: 'Telefono:',
                             filled: true,
-                            icon: Icon(Icons.phone)),
+                            prefixIcon: Icon(Icons.phone)),
                         keyboardType: TextInputType.phone,
                         onSubmitted: (String textfinal) {},
                       ),
@@ -364,34 +365,41 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                             labelText: 'Parentesco:',
                             filled: true,
-                            icon: Icon(Icons.people)),
+                            prefixIcon: Icon(Icons.people)),
                         onSubmitted: (String textfinal) {},
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
                           Expanded(
-                            child: Divider(),
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                           Expanded(
                             flex: 3,
                             child: Center(
                                 child: Text(
                               'Datos de Familiar en EU',
-                              style: TextStyle(color: Colors.blueGrey),
+                              style: TextStyle(
+                                color: Color(0xFF0076a6),
+                              ),
                             )),
                           ),
                           Expanded(
-                            child: Divider(),
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                         ]),
                       ),
                       TextField(
                         controller: nombrepareu,
                         decoration: InputDecoration(
-                            labelText: 'Nombre de Familiar en EU:',
-                            filled: true,
-                            icon: Icon(Icons.account_circle)),
+                          labelText: 'Nombre de Familiar en EU:',
+                          filled: true,
+                          prefixIcon: Icon(Icons.account_circle),
+                        ),
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
@@ -399,7 +407,7 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                             labelText: 'Telefono:',
                             filled: true,
-                            icon: Icon(Icons.phone)),
+                            prefixIcon: Icon(Icons.phone)),
                         keyboardType: TextInputType.phone,
                         onSubmitted: (String textfinal) {},
                       ),
@@ -408,25 +416,31 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                             labelText: 'Parentesco:',
                             filled: true,
-                            icon: Icon(Icons.people)),
+                            prefixIcon: Icon(Icons.people)),
                         onSubmitted: (String textfinal) {},
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
                           Expanded(
-                            child: Divider(),
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                           Expanded(
                             flex: 3,
                             child: Center(
                                 child: Text(
                               'Datos de Funeraria en EU',
-                              style: TextStyle(color: Colors.blueGrey),
+                              style: TextStyle(
+                                color: Color(0xFF0076a6),
+                              ),
                             )),
                           ),
                           Expanded(
-                            child: Divider(),
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                         ]),
                       ),
@@ -435,7 +449,7 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                             labelText: 'Nombre de Funeraria en EU:',
                             filled: true,
-                            icon: Icon(Icons.home)),
+                            prefixIcon: Icon(Icons.home)),
                         onSubmitted: (String textfinal) {},
                       ),
                       TextField(
@@ -443,7 +457,7 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                           labelText: 'Telefono:',
                           filled: true,
-                          icon: Icon(Icons.phone),
+                          prefixIcon: Icon(Icons.phone),
                         ),
                         keyboardType: TextInputType.phone,
                         onSubmitted: (String textfinal) {},
@@ -453,7 +467,7 @@ class _TrasladosState extends State<Traslados> {
                         decoration: InputDecoration(
                             labelText: 'Email:',
                             filled: true,
-                            icon: Icon(Icons.email)),
+                            prefixIcon: Icon(Icons.email)),
                         keyboardType: TextInputType.emailAddress,
                         onSubmitted: (String textfinal) {},
                       ),
@@ -461,27 +475,35 @@ class _TrasladosState extends State<Traslados> {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
                           Expanded(
-                            child: Divider(),
+                            flex: 3,
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                           Expanded(
-                            flex: 3,
+                            flex: 2,
                             child: Center(
                                 child: Text(
                               'Extras:',
-                              style: TextStyle(color: Colors.blueGrey),
+                              style: TextStyle(
+                                color: Color(0xFF0076a6),
+                              ),
                             )),
                           ),
                           Expanded(
-                            child: Divider(),
+                            flex: 3,
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
                           ),
                         ]),
                       ),
                       TextField(
+                        controller: extra,
                         decoration: InputDecoration(
                           counterText: 'No Obligatorio',
                           labelText: 'Anotaciones Extras:',
                           filled: true,
-                          //  icon: Icon(Icons.account_circle),
                         ),
                         onSubmitted: (String textfinal) {},
                       ),
@@ -497,23 +519,23 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    print("-------");
-                    //print(oficioServer());
-                    print("-------");
-                    myPDF(
+                    DataforPDF().datosField(
                       nombre.text.toUpperCase(),
                       causa.text.toUpperCase(),
                       lugarmuerte.text.toUpperCase(),
                       lugarorigen.text.toUpperCase(),
-                      situacion.text.toUpperCase(),
                       nombreparmex.text.toUpperCase(),
                       telparmex.text.toUpperCase(),
+                      parmex.text.toUpperCase(),
                       nombrepareu.text.toUpperCase(),
                       telpareu.text.toUpperCase(),
+                      pareu.text.toUpperCase(),
                       nombrefune.text.toUpperCase(),
                       telfune.text.toUpperCase(),
-                      correofune.text.toUpperCase(),
+                      correofune.text.toLowerCase(),
+                      extra.text.toLowerCase(),
                     );
+                    myPDF();
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -544,8 +566,7 @@ class Dropdowntimelapse extends StatefulWidget {
 }
 
 class _DropdowntimelapseState extends State<Dropdowntimelapse> {
-  String _value;
-
+  String time;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -563,36 +584,37 @@ class _DropdowntimelapseState extends State<Dropdowntimelapse> {
             child: Text('3 a 5 Años'),
             value: '3 a 5 Años',
           ),
-           DropdownMenuItem<String>(
+          DropdownMenuItem<String>(
             child: Text('Más de 5 Años'),
             value: 'Más de 5 Años',
           ),
         ],
         onChanged: (String value) {
           setState(() {
-            _value = value;
+            time = value;
+            DataforPDF().tiempo = time;
           });
         },
         hint: Text('Elegir...'),
-        value: _value,
+        value: time,
       ),
     );
   }
 }
 
-class Dropdowndia extends StatefulWidget {
+class Dropdowndiaf extends StatefulWidget {
   @override
-  _DropdowndiaState createState() {
-    return _DropdowndiaState();
+  _DropdowndiafState createState() {
+    return _DropdowndiafState();
   }
 }
 
-class _DropdowndiaState extends State<Dropdowndia> {
-  String _value;
-
+class _DropdowndiafState extends State<Dropdowndiaf> {
+  String _dia;
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      //color: Colors.blue,
       child: DropdownButton<String>(
         items: [
           for (var i = 1; i < 32; i++)
@@ -603,31 +625,33 @@ class _DropdowndiaState extends State<Dropdowndia> {
         ],
         onChanged: (String value) {
           setState(() {
-            _value = value;
+            _dia = value;
+            DataforPDF().diaf = _dia;
+            //returnardia(value);
           });
         },
         hint: Text('Día'),
-        value: _value,
+        value: _dia,
       ),
     );
   }
 }
 
-class Dropdownmes extends StatefulWidget {
+class Dropdownmesf extends StatefulWidget {
   @override
-  _DropdownmesState createState() {
-    return _DropdownmesState();
+  _DropdownmesfState createState() {
+    return _DropdownmesfState();
   }
 }
 
-class _DropdownmesState extends State<Dropdownmes> {
-  String _value;
+class _DropdownmesfState extends State<Dropdownmesf> {
+  String _mes;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       //color: Colors.orange,
-      width: 160,
+      //width: 160,
       child: Center(
         child: DropdownButton<String>(
           items: [
@@ -643,29 +667,66 @@ class _DropdownmesState extends State<Dropdownmes> {
               child: Text('Marzo'),
               value: 'Marzo',
             ),
+            DropdownMenuItem<String>(
+              child: Text('Abril'),
+              value: 'Abril',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Mayo'),
+              value: 'Mayo',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Junio'),
+              value: 'Junio',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Julio'),
+              value: 'Julio',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Agosto'),
+              value: 'Agosto',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Septiembre'),
+              value: 'Septiembre',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Octubre'),
+              value: 'Octubre',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Noviembre'),
+              value: 'Noviembre',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Diciembre'),
+              value: 'Diciembre',
+            ),
           ],
           onChanged: (String value) {
             setState(() {
-              _value = value;
+              _mes = value;
+              DataforPDF().mesf = _mes;
             });
           },
           hint: Text('Mes'),
-          value: _value,
+          value: _mes,
         ),
       ),
     );
   }
 }
 
-class Dropdownano extends StatefulWidget {
+class Dropdownanof extends StatefulWidget {
   @override
-  _DropdownanoState createState() {
-    return _DropdownanoState();
+  _DropdownanofState createState() {
+    return _DropdownanofState();
   }
 }
 
-class _DropdownanoState extends State<Dropdownano> {
-  String _value;
+class _DropdownanofState extends State<Dropdownanof> {
+  String _ano;
 
   @override
   Widget build(BuildContext context) {
@@ -680,11 +741,12 @@ class _DropdownanoState extends State<Dropdownano> {
         ],
         onChanged: (String value) {
           setState(() {
-            _value = value;
+            _ano = value;
+            DataforPDF().anof = _ano;
           });
         },
         hint: Text('Año'),
-        value: _value,
+        value: _ano,
       ),
     );
   }
@@ -698,8 +760,7 @@ class Dropdownsituacion extends StatefulWidget {
 }
 
 class _DropdownsituacionState extends State<Dropdownsituacion> {
-  String _value;
-
+  String situ;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -724,12 +785,229 @@ class _DropdownsituacionState extends State<Dropdownsituacion> {
         ],
         onChanged: (String value) {
           setState(() {
-            _value = value;
+            situ = value;
+            DataforPDF().situacion = situ;
           });
         },
-        hint: Text('Select Item'),
-        value: _value,
+        hint: Text('Elegir...'),
+        value: situ,
       ),
     );
+  }
+}
+
+class Dropdowndia extends StatefulWidget {
+  @override
+  _DropdowndiaState createState() {
+    return _DropdowndiaState();
+  }
+}
+
+class _DropdowndiaState extends State<Dropdowndia> {
+  String _dia;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //color: Colors.blue,
+      child: DropdownButton<String>(
+        items: [
+          for (var i = 1; i < 32; i++)
+            DropdownMenuItem<String>(
+              child: Text('$i'),
+              value: '$i',
+            ),
+        ],
+        onChanged: (String value) {
+          setState(() {
+            _dia = value;
+            DataforPDF().dian = _dia;
+            //returnardia(value);
+          });
+        },
+        hint: Text('Día'),
+        value: _dia,
+      ),
+    );
+  }
+}
+
+class Dropdownmes extends StatefulWidget {
+  @override
+  _DropdownmesState createState() {
+    return _DropdownmesState();
+  }
+}
+
+class _DropdownmesState extends State<Dropdownmes> {
+  String _mes;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //color: Colors.orange,
+      //width: 160,
+      child: Center(
+        child: DropdownButton<String>(
+          items: [
+            DropdownMenuItem<String>(
+              child: Text('Enero'),
+              value: 'Enero',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Febrero'),
+              value: 'Febrero',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Marzo'),
+              value: 'Marzo',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Abril'),
+              value: 'Abril',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Mayo'),
+              value: 'Mayo',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Junio'),
+              value: 'Junio',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Julio'),
+              value: 'Julio',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Agosto'),
+              value: 'Agosto',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Septiembre'),
+              value: 'Septiembre',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Octubre'),
+              value: 'Octubre',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Noviembre'),
+              value: 'Noviembre',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Diciembre'),
+              value: 'Diciembre',
+            ),
+          ],
+          onChanged: (String value) {
+            setState(() {
+              _mes = value;
+              DataforPDF().mesn = _mes;
+            });
+          },
+          hint: Text('Mes'),
+          value: _mes,
+        ),
+      ),
+    );
+  }
+}
+
+class Dropdownano extends StatefulWidget {
+  @override
+  _DropdownanoState createState() {
+    return _DropdownanoState();
+  }
+}
+
+class _DropdownanoState extends State<Dropdownano> {
+  String _ano;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: DropdownButton<String>(
+        items: [
+          for (var i = 2020; i > 1950; i--)
+            DropdownMenuItem<String>(
+              child: Text('$i'),
+              value: '$i',
+            ),
+        ],
+        onChanged: (String value) {
+          setState(() {
+            _ano = value;
+            DataforPDF().anon = _ano;
+          });
+        },
+        hint: Text('Año'),
+        value: _ano,
+      ),
+    );
+  }
+}
+
+class DataforPDF {
+  //Datos de Fallecido
+  String nombref;
+  String diaf;
+  String mesf;
+  String anof;
+  String dian;
+  String mesn;
+  String anon;
+  String causa;
+  String ldece;
+  String lorigen;
+  String tiempo;
+  String situacion;
+  //Datos de Familiar en Mexico
+  String nombremex;
+  String telmex;
+  String parmex;
+  //Datos de Familiar en EU
+  String nombreeu;
+  String teleu;
+  String pareu;
+  //Datos de Funeraia
+  String nombrefune;
+  String telfune;
+  String correofune;
+  //Datos Extras
+  String extra;
+
+  void datosField(
+      String upperCase,
+      String upperCase2,
+      String upperCase3,
+      String upperCase4,
+      String upperCase5,
+      String upperCase6,
+      String upperCase7,
+      String upperCase8,
+      String upperCase9,
+      String upperCase10,
+      String upperCase11,
+      String upperCase12,
+      String lowerCase,
+      String lowerCase2) {
+    //Datos de Fallecido
+    String nombref = upperCase;
+    String causa = upperCase2;
+    String ldece = upperCase3;
+    String lorigen = upperCase4;
+    //Datos de Familiar en Mexico
+    String nombremex = upperCase5;
+    String telmex = upperCase6;
+    String parmex = upperCase7;
+    //Datos de Familiar en EU
+    String nombreeu = upperCase8;
+    String teleu = upperCase9;
+    String pareu = upperCase10;
+    //Datos de Funeraia
+    String nombrefune = upperCase11;
+    String telfune = upperCase12;
+    String correofune = lowerCase;
+    //Datos Extras
+    String extra = lowerCase2;
   }
 }

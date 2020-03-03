@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sezamiapp/Widgets/calendario/cal_wid.dart';
 import 'package:sezamiapp/Widgets/calendario/calendario_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
@@ -206,16 +207,13 @@ class MisBotonesHome extends StatelessWidget {
               new Expanded(
                 child: InkWell(
                   onTap: () => {
-                    showModalBottomSheet(
-                        elevation: (queryData.size.height) * 0.8,
-                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                        //shape:
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (context) {
-                          //eturn Calendario();
-                          return Calendario();
-                        }),
+                    Navigator.pop(context),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Calendario(),
+                      ),
+                    ),
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -764,7 +762,6 @@ class BotonesDirectorio extends StatelessWidget {
               ),
             ),
           ),
-          
         ],
       ),
     );
