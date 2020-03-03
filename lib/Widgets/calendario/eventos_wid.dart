@@ -30,6 +30,7 @@ class Evento extends StatelessWidget {
               //data['num'].sort();
 
               return ExpansionTile(
+                initiallyExpanded: true,
                 backgroundColor: Color(0x1D605e5f),
                 title: Text(
                   data['fecha'],
@@ -41,6 +42,12 @@ class Evento extends StatelessWidget {
                     leading: Icon(Icons.texture),
                     title: Text(data['evento']),
                   ),
+                  if (data['observacion'] != null)
+                    ListTile(
+                      leading: Icon(Icons.mail),
+                      title: Text('Observacion'),
+                      subtitle: Text(data['observacion']),
+                    ),
                 ],
               );
             },
