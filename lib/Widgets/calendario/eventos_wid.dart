@@ -23,33 +23,56 @@ class Evento extends StatelessWidget {
           docs.sort((a, b) {
             return a['num'].compareTo(b['num']);
           });
+
           return ListView.builder(
             itemCount: (docs.length),
             itemBuilder: (context, index) {
               Map<String, dynamic> data = docs[index].data;
               //data['num'].sort();
 
-              return ExpansionTile(
-                initiallyExpanded: true,
-                backgroundColor: Color(0x1D605e5f),
-                title: Text(
-                  data['fecha'],
-                  style: TextStyle(
-                      color: Color(0xFF262626), fontWeight: FontWeight.bold),
-                ),
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.texture),
-                    title: Text(data['evento']),
+              if (index == 0) {
+                return ExpansionTile(
+                  initiallyExpanded: true,
+                  backgroundColor: Color(0x1D605e5f),
+                  title: Text(
+                    data['fecha'],
+                    style: TextStyle(
+                        color: Color(0xFF262626), fontWeight: FontWeight.bold),
                   ),
-                  if (data['observacion'] != null)
+                  children: <Widget>[
                     ListTile(
-                      leading: Icon(Icons.mail),
-                      title: Text('Observacion'),
-                      subtitle: Text(data['observacion']),
+                      leading: Icon(Icons.texture),
+                      title: Text(data['evento']),
                     ),
-                ],
-              );
+                    if (data['observacion'] != null)
+                      ListTile(
+                        title: Text('Observacion'),
+                        subtitle: Text(data['observacion']),
+                      ),
+                  ],
+                );
+              } else {
+                return ExpansionTile(
+                  backgroundColor: Color(0x1D605e5f),
+                  title: Text(
+                    data['fecha'],
+                    style: TextStyle(
+                        color: Color(0xFF262626), fontWeight: FontWeight.bold),
+                  ),
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.texture),
+                      title: Text(data['evento']),
+                    ),
+                    if (data['observacion'] != null)
+                      ListTile(
+                        leading: Icon(Icons.mail),
+                        title: Text('Observacion'),
+                        subtitle: Text(data['observacion']),
+                      ),
+                  ],
+                );
+              }
             },
           );
         },

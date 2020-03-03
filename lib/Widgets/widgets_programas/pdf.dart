@@ -20,18 +20,39 @@ class _MyAppState extends State<PDF> {
     super.initState();
   }
 
-  Future<String> get _local async {
+  Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
 
     return directory.path;
   }
 
   Future<File> get _localFile async {
+<<<<<<< HEAD
     final path = await _local;
     return File('$path/opera1.pdf');
+=======
+    final path = await _localPath;
+    return File('$path/teste.pdf');
+  }
+
+  Future<File> writeCounter(Uint8List stream) async {
+    final file = await _localFile;
+
+    // Write the file
+    return file.writeAsBytes(stream);
+  }
+
+  Future<Uint8List> fetchPost() async {
+    final response =
+        await http.get('http://sezami.zacatecas.gob.mx/docs/rop2019.pdf');
+    final responseJson = response.bodyBytes;
+
+    return responseJson;
+>>>>>>> 7a04013fc27659fc3b755cf907ac841eac857515
   }
 
   loadPdf() async {
+    writeCounter(await fetchPost());
     path = (await _localFile).path;
 
     if (!mounted) return;
