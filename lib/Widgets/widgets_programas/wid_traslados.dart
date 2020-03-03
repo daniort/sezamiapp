@@ -71,18 +71,18 @@ class _TrasladosState extends State<Traslados> {
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
                           Expanded(
-                            child: Divider(),
+                            child: Divider(color: Colors.deepPurpleAccent,),
                           ),
                           Expanded(
                             flex: 3,
                             child: Center(
                                 child: Text(
                               'Datos del Fallecido',
-                              style: TextStyle(color: Colors.blueGrey),
+                              style: TextStyle(color: Colors.deepPurpleAccent,),
                             )),
                           ),
                           Expanded(
-                            child: Divider(),
+                            child: Divider(color: Colors.deepPurpleAccent,),
                           ),
                         ]),
                       ),
@@ -102,8 +102,63 @@ class _TrasladosState extends State<Traslados> {
                       Padding(
                         padding: EdgeInsets.all(2.0),
                         child: Container(
-                          //color: Colors.grey[250],
-                          color: Colors.deepOrange[100],
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF0F0F0),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: Color(0xFF838383),
+                                ),
+                              )),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                //color: Colors.deepPurpleAccent,
+                                width: queryData.size.width,
+                                margin: EdgeInsets.only(
+                                    left: (queryData.size.width) * 0.13),
+                                child: Text(
+                                  'Fecha del Deceso:',
+                                  style: TextStyle(
+                                      fontSize: 12.0, color: Colors.grey),
+                                ),
+                              ),
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(Icons.date_range,
+                                          color: Color(0xFF838383)),
+                                    ),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Dropdowndia(),
+                                    ),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Dropdownmes(),
+                                    ),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Dropdownano(),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(2.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF0F0F0),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: Color(0xFF838383),
+                                ),
+                              )),
                           child: Column(
                             children: <Widget>[
                               Container(
@@ -118,16 +173,23 @@ class _TrasladosState extends State<Traslados> {
                                 ),
                               ),
                               Container(
-                                
                                 child: Row(
                                   children: <Widget>[
                                     Expanded(
+                                      flex: 1,
+                                      child: Icon(Icons.date_range,
+                                          color: Color(0xFF838383)),
+                                    ),
+                                    Expanded(
+                                      flex: 2,
                                       child: Dropdowndia(),
                                     ),
                                     Expanded(
+                                      flex: 2,
                                       child: Dropdownmes(),
                                     ),
                                     Expanded(
+                                      flex: 2,
                                       child: Dropdownano(),
                                     ),
                                   ],
@@ -177,34 +239,106 @@ class _TrasladosState extends State<Traslados> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextField(
-                          controller: situacion,
-                          decoration: InputDecoration(
-                            labelText: 'Situación Migratoria:',
-                            //icon: Icon(Icons.account_circle),
-                            filled: true,
-                            prefixIcon: Icon(Icons.question_answer),
+                        padding: EdgeInsets.all(2.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF0F0F0),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: Color(0xFF838383),
+                                ),
+                              )),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(Icons.timelapse,
+                                          color: Color(0xFF838383)),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Text(
+                                        'Tiempo en Estados Unidos:',
+                                        style: TextStyle(
+                                          color: Color(0xFF838383),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Dropdowntimelapse(),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
-                          onSubmitted: (String textfinal) {},
                         ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.all(2.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF0F0F0),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: Color(0xFF838383),
+                                ),
+                              )),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(Icons.timelapse,
+                                          color: Color(0xFF838383)),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Text(
+                                        'Situación Migratoria:',
+                                        style: TextStyle(
+                                          color: Color(0xFF838383),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Dropdownsituacion(),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(children: <Widget>[
                           Expanded(
-                            child: Divider(),
+                            child: Divider(
+                              color: Colors.deepPurpleAccent,
+                            ),
                           ),
                           Expanded(
                             flex: 3,
                             child: Center(
                                 child: Text(
                               'Datos de Familiar en México',
-                              style: TextStyle(color: Colors.blueGrey),
+                              style: TextStyle(color: Colors.deepPurpleAccent,),
                             )),
                           ),
                           Expanded(
-                            child: Divider(),
+                            child: Divider(
+                              color: Colors.deepPurpleAccent,
+                            ),
                           ),
                         ]),
                       ),
@@ -402,6 +536,50 @@ class _TrasladosState extends State<Traslados> {
   }
 }
 
+class Dropdowntimelapse extends StatefulWidget {
+  @override
+  _DropdowntimelapseState createState() {
+    return _DropdowntimelapseState();
+  }
+}
+
+class _DropdowntimelapseState extends State<Dropdowntimelapse> {
+  String _value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: DropdownButton<String>(
+        items: [
+          DropdownMenuItem<String>(
+            child: Text('Menos de 1 Año'),
+            value: 'Menos de 1 Año',
+          ),
+          DropdownMenuItem<String>(
+            child: Text('1 a 3 Años'),
+            value: '1 a 3 Años',
+          ),
+          DropdownMenuItem<String>(
+            child: Text('3 a 5 Años'),
+            value: '3 a 5 Años',
+          ),
+           DropdownMenuItem<String>(
+            child: Text('Más de 5 Años'),
+            value: 'Más de 5 Años',
+          ),
+        ],
+        onChanged: (String value) {
+          setState(() {
+            _value = value;
+          });
+        },
+        hint: Text('Elegir...'),
+        value: _value,
+      ),
+    );
+  }
+}
+
 class Dropdowndia extends StatefulWidget {
   @override
   _DropdowndiaState createState() {
@@ -506,6 +684,50 @@ class _DropdownanoState extends State<Dropdownano> {
           });
         },
         hint: Text('Año'),
+        value: _value,
+      ),
+    );
+  }
+}
+
+class Dropdownsituacion extends StatefulWidget {
+  @override
+  _DropdownsituacionState createState() {
+    return _DropdownsituacionState();
+  }
+}
+
+class _DropdownsituacionState extends State<Dropdownsituacion> {
+  String _value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: DropdownButton<String>(
+        items: [
+          DropdownMenuItem<String>(
+            child: Text('Residente'),
+            value: 'Residente',
+          ),
+          DropdownMenuItem<String>(
+            child: Text('Ciudadano'),
+            value: 'Ciudadano',
+          ),
+          DropdownMenuItem<String>(
+            child: Text('Turista'),
+            value: 'Turista',
+          ),
+          DropdownMenuItem<String>(
+            child: Text('Indocumentado'),
+            value: 'Indocumentado',
+          ),
+        ],
+        onChanged: (String value) {
+          setState(() {
+            _value = value;
+          });
+        },
+        hint: Text('Select Item'),
         value: _value,
       ),
     );

@@ -27,10 +27,6 @@ class _MyAppState extends State<PDF> {
   }
 
   Future<File> get _localFile async {
-<<<<<<< HEAD
-    final path = await _local;
-    return File('$path/opera1.pdf');
-=======
     final path = await _localPath;
     return File('$path/teste.pdf');
   }
@@ -48,7 +44,6 @@ class _MyAppState extends State<PDF> {
     final responseJson = response.bodyBytes;
 
     return responseJson;
->>>>>>> 7a04013fc27659fc3b755cf907ac841eac857515
   }
 
   loadPdf() async {
