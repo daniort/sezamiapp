@@ -106,7 +106,7 @@ class Img2 extends StatelessWidget {
          
           borderRadius: BorderRadius.circular(30.0),
         ),
-        width: queryData.size.width,
+        width: (queryData.size.width),
         height: (queryData.size.height)*.8,
         child: Center(
           child: Image.asset('images/banner/capmSrc.jpg', ),

@@ -102,7 +102,8 @@ class _TrasladosState extends State<Traslados> {
                       Padding(
                         padding: EdgeInsets.all(2.0),
                         child: Container(
-                          color: Colors.grey[250],
+                          //color: Colors.grey[250],
+                          color: Colors.deepOrange[100],
                           child: Column(
                             children: <Widget>[
                               Container(
@@ -117,29 +118,18 @@ class _TrasladosState extends State<Traslados> {
                                 ),
                               ),
                               Container(
-                                //color: Colors.deepOrange[100],
+                                
                                 child: Row(
                                   children: <Widget>[
-                                    DropdownButton<String>(
-                                      value: dropdownValue,
-                                      icon: Icon(Icons.arrow_drop_down),
-                                      iconSize: 24,
-                                      elevation: 16,
-                                      style:
-                                          TextStyle(color: Colors.deepPurple),
-                                      onChanged: (String newValue) {
-                                        setState(() {
-                                          dropdownValue = newValue;
-                                        });
-                                      },
-                                      items: <String>['A', 'B', 'C', 'D']
-                                          .map((String value) {
-                                        return new DropdownMenuItem<String>(
-                                          value: value,
-                                          child: new Text(value),
-                                        );
-                                      }).toList(),
-                                    )
+                                    Expanded(
+                                      child: Dropdowndia(),
+                                    ),
+                                    Expanded(
+                                      child: Dropdownmes(),
+                                    ),
+                                    Expanded(
+                                      child: Dropdownano(),
+                                    ),
                                   ],
                                 ),
                               )
@@ -407,6 +397,116 @@ class _TrasladosState extends State<Traslados> {
             child: Footer(),
           )
         ],
+      ),
+    );
+  }
+}
+
+class Dropdowndia extends StatefulWidget {
+  @override
+  _DropdowndiaState createState() {
+    return _DropdowndiaState();
+  }
+}
+
+class _DropdowndiaState extends State<Dropdowndia> {
+  String _value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: DropdownButton<String>(
+        items: [
+          for (var i = 1; i < 32; i++)
+            DropdownMenuItem<String>(
+              child: Text('$i'),
+              value: '$i',
+            ),
+        ],
+        onChanged: (String value) {
+          setState(() {
+            _value = value;
+          });
+        },
+        hint: Text('Día'),
+        value: _value,
+      ),
+    );
+  }
+}
+
+class Dropdownmes extends StatefulWidget {
+  @override
+  _DropdownmesState createState() {
+    return _DropdownmesState();
+  }
+}
+
+class _DropdownmesState extends State<Dropdownmes> {
+  String _value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //color: Colors.orange,
+      width: 160,
+      child: Center(
+        child: DropdownButton<String>(
+          items: [
+            DropdownMenuItem<String>(
+              child: Text('Enero'),
+              value: 'Enero',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Febrero'),
+              value: 'Febrero',
+            ),
+            DropdownMenuItem<String>(
+              child: Text('Marzo'),
+              value: 'Marzo',
+            ),
+          ],
+          onChanged: (String value) {
+            setState(() {
+              _value = value;
+            });
+          },
+          hint: Text('Mes'),
+          value: _value,
+        ),
+      ),
+    );
+  }
+}
+
+class Dropdownano extends StatefulWidget {
+  @override
+  _DropdownanoState createState() {
+    return _DropdownanoState();
+  }
+}
+
+class _DropdownanoState extends State<Dropdownano> {
+  String _value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: DropdownButton<String>(
+        items: [
+          for (var i = 2020; i > 1950; i--)
+            DropdownMenuItem<String>(
+              child: Text('$i'),
+              value: '$i',
+            ),
+        ],
+        onChanged: (String value) {
+          setState(() {
+            _value = value;
+          });
+        },
+        hint: Text('Año'),
+        value: _value,
       ),
     );
   }
