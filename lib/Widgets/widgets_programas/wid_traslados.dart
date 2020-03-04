@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
+//import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
 
 class Traslados extends StatefulWidget {
   @override
@@ -14,7 +14,6 @@ class _TrasladosState extends State<Traslados> {
   TextEditingController causa;
   TextEditingController lugarmuerte;
   TextEditingController lugarorigen;
-  TextEditingController situacion;
   TextEditingController nombreparmex;
   TextEditingController telparmex;
   TextEditingController nombrepareu;
@@ -25,7 +24,7 @@ class _TrasladosState extends State<Traslados> {
   TextEditingController parmex;
   TextEditingController pareu;
   TextEditingController extra;
-  
+
   var now = new DateTime.now();
   @override
   void initState() {
@@ -34,7 +33,6 @@ class _TrasladosState extends State<Traslados> {
     causa = TextEditingController();
     lugarmuerte = TextEditingController();
     lugarorigen = TextEditingController();
-    situacion = TextEditingController();
     nombreparmex = TextEditingController();
     telparmex = TextEditingController();
     nombrepareu = TextEditingController();
@@ -48,6 +46,14 @@ class _TrasladosState extends State<Traslados> {
     super.initState();
   }
 
+  String situ;
+  String time;
+  String dian;
+  String mesn;
+  String anon;
+  String diaf;
+  String mesf;
+  String anof;
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -129,7 +135,7 @@ class _TrasladosState extends State<Traslados> {
                                         flex: 2,
                                         child: Center(
                                             child: Text(
-                                          'Fecha de Deceso:',
+                                          'Fecha de Nacimiento:',
                                           style: TextStyle(
                                               fontSize: 12.0,
                                               color: Color(0xFF838383)),
@@ -140,9 +146,110 @@ class _TrasladosState extends State<Traslados> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
                                           children: <Widget>[
-                                            Dropdowndiaf(),
-                                            Dropdownmesf(),
-                                            Dropdownanof(),
+                                            Container(
+                                              child: DropdownButton<String>(
+                                                items: [
+                                                  for (var i = 1; i < 32; i++)
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('$i'),
+                                                      value: '$i',
+                                                    ),
+                                                ],
+                                                onChanged: (String value) {
+                                                  setState(() {
+                                                    dian = value;
+                                                  });
+                                                },
+                                                hint: Text('Día'),
+                                                value: dian,
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Center(
+                                                child: DropdownButton<String>(
+                                                  items: [
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Enero'),
+                                                      value: 'Enero',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Febrero'),
+                                                      value: 'Febrero',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Marzo'),
+                                                      value: 'Marzo',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Abril'),
+                                                      value: 'Abril',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Mayo'),
+                                                      value: 'Mayo',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Junio'),
+                                                      value: 'Junio',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Julio'),
+                                                      value: 'Julio',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Agosto'),
+                                                      value: 'Agosto',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Septiembre'),
+                                                      value: 'Septiembre',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Octubre'),
+                                                      value: 'Octubre',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Noviembre'),
+                                                      value: 'Noviembre',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Diciembre'),
+                                                      value: 'Diciembre',
+                                                    ),
+                                                  ],
+                                                  onChanged: (String value) {
+                                                    setState(() {
+                                                      mesn = value;
+                                                    });
+                                                  },
+                                                  hint: Text('Mes'),
+                                                  value: mesn,
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Center(
+                                                child: DropdownButton<String>(
+                                                  items: [
+                                                    for (var i = 2020;
+                                                        i > 1950;
+                                                        i--)
+                                                      DropdownMenuItem<String>(
+                                                        child: Text('$i'),
+                                                        value: '$i',
+                                                      ),
+                                                  ],
+                                                  onChanged: (String value) {
+                                                    setState(() {
+                                                      anon = value;
+                                                      //DataforPDF().anon = anon;
+                                                    });
+                                                  },
+                                                  hint: Text('Año'),
+                                                  value: anon,
+                                                ),
+                                              ),
+                                            )
                                           ],
                                         )),
                                   ],
@@ -176,7 +283,7 @@ class _TrasladosState extends State<Traslados> {
                                         flex: 2,
                                         child: Center(
                                             child: Text(
-                                          'Fecha de Nacimiento:',
+                                          'Fecha de Deceso:',
                                           style: TextStyle(
                                               fontSize: 12.0,
                                               color: Color(0xFF838383)),
@@ -187,9 +294,110 @@ class _TrasladosState extends State<Traslados> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
                                           children: <Widget>[
-                                            Dropdowndia(),
-                                            Dropdownmes(),
-                                            Dropdownano(),
+                                            Container(
+                                              //color: Colors.blue,
+                                              child: DropdownButton<String>(
+                                                items: [
+                                                  for (var i = 1; i < 32; i++)
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('$i'),
+                                                      value: '$i',
+                                                    ),
+                                                ],
+                                                onChanged: (String value) {
+                                                  setState(() {
+                                                    diaf = value;
+                                                  });
+                                                },
+                                                hint: Text('Día'),
+                                                value: diaf,
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Center(
+                                                child: DropdownButton<String>(
+                                                  items: [
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Enero'),
+                                                      value: 'Enero',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Febrero'),
+                                                      value: 'Febrero',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Marzo'),
+                                                      value: 'Marzo',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Abril'),
+                                                      value: 'Abril',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Mayo'),
+                                                      value: 'Mayo',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Junio'),
+                                                      value: 'Junio',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Julio'),
+                                                      value: 'Julio',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Agosto'),
+                                                      value: 'Agosto',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Septiembre'),
+                                                      value: 'Septiembre',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Octubre'),
+                                                      value: 'Octubre',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Noviembre'),
+                                                      value: 'Noviembre',
+                                                    ),
+                                                    DropdownMenuItem<String>(
+                                                      child: Text('Diciembre'),
+                                                      value: 'Diciembre',
+                                                    ),
+                                                  ],
+                                                  onChanged: (String value) {
+                                                    setState(() {
+                                                      mesf = value;
+                                                    });
+                                                  },
+                                                  hint: Text('Mes'),
+                                                  value: mesf,
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Center(
+                                                child: DropdownButton<String>(
+                                                  items: [
+                                                    for (var i = 2020;
+                                                        i > 1950;
+                                                        i--)
+                                                      DropdownMenuItem<String>(
+                                                        child: Text('$i'),
+                                                        value: '$i',
+                                                      ),
+                                                  ],
+                                                  onChanged: (String value) {
+                                                    setState(() {
+                                                      anof = value;
+                                                    });
+                                                  },
+                                                  hint: Text('Año'),
+                                                  value: anof,
+                                                ),
+                                              ),
+                                            ),
                                           ],
                                         )),
                                   ],
@@ -268,9 +476,36 @@ class _TrasladosState extends State<Traslados> {
                                       ),
                                     ),
                                     Expanded(
-                                      flex: 3,
-                                      child: Dropdowntimelapse(),
-                                    ),
+                                        flex: 3,
+                                        child: Center(
+                                          child: DropdownButton<String>(
+                                            items: [
+                                              DropdownMenuItem<String>(
+                                                child: Text('Menos de 1 Año'),
+                                                value: 'Menos de 1 Año',
+                                              ),
+                                              DropdownMenuItem<String>(
+                                                child: Text('1 a 3 Años'),
+                                                value: '1 a 3 Años',
+                                              ),
+                                              DropdownMenuItem<String>(
+                                                child: Text('3 a 5 Años'),
+                                                value: '3 a 5 Años',
+                                              ),
+                                              DropdownMenuItem<String>(
+                                                child: Text('Más de 5 Años'),
+                                                value: 'Más de 5 Años',
+                                              ),
+                                            ],
+                                            onChanged: (String value) {
+                                              setState(() {
+                                                time = value;
+                                              });
+                                            },
+                                            hint: Text('Elegir...'),
+                                            value: time,
+                                          ),
+                                        )),
                                   ],
                                 ),
                               )
@@ -308,9 +543,36 @@ class _TrasladosState extends State<Traslados> {
                                       ),
                                     ),
                                     Expanded(
-                                      flex: 3,
-                                      child: Dropdownsituacion(),
-                                    ),
+                                        flex: 3,
+                                        child: Center(
+                                          child: DropdownButton<String>(
+                                            items: [
+                                              DropdownMenuItem<String>(
+                                                child: Text('Residente'),
+                                                value: 'Residente',
+                                              ),
+                                              DropdownMenuItem<String>(
+                                                child: Text('Ciudadano'),
+                                                value: 'Ciudadano',
+                                              ),
+                                              DropdownMenuItem<String>(
+                                                child: Text('Turista'),
+                                                value: 'Turista',
+                                              ),
+                                              DropdownMenuItem<String>(
+                                                child: Text('Indocumentado'),
+                                                value: 'Indocumentado',
+                                              ),
+                                            ],
+                                            onChanged: (String value) {
+                                              setState(() {
+                                                situ = value;
+                                              });
+                                            },
+                                            hint: Text('Elegir...'),
+                                            value: situ,
+                                          ),
+                                        )),
                                   ],
                                 ),
                               )
@@ -519,23 +781,31 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    DataforPDF().datosField(
+                    myPDF(
                       nombre.text.toUpperCase(),
+                      edad.text.toUpperCase(),
                       causa.text.toUpperCase(),
                       lugarmuerte.text.toUpperCase(),
                       lugarorigen.text.toUpperCase(),
                       nombreparmex.text.toUpperCase(),
                       telparmex.text.toUpperCase(),
-                      parmex.text.toUpperCase(),
                       nombrepareu.text.toUpperCase(),
                       telpareu.text.toUpperCase(),
-                      pareu.text.toUpperCase(),
                       nombrefune.text.toUpperCase(),
                       telfune.text.toUpperCase(),
                       correofune.text.toLowerCase(),
-                      extra.text.toLowerCase(),
+                      parmex.text.toUpperCase(),
+                      pareu.text.toUpperCase(),
+                      extra.text.toUpperCase(),
+                      situ,
+                      time,
+                      dian,
+                      mesn,
+                      anon,
+                      diaf,
+                      mesf,
+                      anof,
                     );
-                    myPDF();
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -555,459 +825,5 @@ class _TrasladosState extends State<Traslados> {
         ],
       ),
     );
-  }
-}
-
-class Dropdowntimelapse extends StatefulWidget {
-  @override
-  _DropdowntimelapseState createState() {
-    return _DropdowntimelapseState();
-  }
-}
-
-class _DropdowntimelapseState extends State<Dropdowntimelapse> {
-  String time;
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: DropdownButton<String>(
-        items: [
-          DropdownMenuItem<String>(
-            child: Text('Menos de 1 Año'),
-            value: 'Menos de 1 Año',
-          ),
-          DropdownMenuItem<String>(
-            child: Text('1 a 3 Años'),
-            value: '1 a 3 Años',
-          ),
-          DropdownMenuItem<String>(
-            child: Text('3 a 5 Años'),
-            value: '3 a 5 Años',
-          ),
-          DropdownMenuItem<String>(
-            child: Text('Más de 5 Años'),
-            value: 'Más de 5 Años',
-          ),
-        ],
-        onChanged: (String value) {
-          setState(() {
-            time = value;
-            DataforPDF().tiempo = time;
-          });
-        },
-        hint: Text('Elegir...'),
-        value: time,
-      ),
-    );
-  }
-}
-
-class Dropdowndiaf extends StatefulWidget {
-  @override
-  _DropdowndiafState createState() {
-    return _DropdowndiafState();
-  }
-}
-
-class _DropdowndiafState extends State<Dropdowndiaf> {
-  String _dia;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.blue,
-      child: DropdownButton<String>(
-        items: [
-          for (var i = 1; i < 32; i++)
-            DropdownMenuItem<String>(
-              child: Text('$i'),
-              value: '$i',
-            ),
-        ],
-        onChanged: (String value) {
-          setState(() {
-            _dia = value;
-            DataforPDF().diaf = _dia;
-            //returnardia(value);
-          });
-        },
-        hint: Text('Día'),
-        value: _dia,
-      ),
-    );
-  }
-}
-
-class Dropdownmesf extends StatefulWidget {
-  @override
-  _DropdownmesfState createState() {
-    return _DropdownmesfState();
-  }
-}
-
-class _DropdownmesfState extends State<Dropdownmesf> {
-  String _mes;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.orange,
-      //width: 160,
-      child: Center(
-        child: DropdownButton<String>(
-          items: [
-            DropdownMenuItem<String>(
-              child: Text('Enero'),
-              value: 'Enero',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Febrero'),
-              value: 'Febrero',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Marzo'),
-              value: 'Marzo',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Abril'),
-              value: 'Abril',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Mayo'),
-              value: 'Mayo',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Junio'),
-              value: 'Junio',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Julio'),
-              value: 'Julio',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Agosto'),
-              value: 'Agosto',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Septiembre'),
-              value: 'Septiembre',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Octubre'),
-              value: 'Octubre',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Noviembre'),
-              value: 'Noviembre',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Diciembre'),
-              value: 'Diciembre',
-            ),
-          ],
-          onChanged: (String value) {
-            setState(() {
-              _mes = value;
-              DataforPDF().mesf = _mes;
-            });
-          },
-          hint: Text('Mes'),
-          value: _mes,
-        ),
-      ),
-    );
-  }
-}
-
-class Dropdownanof extends StatefulWidget {
-  @override
-  _DropdownanofState createState() {
-    return _DropdownanofState();
-  }
-}
-
-class _DropdownanofState extends State<Dropdownanof> {
-  String _ano;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: DropdownButton<String>(
-        items: [
-          for (var i = 2020; i > 1950; i--)
-            DropdownMenuItem<String>(
-              child: Text('$i'),
-              value: '$i',
-            ),
-        ],
-        onChanged: (String value) {
-          setState(() {
-            _ano = value;
-            DataforPDF().anof = _ano;
-          });
-        },
-        hint: Text('Año'),
-        value: _ano,
-      ),
-    );
-  }
-}
-
-class Dropdownsituacion extends StatefulWidget {
-  @override
-  _DropdownsituacionState createState() {
-    return _DropdownsituacionState();
-  }
-}
-
-class _DropdownsituacionState extends State<Dropdownsituacion> {
-  String situ;
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: DropdownButton<String>(
-        items: [
-          DropdownMenuItem<String>(
-            child: Text('Residente'),
-            value: 'Residente',
-          ),
-          DropdownMenuItem<String>(
-            child: Text('Ciudadano'),
-            value: 'Ciudadano',
-          ),
-          DropdownMenuItem<String>(
-            child: Text('Turista'),
-            value: 'Turista',
-          ),
-          DropdownMenuItem<String>(
-            child: Text('Indocumentado'),
-            value: 'Indocumentado',
-          ),
-        ],
-        onChanged: (String value) {
-          setState(() {
-            situ = value;
-            DataforPDF().situacion = situ;
-          });
-        },
-        hint: Text('Elegir...'),
-        value: situ,
-      ),
-    );
-  }
-}
-
-class Dropdowndia extends StatefulWidget {
-  @override
-  _DropdowndiaState createState() {
-    return _DropdowndiaState();
-  }
-}
-
-class _DropdowndiaState extends State<Dropdowndia> {
-  String _dia;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.blue,
-      child: DropdownButton<String>(
-        items: [
-          for (var i = 1; i < 32; i++)
-            DropdownMenuItem<String>(
-              child: Text('$i'),
-              value: '$i',
-            ),
-        ],
-        onChanged: (String value) {
-          setState(() {
-            _dia = value;
-            DataforPDF().dian = _dia;
-            //returnardia(value);
-          });
-        },
-        hint: Text('Día'),
-        value: _dia,
-      ),
-    );
-  }
-}
-
-class Dropdownmes extends StatefulWidget {
-  @override
-  _DropdownmesState createState() {
-    return _DropdownmesState();
-  }
-}
-
-class _DropdownmesState extends State<Dropdownmes> {
-  String _mes;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.orange,
-      //width: 160,
-      child: Center(
-        child: DropdownButton<String>(
-          items: [
-            DropdownMenuItem<String>(
-              child: Text('Enero'),
-              value: 'Enero',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Febrero'),
-              value: 'Febrero',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Marzo'),
-              value: 'Marzo',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Abril'),
-              value: 'Abril',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Mayo'),
-              value: 'Mayo',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Junio'),
-              value: 'Junio',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Julio'),
-              value: 'Julio',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Agosto'),
-              value: 'Agosto',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Septiembre'),
-              value: 'Septiembre',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Octubre'),
-              value: 'Octubre',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Noviembre'),
-              value: 'Noviembre',
-            ),
-            DropdownMenuItem<String>(
-              child: Text('Diciembre'),
-              value: 'Diciembre',
-            ),
-          ],
-          onChanged: (String value) {
-            setState(() {
-              _mes = value;
-              DataforPDF().mesn = _mes;
-            });
-          },
-          hint: Text('Mes'),
-          value: _mes,
-        ),
-      ),
-    );
-  }
-}
-
-class Dropdownano extends StatefulWidget {
-  @override
-  _DropdownanoState createState() {
-    return _DropdownanoState();
-  }
-}
-
-class _DropdownanoState extends State<Dropdownano> {
-  String _ano;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: DropdownButton<String>(
-        items: [
-          for (var i = 2020; i > 1950; i--)
-            DropdownMenuItem<String>(
-              child: Text('$i'),
-              value: '$i',
-            ),
-        ],
-        onChanged: (String value) {
-          setState(() {
-            _ano = value;
-            DataforPDF().anon = _ano;
-          });
-        },
-        hint: Text('Año'),
-        value: _ano,
-      ),
-    );
-  }
-}
-
-class DataforPDF {
-  //Datos de Fallecido
-  String nombref;
-  String diaf;
-  String mesf;
-  String anof;
-  String dian;
-  String mesn;
-  String anon;
-  String causa;
-  String ldece;
-  String lorigen;
-  String tiempo;
-  String situacion;
-  //Datos de Familiar en Mexico
-  String nombremex;
-  String telmex;
-  String parmex;
-  //Datos de Familiar en EU
-  String nombreeu;
-  String teleu;
-  String pareu;
-  //Datos de Funeraia
-  String nombrefune;
-  String telfune;
-  String correofune;
-  //Datos Extras
-  String extra;
-
-  void datosField(
-      String upperCase,
-      String upperCase2,
-      String upperCase3,
-      String upperCase4,
-      String upperCase5,
-      String upperCase6,
-      String upperCase7,
-      String upperCase8,
-      String upperCase9,
-      String upperCase10,
-      String upperCase11,
-      String upperCase12,
-      String lowerCase,
-      String lowerCase2) {
-    //Datos de Fallecido
-    String nombref = upperCase;
-    String causa = upperCase2;
-    String ldece = upperCase3;
-    String lorigen = upperCase4;
-    //Datos de Familiar en Mexico
-    String nombremex = upperCase5;
-    String telmex = upperCase6;
-    String parmex = upperCase7;
-    //Datos de Familiar en EU
-    String nombreeu = upperCase8;
-    String teleu = upperCase9;
-    String pareu = upperCase10;
-    //Datos de Funeraia
-    String nombrefune = upperCase11;
-    String telfune = upperCase12;
-    String correofune = lowerCase;
-    //Datos Extras
-    String extra = lowerCase2;
   }
 }

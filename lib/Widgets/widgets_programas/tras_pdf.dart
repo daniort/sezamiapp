@@ -1,37 +1,35 @@
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
-import 'package:image/image.dart';
-
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
-import 'package:sezamiapp/Widgets/widgets_programas/wid_traslados.dart';
 
-Future<String> myPDF() async {
+Future<String> myPDF(
+  String nombre,
+  String edad,
+  String causa,
+  String lugarmuerte,
+  String lugarorigen,
+  String nombreparmex,
+  String telparmex,
+  String nombrepareu,
+  String telpareu,
+  String nombrefune,
+  String telfune,
+  String correofune,
+  String parmex,
+  String pareu,
+  String extra,
+  String situ,
+  String time,
+  String dian,
+  String mesn,
+  String anon,
+  String diaf,
+  String mesf,
+  String anof,
+) async {
   final Document pdf = Document();
-  String nombref=DataforPDF().nombref;
-  String diaf;
-  String mesf=DataforPDF().mesf;
-  String anof=DataforPDF().anof;
-  String dian=DataforPDF().dian;
-  String mesn=DataforPDF().mesn;
-  String anon=DataforPDF().anon;
-  String causa=DataforPDF().causa;
-  String ldece=DataforPDF().ldece;
-  String lorigen=DataforPDF().lorigen;
-  String tiempo=DataforPDF().tiempo;
-  String situacion=DataforPDF().situacion;
-  String nombremex=DataforPDF().nombremex;
-  String telmex=DataforPDF().telmex;
-  String parmex=DataforPDF().parmex;
-  String nombreeu=DataforPDF().nombreeu;
-  String teleu=DataforPDF().teleu;
-  String pareu=DataforPDF().pareu;
-  String nombrefune=DataforPDF().nombrefune;
-  String telfune=DataforPDF().telfune;
-  String correofune=DataforPDF().correofune;
-  String extra=DataforPDF().extra;
 
   pdf.addPage(
     MultiPage(
@@ -77,34 +75,38 @@ Future<String> myPDF() async {
                 ])),
         Padding(
           padding: EdgeInsets.all(4.0),
-          child: Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //mainAxisAlignment: MainAxisAlignment.en,
             children: <Widget>[
               Container(
+              
                 child: Text('FECHA DEL MUERTE: $diaf/$mesf/$anof',
                     style: TextStyle(fontSize: 10.0)),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //mainAxisAlignment: MainAxisAlignment.en,
-                children: <Widget>[
-                  Container(
-                    child: Center(
-                      child: Text('FECHA DE NOTIFICACIÓN: ___/___/______',
-                          style: TextStyle(fontSize: 10.0)),
-                    ),
-                  ),
-                  Container(
-                    child: Center(
-                      child: Text('FECHA DE LLEGADA: ___/___/______',
-                          style: TextStyle(fontSize: 10.0)),
-                    ),
-                  ),
-                ],
+              Container(
+                child: Center(
+                  child: Text('FECHA DE NOTIFICACIÓN: ___ ___________ ______',
+                      style: TextStyle(fontSize: 10.0)),
+                ),
+              ),
+              Container(
+                child: Center(
+                  child: Text('FECHA DE LLEGADA: ___ ___________ ______',
+                      style: TextStyle(fontSize: 10.0)),
+                ),
               ),
             ],
           ),
         ),
         Header(level: 3, text: 'Datos del Fallecido'),
+        Header(
+            level: 3,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Datos del Fallecido', textScaleFactor: 1),
+                ])),
         Padding(
           padding: EdgeInsets.all(4.0),
           child: Row(children: <Widget>[
@@ -115,12 +117,15 @@ Future<String> myPDF() async {
               ),
             ),
             Container(
+                decoration: const BoxDecoration(
+                    border: BoxBorder(
+                        bottom: true, width: 0.5, color: PdfColors.grey)),
               alignment: Alignment.centerRight,
               child: Text(
-                '$nombref',
+                '$nombre',
                 style: TextStyle(
                   fontSize: 12.0,
-                  decoration: TextDecoration.underline,
+                  
                 ),
               ),
             ),
@@ -149,8 +154,15 @@ Future<String> myPDF() async {
               ),
             ),
             Container(
+                decoration: const BoxDecoration(
+                    border: BoxBorder(
+                        bottom: true, width: 0.5, color: PdfColors.grey)),
               child: Center(
-                child: Text('%%%%', style: TextStyle(fontSize: 12.0)),
+                child: Text(' $dian   $mesn    $anon',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      decoration: TextDecoration.underline,
+                    )),
               ),
             ),
           ]),
@@ -186,7 +198,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('$ldece',
+                child: Text('$lugarmuerte',
                     style: TextStyle(
                       fontSize: 12.0,
                       decoration: TextDecoration.underline,
@@ -206,7 +218,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('$lorigen',
+                child: Text('$lugarmuerte',
                     style: TextStyle(
                       fontSize: 12.0,
                       decoration: TextDecoration.underline,
@@ -226,7 +238,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('&&',
+                child: Text('$situ',
                     style: TextStyle(
                       fontSize: 12.0,
                       decoration: TextDecoration.underline,
@@ -246,7 +258,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('%%%%',
+                child: Text('$time',
                     style: TextStyle(
                       fontSize: 12.0,
                       decoration: TextDecoration.underline,
@@ -269,7 +281,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('$nombremex',
+                child: Text('$parmex',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -289,7 +301,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('$telmex',
+                child: Text('$telparmex',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -325,7 +337,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('$nombreeu',
+                child: Text('$nombreparmex',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -345,7 +357,7 @@ Future<String> myPDF() async {
             ),
             Container(
               child: Center(
-                child: Text('$teleu',
+                child: Text('$telpareu',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -426,22 +438,21 @@ Future<String> myPDF() async {
           ]),
         ),
         if (!extra.isEmpty)
-          Header(level: 3, text: 'Información Extra'),
+          Header(level: 4, text: 'Información Extra'),
         if (!extra.isEmpty)
           Padding(
-            padding: EdgeInsets.all(4.0),
+            padding: EdgeInsets.all(1.0),
             child: Row(children: <Widget>[
               Container(
                 child: Center(
-                  child: Text('ANOTACIONES:', style: TextStyle(fontSize: 12.0)),
+                  child: Text('ANOTACIONES:', style: TextStyle(fontSize: 10.0)),
                 ),
               ),
               Container(
                 child: Center(
                   child: Text('$extra',
                       style: TextStyle(
-                          fontSize: 12.0,
-                          decoration: TextDecoration.underline)),
+                          fontSize: 9.0, decoration: TextDecoration.underline)),
                 ),
               ),
             ]),
@@ -449,10 +460,9 @@ Future<String> myPDF() async {
       ],
     ),
   );
-  
-  final output =
-      await getExternalStorageDirectory();
-  final file = File("${output.path}/goku.pdf");
+
+  final output = await getExternalStorageDirectory();
+  final file = File("${output.path}/solici.pdf");
   await file.writeAsBytes(pdf.save());
   final Email email = Email(
     body: 'Generado desde Sezamo Digital Movil',
