@@ -1,18 +1,15 @@
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
-import 'package:image/image.dart';
-
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 
 Future<String> myPDF(
   String nombre,
+  String edad,
   String causa,
-  String lugarorigen,
   String lugarmuerte,
-  String situacion,
+  String lugarorigen,
   String nombreparmex,
   String telparmex,
   String nombrepareu,
@@ -20,10 +17,19 @@ Future<String> myPDF(
   String nombrefune,
   String telfune,
   String correofune,
+  String parmex,
+  String pareu,
+  String extra,
+  String situ,
+  String time,
+  String dian,
+  String mesn,
+  String anon,
+  String diaf,
+  String mesf,
+  String anof,
 ) async {
   final Document pdf = Document();
-  var now = new DateTime.now();
-  var nowm =now.month;
 
   pdf.addPage(
     MultiPage(
@@ -65,40 +71,42 @@ Future<String> myPDF(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text('SOLICITUD DE TRASLADO', textScaleFactor: 1.5),
-                  Text('Ofi.No. 022-$nowm', textScaleFactor: 1),
+                  Text('Ofi.No. 022-', textScaleFactor: 1),
                 ])),
         Padding(
           padding: EdgeInsets.all(4.0),
-          child: Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //mainAxisAlignment: MainAxisAlignment.en,
             children: <Widget>[
               Container(
-                child: Text('FECHA DEL MUERTE: ___/___/______',
+              
+                child: Text('FECHA DEL MUERTE: $diaf/$mesf/$anof',
                     style: TextStyle(fontSize: 10.0)),
               ),
-              Column(
-                  
-  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //mainAxisAlignment: MainAxisAlignment.en,
-                children: <Widget>[
-                  Container(
-                    child: Center(
-
-                      child: Text('FECHA DE NOTIFICACIÓN: ___/___/______',
-                          style: TextStyle(fontSize: 10.0)),
-                    ),
-                  ),
-                  Container(
-                    child: Center(
-                      child: Text('FECHA DE LLEGADA: ___/___/______',
-                          style: TextStyle(fontSize: 10.0)),
-                    ),
-                  ),
-                ],
+              Container(
+                child: Center(
+                  child: Text('FECHA DE NOTIFICACIÓN: ___ ___________ ______',
+                      style: TextStyle(fontSize: 10.0)),
+                ),
+              ),
+              Container(
+                child: Center(
+                  child: Text('FECHA DE LLEGADA: ___ ___________ ______',
+                      style: TextStyle(fontSize: 10.0)),
+                ),
               ),
             ],
           ),
         ),
         Header(level: 3, text: 'Datos del Fallecido'),
+        Header(
+            level: 3,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Datos del Fallecido', textScaleFactor: 1),
+                ])),
         Padding(
           padding: EdgeInsets.all(4.0),
           child: Row(children: <Widget>[
@@ -109,12 +117,15 @@ Future<String> myPDF(
               ),
             ),
             Container(
+                decoration: const BoxDecoration(
+                    border: BoxBorder(
+                        bottom: true, width: 0.5, color: PdfColors.grey)),
               alignment: Alignment.centerRight,
               child: Text(
                 '$nombre',
                 style: TextStyle(
                   fontSize: 12.0,
-                  decoration: TextDecoration.underline,
+                  
                 ),
               ),
             ),
@@ -143,8 +154,15 @@ Future<String> myPDF(
               ),
             ),
             Container(
+                decoration: const BoxDecoration(
+                    border: BoxBorder(
+                        bottom: true, width: 0.5, color: PdfColors.grey)),
               child: Center(
-                child: Text('%%%%', style: TextStyle(fontSize: 12.0)),
+                child: Text(' $dian   $mesn    $anon',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      decoration: TextDecoration.underline,
+                    )),
               ),
             ),
           ]),
@@ -200,7 +218,7 @@ Future<String> myPDF(
             ),
             Container(
               child: Center(
-                child: Text('$lugarorigen',
+                child: Text('$lugarmuerte',
                     style: TextStyle(
                       fontSize: 12.0,
                       decoration: TextDecoration.underline,
@@ -220,7 +238,7 @@ Future<String> myPDF(
             ),
             Container(
               child: Center(
-                child: Text('$situacion',
+                child: Text('$situ',
                     style: TextStyle(
                       fontSize: 12.0,
                       decoration: TextDecoration.underline,
@@ -240,7 +258,7 @@ Future<String> myPDF(
             ),
             Container(
               child: Center(
-                child: Text('%%%%',
+                child: Text('$time',
                     style: TextStyle(
                       fontSize: 12.0,
                       decoration: TextDecoration.underline,
@@ -263,7 +281,7 @@ Future<String> myPDF(
             ),
             Container(
               child: Center(
-                child: Text('$nombreparmex',
+                child: Text('$parmex',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -300,7 +318,7 @@ Future<String> myPDF(
             ),
             Container(
               child: Center(
-                child: Text('%%%%%',
+                child: Text('$parmex',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -319,7 +337,7 @@ Future<String> myPDF(
             ),
             Container(
               child: Center(
-                child: Text('$nombrepareu',
+                child: Text('$nombreparmex',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -356,7 +374,7 @@ Future<String> myPDF(
             ),
             Container(
               child: Center(
-                child: Text('%%%%%',
+                child: Text('$pareu',
                     style: TextStyle(
                         fontSize: 12.0, decoration: TextDecoration.underline)),
               ),
@@ -419,31 +437,39 @@ Future<String> myPDF(
             ),
           ]),
         ),
-        Header(level: 3, text: 'Información Extra'),
-        Padding(
-          padding: EdgeInsets.all(4.0),
-          child: Row(children: <Widget>[
-            Container(
-              child: Center(
-                child: Text('ANOTACIONES:', style: TextStyle(fontSize: 12.0)),
+        if (!extra.isEmpty)
+          Header(level: 4, text: 'Información Extra'),
+        if (!extra.isEmpty)
+          Padding(
+            padding: EdgeInsets.all(1.0),
+            child: Row(children: <Widget>[
+              Container(
+                child: Center(
+                  child: Text('ANOTACIONES:', style: TextStyle(fontSize: 10.0)),
+                ),
               ),
-            ),
-          ]),
-        ),
+              Container(
+                child: Center(
+                  child: Text('$extra',
+                      style: TextStyle(
+                          fontSize: 9.0, decoration: TextDecoration.underline)),
+                ),
+              ),
+            ]),
+          ),
       ],
     ),
   );
-  //print(data);
-  final output =
-      await getExternalStorageDirectory(); // use the [path_provider (https://pub.dartlang.org/packages/path_provider) library:
-  final file = File("${output.path}/goku.pdf");
+
+  final output = await getExternalStorageDirectory();
+  final file = File("${output.path}/solici.pdf");
   await file.writeAsBytes(pdf.save());
   final Email email = Email(
     body: 'Generado desde Sezamo Digital Movil',
     subject: 'Solcititud de Traslado',
     recipients: ['sezami.prueba22@gmail.com'],
     //cc:['juanjosepelaez84@gmail.com'],
-    attachmentPath: "${output.path}/goku.pdf",
+    attachmentPath: "${output.path}/solici.pdf",
     isHTML: false,
   );
   await FlutterEmailSender.send(email);
