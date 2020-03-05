@@ -34,6 +34,8 @@ class Evento extends StatelessWidget {
                 return ExpansionTile(
                   initiallyExpanded: true,
                   backgroundColor: Color(0x1D605e5f),
+                  leading:
+                      Icon(Icons.event_available, color: Color(0xff868686)),
                   title: Text(
                     data['fecha'],
                     style: TextStyle(
@@ -41,7 +43,6 @@ class Evento extends StatelessWidget {
                   ),
                   children: <Widget>[
                     ListTile(
-                      leading: Icon(Icons.event_available),
                       title: Text(data['evento']),
                     ),
                     if (data['observacion'] != null)
@@ -53,6 +54,8 @@ class Evento extends StatelessWidget {
               } else {
                 return ExpansionTile(
                   backgroundColor: Color(0x1D605e5f),
+                  leading:
+                      Icon(Icons.event_available, color: Color(0xff868686)),
                   title: Text(
                     data['fecha'],
                     style: TextStyle(
@@ -60,7 +63,6 @@ class Evento extends StatelessWidget {
                   ),
                   children: <Widget>[
                     ListTile(
-                      leading: Icon(Icons.event_available),
                       title: Text(data['evento']),
                     ),
                     if (data['observacion'] != null)
