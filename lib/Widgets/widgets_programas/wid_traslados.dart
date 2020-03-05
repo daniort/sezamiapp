@@ -1,7 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
-//import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
 
 class Traslados extends StatefulWidget {
   @override
@@ -24,8 +25,10 @@ class _TrasladosState extends State<Traslados> {
   TextEditingController parmex;
   TextEditingController pareu;
   TextEditingController extra;
+  var nofi;
 
   var now = new DateTime.now();
+
   @override
   void initState() {
     nombre = TextEditingController();
@@ -43,6 +46,8 @@ class _TrasladosState extends State<Traslados> {
     pareu = TextEditingController();
     parmex = TextEditingController();
     extra = TextEditingController();
+    
+
     super.initState();
   }
 
@@ -58,6 +63,14 @@ class _TrasladosState extends State<Traslados> {
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
+
+    Firestore.instance
+        .collection('oficios')
+        .document('traslado')
+        .get()
+        .then((DocumentSnapshot ds) {
+      // use ds as a snapshot
+    });
     return Scaffold(
       appBar: AppBar(
         title: Text('Traslados'),
@@ -782,6 +795,7 @@ class _TrasladosState extends State<Traslados> {
                 child: InkWell(
                   onTap: () {
                     myPDF(
+                      nofi,
                       nombre.text.toUpperCase(),
                       edad.text.toUpperCase(),
                       causa.text.toUpperCase(),
@@ -797,13 +811,13 @@ class _TrasladosState extends State<Traslados> {
                       parmex.text.toUpperCase(),
                       pareu.text.toUpperCase(),
                       extra.text.toUpperCase(),
-                      situ,
-                      time,
+                      situ.toUpperCase(),
+                      time.toUpperCase(),
                       dian,
-                      mesn,
+                      mesn.toUpperCase(),
                       anon,
                       diaf,
-                      mesf,
+                      mesf.toUpperCase(),
                       anof,
                     );
                   },
