@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
-import 'package:sezamiapp/Widgets/widgets_programas/pdf.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Corazon extends StatefulWidget {
@@ -128,6 +128,25 @@ class _CorazonState extends State<Corazon> {
                     // child: PDF(),
                     //,
                     //),
+                  ],
+                ),
+                ExpansionTile(
+                  backgroundColor: Color(0x1D605e5f),
+                  title: Text('Contacto'),
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.person_pin),
+                      title: Text('LAET Fuensanta Santacrúz'),
+                    ),
+                    ListTile(
+                      leading: new Icon(FontAwesomeIcons.whatsapp),
+                      title: Text('Teléfono'),
+                      subtitle: Text('+52 1 492 892 2638'),
+                      onTap: () {
+                        customLaunch(
+                            "whatsapp://send?phone=+52 1 492 892 2638");
+                      },
+                    )
                   ],
                 ),
               ],
