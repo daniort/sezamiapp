@@ -170,12 +170,12 @@ class DosporUno extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      height: ((MediaQuery.of(context).size.width) * 1),
-                      child: SingleChildScrollView(
-                        child: PDF(),
-                      ),
-                    )
+                    //Container(
+                    // height: ((MediaQuery.of(context).size.width) * 1),
+                    //child: SingleChildScrollView(
+                    //child: PDF(),
+                    //),
+                    //)
                   ],
                 ),
               ],

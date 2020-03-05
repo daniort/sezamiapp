@@ -123,13 +123,11 @@ class _CorazonState extends State<Corazon> {
                     ),
 
                     //color: Colors.amber, SingleChildScrollView(
-
-                    Container(
-                      height: ((MediaQuery.of(context).size.width) * 1),
-                      child: SingleChildScrollView(
-                        child: PDF(),
-                      ),
-                    ),
+// height: ((MediaQuery.of(context).size.width) * 1),
+                    //child: SingleChildScrollView(
+                    // child: PDF(),
+                    //,
+                    //),
                   ],
                 ),
               ],
