@@ -15,7 +15,6 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
-    var _altura = (queryData.size.height);
     return new Container(
       color: Color(0xFF605e5f),
       //color: Color(0xFF262626),
