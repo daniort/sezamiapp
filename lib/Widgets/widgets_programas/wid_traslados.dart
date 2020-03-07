@@ -1,7 +1,5 @@
+//import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-//import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
@@ -30,8 +28,10 @@ class _TrasladosState extends State<Traslados> {
   TextEditingController extra;
   var nofi;
 
-  int now = new DateTime.now().year.toInt();
+  DateTime dan;
+  DateTime daf;
 
+  //var dan2 =  new DateFormat.yMMMd().format(DataTime dan);
   @override
   void initState() {
     nombre = TextEditingController();
@@ -55,14 +55,6 @@ class _TrasladosState extends State<Traslados> {
 
   String situ;
   String time;
-  String dian;
-  String mesn;
-  String anon;
-  String diaf;
-  String mesf;
-  String anof;
-  final format = DateFormat("dd-MM-yyyy");
-  var _fromDate;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +85,7 @@ class _TrasladosState extends State<Traslados> {
                             ),
                           ),
                           Expanded(
-                            flex: 3,
+                            flex: 2,
                             child: Center(
                                 child: Text(
                               'Datos del Fallecido',
@@ -157,20 +149,77 @@ class _TrasladosState extends State<Traslados> {
                                             onPressed: () {
                                               DatePicker.showDatePicker(context,
                                                   showTitleActions: true,
-                                                  minTime: DateTime(5, 3,2019),
+                                                  minTime: DateTime(5, 3, 1950),
                                                   maxTime: DateTime.now(),
                                                   onChanged: (date) {
-                                                print('change $date');
+                                                dan = date;
                                               }, onConfirm: (date) {
-                                                print('confirm $date');
+                                                dan = date;
                                               },
-                                                  currentTime: DateTime.now(),
+                                                  currentTime: dan,
                                                   locale: LocaleType.es);
                                             },
                                             child: Text(
-                                              'show date time picker (Chinese)',
-                                              style:
-                                                  TextStyle(color: Colors.blue),
+                                              '$dan',
+                                              style: TextStyle(
+                                                  color: Color(0xff838383)),
+                                            ))),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(2.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF0F0F0),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: Color(0xFF838383),
+                                ),
+                              )),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 1,
+                                      child: Icon(Icons.date_range,
+                                          color: Color(0xFF838383)),
+                                    ),
+                                    Expanded(
+                                        flex: 2,
+                                        child: Center(
+                                            child: Text(
+                                          'Fecha de Deceso:',
+                                          style: TextStyle(
+                                              fontSize: 13.0,
+                                              color: Color(0xFF838383)),
+                                        ))),
+                                    Expanded(
+                                        flex: 4,
+                                        child: FlatButton(
+                                            onPressed: () {
+                                              DatePicker.showDatePicker(context,
+                                                  showTitleActions: true,
+                                                  minTime: DateTime(5, 3, 2019),
+                                                  maxTime: DateTime.now(),
+                                                  onChanged: (date) {
+                                                daf = date;
+                                              }, onConfirm: (date) {
+                                                daf = date;
+                                              },
+                                                  currentTime: daf,
+                                                  locale: LocaleType.es);
+                                            },
+                                            child: Text(
+                                              '$daf',
+                                              style: TextStyle(
+                                                  color: Color(0xff838383)),
                                             ))),
                                   ],
                                 ),
@@ -553,7 +602,22 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    print(now);
+                    //print(DateFormat.yMd().format(dan));
+                    String dian = dan.day.toString();
+                    String mesn = dan.month.toString();
+                    String anon = dan.year.toString();
+                    String diaf = daf.day.toString();
+                    String mesf = daf.month.toString();
+                    String anof = daf.year.toString();
+                    String edad = returnaedad(dan, daf);
+
+                    Firestore.instance
+                        .collection('oficio')
+                        .document('traslado')
+                        .get()
+                        .then((DocumentSnapshot ds){
+                      print(ds.data['n']);
+                    });
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -573,5 +637,33 @@ class _TrasladosState extends State<Traslados> {
         ],
       ),
     );
+  }
+
+  String returnaedad(DateTime dan, DateTime daf) {
+    int dian = dan.day;
+    int mesn = dan.month;
+    int anon = dan.year;
+    int diaf = daf.day;
+    int mesf = daf.month;
+    int anof = daf.year;
+    int edad;
+    if (diaf >= dian) {
+      if (mesf >= mesn) {
+        edad = anof - anon;
+      }
+    } else {
+      if (mesf <= mesn) {
+        edad = (anof - anon) - 1;
+      } else {
+        edad = anof - anon;
+      }
+    }
+    return edad.toString();
+  }
+
+  String returnaOFI() {
+    String ofi;
+
+    return ofi;
   }
 }

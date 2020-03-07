@@ -8,7 +8,7 @@ import 'package:pdf/widgets.dart';
 Future<String> myPDF(
   String nofi,
   String nombre,
-  String edad,
+  edad,
   String causa,
   String lugarmuerte,
   String lugarorigen,
@@ -72,21 +72,10 @@ Future<String> myPDF(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          //image: decodeImage(File('test.webp').readAsBytesSync());
-                          //image: PdfImage(image: null, width: null, height: null)
-                          ),
-                      alignment: Alignment.centerLeft,
-                      //child: PdfImage(pdf, image: null,)
-                      child: Text('<image:logo.png>', textScaleFactor: 1),
-                    ),
-                  ),
-                  Expanded(
                     flex: 2,
                     child: Container(
                       alignment: Alignment.center,
-                      child: Text('SOLICITUD DE TRASLADO', textScaleFactor: 1),
+                      child: Text('SOLICITUD DE TRASLADO', textScaleFactor: 1.5),
                     ),
                   ),
                   Expanded(
@@ -244,7 +233,7 @@ Future<String> myPDF(
                 decoration: const BoxDecoration(
                     border: BoxBorder(
                         bottom: true, width: 0.5, color: PdfColors.grey)),
-                child: Text(' $dian   $mesn    $anon',
+                child: Text(' $dian  -  $mesn  -  $anon',
                     style: TextStyle(
                       fontSize: 12.0,
                     )),
