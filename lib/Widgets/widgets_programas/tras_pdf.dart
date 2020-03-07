@@ -5,8 +5,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 
-
-
 Future<String> myPDF(
   String nofi,
   String nombre,
@@ -35,63 +33,68 @@ Future<String> myPDF(
 ) async {
   final Document pdf = Document();
 
-    pdf.addPage(
-      MultiPage(
-        pageFormat:
-            PdfPageFormat.letter.copyWith(marginBottom: 1.5 * PdfPageFormat.cm),
-        header: (Context context) {
-          if (context.pageNumber == 1) {
-            return null;
-          }
-          return Container(
-              alignment: Alignment.centerRight,
-              margin: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
-              padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
-              decoration: const BoxDecoration(
-                  border:
-                      BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)),
-              child: Text('Portable Document Format',
-                  style: Theme.of(context)
-                      .defaultTextStyle
-                      .copyWith(color: PdfColors.grey)));
-        },
-        footer: (Context context) {
-          return Container(
-            alignment: Alignment.centerLeft,
-            margin: const EdgeInsets.only(top: 1.0 * PdfPageFormat.cm),
-            child: Text(
-              'cc: sezami.zac@gmail.com',
-              style: Theme.of(context)
-                  .defaultTextStyle
-                  .copyWith(color: PdfColors.grey),
-            ),
-          );
-        },
-        build: (Context context) => <Widget>[
-          Header(
-              level: 0,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(child:  Container(
+  pdf.addPage(
+    MultiPage(
+      pageFormat:
+          PdfPageFormat.letter.copyWith(marginBottom: 1.5 * PdfPageFormat.cm),
+      header: (Context context) {
+        if (context.pageNumber == 1) {
+          return null;
+        }
+        return Container(
+            alignment: Alignment.centerRight,
+            margin: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
+            padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
+            decoration: const BoxDecoration(
+                border:
+                    BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)),
+            child: Text('Portable Document Format',
+                style: Theme.of(context)
+                    .defaultTextStyle
+                    .copyWith(color: PdfColors.grey)));
+      },
+      footer: (Context context) {
+        return Container(
+          alignment: Alignment.centerLeft,
+          margin: const EdgeInsets.only(top: 1.0 * PdfPageFormat.cm),
+          child: Text(
+            'cc: sezami.zac@gmail.com',
+            style: Theme.of(context)
+                .defaultTextStyle
+                .copyWith(color: PdfColors.grey),
+          ),
+        );
+      },
+      build: (Context context) => <Widget>[
+        Header(
+            level: 0,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
                       decoration: BoxDecoration(
-                        //image: decodeImage(File('test.webp').readAsBytesSync());
-                        //image: PdfImage(image: null, width: null, height: null)
-                      ),
+                          //image: decodeImage(File('test.webp').readAsBytesSync());
+                          //image: PdfImage(image: null, width: null, height: null)
+                          ),
                       alignment: Alignment.centerLeft,
                       //child: PdfImage(pdf, image: null,)
-                    child: Text('<image:logo.png>', textScaleFactor: 1),
-                  ),),
+                      child: Text('<image:logo.png>', textScaleFactor: 1),
+                    ),
+                  ),
                   Expanded(
                     flex: 2,
                     child: Container(
                       alignment: Alignment.center,
-                    child: Text('SOLICITUD DE TRASLADO', textScaleFactor: 1),
-                  ),),
-                  Expanded(child: Container(
-                    alignment: Alignment.centerRight,
-                    child: Text('Ofi.No. $nofi', textScaleFactor: 1),
-                  ),),
+                      child: Text('SOLICITUD DE TRASLADO', textScaleFactor: 1),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: Text('Ofi.No. $nofi', textScaleFactor: 1),
+                    ),
+                  ),
                 ])),
         Padding(
           padding: EdgeInsets.all(4.0),
@@ -135,8 +138,9 @@ Future<String> myPDF(
                         border: BoxBorder(
                             bottom: true, width: 0.5, color: PdfColors.grey)),
                     alignment: Alignment.center,
-                     child: Text('  -',
-                        style: TextStyle(fontSize: 10.0, color: PdfColors.white)),
+                    child: Text('  -',
+                        style:
+                            TextStyle(fontSize: 10.0, color: PdfColors.white)),
                   ),
                   Container(
                     decoration: const BoxDecoration(
@@ -144,7 +148,8 @@ Future<String> myPDF(
                             bottom: true, width: 0.5, color: PdfColors.grey)),
                     alignment: Alignment.center,
                     child: Text(' - ',
-                        style: TextStyle(fontSize: 10.0, color: PdfColors.white)),
+                        style:
+                            TextStyle(fontSize: 10.0, color: PdfColors.white)),
                   ),
                 ]),
               ),
@@ -163,6 +168,9 @@ Future<String> myPDF(
                     style: TextStyle(color: PdfColors.blue),
                   ),
                 ])),
+
+
+
         Padding(
           padding: EdgeInsets.all(4.0),
           child: Row(children: <Widget>[
@@ -750,7 +758,7 @@ Future<String> myPDF(
     body: 'Generado desde Sezamo Digital Movil',
     subject: 'Solcititud de Traslado',
     recipients: ['sezami.prueba22@gmail.com'],
-    cc:['eduardo.rios@zacatecas.gob.mx'],
+    cc: ['eduardo.rios@zacatecas.gob.mx'],
     attachmentPath: "${output.path}/solici_test.pdf",
     isHTML: false,
   );
