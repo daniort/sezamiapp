@@ -74,7 +74,7 @@ Future<String> myPDF(
                   Expanded(
                     flex: 2,
                     child: Container(
-                      alignment: Alignment.center,
+                      alignment: Alignment.centerLeft,
                       child: Text('SOLICITUD DE TRASLADO', textScaleFactor: 1.5),
                     ),
                   ),

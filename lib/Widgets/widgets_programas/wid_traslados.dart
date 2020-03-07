@@ -55,6 +55,8 @@ class _TrasladosState extends State<Traslados> {
 
   String situ;
   String time;
+  String mesofi;
+  String numofi;
 
   @override
   Widget build(BuildContext context) {
@@ -602,22 +604,9 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    //print(DateFormat.yMd().format(dan));
-                    String dian = dan.day.toString();
-                    String mesn = dan.month.toString();
-                    String anon = dan.year.toString();
-                    String diaf = daf.day.toString();
-                    String mesf = daf.month.toString();
-                    String anof = daf.year.toString();
-                    String edad = returnaedad(dan, daf);
-
-                    Firestore.instance
-                        .collection('oficio')
-                        .document('traslado')
-                        .get()
-                        .then((DocumentSnapshot ds){
-                      print(ds.data['n']);
-                    });
+                    //print(returnaOFI());
+                    Datan();
+                    
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -662,8 +651,72 @@ class _TrasladosState extends State<Traslados> {
   }
 
   String returnaOFI() {
-    String ofi;
+    String num;
+    String mes;
+    if (Datem() == DateTime.now().month.toString()) {
+      print("b");
+      innum();
+      num = Datan();
+      mes = Datem();
+    } else {
+      print("a");
+      updatemes(DateTime.now().month.toString());
+      resetnum();
+      num = Datan();
+      mes = Datem();
+    }
+    return "$num//$mes";
+  }
 
-    return ofi;
+  String Datan() {
+    String _b;
+    DocumentReference documentReference = Firestore.instance.collection('oficio').document('traslado');    
+    print(documentReference.get().toString());
+  }
+
+  String Datem() {
+    String m;
+    Firestore.instance
+        .collection('oficio')
+        .document('traslado')
+        .get()
+        .then((DocumentSnapshot ds) {
+      m = ds['m'];
+    });
+    print(m);
+  }
+
+  void innum() {
+    int a = (int.parse(Datan()) + 1);
+    Firestore.instance
+        .collection('oficio')
+        .document('traslado')
+        .updateData({'n': '$a'}).then((result) {
+      print("Incrementando..");
+    }).catchError((onError) {
+      print("onError");
+    });
+  }
+
+  void resetnum() {
+    Firestore.instance
+        .collection('oficio')
+        .document('traslado')
+        .updateData({"n": "1"}).then((result) {
+      print("Reset");
+    }).catchError((onError) {
+      print("onError");
+    });
+  }
+
+  void updatemes(String a) {
+    Firestore.instance
+        .collection('oficio')
+        .document('traslado')
+        .updateData({"m": "$a"}).then((result) {
+      print("Update M");
+    }).catchError((onError) {
+      print("onError");
+    });
   }
 }
