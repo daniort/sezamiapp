@@ -4,11 +4,8 @@ import 'package:table_calendar/table_calendar.dart';
 
 // Example holidays
 final Map<DateTime, List> _holidays = {
-  DateTime(2020, 1, 1): ['New Year\'s Day'],
-  DateTime(2020, 1, 6): ['Epiphany'],
-  DateTime(2020, 2, 14): ['Valentine\'s Day'],
-  DateTime(2020, 4, 21): ['Easter Sunday'],
-  DateTime(2020, 4, 22): ['Easter Monday'],
+  DateTime(2020, 2, 12): ['My Brithday'],
+  DateTime(2020, 3, 25): ['My Brithday'],
 };
 
 void main() {

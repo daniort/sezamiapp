@@ -107,13 +107,18 @@ class _TrasladosState extends State<Traslados> {
                         padding: const EdgeInsets.all(2.0),
                         child: TextField(
                           controller: nombre,
+                          
                           decoration: InputDecoration(
                             labelText: 'Nombre del Fallecido:',
+                            helperText: 'como quieras',
                             //icon: Icon(Icons.account_circle),
                             filled: true,
                             prefixIcon: Icon(Icons.account_circle),
                           ),
-                          onSubmitted: (String textfinal) {},
+                          onEditingComplete: () {
+                            print("a");
+                          },
+                          
                         ),
                       ),
                       Padding(
@@ -605,8 +610,42 @@ class _TrasladosState extends State<Traslados> {
                 child: InkWell(
                   onTap: () {
                     //print(returnaOFI());
-                    Datan();
                     
+                    String nofi = returnaOFI();
+                    String dian = dan.day.toString();
+                    String mesn = dan.month.toString();
+                    String anon = dan.year.toString();
+                    String diaf = daf.day.toString();
+                    String mesf = daf.month.toString();
+                    String anof = daf.year.toString();
+                    String edad = returnaedad(dan, daf);
+
+                    myPDF(
+                      nofi,
+                      nombre.text.toUpperCase(),
+                      edad,
+                      causa.text.toUpperCase(),
+                      lugarmuerte.text.toUpperCase(),
+                      lugarorigen.text.toUpperCase(),
+                      nombreparmex.text.toUpperCase(),
+                      telparmex.text.toUpperCase(),
+                      nombrepareu.text.toUpperCase(),
+                      telpareu.text.toUpperCase(),
+                      nombrefune.text.toUpperCase(),
+                      telfune.text.toUpperCase(),
+                      correofune.text.toLowerCase(),
+                      parmex.text.toUpperCase(),
+                      pareu.text.toUpperCase(),
+                      extra.text.toUpperCase(),
+                      situ.toUpperCase(),
+                      time.toUpperCase(),
+                      dian,
+                      mesn,
+                      anon,
+                      diaf,
+                      mesf,
+                      anof,
+                    );
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -653,41 +692,46 @@ class _TrasladosState extends State<Traslados> {
   String returnaOFI() {
     String num;
     String mes;
-    if (Datem() == DateTime.now().month.toString()) {
-      print("b");
+    if (mesofi == DateTime.now().month.toString()) {
+      print("igual");
       innum();
-      num = Datan();
-      mes = Datem();
-    } else {
-      print("a");
+      int ce = int.parse(numofi) + 1;
+      num = ce.toString();
+      mes = mesofi;
+    }
+    if (mesofi != DateTime.now().month.toString()) {
+      print("no igual");
       updatemes(DateTime.now().month.toString());
       resetnum();
-      num = Datan();
-      mes = Datem();
+      num = 1.toString();
+      mes = DateTime.now().month.toString();
     }
-    return "$num//$mes";
+    String mesletter = (retumespal(mes)).toUpperCase();
+    return "$num-$mesletter";
   }
 
-  String Datan() {
-    String _b;
-    DocumentReference documentReference = Firestore.instance.collection('oficio').document('traslado');    
-    print(documentReference.get().toString());
-  }
-
-  String Datem() {
-    String m;
+  datan() {
     Firestore.instance
         .collection('oficio')
         .document('traslado')
         .get()
         .then((DocumentSnapshot ds) {
-      m = ds['m'];
+      numofi = ds['n'];
     });
-    print(m);
+  }
+
+  datem() {
+    Firestore.instance
+        .collection('oficio')
+        .document('traslado')
+        .get()
+        .then((DocumentSnapshot ds) {
+      mesofi = ds['m'];
+    });
   }
 
   void innum() {
-    int a = (int.parse(Datan()) + 1);
+    int a = (int.parse(numofi) + 1);
     Firestore.instance
         .collection('oficio')
         .document('traslado')
@@ -696,17 +740,19 @@ class _TrasladosState extends State<Traslados> {
     }).catchError((onError) {
       print("onError");
     });
+    datan();
   }
 
   void resetnum() {
     Firestore.instance
         .collection('oficio')
         .document('traslado')
-        .updateData({"n": "1"}).then((result) {
+        .updateData({"n": "0"}).then((result) {
       print("Reset");
     }).catchError((onError) {
       print("onError");
     });
+    datan();
   }
 
   void updatemes(String a) {
@@ -718,5 +764,76 @@ class _TrasladosState extends State<Traslados> {
     }).catchError((onError) {
       print("onError");
     });
+    datem();
+  }
+
+  String retumespal(String mes) {
+    switch (mes) {
+      case '1':
+        {
+          return "ene";
+        }
+        break;
+      case '2':
+        {
+          return "feb";
+        }
+        break;
+      case '3':
+        {
+          return "mar";
+        }
+        break;
+      case '4':
+        {
+          return "apr";
+        }
+        break;
+      case '5':
+        {
+          return "may";
+        }
+        break;
+      case '6':
+        {
+          return "jun";
+        }
+        break;
+      case '7':
+        {
+          return "jul";
+        }
+        break;
+      case '8':
+        {
+          return "ago";
+        }
+        break;
+      case '9':
+        {
+          return "sep";
+        }
+        break;
+      case '10':
+        {
+          return "oct";
+        }
+        break;
+      case '11':
+        {
+          return "nov";
+        }
+        break;
+      case '12':
+        {
+          return "dic";
+        }
+        break;
+      default:
+        {
+          return mes;
+        }
+        break;
+    }
   }
 }

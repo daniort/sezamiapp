@@ -1,5 +1,6 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_view/photo_view.dart';
 
 class MiBanner extends StatelessWidget {
   @override
@@ -18,7 +19,6 @@ class MiBanner extends StatelessWidget {
                 backgroundColor: Colors.white.withOpacity(0.0),
                 context: context,
                 isScrollControlled: true,
-
                 builder: (context) {
                   //eturn Calendario();
                   return Img1();
@@ -53,7 +53,7 @@ class MiBanner extends StatelessWidget {
                 elevation: (queryData.size.height),
                 //backgroundColor: Color.fromRGBO(0, 0, 0, 0),
                 backgroundColor: Colors.white.withOpacity(0.0),
-  
+
                 //shape:
                 context: context,
                 isScrollControlled: true,
@@ -84,9 +84,12 @@ class Img1 extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0),
         ),
         width: queryData.size.width,
-        height: (queryData.size.height)*.8,
-        child: Center(
-          child: Image.asset('images/banner/apoSrc.jpg', width: (queryData.size.width)*.85),
+        height: (queryData.size.height) * .8,
+        child: PhotoView(
+          imageProvider: AssetImage('images/banner/apoSrc.jpg'),
+          backgroundDecoration: BoxDecoration(
+            color: Colors.white,
+          ),
         ),
       ),
     );
@@ -102,19 +105,22 @@ class Img2 extends StatelessWidget {
       padding: const EdgeInsets.all(18.0),
       child: Container(
         decoration: BoxDecoration(
-         color: Colors.white,
-         
+          color: Colors.white,
           borderRadius: BorderRadius.circular(30.0),
         ),
         width: (queryData.size.width),
-        height: (queryData.size.height)*.8,
-        child: Center(
-          child: Image.asset('images/banner/capmSrc.jpg', ),
+        height: (queryData.size.height) * .8,
+         child: PhotoView(
+          imageProvider: AssetImage('images/banner/capmSrc.jpg'),
+          backgroundDecoration: BoxDecoration(
+            color: Colors.white,
+          ),
         ),
       ),
     );
   }
 }
+
 class Img3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -128,9 +134,12 @@ class Img3 extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0),
         ),
         width: queryData.size.width,
-        height: (queryData.size.height)*.8,
-        child: Center(
-          child: Image.asset('images/banner/coeeSrc.jpg', ),
+        height: (queryData.size.height) * .8,
+         child: PhotoView(
+          imageProvider: AssetImage('images/banner/coeeSrc.jpg'),
+          backgroundDecoration: BoxDecoration(
+            color: Colors.white,
+          ),
         ),
       ),
     );

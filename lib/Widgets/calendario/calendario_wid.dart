@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/calendario/eventos_wid.dart';
 import 'package:table_calendar/table_calendar.dart';
