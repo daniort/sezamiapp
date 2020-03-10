@@ -370,10 +370,12 @@ Future<String> myiPDF(
   final file = File("${output.path}/SOLICI_UBICA_$nofi.pdf");
   await file.writeAsBytes(pdf.save());
   final Email email = Email(
-    body: 'Generado desde Sezami Digital Movil',
+    body: 'Generado desde Sezami Digital Móvil',
     subject: 'Solicitud de Localización',
-    recipients: ['sezami.prueba22@gmail.com'],
-    //cc: ['eduardo.rios@zacatecas.gob.mx'],
+    recipients: ['sezami.prueba22@gmail.com','juanjosepelaez84@gmail.com','dqniort@gmail.com'],
+    cc: ['eduardo.rios@zacatecas.gob.mx'],
+    
+    
     attachmentPath: "${output.path}/SOLICI_UBICA_$nofi.pdf",
     isHTML: false,
   );

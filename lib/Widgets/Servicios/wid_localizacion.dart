@@ -298,7 +298,7 @@ class _LocalizacionState extends State<Localizacion> {
                           filled: true,
                           prefixIcon: Icon(Icons.location_on),
                         ),
-                        keyboardType: TextInputType.phone,
+                        keyboardType: TextInputType.text,
                         onSubmitted: (String textfinal) {},
                       ),
                     ],

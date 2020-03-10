@@ -747,7 +747,9 @@ Future<String> myPDF(
     body: 'Generado desde Sezami Digital Movil',
     subject: 'Solicitud de Traslado',
     recipients: ['sezami.prueba22@gmail.com'],
-    cc: ['eduardo.rios@zacatecas.gob.mx'],
+    
+    cc: ['eduardo.rios@zacatecas.gob.mx'],    
+    
     attachmentPath: "${output.path}/SOLICI_TRASL_$nofi.pdf",
     isHTML: false,
   );
