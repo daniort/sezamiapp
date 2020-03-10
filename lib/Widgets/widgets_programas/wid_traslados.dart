@@ -26,12 +26,9 @@ class _TrasladosState extends State<Traslados> {
   TextEditingController parmex;
   TextEditingController pareu;
   TextEditingController extra;
-  var nofi;
-
   DateTime dan;
   DateTime daf;
 
-  //var dan2 =  new DateFormat.yMMMd().format(DataTime dan);
   @override
   void initState() {
     nombre = TextEditingController();
@@ -49,7 +46,6 @@ class _TrasladosState extends State<Traslados> {
     pareu = TextEditingController();
     parmex = TextEditingController();
     extra = TextEditingController();
-
     super.initState();
   }
 
@@ -58,12 +54,13 @@ class _TrasladosState extends State<Traslados> {
   String mesofi;
   String numofi;
 
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
-
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Traslados'),
       ),
@@ -105,20 +102,14 @@ class _TrasladosState extends State<Traslados> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(2.0),
-                        child: TextField(
+                        child: TextFormField(
+                          maxLength: 45,
                           controller: nombre,
-                          
                           decoration: InputDecoration(
                             labelText: 'Nombre del Fallecido:',
-                            helperText: 'como quieras',
-                            //icon: Icon(Icons.account_circle),
                             filled: true,
                             prefixIcon: Icon(Icons.account_circle),
                           ),
-                          onEditingComplete: () {
-                            print("a");
-                          },
-                          
                         ),
                       ),
                       Padding(
@@ -443,6 +434,7 @@ class _TrasladosState extends State<Traslados> {
                       ),
                       TextField(
                         controller: telparmex,
+                        maxLength: 10,
                         decoration: InputDecoration(
                             labelText: 'Telefono:',
                             filled: true,
@@ -494,6 +486,7 @@ class _TrasladosState extends State<Traslados> {
                       ),
                       TextField(
                         controller: telpareu,
+                        maxLength: 10,
                         decoration: InputDecoration(
                             labelText: 'Telefono:',
                             filled: true,
@@ -544,6 +537,7 @@ class _TrasladosState extends State<Traslados> {
                       ),
                       TextField(
                         controller: telfune,
+                        maxLength: 10,
                         decoration: InputDecoration(
                           labelText: 'Telefono:',
                           filled: true,
@@ -609,43 +603,54 @@ class _TrasladosState extends State<Traslados> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    //print(returnaOFI());
-                    
-                    String nofi = returnaOFI();
-                    String dian = dan.day.toString();
-                    String mesn = dan.month.toString();
-                    String anon = dan.year.toString();
-                    String diaf = daf.day.toString();
-                    String mesf = daf.month.toString();
-                    String anof = daf.year.toString();
-                    String edad = returnaedad(dan, daf);
-
-                    myPDF(
-                      nofi,
-                      nombre.text.toUpperCase(),
-                      edad,
-                      causa.text.toUpperCase(),
-                      lugarmuerte.text.toUpperCase(),
-                      lugarorigen.text.toUpperCase(),
-                      nombreparmex.text.toUpperCase(),
-                      telparmex.text.toUpperCase(),
-                      nombrepareu.text.toUpperCase(),
-                      telpareu.text.toUpperCase(),
-                      nombrefune.text.toUpperCase(),
-                      telfune.text.toUpperCase(),
-                      correofune.text.toLowerCase(),
-                      parmex.text.toUpperCase(),
-                      pareu.text.toUpperCase(),
-                      extra.text.toUpperCase(),
-                      situ.toUpperCase(),
-                      time.toUpperCase(),
-                      dian,
-                      mesn,
-                      anon,
-                      diaf,
-                      mesf,
-                      anof,
-                    );
+                    //print(time);
+                    //print(">$situ");
+                    if (validar() == true) {
+                      print('true');
+                      int edad = returnaedad(dan, daf);
+                      if (edad > 0) {
+                        String dian = dan.day.toString();
+                        String mesn = dan.month.toString();
+                        String anon = dan.year.toString();
+                        String diaf = daf.day.toString();
+                        String mesf = daf.month.toString();
+                        String anof = daf.year.toString();
+                        String nofi = returnaOFI();
+                        myPDF(
+                          nofi,
+                          nombre.text.toUpperCase(),
+                          edad,
+                          causa.text.toUpperCase(),
+                          lugarmuerte.text.toUpperCase(),
+                          lugarorigen.text.toUpperCase(),
+                          nombreparmex.text.toUpperCase(),
+                          telparmex.text.toUpperCase(),
+                          nombrepareu.text.toUpperCase(),
+                          telpareu.text.toUpperCase(),
+                          nombrefune.text.toUpperCase(),
+                          telfune.text.toUpperCase(),
+                          correofune.text.toLowerCase(),
+                          parmex.text.toUpperCase(),
+                          pareu.text.toUpperCase(),
+                          extra.text.toUpperCase(),
+                          situ.toUpperCase(),
+                          time.toUpperCase(),
+                          dian,
+                          mesn,
+                          anon,
+                          diaf,
+                          mesf,
+                          anof,
+                        );
+                      } else {
+                        print('error de edad');
+                        _scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content: Text('Incongruencia de Fechas'),
+                          duration: Duration(milliseconds: 1000),
+                          backgroundColor: Color(0xffd1495b),
+                        ));
+                      }
+                    }
                   },
                   child: Container(
                     width: (queryData.size.width),
@@ -667,7 +672,7 @@ class _TrasladosState extends State<Traslados> {
     );
   }
 
-  String returnaedad(DateTime dan, DateTime daf) {
+  int returnaedad(DateTime dan, DateTime daf) {
     int dian = dan.day;
     int mesn = dan.month;
     int anon = dan.year;
@@ -686,27 +691,27 @@ class _TrasladosState extends State<Traslados> {
         edad = anof - anon;
       }
     }
-    return edad.toString();
+    return edad;
   }
 
   String returnaOFI() {
     String num;
     String mes;
     if (mesofi == DateTime.now().month.toString()) {
-      print("igual");
+      print("Mismo Mes");
       innum();
       int ce = int.parse(numofi) + 1;
       num = ce.toString();
       mes = mesofi;
-    }
-    if (mesofi != DateTime.now().month.toString()) {
-      print("no igual");
+    } else {
+      print("Mes Cambio");
       updatemes(DateTime.now().month.toString());
       resetnum();
       num = 1.toString();
       mes = DateTime.now().month.toString();
     }
     String mesletter = (retumespal(mes)).toUpperCase();
+    print("$num-$mesletter");
     return "$num-$mesletter";
   }
 
@@ -834,6 +839,127 @@ class _TrasladosState extends State<Traslados> {
           return mes;
         }
         break;
+    }
+  }
+
+  validar() {
+    var _final = true;
+    var _e = [];
+    String b = dan.toString();
+    String a = "$b";
+    String c = daf.toString();
+    String d = "$c";
+    String _tempo = "$time";
+    String _situa = "$situ";
+
+    if (nombre.text.isEmpty) {
+      _e.add('Nombre del Fallecido es Requerido.');
+      _final = false;
+    }
+    if (a == 'null') {
+      _e.add('Fecha de Nacimiento es Requerido.');
+      _final = false;
+    }
+
+    if (d == 'null') {
+      _e.add('Fecha de Deceso es Requerido.');
+      _final = false;
+    }
+    if (causa.text.isEmpty) {
+      _e.add('Causa del Deceso es Requerido.');
+      _final = false;
+    }
+
+    if (lugarmuerte.text.isEmpty) {
+      _e.add('Lugar del Deceso es Requerido.');
+      _final = false;
+    }
+
+    if (lugarorigen.text.isEmpty) {
+      _e.add('Lugar de Origen es Requerido.');
+      _final = false;
+    }
+
+    if (_tempo == "null") {
+      _e.add('Tiempo en EU es Requerido.');
+      _final = false;
+    }
+
+    if (_situa == "null") {
+      _e.add('Situación Migratoria Requerida.');
+      _final = false;
+    }
+
+    if (nombreparmex.text.isEmpty) {
+      _e.add('Nombre de Familiar MX es Requerido.');
+      _final = false;
+    }
+
+    if (telparmex.text.isEmpty) {
+      _e.add('Telefono de Familiar es Requerido.');
+      _final = false;
+    }
+
+    if (parmex.text.isEmpty) {
+      _e.add('Parentesco MX es Requerido.');
+      _final = false;
+    }
+
+    if (nombrepareu.text.isEmpty) {
+      _e.add('Nombre de Familiar EU es Requerido.');
+      _final = false;
+    }
+
+    if (telpareu.text.isEmpty) {
+      _e.add('Telefono de Familiar es Requerido.');
+      _final = false;
+    }
+    if (pareu.text.isEmpty) {
+      _e.add('Parentesco EU es Requerido.');
+      _final = false;
+    }
+
+    if (nombrefune.text.isEmpty) {
+      _e.add('Nombre de Funeraria Requerido.');
+      _final = false;
+    }
+
+    if (telfune.text.isEmpty) {
+      _e.add('Número de Funeraria Requerido.');
+      _final = false;
+    }
+
+    if (correofune.text.isNotEmpty) {
+      
+      
+
+      RegExp regExp = new RegExp(r'^[^@]+@[^@]+\.[^@]+');
+
+      if (!regExp.hasMatch(correofune.toString())) {
+        _scaffoldKey.currentState.showSnackBar(SnackBar(
+          content: Text('Ingrese un Correo Electronico Valido.'),
+          duration: Duration(milliseconds: 1500),
+          backgroundColor: Color(0xffd1495b),
+        ));
+        _final = false;
+      }
+    }
+
+    print(_final);
+    if (_final) {
+      return true;
+    } else {
+      return _displaySnackBar(context, _e);
+    }
+  }
+
+  _displaySnackBar(BuildContext context, List a) {
+    for (int i = 0; i <= a.length; i++) {
+      _scaffoldKey.currentState.showSnackBar(SnackBar(
+        content: Text(a[i]),
+        duration: Duration(milliseconds: 500),
+        backgroundColor: Color(0xffd1495b),
+      ));
     }
   }
 }
