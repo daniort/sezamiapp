@@ -1,8 +1,10 @@
 //import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
-import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/local_pdf%20.dart';
+
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class Localizacion extends StatefulWidget {
@@ -12,45 +14,26 @@ class Localizacion extends StatefulWidget {
 
 class _LocalizacionState extends State<Localizacion> {
   TextEditingController nombre;
-  TextEditingController edad;
-  TextEditingController causa;
-  TextEditingController lugarmuerte;
-  TextEditingController lugarorigen;
-  TextEditingController nombreparmex;
-  TextEditingController telparmex;
-  TextEditingController nombrepareu;
-  TextEditingController telpareu;
-  TextEditingController nombrefune;
-  TextEditingController telfune;
-  TextEditingController correofune;
-  TextEditingController parmex;
-  TextEditingController pareu;
-  TextEditingController extra;
+  TextEditingController direccion;
+  TextEditingController nomsoli;
+  TextEditingController parsoli;
+  TextEditingController telsoli;
+  TextEditingController direccionu;
   DateTime dan;
   DateTime daf;
 
   @override
   void initState() {
     nombre = TextEditingController();
-    edad = TextEditingController();
-    causa = TextEditingController();
-    lugarmuerte = TextEditingController();
-    lugarorigen = TextEditingController();
-    nombreparmex = TextEditingController();
-    telparmex = TextEditingController();
-    nombrepareu = TextEditingController();
-    telpareu = TextEditingController();
-    nombrefune = TextEditingController();
-    telfune = TextEditingController();
-    correofune = TextEditingController();
-    pareu = TextEditingController();
-    parmex = TextEditingController();
-    extra = TextEditingController();
+    direccion = TextEditingController();
+    direccionu = TextEditingController();
+    nomsoli = TextEditingController();
+    parsoli = TextEditingController();
+    telsoli = TextEditingController();
+  
     super.initState();
   }
 
-  String situ;
-  String time;
   String mesofi;
   String numofi;
 
@@ -84,10 +67,10 @@ class _LocalizacionState extends State<Localizacion> {
                             ),
                           ),
                           Expanded(
-                            flex: 2,
+                            flex: 3,
                             child: Center(
                                 child: Text(
-                              'Datos del Fallecido',
+                              'Datos de la Persona a Buscar',
                               style: TextStyle(
                                 color: Color(0xFF0076a6),
                               ),
@@ -103,10 +86,10 @@ class _LocalizacionState extends State<Localizacion> {
                       Padding(
                         padding: const EdgeInsets.all(2.0),
                         child: TextFormField(
-                          maxLength: 45,
                           controller: nombre,
+                          maxLength: 45,
                           decoration: InputDecoration(
-                            labelText: 'Nombre del Fallecido:',
+                            labelText: 'Nombre:',
                             filled: true,
                             prefixIcon: Icon(Icons.account_circle),
                           ),
@@ -157,8 +140,7 @@ class _LocalizacionState extends State<Localizacion> {
                                                   currentTime: dan,
                                                   locale: LocaleType.es);
                                             },
-                                            child: Text(
-                                              '$dan',
+                                            child: Text('$dan',
                                               style: TextStyle(
                                                   color: Color(0xff838383)),
                                             ))),
@@ -168,6 +150,88 @@ class _LocalizacionState extends State<Localizacion> {
                             ],
                           ),
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: direccion,
+                          maxLength: 60,
+                          decoration: InputDecoration(
+                            labelText: 'Dirección:',
+                            //icon: Icon(Icons.account_circle),
+                            filled: true,
+                            prefixIcon: Icon(Icons.location_on),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(children: <Widget>[
+                          Expanded(
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Center(
+                                child: Text(
+                              'Datos del Solicitante',
+                              style: TextStyle(
+                                color: Color(0xFF0076a6),
+                              ),
+                            )),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
+                          ),
+                        ]),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: TextField(
+                          controller: nomsoli,
+                          maxLength: 45,
+                          decoration: InputDecoration(
+                            labelText: 'Nombre de Solicitante',
+                            //icon: Icon(Icons.account_circle),
+                            filled: true,
+                            prefixIcon: Icon(Icons.fiber_manual_record),
+                          ),
+                          onSubmitted: (String textfinal) {},
+                        ),
+                      ),
+                      TextField(
+                        controller: parsoli,
+                        maxLength: 18,
+                        decoration: InputDecoration(
+                            labelText: 'Parentesco:',
+                            filled: true,
+                            prefixIcon: Icon(Icons.people)),
+                        onSubmitted: (String textfinal) {},
+                      ),
+                      TextField(
+                        controller: telsoli,
+                        maxLength: 10,
+                        decoration: InputDecoration(
+                            labelText: 'Telefono:',
+                            filled: true,
+                            prefixIcon: Icon(Icons.phone)),
+                        keyboardType: TextInputType.phone,
+                        onSubmitted: (String textfinal) {},
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(children: <Widget>[
+                          Expanded(
+                            child: Divider(
+                              color: Color(0xFF0076a6),
+                            ),
+                          ),
+                        ]),
                       ),
                       Padding(
                         padding: EdgeInsets.all(2.0),
@@ -193,7 +257,7 @@ class _LocalizacionState extends State<Localizacion> {
                                         flex: 2,
                                         child: Center(
                                             child: Text(
-                                          'Fecha de Deceso:',
+                                          'Fecha de Último Contacto:',
                                           style: TextStyle(
                                               fontSize: 13.0,
                                               color: Color(0xFF838383)),
@@ -204,7 +268,7 @@ class _LocalizacionState extends State<Localizacion> {
                                             onPressed: () {
                                               DatePicker.showDatePicker(context,
                                                   showTitleActions: true,
-                                                  minTime: DateTime(5, 3, 2019),
+                                                  minTime: DateTime(5, 3, 1950),
                                                   maxTime: DateTime.now(),
                                                   onChanged: (date) {
                                                 daf = date;
@@ -214,8 +278,7 @@ class _LocalizacionState extends State<Localizacion> {
                                                   currentTime: daf,
                                                   locale: LocaleType.es);
                                             },
-                                            child: Text(
-                                              '$daf',
+                                            child: Text('$daf',
                                               style: TextStyle(
                                                   color: Color(0xff838383)),
                                             ))),
@@ -226,369 +289,15 @@ class _LocalizacionState extends State<Localizacion> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextField(
-                          controller: causa,
-                          decoration: InputDecoration(
-                            labelText: 'Causa de la Muerte:',
-                            //icon: Icon(Icons.account_circle),
-                            filled: true,
-                            prefixIcon: Icon(Icons.fiber_manual_record),
-                          ),
-                          onSubmitted: (String textfinal) {},
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextField(
-                          controller: lugarmuerte,
-                          decoration: InputDecoration(
-                            labelText: 'Lugar del Deceso:',
-                            //icon: Icon(Icons.account_circle),
-                            filled: true,
-                            prefixIcon: Icon(Icons.location_on),
-                          ),
-                          onSubmitted: (String textfinal) {},
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextField(
-                          controller: lugarorigen,
-                          decoration: InputDecoration(
-                            labelText: 'Lugar del Origen:',
-                            //icon: Icon(Icons.account_circle),
-                            filled: true,
-                            prefixIcon: Icon(Icons.location_on),
-                          ),
-                          onSubmitted: (String textfinal) {},
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF0F0F0),
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Color(0xFF838383),
-                                ),
-                              )),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(Icons.timelapse,
-                                          color: Color(0xFF838383)),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'Tiempo en Estados Unidos:',
-                                        style: TextStyle(
-                                          color: Color(0xFF838383),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                        flex: 3,
-                                        child: Center(
-                                          child: DropdownButton<String>(
-                                            items: [
-                                              DropdownMenuItem<String>(
-                                                child: Text('Menos de 1 Año'),
-                                                value: 'Menos de 1 Año',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('1 a 3 Años'),
-                                                value: '1 a 3 Años',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('3 a 5 Años'),
-                                                value: '3 a 5 Años',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Más de 5 Años'),
-                                                value: 'Más de 5 Años',
-                                              ),
-                                            ],
-                                            onChanged: (String value) {
-                                              setState(() {
-                                                time = value;
-                                              });
-                                            },
-                                            hint: Text('Elegir...'),
-                                            value: time,
-                                          ),
-                                        )),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF0F0F0),
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Color(0xFF838383),
-                                ),
-                              )),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(Icons.timelapse,
-                                          color: Color(0xFF838383)),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'Situación Migratoria:',
-                                        style: TextStyle(
-                                          color: Color(0xFF838383),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                        flex: 3,
-                                        child: Center(
-                                          child: DropdownButton<String>(
-                                            items: [
-                                              DropdownMenuItem<String>(
-                                                child: Text('Residente'),
-                                                value: 'Residente',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Ciudadano'),
-                                                value: 'Ciudadano',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Turista'),
-                                                value: 'Turista',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Indocumentado'),
-                                                value: 'Indocumentado',
-                                              ),
-                                            ],
-                                            onChanged: (String value) {
-                                              setState(() {
-                                                situ = value;
-                                              });
-                                            },
-                                            hint: Text('Elegir...'),
-                                            value: situ,
-                                          ),
-                                        )),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Center(
-                                child: Text(
-                              'Datos de Familiar en México',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
                       TextField(
+                        controller: direccionu,
+                        maxLength: 60,
                         decoration: InputDecoration(
-                            labelText: 'Nombre de Familiar en Mex.:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.account_circle)),
-                        controller: nombreparmex,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: telparmex,
-                        maxLength: 10,
-                        decoration: InputDecoration(
-                            labelText: 'Telefono:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.phone)),
-                        keyboardType: TextInputType.phone,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: parmex,
-                        decoration: InputDecoration(
-                            labelText: 'Parentesco:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.people)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Center(
-                                child: Text(
-                              'Datos de Familiar en EU',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
-                      TextField(
-                        controller: nombrepareu,
-                        decoration: InputDecoration(
-                          labelText: 'Nombre de Familiar en EU:',
+                          labelText: 'Última ubicación conocida',
                           filled: true,
-                          prefixIcon: Icon(Icons.account_circle),
-                        ),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: telpareu,
-                        maxLength: 10,
-                        decoration: InputDecoration(
-                            labelText: 'Telefono:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.phone)),
-                        keyboardType: TextInputType.phone,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: pareu,
-                        decoration: InputDecoration(
-                            labelText: 'Parentesco:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.people)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Center(
-                                child: Text(
-                              'Datos de Funeraria en EU',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
-                      TextField(
-                        controller: nombrefune,
-                        decoration: InputDecoration(
-                            labelText: 'Nombre de Funeraria en EU:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.home)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: telfune,
-                        maxLength: 10,
-                        decoration: InputDecoration(
-                          labelText: 'Telefono:',
-                          filled: true,
-                          prefixIcon: Icon(Icons.phone),
+                          prefixIcon: Icon(Icons.location_on),
                         ),
                         keyboardType: TextInputType.phone,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: correofune,
-                        decoration: InputDecoration(
-                            labelText: 'Email:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.email)),
-                        keyboardType: TextInputType.emailAddress,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            flex: 3,
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Center(
-                                child: Text(
-                              'Extras:',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
-                      TextField(
-                        controller: extra,
-                        decoration: InputDecoration(
-                          counterText: 'No Obligatorio',
-                          labelText: 'Anotaciones Extras:',
-                          filled: true,
-                        ),
                         onSubmitted: (String textfinal) {},
                       ),
                     ],
@@ -603,8 +312,8 @@ class _LocalizacionState extends State<Localizacion> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    //print(time);
-                    //print(">$situ");
+                    print(daf);
+                    print(dan);
                     if (validar() == true) {
                       print('true');
                       int edad = returnaedad(dan, daf);
@@ -616,25 +325,14 @@ class _LocalizacionState extends State<Localizacion> {
                         String mesf = daf.month.toString();
                         String anof = daf.year.toString();
                         String nofi = returnaOFI();
-                        myPDF(
+                        myiPDF(
                           nofi,
                           nombre.text.toUpperCase(),
-                          edad,
-                          causa.text.toUpperCase(),
-                          lugarmuerte.text.toUpperCase(),
-                          lugarorigen.text.toUpperCase(),
-                          nombreparmex.text.toUpperCase(),
-                          telparmex.text.toUpperCase(),
-                          nombrepareu.text.toUpperCase(),
-                          telpareu.text.toUpperCase(),
-                          nombrefune.text.toUpperCase(),
-                          telfune.text.toUpperCase(),
-                          correofune.text.toLowerCase(),
-                          parmex.text.toUpperCase(),
-                          pareu.text.toUpperCase(),
-                          extra.text.toUpperCase(),
-                          situ.toUpperCase(),
-                          time.toUpperCase(),
+                          direccion.text.toUpperCase(),
+                          direccionu.text.toUpperCase(),
+                          parsoli.text.toUpperCase(), ////////
+                          parsoli.text.toUpperCase(), //sfdfdgfdgfdgfdg
+                          telsoli.text.toUpperCase(), ////////
                           dian,
                           mesn,
                           anon,
@@ -718,7 +416,7 @@ class _LocalizacionState extends State<Localizacion> {
   datan() {
     Firestore.instance
         .collection('oficio')
-        .document('traslado')
+        .document('local')
         .get()
         .then((DocumentSnapshot ds) {
       numofi = ds['n'];
@@ -728,7 +426,7 @@ class _LocalizacionState extends State<Localizacion> {
   datem() {
     Firestore.instance
         .collection('oficio')
-        .document('traslado')
+        .document('local')
         .get()
         .then((DocumentSnapshot ds) {
       mesofi = ds['m'];
@@ -739,7 +437,7 @@ class _LocalizacionState extends State<Localizacion> {
     int a = (int.parse(numofi) + 1);
     Firestore.instance
         .collection('oficio')
-        .document('traslado')
+        .document('local')
         .updateData({'n': '$a'}).then((result) {
       print("Incrementando..");
     }).catchError((onError) {
@@ -751,7 +449,7 @@ class _LocalizacionState extends State<Localizacion> {
   void resetnum() {
     Firestore.instance
         .collection('oficio')
-        .document('traslado')
+        .document('local')
         .updateData({"n": "0"}).then((result) {
       print("Reset");
     }).catchError((onError) {
@@ -763,7 +461,7 @@ class _LocalizacionState extends State<Localizacion> {
   void updatemes(String a) {
     Firestore.instance
         .collection('oficio')
-        .document('traslado')
+        .document('local')
         .updateData({"m": "$a"}).then((result) {
       print("Update M");
     }).catchError((onError) {
@@ -849,11 +547,9 @@ class _LocalizacionState extends State<Localizacion> {
     String a = "$b";
     String c = daf.toString();
     String d = "$c";
-    String _tempo = "$time";
-    String _situa = "$situ";
 
     if (nombre.text.isEmpty) {
-      _e.add('Nombre del Fallecido es Requerido.');
+      _e.add('Nombre es Requerido.');
       _final = false;
     }
     if (a == 'null') {
@@ -861,88 +557,33 @@ class _LocalizacionState extends State<Localizacion> {
       _final = false;
     }
 
+    if (direccion.text.isEmpty) {
+      _e.add('Dirección es Requerido.');
+      _final = false;
+    }
+
+    if (nomsoli.text.isEmpty) {
+      _e.add('Nombre del Solicitante es Requerido.');
+      _final = false;
+    }
+    if (parsoli.text.isEmpty) {
+      _e.add('Parentesco del Solicitante es Requerido.');
+      _final = false;
+    }
+
+    if (telsoli.text.isEmpty) {
+      _e.add('Télefono del Solicitante Requerido.');
+      _final = false;
+    }
+
     if (d == 'null') {
-      _e.add('Fecha de Deceso es Requerido.');
-      _final = false;
-    }
-    if (causa.text.isEmpty) {
-      _e.add('Causa del Deceso es Requerido.');
+      _e.add('Última Fecha de Contacto Requerido.');
       _final = false;
     }
 
-    if (lugarmuerte.text.isEmpty) {
-      _e.add('Lugar del Deceso es Requerido.');
+    if (direccionu.text.isEmpty) {
+      _e.add('Última Direccion Conocida Requerido.');
       _final = false;
-    }
-
-    if (lugarorigen.text.isEmpty) {
-      _e.add('Lugar de Origen es Requerido.');
-      _final = false;
-    }
-
-    if (_tempo == "null") {
-      _e.add('Tiempo en EU es Requerido.');
-      _final = false;
-    }
-
-    if (_situa == "null") {
-      _e.add('Situación Migratoria Requerida.');
-      _final = false;
-    }
-
-    if (nombreparmex.text.isEmpty) {
-      _e.add('Nombre de Familiar MX es Requerido.');
-      _final = false;
-    }
-
-    if (telparmex.text.isEmpty) {
-      _e.add('Telefono de Familiar es Requerido.');
-      _final = false;
-    }
-
-    if (parmex.text.isEmpty) {
-      _e.add('Parentesco MX es Requerido.');
-      _final = false;
-    }
-
-    if (nombrepareu.text.isEmpty) {
-      _e.add('Nombre de Familiar EU es Requerido.');
-      _final = false;
-    }
-
-    if (telpareu.text.isEmpty) {
-      _e.add('Telefono de Familiar es Requerido.');
-      _final = false;
-    }
-    if (pareu.text.isEmpty) {
-      _e.add('Parentesco EU es Requerido.');
-      _final = false;
-    }
-
-    if (nombrefune.text.isEmpty) {
-      _e.add('Nombre de Funeraria Requerido.');
-      _final = false;
-    }
-
-    if (telfune.text.isEmpty) {
-      _e.add('Número de Funeraria Requerido.');
-      _final = false;
-    }
-
-    if (correofune.text.isNotEmpty) {
-      
-      
-
-      RegExp regExp = new RegExp(r'^[^@]+@[^@]+\.[^@]+');
-
-      if (!regExp.hasMatch(correofune.toString())) {
-        _scaffoldKey.currentState.showSnackBar(SnackBar(
-          content: Text('Ingrese un Correo Electronico Valido.'),
-          duration: Duration(milliseconds: 1500),
-          backgroundColor: Color(0xffd1495b),
-        ));
-        _final = false;
-      }
     }
 
     print(_final);
