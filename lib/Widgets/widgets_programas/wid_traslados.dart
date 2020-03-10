@@ -930,9 +930,6 @@ class _TrasladosState extends State<Traslados> {
     }
 
     if (correofune.text.isNotEmpty) {
-      
-      
-
       RegExp regExp = new RegExp(r'^[^@]+@[^@]+\.[^@]+');
 
       if (!regExp.hasMatch(correofune.toString())) {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/Servicios/visa_wid.dart';
+import 'package:sezamiapp/Widgets/Servicios/wid_asesoria.dart';
+import 'package:sezamiapp/Widgets/Servicios/wid_localizacion.dart';
 import 'package:sezamiapp/Widgets/calendario/calendario_wid.dart';
 import 'package:sezamiapp/Widgets/calendario/pruebas.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
@@ -10,7 +12,7 @@ import 'package:sezamiapp/Widgets/widgets_programas/corazonplata_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/exbraceros_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/mariposa_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/wid_fam.dart';
-import 'package:sezamiapp/Widgets/widgets_programas/wid_localizacion.dart';
+
 import 'package:sezamiapp/Widgets/widgets_programas/wid_traslados.dart';
 
 class MisBotonesHome extends StatelessWidget {
@@ -287,7 +289,15 @@ class Botonesservicios extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
-
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Asesoria(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
