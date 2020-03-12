@@ -13,6 +13,7 @@ class Federaciones extends StatelessWidget {
     }
   }
 
+  Image actionIcon = new Image.asset("images/icons/ico22.png", width: 40);
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -20,6 +21,13 @@ class Federaciones extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Federaciones'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Center(
         child: Column(

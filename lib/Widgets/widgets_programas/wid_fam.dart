@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
-import 'package:sezamiapp/Widgets/widgets_programas/pdf.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Fam extends StatelessWidget {
@@ -13,6 +12,7 @@ class Fam extends StatelessWidget {
     }
   }
 
+  Image actionIcon = new Image.asset("images/icons/ico13.png", width: 40);
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -20,6 +20,13 @@ class Fam extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Apoyo a Deportados'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[

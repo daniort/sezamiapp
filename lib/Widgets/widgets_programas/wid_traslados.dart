@@ -54,6 +54,8 @@ class _TrasladosState extends State<Traslados> {
   String mesofi;
   String numofi;
 
+  Image actionIcon = new Image.asset("images/icons/ico14.png", width: 40);
+
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -63,6 +65,13 @@ class _TrasladosState extends State<Traslados> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Traslados'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[

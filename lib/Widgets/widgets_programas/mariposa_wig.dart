@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
-import 'package:sezamiapp/Widgets/widgets_programas/pdf.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Mariposa extends StatelessWidget {
@@ -13,6 +12,11 @@ class Mariposa extends StatelessWidget {
     }
   }
 
+  Image actionIcon = new Image.asset(
+    "images/icons/ico15.png",
+    width: 40,
+    color: Color(0xFFC85C06),
+  );
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -20,6 +24,13 @@ class Mariposa extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Mariposa'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[
