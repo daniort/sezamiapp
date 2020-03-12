@@ -14,6 +14,7 @@ class Representaciones extends StatelessWidget {
     }
   }
 
+  Image actionIcon = new Image.asset("images/icons/ico20.png", width: 40);
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -21,6 +22,13 @@ class Representaciones extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Representaciones'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -104,10 +112,10 @@ class Representaciones extends StatelessWidget {
                                     width: MediaQuery.of(context).size.width,
                                   ),
                                 ),
-                                 onTap: () {
-                                customLaunch(
-                                    'https://www.google.com/maps/search/?api=1&query=$direurl&z=20&q=32.534916,-117.017154');
-                              },
+                                onTap: () {
+                                  customLaunch(
+                                      'https://www.google.com/maps/search/?api=1&query=$direurl&z=20&q=32.534916,-117.017154');
+                                },
                               ),
                             if (data['celular'] != null)
                               ListTile(

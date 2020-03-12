@@ -58,6 +58,8 @@ class _TrasladosState extends State<Traslados> {
   String mesofi;
   String numofi;
 
+  Image actionIcon = new Image.asset("images/icons/ico14.png", width: 40);
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -66,6 +68,13 @@ class _TrasladosState extends State<Traslados> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Traslados'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[
@@ -107,7 +116,6 @@ class _TrasladosState extends State<Traslados> {
                         padding: const EdgeInsets.all(2.0),
                         child: TextField(
                           controller: nombre,
-                          
                           decoration: InputDecoration(
                             labelText: 'Nombre del Fallecido:',
                             helperText: 'como quieras',
@@ -118,7 +126,6 @@ class _TrasladosState extends State<Traslados> {
                           onEditingComplete: () {
                             print("a");
                           },
-                          
                         ),
                       ),
                       Padding(
@@ -610,7 +617,7 @@ class _TrasladosState extends State<Traslados> {
                 child: InkWell(
                   onTap: () {
                     //print(returnaOFI());
-                    
+
                     String nofi = returnaOFI();
                     String dian = dan.day.toString();
                     String mesn = dan.month.toString();

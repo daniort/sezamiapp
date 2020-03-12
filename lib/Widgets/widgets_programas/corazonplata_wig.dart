@@ -17,6 +17,9 @@ class _CorazonState extends State<Corazon> {
     }
   }
 
+  Image actionIcon = new Image.asset("images/icons/ico10.png",
+      width: 40, color: Color(0xFFffffff));
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -24,6 +27,13 @@ class _CorazonState extends State<Corazon> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Corazón de Plata'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[

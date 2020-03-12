@@ -12,6 +12,11 @@ class Sezami extends StatelessWidget {
     }
   }
 
+  Image actionIcon = new Image.asset(
+    "images/icons/ico21.png",
+    width: 40,
+    color: Color(0xFF008849),
+  );
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -19,6 +24,13 @@ class Sezami extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('SEZAMI'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Center(
         child: Column(
@@ -41,8 +53,7 @@ class Sezami extends StatelessWidget {
                     List<DocumentSnapshot> docs = snapshot.data.documents;
 
                     docs.sort((a, b) {
-                      return a['num']
-                          .compareTo(b['num']);
+                      return a['num'].compareTo(b['num']);
                     });
                     return ListView.builder(
                       itemCount: (docs.length),

@@ -17,6 +17,8 @@ class _VisaState extends State<Visa> {
     }
   }
 
+  Image actionIcon = new Image.asset("images/icons/ico18.png",
+      width: 40, color: Color(0xFFD67500));
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -24,56 +26,65 @@ class _VisaState extends State<Visa> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Trámite de Visa'),
-      ),
-      body: Column(
-        children: <Widget>[
-          new Expanded(
-            child: ListView(
-              children: <Widget>[
-                ExpansionTile(
-                  backgroundColor: Color(0x1D605e5f),
-                  title: Text('Tramites de visa'),
-                  initiallyExpanded: true,
-                  children: <Widget>[
-                    ListTile(
-                      subtitle: Text(
-                          'Nosotros te ayudamos a realizar la entrevista consular, en el consulado de tu elección.'),
-                    ),
-                    ListTile(
-                      title: Text('REQUISITOS'),
-                      subtitle: Requisitos(),
-                    ),
-                    ListTile(
-                      title: Text('NOTA: TODOS LOS SERVICIOS SON GRATUITOS'),
-                    ),
-                  ],
-                ),
-                ExpansionTile(
-                  backgroundColor: Color(0x1D605e5f),
-                  title: Text('Contacto'),
-                  children: <Widget>[
-                    ListTile(
-                      leading: Icon(Icons.person_pin),
-                      title: Text('LAET Fuensanta Santacrúz'),
-                    ),
-                    ListTile(
-                      leading: new Icon(FontAwesomeIcons.whatsapp),
-                      title: Text('Teléfono'),
-                      subtitle: Text('+52 1 492 892 2638'),
-                      onTap: () {
-                        customLaunch(
-                            "whatsapp://send?phone=+52 1 492 892 2638");
-                      },
-                    )
-                  ],
-                )
-              ],
-            ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
           ),
-          new Container(
-            child: Footer(),
-          )
         ],
+      ),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            new Expanded(
+              child: ListView(
+                children: <Widget>[
+                  ExpansionTile(
+                    backgroundColor: Color(0x1D605e5f),
+                    title: Text('Tramites de visa'),
+                    initiallyExpanded: true,
+                    children: <Widget>[
+                      ListTile(
+                        subtitle: Text(
+                            'Nosotros te ayudamos a realizar la entrevista consular, en el consulado de tu elección.'),
+                      ),
+                      ListTile(
+                        title: Text('REQUISITOS'),
+                        subtitle: Requisitos(),
+                      ),
+                      ListTile(
+                        title: Text('NOTA: TODOS LOS SERVICIOS SON GRATUITOS'),
+                      ),
+                    ],
+                  ),
+                  ExpansionTile(
+                    backgroundColor: Color(0x1D605e5f),
+                    title: Text('Contacto'),
+                    children: <Widget>[
+                      ListTile(
+                        leading: Icon(Icons.person_pin),
+                        title: Text('LAET Fuensanta Santacrúz'),
+                      ),
+                      ListTile(
+                        leading: new Icon(FontAwesomeIcons.whatsapp),
+                        title: Text('Teléfono'),
+                        subtitle: Text('+52 1 492 892 2638'),
+                        onTap: () {
+                          customLaunch(
+                              "whatsapp://send?phone=+52 1 492 892 2638");
+                        },
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            new Container(
+              child: Footer(),
+            )
+          ],
+        ),
       ),
     );
   }
