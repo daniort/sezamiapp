@@ -4,11 +4,6 @@ import 'package:sezamiapp/Widgets/calendario/eventos_wid.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-// Example holidays
-final Map<DateTime, List> _holidays = {
-  DateTime(2020, 2, 12): ['My Brithday'],
-  DateTime(2020, 3, 25): ['My Brithday'],
-};
 
 void main() {
   initializeDateFormatting().then((_) => runApp(Hola()));
@@ -115,8 +110,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   Widget _buildTableCalendar() {
     return TableCalendar(
       calendarController: _calendarController,
-      events: _events,
-      holidays: _holidays,
+    
       startingDayOfWeek: StartingDayOfWeek.monday,
       calendarStyle: CalendarStyle(
         selectedColor: Colors.deepOrange[400],

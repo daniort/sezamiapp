@@ -27,7 +27,6 @@ class Representaciones extends StatelessWidget {
           children: <Widget>[
             new Expanded(
               child: Container(
-                //color: Colors.lightGreen,
                 width: MediaQuery.of(context).size.width,
                 child: StreamBuilder(
                   stream: Firestore.instance
@@ -39,7 +38,6 @@ class Representaciones extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     }
-
                     List<DocumentSnapshot> docs = snapshot.data.documents;
                     docs.sort((a, b) {
                       return a['representacion']
