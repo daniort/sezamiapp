@@ -13,7 +13,8 @@ class Federaciones extends StatelessWidget {
     }
   }
 
-  Image actionIcon = new Image.asset("images/icons/ico22.png", width: 40);
+  Image actionIcon = new Image.asset("images/icons/ico22.png",
+      width: 40, color: Color(0xff252526));
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;

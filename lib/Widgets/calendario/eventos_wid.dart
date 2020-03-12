@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 class Evento extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Container(
       height: ((MediaQuery.of(context).size.height) * 3),
       width: MediaQuery.of(context).size.width,

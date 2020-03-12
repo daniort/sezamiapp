@@ -17,12 +17,11 @@ class _CorazonState extends State<Corazon> {
     }
   }
 
-  Image actionIcon = new Image.asset("images/icons/ico10.png", width: 40);
+  Image actionIcon = new Image.asset("images/icons/ico10.png",
+      width: 40, color: Color(0xff252526));
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Corazón de Plata'),

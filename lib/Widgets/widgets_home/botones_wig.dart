@@ -3,7 +3,6 @@ import 'package:sezamiapp/Widgets/Servicios/visa_wid.dart';
 import 'package:sezamiapp/Widgets/Servicios/wid_asesoria.dart';
 import 'package:sezamiapp/Widgets/Servicios/wid_localizacion.dart';
 import 'package:sezamiapp/Widgets/calendario/calendario_wid.dart';
-import 'package:sezamiapp/Widgets/calendario/pruebas.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';

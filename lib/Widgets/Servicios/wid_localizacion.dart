@@ -1,10 +1,8 @@
 //import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:sezamiapp/Widgets/Servicios/local_pdf%20.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
-
 
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
@@ -31,7 +29,7 @@ class _LocalizacionState extends State<Localizacion> {
     nomsoli = TextEditingController();
     parsoli = TextEditingController();
     telsoli = TextEditingController();
-  
+
     super.initState();
   }
 
@@ -39,6 +37,8 @@ class _LocalizacionState extends State<Localizacion> {
   String numofi;
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  Image actionIcon = new Image.asset("images/icons/ico18.png",
+      width: 40, color: Color(0xff252526));
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -47,6 +47,13 @@ class _LocalizacionState extends State<Localizacion> {
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Localización de Personas'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[
@@ -141,7 +148,8 @@ class _LocalizacionState extends State<Localizacion> {
                                                   currentTime: dan,
                                                   locale: LocaleType.es);
                                             },
-                                            child: Text('$dan',
+                                            child: Text(
+                                              '$dan',
                                               style: TextStyle(
                                                   color: Color(0xff838383)),
                                             ))),
@@ -279,7 +287,8 @@ class _LocalizacionState extends State<Localizacion> {
                                                   currentTime: daf,
                                                   locale: LocaleType.es);
                                             },
-                                            child: Text('$daf',
+                                            child: Text(
+                                              '$daf',
                                               style: TextStyle(
                                                   color: Color(0xff838383)),
                                             ))),

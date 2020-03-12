@@ -54,7 +54,8 @@ class _TrasladosState extends State<Traslados> {
   String mesofi;
   String numofi;
 
-  Image actionIcon = new Image.asset("images/icons/ico14.png", width: 40);
+  Image actionIcon = new Image.asset("images/icons/ico14.png",
+      width: 40, color: Color(0xff252526));
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override

@@ -27,14 +27,21 @@ class _AsesoriaState extends State<Asesoria> {
   }
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  Image actionIcon = new Image.asset("images/icons/ico17.png",
+      width: 40, color: Color(0xff252526));
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
         title: Text('Asesoría Migratoría'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Column(
         children: <Widget>[
@@ -214,10 +221,12 @@ class _AsesoriaState extends State<Asesoria> {
                                 String t = tel.text;
                                 String c = correo.text.toLowerCase();
                                 String ase = asesoria.text.toLowerCase();
-                                String msj = '''Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n De Antemano, Gracias.''';
+                                String msj =
+                                    '''Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n De Antemano, Gracias.''';
                                 final Email email = Email(
                                   body: msj,
-                                  subject: 'Asesoría Migratoria de Sezami Digital Movil',
+                                  subject:
+                                      'Asesoría Migratoria de Sezami Digital Movil',
                                   recipients: ['sezami.prueba22@gmail.com'],
                                   cc: ['eduardo.rios@zacatecas.gob.mx'],
                                 );

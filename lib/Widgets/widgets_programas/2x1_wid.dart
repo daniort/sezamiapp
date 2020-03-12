@@ -12,11 +12,10 @@ class DosporUno extends StatelessWidget {
     }
   }
 
-  Image actionIcon = new Image.asset("images/icons/ico11.png", width: 40.0);
+  Image actionIcon = new Image.asset("images/icons/ico11.png",
+      width: 40.0, color: Color(0xff252526));
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Inversión con Migrantes'),

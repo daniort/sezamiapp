@@ -18,11 +18,9 @@ class _VisaState extends State<Visa> {
   }
 
   Image actionIcon = new Image.asset("images/icons/ico18.png",
-      width: 40, color: Color(0xFFD67500));
+      width: 40, color: Color(0xff252526));
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Trámite de Visa'),
@@ -93,8 +91,6 @@ class _VisaState extends State<Visa> {
 class Requisitos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Column(
       children: <Widget>[
         Row(children: <Widget>[

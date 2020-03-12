@@ -12,11 +12,10 @@ class Exbraceros extends StatelessWidget {
     }
   }
 
-  Image actionIcon = new Image.asset("images/icons/ico12.png", width: 40);
+  Image actionIcon = new Image.asset("images/icons/ico12.png",
+      width: 40, color: Color(0xff252526));
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Ex Braceros'),
@@ -146,8 +145,6 @@ class Exbraceros extends StatelessWidget {
 class RequisitosUno extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Column(
       children: <Widget>[
         Row(children: <Widget>[
@@ -204,8 +201,6 @@ class RequisitosUno extends StatelessWidget {
 class RequisitosDos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Column(
       children: <Widget>[
         Row(children: <Widget>[
@@ -283,8 +278,6 @@ class RequisitosDos extends StatelessWidget {
 class RequisitosTres extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return Column(
       children: <Widget>[
         Row(children: <Widget>[

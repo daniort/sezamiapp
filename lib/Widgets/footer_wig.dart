@@ -13,8 +13,6 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
     return new Container(
       color: Color(0xFF605e5f),
       //color: Color(0xFF262626),
