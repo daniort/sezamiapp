@@ -741,14 +741,16 @@ Future<String> myPDF(
   );
 
   final output = await getExternalStorageDirectory();
-  final file = File("${output.path}/solici_test.pdf");
+  final file = File("${output.path}/SOLICI_TRASL_$nofi.pdf");
   await file.writeAsBytes(pdf.save());
   final Email email = Email(
-    body: 'Generado desde Sezamo Digital Movil',
-    subject: 'Solcititud de Traslado',
+    body: 'Generado desde Sezami Digital Movil',
+    subject: 'Solicitud de Traslado',
     recipients: ['sezami.prueba22@gmail.com'],
-    cc: ['eduardo.rios@zacatecas.gob.mx'],
-    attachmentPath: "${output.path}/solici_test.pdf",
+    
+    cc: ['eduardo.rios@zacatecas.gob.mx'],    
+    
+    attachmentPath: "${output.path}/SOLICI_TRASL_$nofi.pdf",
     isHTML: false,
   );
   await FlutterEmailSender.send(email);
