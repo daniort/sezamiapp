@@ -12,11 +12,7 @@ class Sezami extends StatelessWidget {
     }
   }
 
-  Image actionIcon = new Image.asset(
-    "images/icons/ico21.png",
-    width: 40,
-    color: Color(0xFF008849),
-  );
+  Image actionIcon = new Image.asset("images/icons/ico21.png", width: 40);
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;

@@ -17,8 +17,7 @@ class _CorazonState extends State<Corazon> {
     }
   }
 
-  Image actionIcon = new Image.asset("images/icons/ico10.png",
-      width: 40, color: Color(0xFFffffff));
+  Image actionIcon = new Image.asset("images/icons/ico10.png", width: 40);
 
   @override
   Widget build(BuildContext context) {

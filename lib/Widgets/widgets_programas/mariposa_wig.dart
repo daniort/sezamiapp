@@ -12,11 +12,7 @@ class Mariposa extends StatelessWidget {
     }
   }
 
-  Image actionIcon = new Image.asset(
-    "images/icons/ico15.png",
-    width: 40,
-    color: Color(0xFFC85C06),
-  );
+  Image actionIcon = new Image.asset("images/icons/ico15.png", width: 40);
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
