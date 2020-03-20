@@ -58,8 +58,6 @@ class _CalendarioState extends State<Calendario> {
       calendarController: _calendarController,
       startingDayOfWeek: StartingDayOfWeek.sunday,
       calendarStyle: CalendarStyle(
-        
-
         selectedColor: Colors.deepOrange[400],
         todayColor: Colors.deepOrange[200],
         markersColor: Colors.brown[700],
@@ -110,7 +108,7 @@ class _CalendarioState extends State<Calendario> {
       print(eventos_es.length);
 
       return SingleChildScrollView(
-              child: ExpansionTile(
+        child: ExpansionTile(
           initiallyExpanded: true,
           backgroundColor: Color(0x1D605e5f),
           leading: Icon(Icons.event_available, color: Color(0xff868686)),
@@ -226,27 +224,21 @@ class _CalendarioState extends State<Calendario> {
             itemCount: (docs.length),
             itemBuilder: (context, index) {
               Map<String, dynamic> data = docs[index].data;
-             
-                return ExpansionTile(
-                  backgroundColor: Color(0x1D605e5f),
-                  leading:
-                      Icon(Icons.event_available, color: Color(0xff868686)),
-                  title: Text(
-                    data['fecha'],
-                    style: TextStyle(
-                        color: Color(0xFF262626), fontWeight: FontWeight.bold),
+
+              return ExpansionTile(
+                backgroundColor: Color(0x1D605e5f),
+                leading: Icon(Icons.event_available, color: Color(0xff868686)),
+                title: Text(
+                  data['fecha'],
+                  style: TextStyle(
+                      color: Color(0xFF262626), fontWeight: FontWeight.bold),
+                ),
+                children: <Widget>[
+                  ListTile(
+                    title: Text(data['evento']),
                   ),
-                  children: <Widget>[
-                    ListTile(
-                      title: Text(data['evento']),
-                    ),
-                    if (data['observacion'] != null)
-                      ListTile(
-                        title: Text(data['observacion']),
-                      ),
-                  ],
-                );
-              
+                ],
+              );
             },
           );
         },
