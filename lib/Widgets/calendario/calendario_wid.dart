@@ -77,7 +77,7 @@ class _CalendarioState extends State<Calendario> {
 
   _returnlistafechaseventos(String f) {
     Firestore.instance
-        .collection('Eventos_Calendario')
+        .collection('eventos_calendario')
         .snapshots()
         .listen((data) => data.documents.forEach((doc) {
               if (doc["fech"] == f) {
@@ -206,7 +206,7 @@ class _CalendarioState extends State<Calendario> {
       height: ((MediaQuery.of(context).size.height) * 3),
       width: MediaQuery.of(context).size.width,
       child: StreamBuilder(
-        stream: Firestore.instance.collection('Eventos_Calendario').snapshots(),
+        stream: Firestore.instance.collection('eventos_calendario').snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return Center(
