@@ -26,11 +26,20 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHome extends StatelessWidget {
+  Image actionIcon = new Image.asset("images/icons/ic_.png",
+      width: 45, );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sezami Digital'),
+        title: Text('SEZAMI Digital'),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+            child: actionIcon,
+          ),
+        ],
       ),
       body: Center(
         child: Column(
