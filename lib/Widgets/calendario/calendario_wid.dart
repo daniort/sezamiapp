@@ -218,7 +218,7 @@ class _CalendarioState extends State<Calendario> {
 
           docs.sort((a, b) {
             return a['num'].compareTo(b['num']);
-          });
+         });
 
           return ListView.builder(
             itemCount: (docs.length),
