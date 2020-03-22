@@ -11,15 +11,8 @@ class MiBanner extends StatefulWidget {
 }
 
 class _MiBannerState extends State<MiBanner> {
-  final all_url = [];
-  final all_url_mini = [];
-  //final String image = "image/apoBanner.jpg";
-  final String image = "banner_mini/capmBanner.jpg";
-
   @override
   void initState() {
-    //_getAllImagesPeq();
-    //_getAllImages();
     _thisImage();
     super.initState();
   }
@@ -28,59 +21,19 @@ class _MiBannerState extends State<MiBanner> {
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
-    return Stack(
-      children: <Widget>[
-        Container(
-          margin: const EdgeInsets.only(top: 80),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Container(
-                  child: Text('sss'),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+    return Container(
+      child: Text('dsfsdf'),
     );
   }
 
-  Future<Widget> _getImage(BuildContext context, String image) async {
-    Image m;
-    await FireStorageService.loadFromStorage(context, image)
-        .then((downloadUrl) {
-      print('si se hizo');
-      m = Image.network(
-        downloadUrl.toString(),
-        fit: BoxFit.scaleDown,
-      );
-    });
-
-    return m;
-  }
-
-  _getAllImagesPeq() {
-    Firestore.instance
-        .collection('url_images_banner_mini')
-        .snapshots()
-        .listen((data) => data.documents.forEach((doc) {
-              all_url_mini.add(doc["url"]);
-            }));
-  }
-
-  _getAllImages() {
-    Firestore.instance
-        .collection('url_images_banner')
-        .snapshots()
-        .listen((data) => data.documents.forEach((doc) {
-              all_url.add(doc["url"]);
-            }));
-  }
-
   _thisImage() async {
-    var ref = FirebaseStorage.instance.ref().child('apoSrc.jpg');
-    var location = await ref.getDownloadURL();
-    print(location);
+    final StorageReference storageRef =
+        FirebaseStorage.instance.ref().child('banner');
+    storageRef.listAll().then((res) {
+      var items = res['items'];
+      print('*******************+');
+      print(items);
+      print('*******************+');
+    });
   }
 }
