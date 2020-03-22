@@ -1,147 +1,86 @@
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:sezamiapp/services/storage/mobile_storage.dart';
 
-class MiBanner extends StatelessWidget {
+class MiBanner extends StatefulWidget {
+  @override
+  _MiBannerState createState() => _MiBannerState();
+}
+
+class _MiBannerState extends State<MiBanner> {
+  final all_url = [];
+  final all_url_mini = [];
+  //final String image = "image/apoBanner.jpg";
+  final String image = "banner_mini/capmBanner.jpg";
+
+  @override
+  void initState() {
+    //_getAllImagesPeq();
+    //_getAllImages();
+    _thisImage();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
-    return new Carousel(
-      dotColor: Colors.white,
-      dotBgColor: Colors.grey.withOpacity(0.5),
-      images: [
-        InkWell(
-          onTap: () => {
-            showModalBottomSheet(
-                elevation: (queryData.size.height),
-                //backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                backgroundColor: Colors.white.withOpacity(0.0),
-                context: context,
-                isScrollControlled: true,
-                builder: (context) {
-                  //eturn Calendario();
-                  return Img1();
-                }),
-          },
-          child: Container(
-            child: Image.asset('images/banner/apoBanner.jpg'),
-          ),
-        ),
-        InkWell(
-          onTap: () => {
-            showModalBottomSheet(
-                elevation: (queryData.size.height),
-                //backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                backgroundColor: Colors.white.withOpacity(0.0),
-
-                //shape:
-                context: context,
-                isScrollControlled: true,
-                builder: (context) {
-                  //eturn Calendario();
-                  return Img2();
-                }),
-          },
-          child: Container(
-            child: Image.asset('images/banner/capmBanner.jpg'),
-          ),
-        ),
-        InkWell(
-          onTap: () => {
-            showModalBottomSheet(
-                elevation: (queryData.size.height),
-                //backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                backgroundColor: Colors.white.withOpacity(0.0),
-
-                //shape:
-                context: context,
-                isScrollControlled: true,
-                builder: (context) {
-                  //eturn Calendario();
-                  return Img3();
-                }),
-          },
-          child: Container(
-            child: Image.asset('images/banner/coeeBanner.jpg'),
+    return Stack(
+      children: <Widget>[
+        Container(
+          margin: const EdgeInsets.only(top: 80),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  child: Text('sss'),
+                ),
+              ),
+            ],
           ),
         ),
       ],
     );
   }
-}
 
-class Img1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
-    return Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        width: queryData.size.width,
-        height: (queryData.size.height) * .8,
-        child: PhotoView(
-          imageProvider: AssetImage('images/banner/apoSrc.jpg'),
-          backgroundDecoration: BoxDecoration(
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
+  Future<Widget> _getImage(BuildContext context, String image) async {
+    Image m;
+    await FireStorageService.loadFromStorage(context, image)
+        .then((downloadUrl) {
+      print('si se hizo');
+      m = Image.network(
+        downloadUrl.toString(),
+        fit: BoxFit.scaleDown,
+      );
+    });
+
+    return m;
   }
-}
 
-class Img2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
-    return Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        width: (queryData.size.width),
-        height: (queryData.size.height) * .8,
-         child: PhotoView(
-          imageProvider: AssetImage('images/banner/capmSrc.jpg'),
-          backgroundDecoration: BoxDecoration(
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
+  _getAllImagesPeq() {
+    Firestore.instance
+        .collection('url_images_banner_mini')
+        .snapshots()
+        .listen((data) => data.documents.forEach((doc) {
+              all_url_mini.add(doc["url"]);
+            }));
   }
-}
 
-class Img3 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
-    return Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        width: queryData.size.width,
-        height: (queryData.size.height) * .8,
-         child: PhotoView(
-          imageProvider: AssetImage('images/banner/coeeSrc.jpg'),
-          backgroundDecoration: BoxDecoration(
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
+  _getAllImages() {
+    Firestore.instance
+        .collection('url_images_banner')
+        .snapshots()
+        .listen((data) => data.documents.forEach((doc) {
+              all_url.add(doc["url"]);
+            }));
+  }
+
+  _thisImage() async {
+    var ref = FirebaseStorage.instance.ref().child('apoSrc.jpg');
+    var location = await ref.getDownloadURL();
+    print(location);
   }
 }
