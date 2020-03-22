@@ -47,7 +47,7 @@ class MyHome extends StatelessWidget {
             Container(
               height: ((MediaQuery.of(context).size.height) * .25),
               width: MediaQuery.of(context).size.width,
-              child: MiBanner(),
+              child: MyBanner(),
             ),
             Expanded(
               child: Container(
