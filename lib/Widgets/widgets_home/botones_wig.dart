@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:sezamiapp/Widgets/calendario_wid.dart';
+import 'package:sezamiapp/Widgets/Servicios/visa_wid.dart';
+import 'package:sezamiapp/Widgets/Servicios/wid_localizacion.dart';
+import 'package:sezamiapp/Widgets/calendario/calendario_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';
-
 import 'package:sezamiapp/Widgets/widget_programas/asesoria_migra_wid.dart';
-import 'package:sezamiapp/Widgets/widget_programas/local_personas_wid.dart';
-import 'package:sezamiapp/Widgets/widgets_home/calendar_wid.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/2x1_wid.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/corazonplata_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/exbraceros_wid.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/mariposa_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/wid_fam.dart';
+
+import 'package:sezamiapp/Widgets/widgets_programas/wid_traslados.dart';
 
 class MisBotonesHome extends StatelessWidget {
   @override
@@ -15,249 +21,248 @@ class MisBotonesHome extends StatelessWidget {
     queryData = MediaQuery.of(context);
     return new Column(
       children: <Widget>[
-        new Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
-              child: InkWell(
-                onTap: () => {
-                  showModalBottomSheet(
-                      elevation: (queryData.size.height) * 0.8,
-                      backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                      //shape:
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) {
-                        return BotonesDirectorio();
-                      }),
-                },
-                child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
-                          width: (queryData.size.width) * 0.30,
-                          //height: 60.0,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: Image.asset('images/icons/icodire.png'),
-                        ),
-                      ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
+        new Expanded(
+          child: Row(
+            children: <Widget>[
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    showModalBottomSheet(
+                        elevation: (queryData.size.height) * 0.8,
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                        //shape:
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return BotonesDirectorio();
+                        }),
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8.0, bottom: 4.0, left: 8.0, right: 4.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
                             child: Container(
-                              child: Text('Directorio'),
+                              width: (queryData.size.width) * 0.35,
+                              //color: Colors.purple,
+                              child: Image.asset('images/icons/icodire.png'),
                             ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
-              child: InkWell(
-                onTap: () => {
-                  showModalBottomSheet(
-                      //elevation: (queryData.size.height) * .2,
-                      backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                      //shape:
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) {
-                        return BotonesProgramas();
-                      }),
-                },
-                child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
-                          width: (queryData.size.width) * 0.30,
-                          //height: 60.0,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: Image.asset('images/icons/icoprog.png'),
-                        ),
-                      ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
-                            child: Container(
-                              child: Text('Programas'),
+                          Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(40.0)),
+                                  child: Center(
+                                    child: Text(
+                                      'Directorio',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        new Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
-              child: InkWell(
-                onTap: () => {
-                  showModalBottomSheet(
-                      elevation: (queryData.size.height) * 0.8,
-                      //backgroundColor: Colors.blueGrey,
-                      backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                      context: context,
-                      isScrollControlled: true,
-                      builder: (context) {
-                        return Botonesservicios();
-                      }),
-                },
-                child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
-                          width: (queryData.size.width) * 0.30,
-                          //height: 60.0,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: Image.asset('images/icons/icosev.png'),
-                        ),
+                          )
+                        ],
                       ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
-                            child: Container(
-                              child: Text('Servicios'),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            new Padding(
-              padding: EdgeInsets.all((queryData.size.width) * 0.02),
-              child: InkWell(
-                onTap: () => {
-                  Navigator.pop(context),
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Calendar(),
                     ),
                   ),
-                },
-                child: Container(
-                  width: (queryData.size.width) * 0.45,
-                  height: (queryData.size.height) * 0.28,
-                  color: Color(0xFF20b9c0),
-                  child: Stack(
-                    children: <Widget>[
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 60.0,
-                            top: 0.0,
-                          ),
-                          width: (queryData.size.width) * 0.30,
-                          //height: 60.0,
-                          decoration: BoxDecoration(
-                            //color: Color(0xFFfff344f),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: Image.asset('images/icons/icocal.png'),
-                        ),
-                      ),
-                      Center(
-                        child: Container(
-                          margin: EdgeInsets.only(
-                            bottom: 5.0,
-                            top: 100.0,
-                          ),
-                          width: 90.0,
-                          height: 30.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFffffff),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: new Center(
+                ),
+              ),
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    showModalBottomSheet(
+                        elevation: (queryData.size.height) * 0.8,
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                        //shape:
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return BotonesProgramas();
+                        }),
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8.0, bottom: 4.0, left: 4.0, right: 8.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
                             child: Container(
-                              child: Text('Calendario'),
+                              width: (queryData.size.width) * 0.30,
+                              child: Image.asset('images/icons/icoprog.png'),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                          Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(40.0)),
+                                  child: Center(
+                                    child: Text(
+                                      'Programas',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
+        ),
+        new Expanded(
+          child: Row(
+            children: <Widget>[
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    showModalBottomSheet(
+                        elevation: (queryData.size.height) * 0.8,
+                        backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                        //shape:
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return Botonesservicios();
+                        }),
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 4.0, bottom: 8.0, left: 8.0, right: 4.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              width: (queryData.size.width) * 0.35,
+                              //color: Colors.purple,
+                              child: Image.asset('images/icons/icosev.png'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(18.0)),
+                                  child: Center(
+                                    child: Text(
+                                      'Servicios',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              new Expanded(
+                child: InkWell(
+                  onTap: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Calendario(),
+                      ),
+                    ),
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 4.0, bottom: 8.0, left: 4.0, right: 8.0),
+                    child: Container(
+                      color: Color(0xFF00bec1),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              width: (queryData.size.width) * 0.30,
+                              child: Image.asset('images/icons/icocal.png'),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: new Container(
+                              //color: Colors.orange,
+                              child: new Center(
+                                child: Container(
+                                  width: (queryData.size.width) * 0.40,
+                                  height: (queryData.size.height) * 0.05,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(40.0)),
+                                  child: Center(
+                                    child: Text(
+                                      'Calendario',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        color: Color(0xFF262626),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -311,7 +316,7 @@ class Botonesservicios extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico17.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF005F66),
                           ),
                         ),
                       ),
@@ -363,6 +368,15 @@ class Botonesservicios extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Visa(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -383,7 +397,7 @@ class Botonesservicios extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico18.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFFD67500),
                           ),
                         ),
                       ),
@@ -440,7 +454,7 @@ class Botonesservicios extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LocalPersonas(),
+                    builder: (context) => Localizacion(),
                   ),
                 ),
               },
@@ -464,7 +478,7 @@ class Botonesservicios extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico16.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF00709E),
                           ),
                         ),
                       ),
@@ -526,7 +540,6 @@ class BotonesDirectorio extends StatelessWidget {
     queryData = MediaQuery.of(context);
     return Container(
       decoration: BoxDecoration(
-        //color: Color(0xFFffffff),
         borderRadius: BorderRadius.circular(30.0),
       ),
       width: queryData.size.width,
@@ -565,8 +578,8 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico20.png"),
-                            color: Colors.blueGrey,
+                            image: AssetImage("images/icons/ico21.png"),
+                            color: Color(0xFF008849),
                           ),
                         ),
                       ),
@@ -647,7 +660,7 @@ class BotonesDirectorio extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico22.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF005B9F),
                           ),
                         ),
                       ),
@@ -727,8 +740,8 @@ class BotonesDirectorio extends StatelessWidget {
                           width: (queryData.size.width) * 0.20,
                           height: (queryData.size.height) * 0.06,
                           child: Image(
-                            image: AssetImage("images/icons/ico21.png"),
-                            color: Colors.blueGrey,
+                            image: AssetImage("images/icons/ico20.png"),
+                            color: Color(0xFF009C49),
                           ),
                         ),
                       ),
@@ -790,7 +803,6 @@ class BotonesProgramas extends StatelessWidget {
     queryData = MediaQuery.of(context);
     return Container(
       decoration: BoxDecoration(
-        //color: Color(0xFFffffff),
         borderRadius: BorderRadius.circular(30.0),
       ),
       width: queryData.size.width,
@@ -801,6 +813,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Corazon(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -821,7 +842,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico10.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF006CAB),
                           ),
                         ),
                       ),
@@ -873,6 +894,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Mariposa(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -893,7 +923,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico15.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFFC85C06),
                           ),
                         ),
                       ),
@@ -945,6 +975,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Fam(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -965,7 +1004,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico13.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFFBD8F00),
                           ),
                         ),
                       ),
@@ -987,7 +1026,7 @@ class BotonesProgramas extends StatelessWidget {
                             ),
                             new Container(
                               child: Text(
-                                "FAM",
+                                "Apoyo a Deportados",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Colors.blueGrey, fontSize: 16.0),
@@ -1017,6 +1056,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DosporUno(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -1037,7 +1085,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico11.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF8B9020),
                           ),
                         ),
                       ),
@@ -1059,7 +1107,7 @@ class BotonesProgramas extends StatelessWidget {
                             ),
                             new Container(
                               child: Text(
-                                "3x1",
+                                "2x1",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     color: Colors.blueGrey, fontSize: 16.0),
@@ -1089,6 +1137,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Exbraceros(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -1109,7 +1166,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico12.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF005DFB),
                           ),
                         ),
                       ),
@@ -1161,6 +1218,15 @@ class BotonesProgramas extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(4.0),
             child: new InkWell(
+              onTap: () => {
+                Navigator.pop(context),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Traslados(),
+                  ),
+                ),
+              },
               child: Container(
                 width: (queryData.size.width) * 0.90,
                 height: (queryData.size.height) * 0.08,
@@ -1181,7 +1247,7 @@ class BotonesProgramas extends StatelessWidget {
                           height: (queryData.size.height) * 0.06,
                           child: Image(
                             image: AssetImage("images/icons/ico14.png"),
-                            color: Colors.blueGrey,
+                            color: Color(0xFF454545),
                           ),
                         ),
                       ),

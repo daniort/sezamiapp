@@ -1,26 +1,147 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-
+import 'package:photo_view/photo_view.dart';
 
 class MiBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Mybanner(),
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    return new Carousel(
+      dotColor: Colors.white,
+      dotBgColor: Colors.grey.withOpacity(0.5),
+      images: [
+        InkWell(
+          onTap: () => {
+            showModalBottomSheet(
+                elevation: (queryData.size.height),
+                //backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                backgroundColor: Colors.white.withOpacity(0.0),
+                context: context,
+                isScrollControlled: true,
+                builder: (context) {
+                  //eturn Calendario();
+                  return Img1();
+                }),
+          },
+          child: Container(
+            child: Image.asset('images/banner/apoBanner.jpg'),
+          ),
+        ),
+        InkWell(
+          onTap: () => {
+            showModalBottomSheet(
+                elevation: (queryData.size.height),
+                //backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                backgroundColor: Colors.white.withOpacity(0.0),
+
+                //shape:
+                context: context,
+                isScrollControlled: true,
+                builder: (context) {
+                  //eturn Calendario();
+                  return Img2();
+                }),
+          },
+          child: Container(
+            child: Image.asset('images/banner/capmBanner.jpg'),
+          ),
+        ),
+        InkWell(
+          onTap: () => {
+            showModalBottomSheet(
+                elevation: (queryData.size.height),
+                //backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                backgroundColor: Colors.white.withOpacity(0.0),
+
+                //shape:
+                context: context,
+                isScrollControlled: true,
+                builder: (context) {
+                  //eturn Calendario();
+                  return Img3();
+                }),
+          },
+          child: Container(
+            child: Image.asset('images/banner/coeeBanner.jpg'),
+          ),
+        ),
+      ],
     );
   }
 }
 
-
-class Mybanner extends StatelessWidget {
+class Img1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Carousel(
-      images: [
-        AssetImage('images/banner/banner1.jpg'),
-        AssetImage('images/banner/banner2.jpg'),
-        AssetImage('images/banner/banner3.jpg'),
-      ],
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        width: queryData.size.width,
+        height: (queryData.size.height) * .8,
+        child: PhotoView(
+          imageProvider: AssetImage('images/banner/apoSrc.jpg'),
+          backgroundDecoration: BoxDecoration(
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Img2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        width: (queryData.size.width),
+        height: (queryData.size.height) * .8,
+         child: PhotoView(
+          imageProvider: AssetImage('images/banner/capmSrc.jpg'),
+          backgroundDecoration: BoxDecoration(
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Img3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        width: queryData.size.width,
+        height: (queryData.size.height) * .8,
+         child: PhotoView(
+          imageProvider: AssetImage('images/banner/coeeSrc.jpg'),
+          backgroundDecoration: BoxDecoration(
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }
