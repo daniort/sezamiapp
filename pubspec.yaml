@@ -26,12 +26,14 @@ dependencies:
   cupertino_icons: ^0.1.2
   table_calendar: ^2.2.2
   image_picker: ^0.6.3+1
+  gesture_zoom_box: ^0.0.2
   url_launcher: ^5.4.1
 
   google_maps_flutter: ^0.5.22+1
   google_fonts: ^0.3.9
 
   carousel_pro: ^1.0.0
+  carousel_slider: ^1.4.1
   font_awesome_flutter: ^8.5.0
   pdf_viewer_plugin: ^1.0.0+2
   path_provider: ^1.6.1
