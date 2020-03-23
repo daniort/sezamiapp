@@ -372,10 +372,8 @@ Future<String> myiPDF(
   final Email email = Email(
     body: 'Generado desde Sezami Digital Móvil',
     subject: 'Solicitud de Localización',
-    recipients: ['sezami.prueba22@gmail.com','juanjosepelaez84@gmail.com','dqniort@gmail.com'],
-    cc: ['eduardo.rios@zacatecas.gob.mx'],
-    
-    
+    recipients: ['laetfuensanta@hotmail.com'],
+    cc: ['sezami.zac@gmail.com', 'sezamiapp@gmail.com'],
     attachmentPath: "${output.path}/SOLICI_UBICA_$nofi.pdf",
     isHTML: false,
   );

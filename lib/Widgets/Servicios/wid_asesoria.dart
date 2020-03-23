@@ -162,10 +162,7 @@ class _AsesoriaState extends State<Asesoria> {
                                       Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.                                      
                                       ''';
                                 FlutterOpenWhatsapp.sendSingleMessage(
-                                    //" 52 492 892 2638", "$msj"); //rial
-                                    "52 953 189 4421",
-                                    "$msj"); //pealaez
-                                //"52 953 189 4421", "$msj");//mio
+                                    " +52 1 492 892 2638", "$msj");
                               }
                             },
                             child: Container(
@@ -227,8 +224,11 @@ class _AsesoriaState extends State<Asesoria> {
                                   body: msj,
                                   subject:
                                       'Asesoría Migratoria de Sezami Digital Movil',
-                                  recipients: ['sezami.prueba22@gmail.com'],
-                                  cc: ['eduardo.rios@zacatecas.gob.mx'],
+                                  recipients: ['laetfuensanta@hotmail.com'],
+                                  cc: [
+                                    'sezami.zac@gmail.com',
+                                    'sezamiapp@gmail.com'
+                                  ],
                                 );
                                 await FlutterEmailSender.send(email);
                               }

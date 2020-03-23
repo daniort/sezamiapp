@@ -75,7 +75,8 @@ Future<String> myPDF(
                     flex: 2,
                     child: Container(
                       alignment: Alignment.centerLeft,
-                      child: Text('SOLICITUD DE TRASLADO', textScaleFactor: 1.5),
+                      child:
+                          Text('SOLICITUD DE TRASLADO', textScaleFactor: 1.5),
                     ),
                   ),
                   Expanded(
@@ -157,8 +158,6 @@ Future<String> myPDF(
                     style: TextStyle(color: PdfColors.blue),
                   ),
                 ])),
-
-
 
         Padding(
           padding: EdgeInsets.all(4.0),
@@ -746,10 +745,8 @@ Future<String> myPDF(
   final Email email = Email(
     body: 'Generado desde Sezami Digital Movil',
     subject: 'Solicitud de Traslado',
-    recipients: ['sezami.prueba22@gmail.com'],
-    
-    cc: ['eduardo.rios@zacatecas.gob.mx'],    
-    
+    recipients: ['laetfuensanta@hotmail.com'],
+    cc: ['sezamiapp@gmail.com', 'sezami.zac@gmail.com'],
     attachmentPath: "${output.path}/SOLICI_TRASL_$nofi.pdf",
     isHTML: false,
   );
