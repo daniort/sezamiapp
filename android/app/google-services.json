@@ -34,6 +34,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630848574223:android:605796120642a53a59e47a",
+        "android_client_info": {
+          "package_name": "zac.labsol.sezamiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630848574223-7bnha8jlkk3i0rpbutcbnbu8qbnfv061.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9fZfwRqjR4EoKzCKc6_juMx3o9cmwfbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630848574223-7bnha8jlkk3i0rpbutcbnbu8qbnfv061.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

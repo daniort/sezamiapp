@@ -1,8 +1,11 @@
 //import 'package:carousel_pro/carousel_pro.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:gesture_zoom_box/gesture_zoom_box.dart';
+import 'package:load/load.dart';
+import 'package:loading_overlay/loading_overlay.dart';
 
 import 'package:sezamiapp/Widgets/widgets_home/botones_wig.dart';
 
@@ -26,8 +29,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHome extends StatelessWidget {
-  Image actionIcon = new Image.asset("images/icons/ic_.png",
-      width: 45, );
+  Image actionIcon = new Image.asset(
+    "images/icons/ic_.png",
+    width: 45,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +53,7 @@ class MyHome extends StatelessWidget {
             child: new Container(
               height: ((MediaQuery.of(context).size.height) * .20),
               width: MediaQuery.of(context).size.width,
-              child: MiBanner(),
+              child: Scrollbar(child: MiBanner()),
             ),
           ),
           new Padding(
@@ -112,12 +117,9 @@ class _MiBannerState extends State<MiBanner> {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
-                    decoration: BoxDecoration(color: Colors.amber),
-                    //child: Image.network('$i')
                     child: InkWell(
                       onTap: () => {
                         showModalBottomSheet(
-                          
                             backgroundColor: Colors.white.withOpacity(0.0),
                             context: context,
                             isScrollControlled: true,
@@ -125,7 +127,13 @@ class _MiBannerState extends State<MiBanner> {
                               return Img1(ureles: names_url_fat);
                             }),
                       },
-                      child: Container(child: Image.network('$i')),
+                      child: CachedNetworkImage(
+                        imageUrl: "$i",
+                        placeholder: (context, url) => Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
                     ),
                   );
                 },
@@ -134,15 +142,12 @@ class _MiBannerState extends State<MiBanner> {
           );
 
         if (snapshot.connectionState == ConnectionState.waiting)
-          return Container(
-              color: Colors.white,
-              height: MediaQuery.of(context).size.height / 1.25,
-              width: MediaQuery.of(context).size.width / 1.25,
-              child: LinearProgressIndicator(
-                backgroundColor: Colors.grey[100],
-                valueColor:
-                    new AlwaysStoppedAnimation<Color>(Color(0xFF0076a6)),
-              ));
+          return Center(
+
+              //height: MediaQuery.of(context).size.height / 1.25,
+              //width: MediaQuery.of(context).size.width / 1.25,
+
+              child: CircularProgressIndicator());
 
         return Container();
       },
@@ -225,14 +230,10 @@ class _MiBannerState extends State<MiBanner> {
               }
             } else {
               var path = "banner/$nombre";
-              await FirebaseStorage.instance
-                  .ref()
-                  .child(path)
-                  .getDownloadURL()
-                  .then((downloadUrl) {
-                setState(() {
+              await FirebaseStorage.instance                  .ref()                  .child(path)                  .getDownloadURL()                  .then((downloadUrl) {                setState(() {
                   names_url_fat.add(downloadUrl.toString());
-                });
+                }
+                );
               });
               tre = "";
               nombre = "";
@@ -265,7 +266,7 @@ class Img1 extends StatelessWidget {
           height: (queryData.size.height) * .6,
           child: CarouselSlider(
             height: (queryData.size.height) * .6,
-               autoPlay: true,
+            autoPlay: true,
             autoPlayInterval: Duration(seconds: 3),
             autoPlayAnimationDuration: Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
@@ -283,13 +284,17 @@ class Img1 extends StatelessWidget {
                           doubleTapScale: 2.0,
                           duration: Duration(milliseconds: 200),
                           onPressed: () => Navigator.pop(context),
-                          child: Container(
-                              child: Center(
-                                  child: Image.network(
-                            '$i',
-                            width: queryData.size.width,
-                            
-                          ))),
+
+                          //child: Image.network('$i',width: queryData.size.width,
+                          child: Center(
+                            child: CachedNetworkImage(
+                              imageUrl: "$i",
+                              placeholder: (context, url) =>
+                                  CircularProgressIndicator(),
+                              errorWidget: (context, url, error) =>
+                                  Icon(Icons.error),
+                            ),
+                          ),
                         ),
                       ));
                 },
@@ -298,4 +303,19 @@ class Img1 extends StatelessWidget {
           )),
     );
   }
+}
+
+
+
+
+class FireStorageService extends ChangeNotifier {
+  FireStorageService._();
+  FireStorageService();
+
+  static Future<dynamic> loadStorage(String image) async {
+    var url = await FirebaseStorage.instance.ref().child(image).getDownloadURL();
+    
+    return url.toString();
+  }
+
 }

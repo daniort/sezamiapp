@@ -100,7 +100,7 @@ class _CorazonState extends State<Corazon> {
                 ),
                 ExpansionTile(
                   backgroundColor: Color(0x1D605e5f),
-                  title: Text('Reglas de Operación'),
+                  title: Text('Información Web'),
                   children: <Widget>[
                     ListTile(
                       title: Row(
@@ -113,13 +113,13 @@ class _CorazonState extends State<Corazon> {
                             ),
                           ),
                           new Expanded(
-                            flex: 2,
+                            flex: 10,
                             child: InkWell(
                               onTap: () {
                                 customLaunch(
-                                    'http://sezami.zacatecas.gob.mx/docs/rop2019.pdf');
+                                    'http://sezami.zacatecas.gob.mx/cp.html');
                               },
-                              child: Text('Descargar',
+                              child: Text('Ir a la Página',
                                   style: TextStyle(
                                       color: Colors.lightBlue,
                                       decoration: TextDecoration.underline,
@@ -129,13 +129,6 @@ class _CorazonState extends State<Corazon> {
                         ],
                       ),
                     ),
-
-                    //color: Colors.amber, SingleChildScrollView(
-// height: ((MediaQuery.of(context).size.width) * 1),
-                    //child: SingleChildScrollView(
-                    // child: PDF(),
-                    //,
-                    //),
                   ],
                 ),
                 ExpansionTile(

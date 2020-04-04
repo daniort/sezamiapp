@@ -145,12 +145,9 @@ class DosporUno extends StatelessWidget {
                 ),
                 ExpansionTile(
                   backgroundColor: Color(0x1D605e5f),
-                  title: Text('Reglas de Operación'),
+                  title: Text('Información Web'),
                   children: <Widget>[
                     ListTile(
-                      //title: Text('Descargar', style:
-                      //TextStyle(color:Colors.lightBlue,decoration: TextDecoration.underline, fontSize: 14.0)),
-                      //leading: Icon(Icons.file_download, color: Colors.lightBlue,),
                       title: Row(
                         children: <Widget>[
                           new Expanded(
@@ -165,9 +162,9 @@ class DosporUno extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 customLaunch(
-                                    'http://sezami.zacatecas.gob.mx/docs/2x1.pdf');
+                                    'http://sezami.zacatecas.gob.mx/dosxuno.html');
                               },
-                              child: Text('Descargar',
+                              child: Text('Ir a la Página',
                                   style: TextStyle(
                                       color: Colors.lightBlue,
                                       decoration: TextDecoration.underline,
@@ -177,12 +174,6 @@ class DosporUno extends StatelessWidget {
                         ],
                       ),
                     ),
-                    //Container(
-                    // height: ((MediaQuery.of(context).size.width) * 1),
-                    //child: SingleChildScrollView(
-                    //child: PDF(),
-                    //),
-                    //)
                   ],
                 ),
                 ExpansionTile(
