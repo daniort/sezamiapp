@@ -376,7 +376,7 @@ Future<String> myiPDF(
     cc: ['eduardo.rios@zacatecas.gob.mx'],
     
     
-    attachmentPath: "${output.path}/SOLICI_UBICA_$nofi.pdf",
+    attachmentPaths: ["${output.path}/SOLICI_UBICA_$nofi.pdf"],
     isHTML: false,
   );
   await FlutterEmailSender.send(email);

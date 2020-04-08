@@ -750,7 +750,7 @@ Future<String> myPDF(
     
     cc: ['eduardo.rios@zacatecas.gob.mx'],    
     
-    attachmentPath: "${output.path}/SOLICI_TRASL_$nofi.pdf",
+    attachmentPaths: ["${output.path}/SOLICI_TRASL_$nofi.pdf"],
     isHTML: false,
   );
   await FlutterEmailSender.send(email);

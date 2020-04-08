@@ -4,8 +4,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:gesture_zoom_box/gesture_zoom_box.dart';
-import 'package:load/load.dart';
-import 'package:loading_overlay/loading_overlay.dart';
 
 import 'package:sezamiapp/Widgets/widgets_home/botones_wig.dart';
 
@@ -172,42 +170,9 @@ class _MiBannerState extends State<MiBanner> {
   Future urlsGet() async {
     var five = "";
     var name = "";
-    final StorageReference storageRef =
-        FirebaseStorage.instance.ref().child('banner_mini');
-    storageRef.listAll().then((res) async {
-      var items = res['items'].toString();
-      for (var i = 0; i < items.toString().length; i++) {
-        if (five.length < 5 || five == "") {
-          if (items[i] != ' ') {
-            five = five + items[i];
-          }
-        } else {
-          if (five == "name:") {
-            if (items[i] != '}') {
-              if (items[i] != ' ') {
-                name = name + items[i];
-              }
-            } else {
-              var path = "banner_mini/$name";
-              await FirebaseStorage.instance
-                  .ref()
-                  .child(path)
-                  .getDownloadURL()
-                  .then((downloadUrl) {
-                setState(() {
-                  names_url.add(downloadUrl.toString());
-                });
-              });
-              five = "";
-              name = "";
-            }
-          } else {
-            five = five.substring(1);
-            five = five + items[i];
-          }
-        }
-      }
-    });
+    final StorageReference storageRef =FirebaseStorage.instance.ref().child('banner_mini');
+    print(storageRef.getBucket());
+    
   }
 
   Future urlsGetFat() async {
@@ -215,36 +180,7 @@ class _MiBannerState extends State<MiBanner> {
     var nombre = "";
     final StorageReference storageRef =
         FirebaseStorage.instance.ref().child('banner');
-    storageRef.listAll().then((res) async {
-      var items = res['items'].toString();
-      for (var i = 0; i < items.toString().length; i++) {
-        if (tre.length < 5 || tre == "") {
-          if (items[i] != ' ') {
-            tre = tre + items[i];
-          }
-        } else {
-          if (tre == "name:") {
-            if (items[i] != '}') {
-              if (items[i] != ' ') {
-                nombre = nombre + items[i];
-              }
-            } else {
-              var path = "banner/$nombre";
-              await FirebaseStorage.instance                  .ref()                  .child(path)                  .getDownloadURL()                  .then((downloadUrl) {                setState(() {
-                  names_url_fat.add(downloadUrl.toString());
-                }
-                );
-              });
-              tre = "";
-              nombre = "";
-            }
-          } else {
-            tre = tre.substring(1);
-            tre = tre + items[i];
-          }
-        }
-      }
-    });
+ 
   }
 }
 
