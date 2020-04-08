@@ -616,9 +616,10 @@ class _TrasladosState extends State<Traslados> {
                     //print(time);
                     //print(">$situ");
                     if (validar() == true) {
-                      print('true');
+                      print('truHHHHe');
                       int edad = returnaedad(dan, daf);
                       if (edad > 0) {
+                        print('EDAD BIEN');
                         String dian = dan.day.toString();
                         String mesn = dan.month.toString();
                         String anon = dan.year.toString();

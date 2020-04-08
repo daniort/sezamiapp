@@ -219,12 +219,12 @@ class _AsesoriaState extends State<Asesoria> {
                                 String c = correo.text.toLowerCase();
                                 String ase = asesoria.text.toLowerCase();
                                 String msj =
-                                    '''Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n De Antemano, Gracias.''';
+                                    '''Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría acerca de:\n$ase \n\n De Antemano, Gracias.''';
                                 final Email email = Email(
                                   body: msj,
                                   subject:
                                       'Asesoría Migratoria de Sezami Digital Movil',
-                                  recipients: ['laetfuensanta@hotmail.com'],
+                                    recipients: ['laetfuensanta@hotmail.com'],
                                   cc: [
                                     'sezami.zac@gmail.com',
                                     'sezamiapp@gmail.com'

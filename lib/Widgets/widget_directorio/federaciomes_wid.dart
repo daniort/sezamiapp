@@ -334,27 +334,6 @@ class BotomModal extends StatelessWidget {
                     child: Text('Cancelar'),
                   ),
                 ),
-                children: <Widget>[
-                  ListTile(
-                    title: Text('Laura Vásquez'),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.people),
-                    title: Text('Presidenta de Bla Bla Bla y Asociados'),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.mail),
-                    title: Text('laura07@hotmail.com'),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.location_on),
-                    title: Text('12345 Kimberly Dr. MAletta, GA. 30008'),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.phone),
-                    title: Text('001-234-234-5'),
-                  ),
-                ],
               ),
             ),
           ),

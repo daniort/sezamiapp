@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/Servicios/visa_wid.dart';
+import 'package:sezamiapp/Widgets/Servicios/wid_asesoria.dart';
 import 'package:sezamiapp/Widgets/Servicios/wid_localizacion.dart';
 import 'package:sezamiapp/Widgets/calendario/calendario_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/SEZAMI_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';
-import 'package:sezamiapp/Widgets/widget_programas/asesoria_migra_wid.dart';
+
 import 'package:sezamiapp/Widgets/widgets_programas/2x1_wid.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/corazonplata_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/exbraceros_wid.dart';
