@@ -29,9 +29,8 @@ class _MiBannerState extends State<MiBanner> {
   @override
   Widget build(BuildContext context) {
     print(names_url);
-
     return FutureBuilder(
-      future: _calculation,
+      future: urlsGet(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done)
           return Carousel(
