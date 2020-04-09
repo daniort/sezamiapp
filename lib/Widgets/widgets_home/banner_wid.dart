@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import 'package:firebase_storage/firebase_storage.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:async';
 import 'package:gesture_zoom_box/gesture_zoom_box.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class MiBanner extends StatefulWidget {
   @override
@@ -32,47 +34,16 @@ class _MiBannerState extends State<MiBanner> {
       future: _calculation,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done)
-          return CarouselSlider(
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            autoPlayCurve: Curves.fastOutSlowIn,
-            scrollDirection: Axis.horizontal,
-            items: names_url.map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    child: InkWell(
-                      onTap: () => {
-                        showModalBottomSheet(
-                            backgroundColor: Colors.white.withOpacity(0.0),
-                            context: context,
-                            isScrollControlled: true,
-                            builder: (context) {
-                              return Img1(ureles: names_url_fat);
-                            }),
-                      },
-                      child: CachedNetworkImage(
-                        imageUrl: "$i",
-                        placeholder: (context, url) => Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
-                      ),
-                    ),
-                  );
-                },
-              );
-            }).toList(),
+          return Carousel(
+            images: [
+              for (var item in names_url)
+                {
+                  NetworkImage('$item'),
+                }
+            ],
           );
-
         if (snapshot.connectionState == ConnectionState.waiting)
-          return Center(
-
-              //height: MediaQuery.of(context).size.height / 1.25,
-              //width: MediaQuery.of(context).size.width / 1.25,
-
-              child: CircularProgressIndicator());
+          return Center(child: CircularProgressIndicator());
 
         return Container();
       },
@@ -97,7 +68,7 @@ class _MiBannerState extends State<MiBanner> {
   Future urlsGet() async {
     var five = "";
     var name = "";
-    final dstorageRef =FirebaseStorage.instance.ref().child('banner_mini');
+    final dstorageRef = FirebaseStorage.instance.ref().child('banner_mini');
     final storageRef = FirebaseStorage().ref().child('banner_mini');
 
     storageRef.listAll().then((res) async {
