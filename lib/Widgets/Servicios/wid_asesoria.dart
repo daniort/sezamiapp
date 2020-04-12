@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
-import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
+
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 
@@ -161,11 +161,7 @@ class _AsesoriaState extends State<Asesoria> {
                                 String msj = '''
                                       Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.                                      
                                       ''';
-                                FlutterOpenWhatsapp.sendSingleMessage(
-                                    //" 52 492 892 2638", "$msj"); //rial
-                                    "52 953 189 4421",
-                                    "$msj"); //pealaez
-                                //"52 953 189 4421", "$msj");//mio
+                                                               //"52 953 189 4421", "$msj");//mio
                               }
                             },
                             child: Container(
@@ -223,14 +219,7 @@ class _AsesoriaState extends State<Asesoria> {
                                 String ase = asesoria.text.toLowerCase();
                                 String msj =
                                     '''Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n De Antemano, Gracias.''';
-                                final Email email = Email(
-                                  body: msj,
-                                  subject:
-                                      'Asesoría Migratoria de Sezami Digital Movil',
-                                  recipients: ['sezami.prueba22@gmail.com'],
-                                  cc: ['eduardo.rios@zacatecas.gob.mx'],
-                                );
-                                await FlutterEmailSender.send(email);
+                                
                               }
                             },
                             child: Container(

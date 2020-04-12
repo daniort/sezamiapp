@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
+
 import 'package:path_provider/path_provider.dart';
 
 import 'package:pdf/pdf.dart';
@@ -369,15 +369,5 @@ Future<String> myiPDF(
   final output = await getExternalStorageDirectory();
   final file = File("${output.path}/SOLICI_UBICA_$nofi.pdf");
   await file.writeAsBytes(pdf.save());
-  final Email email = Email(
-    body: 'Generado desde Sezami Digital Móvil',
-    subject: 'Solicitud de Localización',
-    recipients: ['sezami.prueba22@gmail.com','juanjosepelaez84@gmail.com','dqniort@gmail.com'],
-    cc: ['eduardo.rios@zacatecas.gob.mx'],
-    
-    
-    attachmentPaths: ["${output.path}/SOLICI_UBICA_$nofi.pdf"],
-    isHTML: false,
-  );
-  await FlutterEmailSender.send(email);
+  
 }
