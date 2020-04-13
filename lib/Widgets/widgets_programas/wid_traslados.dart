@@ -2,7 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
-import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
+
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class Traslados extends StatefulWidget {
@@ -626,32 +626,7 @@ class _TrasladosState extends State<Traslados> {
                         String mesf = daf.month.toString();
                         String anof = daf.year.toString();
                         String nofi = returnaOFI();
-                        myPDF(
-                          nofi,
-                          nombre.text.toUpperCase(),
-                          edad,
-                          causa.text.toUpperCase(),
-                          lugarmuerte.text.toUpperCase(),
-                          lugarorigen.text.toUpperCase(),
-                          nombreparmex.text.toUpperCase(),
-                          telparmex.text.toUpperCase(),
-                          nombrepareu.text.toUpperCase(),
-                          telpareu.text.toUpperCase(),
-                          nombrefune.text.toUpperCase(),
-                          telfune.text.toUpperCase(),
-                          correofune.text.toLowerCase(),
-                          parmex.text.toUpperCase(),
-                          pareu.text.toUpperCase(),
-                          extra.text.toUpperCase(),
-                          situ.toUpperCase(),
-                          time.toUpperCase(),
-                          dian,
-                          mesn,
-                          anon,
-                          diaf,
-                          mesf,
-                          anof,
-                        );
+                    
                       } else {
                         print('error de edad');
                         _scaffoldKey.currentState.showSnackBar(SnackBar(

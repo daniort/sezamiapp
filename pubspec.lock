@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  barcode:
-    dependency: transitive
-    description:
-      name: barcode
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.5.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -195,13 +188,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.5"
-  flutter_full_pdf_viewer:
-    dependency: "direct main"
-    description:
-      name: flutter_full_pdf_viewer
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.6"
   flutter_holo_date_picker:
     dependency: "direct main"
     description:
@@ -318,7 +304,7 @@ packages:
     source: hosted
     version: "1.6.4"
   path_provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
@@ -338,20 +324,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  pdf:
-    dependency: "direct main"
-    description:
-      name: pdf
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.6.0"
-  pdf_viewer_plugin:
-    dependency: "direct main"
-    description:
-      name: pdf_viewer_plugin
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0+2"
   pedantic:
     dependency: transitive
     description:
@@ -387,13 +359,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
-  qr:
-    dependency: transitive
-    description:
-      name: qr
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0"
   quiver:
     dependency: transitive
     description:
@@ -525,13 +490,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.1+1"
-  utf:
-    dependency: transitive
-    description:
-      name: utf
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.0+5"
   uuid:
     dependency: transitive
     description:

@@ -1,7 +1,7 @@
 //import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:sezamiapp/Widgets/Servicios/local_pdf%20.dart';
+
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -335,21 +335,7 @@ class _LocalizacionState extends State<Localizacion> {
                         String mesf = daf.month.toString();
                         String anof = daf.year.toString();
                         String nofi = returnaOFI();
-                        myiPDF(
-                          nofi,
-                          nombre.text.toUpperCase(),
-                          direccion.text.toUpperCase(),
-                          direccionu.text.toUpperCase(),
-                          parsoli.text.toUpperCase(), ////////
-                          parsoli.text.toUpperCase(), //sfdfdgfdgfdgfdg
-                          telsoli.text.toUpperCase(), ////////
-                          dian,
-                          mesn,
-                          anon,
-                          diaf,
-                          mesf,
-                          anof,
-                        );
+                        
                       } else {
                         print('error de edad');
                         _scaffoldKey.currentState.showSnackBar(SnackBar(
