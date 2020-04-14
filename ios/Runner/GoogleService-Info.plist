@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:630848574223:ios:94214df425b71b7159e47a</string>
+	<string>1:630848574223:ios:4f27ac68ad273dd459e47a</string>
 	<key>DATABASE_URL</key>
 	<string>https://sezami-8f3b5.firebaseio.com</string>
 </dict>
