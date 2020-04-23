@@ -101,39 +101,12 @@ class _MiBannerState extends State<MiBanner> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done)
           //return renderCustomCarousel();
-          return CarouselSlider(
-            //height: 400.0,
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            autoPlayCurve: Curves.fastOutSlowIn,
-            scrollDirection: Axis.horizontal,
-            items: names_url.map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    child: InkWell(
-                      onTap: () => {
-                        showModalBottomSheet(
-                            backgroundColor: Colors.white.withOpacity(0.0),
-                            context: context,
-                            isScrollControlled: true,
-                            builder: (context) {
-                              return Img1(ureles: names_url_fat);
-                            }),
-                      },
-                      child: CachedNetworkImage(
-                        imageUrl: "$i",
-                        placeholder: (context, url) => Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
-                      ),
-                    ),
-                  );
-                },
-              );
-            }).toList(),
+          return Stack(
+            children: <Widget>[
+              for (var item in names_url) {
+                Text('item'),
+              }
+            ],
           );
 
         if (snapshot.connectionState == ConnectionState.waiting)
