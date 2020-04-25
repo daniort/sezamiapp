@@ -102,11 +102,7 @@ class _MiBannerState extends State<MiBanner> {
         if (snapshot.connectionState == ConnectionState.done)
           //return renderCustomCarousel();
           return Stack(
-            children: <Widget>[
-              for (var item in names_url) 
-                Text('item'),
-              
-            ],
+            children: <Widget>[for (var item in names_url) Text('$item')],
           );
 
         if (snapshot.connectionState == ConnectionState.waiting)
@@ -159,11 +155,13 @@ class _MiBannerState extends State<MiBanner> {
               var path = "banner_mini/$name";
               await FirebaseStorage.instance
                   .ref()
-                  .child(path)
+                  .child(path.toString())
                   .getDownloadURL()
                   .then((downloadUrl) {
                 setState(() {
                   names_url.add(downloadUrl.toString());
+                     print(downloadUrl.toString());
+                  print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><');
                 });
               });
               five = "";
@@ -198,10 +196,15 @@ class _MiBannerState extends State<MiBanner> {
               }
             } else {
               var path = "banner/$nombre";
-              await FirebaseStorage.instance                  .ref()                  .child(path)                  .getDownloadURL()                  .then((downloadUrl) {                setState(() {
+              await FirebaseStorage.instance
+                  .ref()
+                  .child(path)
+                  .getDownloadURL()
+                  .then((downloadUrl) {
+                setState(() {
                   names_url_fat.add(downloadUrl.toString());
-                }
-                );
+                  
+                });
               });
               tre = "";
               nombre = "";
@@ -271,19 +274,4 @@ class Img1 extends StatelessWidget {
           )),
     );
   }
-}
-
-
-
-
-class FireStorageService extends ChangeNotifier {
-  FireStorageService._();
-  FireStorageService();
-
-  static Future<dynamic> loadStorage(String image) async {
-    var url = await FirebaseStorage.instance.ref().child(image).getDownloadURL();
-    
-    return url.toString();
-  }
-
 }
