@@ -103,9 +103,9 @@ class _MiBannerState extends State<MiBanner> {
           //return renderCustomCarousel();
           return Stack(
             children: <Widget>[
-              for (var item in names_url) {
+              for (var item in names_url) 
                 Text('item'),
-              }
+              
             ],
           );
 
