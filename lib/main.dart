@@ -102,15 +102,11 @@ class _MiBannerState extends State<MiBanner> {
         if (snapshot.connectionState == ConnectionState.done)
           //return renderCustomCarousel();
           return Stack(
-            children: <Widget>[for (var item in names_url) Text('$item')],
+            children: <Widget>[for (var item in names_url_fat) Text('$item')],
           );
 
         if (snapshot.connectionState == ConnectionState.waiting)
           return Center(
-
-              //height: MediaQuery.of(context).size.height / 1.25,
-              //width: MediaQuery.of(context).size.width / 1.25,
-
               child: CircularProgressIndicator());
 
         return Container();
