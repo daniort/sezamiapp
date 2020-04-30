@@ -87,7 +87,7 @@ class _MiBannerState extends State<MiBanner> {
   @override
   void initState() {
     urlsGet();
-    urlsGetFat();
+    //urlsGetFat();
     super.initState();
   }
 
@@ -166,48 +166,6 @@ class _MiBannerState extends State<MiBanner> {
           } else {
             five = five.substring(1);
             five = five + items[i];
-          }
-        }
-      }
-    });
-  }
-
-  Future urlsGetFat() async {
-    var tre = "";
-    var nombre = "";
-    final StorageReference storageRef =
-        FirebaseStorage.instance.ref().child('banner');
-    storageRef.listAll().then((res) async {
-      var items = res['items'].toString();
-      for (var i = 0; i < items.toString().length; i++) {
-        if (tre.length < 5 || tre == "") {
-          if (items[i] != ' ') {
-            tre = tre + items[i];
-          }
-        } else {
-          if (tre == "name:") {
-            if (items[i] != '}') {
-              if (items[i] != ' ') {
-                nombre = nombre + items[i];
-              }
-            } else {
-              var path = "banner/$nombre";
-              await FirebaseStorage.instance
-                  .ref()
-                  .child(path)
-                  .getDownloadURL()
-                  .then((downloadUrl) {
-                setState(() {
-                  names_url_fat.add(downloadUrl.toString());
-                  
-                });
-              });
-              tre = "";
-              nombre = "";
-            }
-          } else {
-            tre = tre.substring(1);
-            tre = tre + items[i];
           }
         }
       }
