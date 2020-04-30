@@ -86,7 +86,7 @@ class _MiBannerState extends State<MiBanner> {
 
   @override
   void initState() {
-    urlsGet();
+    //urlsGet();
     //urlsGetFat();
     super.initState();
   }
@@ -96,136 +96,47 @@ class _MiBannerState extends State<MiBanner> {
     print(names_url);
 
     return FutureBuilder(
-      //future: urlsGet(),
-      future: _calculation,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done)
-          //return renderCustomCarousel();
-          return Stack(
-            children: <Widget>[for (var item in names_url_fat) Text('$item')],
-          );
+            future: _getImage(context, "banner_mini/aviso.jpeg"),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState ==
+                  ConnectionState.done)
+                return Container(
+                  height:
+                      MediaQuery.of(context).size.height / 1.25,
+                  width:
+                      MediaQuery.of(context).size.width / 1.25,
+                  child: snapshot.data,
+                );
 
-        if (snapshot.connectionState == ConnectionState.waiting)
-          return Center(
-              child: CircularProgressIndicator());
+              if (snapshot.connectionState ==
+                  ConnectionState.waiting)
+                return Container(
+                    height: MediaQuery.of(context).size.height /
+                        1.25,
+                    width: MediaQuery.of(context).size.width /
+                        1.25,
+                    child: CircularProgressIndicator());
 
-        return Container();
-      },
+              return Container();
+            }            );
+        
+  }
+
+ Future<Widget> _getImage(BuildContext context, String image) async {
+  Image m;
+  await FireStorageService.loadImage(context, image).then((downloadUrl) {
+    m = Image.network(
+      downloadUrl.toString(),
+      fit: BoxFit.scaleDown,
     );
-  }
-
-  Future<String> _calculation = Future<String>.delayed(
-    Duration(seconds: 3),
-    () => 'Data Loaded',
-  );
-
-  Future futu() async {
-    var a = false;
-    if (names_url.length > 0) {
-      a = true;
-    } else {
-      a = false;
-    }
-    return a;
-  }
-
-  Future urlsGet() async {
-    var five = "";
-    var name = "";
-    final StorageReference storageRef =
-        FirebaseStorage.instance.ref().child('banner_mini');
-    storageRef.listAll().then((res) async {
-      var items = res['items'].toString();
-      for (var i = 0; i < items.toString().length; i++) {
-        if (five.length < 5 || five == "") {
-          if (items[i] != ' ') {
-            five = five + items[i];
-          }
-        } else {
-          if (five == "name:") {
-            if (items[i] != '}') {
-              if (items[i] != ' ') {
-                name = name + items[i];
-              }
-            } else {
-              var path = "banner_mini/$name";
-              await FirebaseStorage.instance
-                  .ref()
-                  .child(path.toString())
-                  .getDownloadURL()
-                  .then((downloadUrl) {
-                setState(() {
-                  names_url.add(downloadUrl.toString());
-                     print(downloadUrl.toString());
-                  print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><');
-                });
-              });
-              five = "";
-              name = "";
-            }
-          } else {
-            five = five.substring(1);
-            five = five + items[i];
-          }
-        }
-      }
-    });
-  }
+  });return m;
 }
 
-class Img1 extends StatelessWidget {
-  var ureles = [];
-  Img1({this.ureles});
-  @override
-  Widget build(BuildContext context) {
-    MediaQueryData queryData;
-    queryData = MediaQuery.of(context);
-    return Padding(
-      padding: const EdgeInsets.all(0.0),
-      child: Container(
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          width: queryData.size.width,
-          height: (queryData.size.height) * .6,
-          child: CarouselSlider(
-            height: (queryData.size.height) * .6,
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            autoPlayCurve: Curves.fastOutSlowIn,
-            scrollDirection: Axis.horizontal,
-            items: ureles.map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                      decoration: BoxDecoration(color: Colors.white),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        //child: Container(child: Center(child: Image.network('$i',width: queryData.size.width,))),
-                        child: GestureZoomBox(
-                          maxScale: 5.0,
-                          doubleTapScale: 2.0,
-                          duration: Duration(milliseconds: 200),
-                          onPressed: () => Navigator.pop(context),
+}
 
-                          //child: Image.network('$i',width: queryData.size.width,
-                          child: Center(
-                            child: CachedNetworkImage(
-                              imageUrl: "$i",
-                              placeholder: (context, url) =>
-                                  CircularProgressIndicator(),
-                              errorWidget: (context, url, error) =>
-                                  Icon(Icons.error),
-                            ),
-                          ),
-                        ),
-                      ));
-                },
-              );
-            }).toList(),
-          )),
-    );
+
+class FireStorageService extends ChangeNotifier {
+  FireStorageService();static Future<dynamic> loadImage(BuildContext context, String image) async {
+    return await FirebaseStorage.instance.ref().child(image).getDownloadURL();
   }
 }
