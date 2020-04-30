@@ -1,5 +1,6 @@
 //import 'package:carousel_pro/carousel_pro.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
@@ -81,7 +82,7 @@ class MiBanner extends StatefulWidget {
 }
 
 class _MiBannerState extends State<MiBanner> {
-  var names_url = [];
+  var names_url = ["banner_mini/aviso.jpeg", "banner_mini/linea.jpeg"];
   var names_url_fat = [];
 
   @override
@@ -95,48 +96,58 @@ class _MiBannerState extends State<MiBanner> {
   Widget build(BuildContext context) {
     print(names_url);
 
-    return FutureBuilder(
-            future: _getImage(context, "banner_mini/aviso.jpeg"),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState ==
-                  ConnectionState.done)
-                return Container(
-                  height:
-                      MediaQuery.of(context).size.height / 1.25,
-                  width:
-                      MediaQuery.of(context).size.width / 1.25,
-                  child: snapshot.data,
-                );
+    return SingleChildScrollView(
+          child: FutureBuilder(
+          future: _getImagen(context, names_url),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done)
+              print(snapshot.data);
+              print('>>>>>>>>>>>>>>>>>>>>>>>>>');
+            return Column(
+              children: <Widget>[
+                for (var item in snapshot.data) 
+                  
+                  Image.network('$item'),
+                
+              ],
+            );
 
-              if (snapshot.connectionState ==
-                  ConnectionState.waiting)
-                return Container(
-                    height: MediaQuery.of(context).size.height /
-                        1.25,
-                    width: MediaQuery.of(context).size.width /
-                        1.25,
-                    child: CircularProgressIndicator());
+            if (snapshot.connectionState == ConnectionState.waiting)
+              return Container(
+                  height: MediaQuery.of(context).size.height / 1.25,
+                  width: MediaQuery.of(context).size.width / 1.25,
+                  child: CircularProgressIndicator());
 
-              return Container();
-            }            );
-        
+            return Container();
+          }),
+    );
   }
 
- Future<Widget> _getImage(BuildContext context, String image) async {
-  Image m;
-  await FireStorageService.loadImage(context, image).then((downloadUrl) {
-    m = Image.network(
-      downloadUrl.toString(),
-      fit: BoxFit.scaleDown,
-    );
-  });return m;
-}
+  Future<Widget> _getImage(BuildContext context, String image) async {
+    Image m;
+    await FireStorageService.loadImage(context, image).then((downloadUrl) {
+      m = Image.network(
+        downloadUrl.toString(),
+        fit: BoxFit.scaleDown,
+      );
+    });
+    return m;
+  }
 
+  Future _getImagen(BuildContext context, List<String> names_url) async {
+    var im = [];
+    for (var item in names_url) {
+      await FireStorageService.loadImage(context, item).then((downloadUrl) {
+        im.add(downloadUrl.toString());
+      });
+    }
+    return im;
+  }
 }
-
 
 class FireStorageService extends ChangeNotifier {
-  FireStorageService();static Future<dynamic> loadImage(BuildContext context, String image) async {
+  FireStorageService();
+  static Future<dynamic> loadImage(BuildContext context, String image) async {
     return await FirebaseStorage.instance.ref().child(image).getDownloadURL();
   }
 }
