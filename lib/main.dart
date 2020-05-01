@@ -1,13 +1,18 @@
 //import 'package:carousel_pro/carousel_pro.dart';
+//import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-import 'package:gesture_zoom_box/gesture_zoom_box.dart';
+//import 'package:gesture_zoom_box/gesture_zoom_box.dart';
 import 'package:sezamiapp/Widgets/widgets_home/botones_wig.dart';
 import 'Widgets/footer_wig.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_widget/carousel_widget.dart';
+//import 'package:carousel_slider/carousel_slider.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,6 +38,7 @@ class MyHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 2.5,
         title: Text('SEZAMI Digital'),
         actions: <Widget>[
           Padding(
@@ -42,31 +48,32 @@ class MyHome extends StatelessWidget {
           ),
         ],
       ),
-      body: new Stack(
+      body: new Column(
         children: <Widget>[
-          new Padding(
-            padding: EdgeInsets.only(top: 0.0),
-            child: new Container(
-              height: ((MediaQuery.of(context).size.height) * .20),
-              width: MediaQuery.of(context).size.width,
-              child: Scrollbar(child: MiBanner()),
+          Expanded(
+            flex: 4,
+            child: new Padding(
+              padding: EdgeInsets.only(top: 0.0),
+              child: new Container(
+                width: MediaQuery.of(context).size.width,
+                //child: Scrollbar(child: MiBanner()),
+                //child: Text('data'),
+                child: MiBanner(),
+              ),
             ),
           ),
-          new Padding(
-            padding: EdgeInsets.only(
-                top: ((MediaQuery.of(context).size.height) * .20)),
-            child: new Container(
-              height: ((MediaQuery.of(context).size.height) * .62),
+          Expanded(
+            flex: 9,
+            child: Container(
               width: MediaQuery.of(context).size.width,
               child: MisBotonesHome(),
             ),
           ),
-          new Padding(
-            padding: EdgeInsets.only(
-                top: ((MediaQuery.of(context).size.height) * .82)),
-            child: new Container(
-              height: ((MediaQuery.of(context).size.height) * .08),
+          Expanded(
+            flex: 1,
+            child: Container(
               width: MediaQuery.of(context).size.width,
+              color: Colors.tealAccent,
               child: Footer(),
             ),
           ),
@@ -82,44 +89,80 @@ class MiBanner extends StatefulWidget {
 }
 
 class _MiBannerState extends State<MiBanner> {
-  var names_url = ["banner_mini/aviso.jpeg", "banner_mini/linea.jpeg"];
-  var names_url_fat = [];
+  var names_url = ['banner_mini/aviso.jpeg'];
+  var five = "";
+  var name = "";
 
   @override
   void initState() {
-    //urlsGet();
+    //_getIman();
     //urlsGetFat();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    print(names_url);
+    return StreamBuilder(
+      stream: Firestore.instance.collection('banner_mini').snapshots(),
+      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        List<DocumentSnapshot> docs = snapshot.data.documents;
 
-    return SingleChildScrollView(
-          child: FutureBuilder(
-          future: _getImagen(context, names_url),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done)
-              print(snapshot.data);
-              print('>>>>>>>>>>>>>>>>>>>>>>>>>');
-            return Column(
-              children: <Widget>[
-                for (var item in snapshot.data) 
-                  
-                  Image.network('$item'),
-                
-              ],
+        return CarouselSlider(
+          options: CarouselOptions(
+            height: 400,
+            aspectRatio: 16 / 9,
+            viewportFraction: 0.8,
+            initialPage: 0,
+            enableInfiniteScroll: true,
+            reverse: false,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+//            pauseAutoPlayOnTouch: Duration(seconds: 10),
+            enlargeCenterPage: true,
+  //          onPageChanged: callbackFunction,
+            scrollDirection: Axis.horizontal,
+          ),
+          items: docs.map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                Map<String, dynamic> data = i.data;
+                var dire = data['name'];
+                final direurl = dire.replaceAll("{name: ", "");
+                var path = "banner_mini/$direurl";
+
+                return FutureBuilder(
+                  future: _getImage(context, path),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done)
+                      return Container(
+                        //color: Color(0xfffdfdf0),
+                        color: Colors.blueGrey,
+
+                        width: MediaQuery.of(context).size.width,
+                        child: snapshot.data,
+                      );
+
+                    if (snapshot.connectionState == ConnectionState.waiting)
+                      return Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.05,
+                          child: CircularProgressIndicator());
+
+                    return Container();
+                  },
+                );
+              },
             );
-
-            if (snapshot.connectionState == ConnectionState.waiting)
-              return Container(
-                  height: MediaQuery.of(context).size.height / 1.25,
-                  width: MediaQuery.of(context).size.width / 1.25,
-                  child: CircularProgressIndicator());
-
-            return Container();
-          }),
+          }).toList(),
+        );
+      },
     );
   }
 
@@ -128,20 +171,10 @@ class _MiBannerState extends State<MiBanner> {
     await FireStorageService.loadImage(context, image).then((downloadUrl) {
       m = Image.network(
         downloadUrl.toString(),
-        fit: BoxFit.scaleDown,
+        fit: BoxFit.fitHeight,
       );
     });
     return m;
-  }
-
-  Future _getImagen(BuildContext context, List<String> names_url) async {
-    var im = [];
-    for (var item in names_url) {
-      await FireStorageService.loadImage(context, item).then((downloadUrl) {
-        im.add(downloadUrl.toString());
-      });
-    }
-    return im;
   }
 }
 
