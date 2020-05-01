@@ -111,7 +111,6 @@ class _MiBannerState extends State<MiBanner> {
           );
         }
         List<DocumentSnapshot> docs = snapshot.data.documents;
-
         return CarouselSlider(
           options: CarouselOptions(
             height: 400,
@@ -122,11 +121,8 @@ class _MiBannerState extends State<MiBanner> {
             reverse: false,
             autoPlay: true,
             autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayAnimationDuration: Duration(milliseconds: 1200),
             autoPlayCurve: Curves.fastOutSlowIn,
-//            pauseAutoPlayOnTouch: Duration(seconds: 10),
-            enlargeCenterPage: true,
-  //          onPageChanged: callbackFunction,
             scrollDirection: Axis.horizontal,
           ),
           items: docs.map((i) {
@@ -136,17 +132,101 @@ class _MiBannerState extends State<MiBanner> {
                 var dire = data['name'];
                 final direurl = dire.replaceAll("{name: ", "");
                 var path = "banner_mini/$direurl";
-
                 return FutureBuilder(
                   future: _getImage(context, path),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.done)
-                      return Container(
-                        //color: Color(0xfffdfdf0),
-                        color: Colors.blueGrey,
+                      return InkWell(
+                        onTap: () => {
+                          showModalBottomSheet(
+                              backgroundColor: Colors.white.withOpacity(0.0),
+                              context: context,
+                              isScrollControlled: true,
+                              builder: (context) {
+                                return StreamBuilder(
+                                  stream: Firestore.instance
+                                      .collection('banner_mini')
+                                      .snapshots(),
+                                  builder: (context,
+                                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    }
+                                    List<DocumentSnapshot> docs =
+                                        snapshot.data.documents;
+                                    return CarouselSlider(
+                                      options: CarouselOptions(
+                                        height: 400,
+                                        aspectRatio: 16 / 9,
+                                        viewportFraction: 0.8,
+                                        initialPage: 0,
+                                        enableInfiniteScroll: true,
+                                        reverse: false,
+                                        autoPlay: true,
+                                        autoPlayInterval: Duration(seconds: 3),
+                                        autoPlayAnimationDuration:
+                                            Duration(milliseconds: 1200),
+                                        autoPlayCurve: Curves.fastOutSlowIn,
+                                        scrollDirection: Axis.horizontal,
+                                      ),
+                                      items: docs.map((i) {
+                                        return Builder(
+                                          builder: (BuildContext context) {
+                                            Map<String, dynamic> data = i.data;
+                                            var dire = data['name'];
+                                            final direurl =
+                                                dire.replaceAll("{name: ", "");
+                                            var path = "banner_mini/$direurl";
+                                            return FutureBuilder(
+                                              future: _getImage(context, path),
+                                              builder: (context, snapshot) {
+                                                if (snapshot.connectionState ==
+                                                    ConnectionState.done)
+                                                  return InkWell(
+                                                    child: Container(
+                                                      color: Colors.blueGrey,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                              .size
+                                                              .width,
+                                                      child: snapshot.data,
+                                                    ),
+                                                  );
 
-                        width: MediaQuery.of(context).size.width,
-                        child: snapshot.data,
+                                                if (snapshot.connectionState ==
+                                                    ConnectionState.waiting)
+                                                  return Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.05,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.05,
+                                                      child:
+                                                          CircularProgressIndicator());
+
+                                                return Container();
+                                              },
+                                            );
+                                          },
+                                        );
+                                      }).toList(),
+                                    );
+                                  },
+                                );
+                              }),
+                        },
+                        child: Container(
+                          color: Colors.blueGrey,
+                          width: MediaQuery.of(context).size.width,
+                          child: snapshot.data,
+                        ),
                       );
 
                     if (snapshot.connectionState == ConnectionState.waiting)
