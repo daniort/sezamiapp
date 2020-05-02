@@ -25,27 +25,24 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   table_calendar: ^2.2.2
-  image_picker: ^0.6.3+1
-  gesture_zoom_box: ^0.0.2
+    
   url_launcher: ^5.4.1
-
   google_maps_flutter: ^0.5.22+1
   google_fonts: ^0.3.9
-
-  #carousel_pro: ^1.0.0
+  
   carousel_slider: ^2.0.0
-  #flutter_swiper: ^1.1.6
-  carousel_widget: ^0.1.1
+  
 
   font_awesome_flutter: ^8.5.0
   pdf_viewer_plugin: ^1.0.0+2
   path_provider: ^1.6.1
   http: ^0.12.0+4
   pdf: ^1.5.0
-  intl: ^0.16.1
-  photo_view: ^0.9.2
-  cached_network_image: ^2.0.0
+  intl: ^0.16.1 
   
+  pinch_zoom_image_updated: ^0.2.6
+  cached_network_image: ^2.0.0
+  gesture_zoom_box: ^0.0.2
   cloud_firestore: ^0.13.3
   firebase_database: ^3.1.1
   #firebase_storage: ^3.0.8

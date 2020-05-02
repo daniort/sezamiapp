@@ -3,16 +3,16 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:gesture_zoom_box/gesture_zoom_box.dart';
 
-//import 'package:gesture_zoom_box/gesture_zoom_box.dart';
 import 'package:sezamiapp/Widgets/widgets_home/botones_wig.dart';
 import 'Widgets/footer_wig.dart';
-import 'package:carousel_widget/carousel_widget.dart';
-//import 'package:carousel_slider/carousel_slider.dart';
+
+
 
 void main() => runApp(MyApp());
 
@@ -139,13 +139,13 @@ class _MiBannerState extends State<MiBanner> {
                       return InkWell(
                         onTap: () => {
                           showModalBottomSheet(
-                              backgroundColor: Colors.white.withOpacity(0.0),
+                              backgroundColor: Colors.white.withOpacity(1.0),
                               context: context,
                               isScrollControlled: true,
-                              builder: (context) {
+                              builder: (contebanner_grandext) {
                                 return StreamBuilder(
                                   stream: Firestore.instance
-                                      .collection('banner_mini')
+                                      .collection('banner_grande')
                                       .snapshots(),
                                   builder: (context,
                                       AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -158,16 +158,16 @@ class _MiBannerState extends State<MiBanner> {
                                         snapshot.data.documents;
                                     return CarouselSlider(
                                       options: CarouselOptions(
-                                        height: 400,
-                                        aspectRatio: 16 / 9,
-                                        viewportFraction: 0.8,
-                                        initialPage: 0,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.60,
+                                        initialPage: 1,
                                         enableInfiniteScroll: true,
                                         reverse: false,
                                         autoPlay: true,
-                                        autoPlayInterval: Duration(seconds: 3),
+                                        autoPlayInterval: Duration(seconds: 11),
                                         autoPlayAnimationDuration:
-                                            Duration(milliseconds: 1200),
+                                            Duration(milliseconds: 900),
                                         autoPlayCurve: Curves.fastOutSlowIn,
                                         scrollDirection: Axis.horizontal,
                                       ),
@@ -178,7 +178,8 @@ class _MiBannerState extends State<MiBanner> {
                                             var dire = data['name'];
                                             final direurl =
                                                 dire.replaceAll("{name: ", "");
-                                            var path = "banner_mini/$direurl";
+                                            var path = "banner/$direurl";
+                                            print('$path');
                                             return FutureBuilder(
                                               future: _getImage(context, path),
                                               builder: (context, snapshot) {
@@ -186,12 +187,23 @@ class _MiBannerState extends State<MiBanner> {
                                                     ConnectionState.done)
                                                   return InkWell(
                                                     child: Container(
-                                                      color: Colors.blueGrey,
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      child: snapshot.data,
+                                                      color: Colors.white,
+                                                      child: Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  9.0),
+                                                          child: GestureZoomBox(
+                                                              maxScale: 5.0,
+                                                              doubleTapScale:
+                                                                  2.0,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      200),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      context),
+                                                              child: snapshot
+                                                                  .data)),
                                                     ),
                                                   );
 
@@ -223,7 +235,7 @@ class _MiBannerState extends State<MiBanner> {
                               }),
                         },
                         child: Container(
-                          color: Colors.blueGrey,
+                          color: Colors.white,
                           width: MediaQuery.of(context).size.width,
                           child: snapshot.data,
                         ),
@@ -247,11 +259,12 @@ class _MiBannerState extends State<MiBanner> {
   }
 
   Future<Widget> _getImage(BuildContext context, String image) async {
-    Image m;
+    CachedNetworkImage m;
     await FireStorageService.loadImage(context, image).then((downloadUrl) {
-      m = Image.network(
-        downloadUrl.toString(),
-        fit: BoxFit.fitHeight,
+      m = CachedNetworkImage(
+        imageUrl: downloadUrl.toString(),
+        placeholder: (context, url) => CircularProgressIndicator(),
+        errorWidget: (context, url, error) => Icon(Icons.error),
       );
     });
     return m;

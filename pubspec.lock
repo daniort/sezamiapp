@@ -50,13 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  carousel_widget:
-    dependency: "direct main"
-    description:
-      name: carousel_widget
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
   charcode:
     dependency: transitive
     description:
@@ -298,13 +291,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
-  image_picker:
-    dependency: "direct main"
-    description:
-      name: image_picker
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.5+3"
   intl:
     dependency: "direct main"
     description:
@@ -389,13 +375,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  photo_view:
+  pinch_zoom_image_updated:
     dependency: "direct main"
     description:
-      name: photo_view
+      name: pinch_zoom_image_updated
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.2"
+    version: "0.2.6"
   platform:
     dependency: transitive
     description:
