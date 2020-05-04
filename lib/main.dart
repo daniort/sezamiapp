@@ -102,7 +102,6 @@ class _MiBannerState extends State<MiBanner> {
         if (snapshot.connectionState == ConnectionState.done)
           //return renderCustomCarousel();
           return CarouselSlider(
-            //height: 400.0,
             autoPlay: true,
             autoPlayInterval: Duration(seconds: 3),
             autoPlayAnimationDuration: Duration(milliseconds: 800),
