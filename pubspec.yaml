@@ -32,8 +32,10 @@ dependencies:
   google_maps_flutter: ^0.5.22+1
   google_fonts: ^0.3.9
 
-  carousel_pro: ^1.0.0
-  carousel_slider: ^1.4.1
+  data_connection_checker: ^0.3.4
+
+  image_downloader: ^0.19.2
+  carousel_slider: ^2.0.0
   font_awesome_flutter: ^8.5.0
   pdf_viewer_plugin: ^1.0.0+2
   path_provider: ^1.6.1
@@ -43,14 +45,14 @@ dependencies:
   photo_view: ^0.9.2
   cached_network_image: ^2.0.0
   
-  cloud_firestore: ^0.13.3
-  firebase_database: ^3.1.1
-  #firebase_storage: ^3.0.8
-  firebase_storage:
-    git:
-      url: git://github.com/danysz/flutterfire.git
-      ref: master
-      path: packages/firebase_storage
+  cloud_firestore: ^0.13.5
+  #firebase_database: ^3.1.1
+  firebase_storage: ^3.1.5
+  #firebase_storage:
+   # git:
+  #    url: git://github.com/danysz/flutterfire.git
+ #     ref: master
+#      path: packages/firebase_storage
   firebase_core: ^0.4.0+9
   firebase_analytics: ^5.0.6
   firebase: ^7.2.1
