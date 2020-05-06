@@ -42,7 +42,11 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "2.2.0+1"
+=======
+    version: "2.2.0"
+>>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   carousel_slider:
     dependency: "direct main"
     description:
@@ -162,13 +166,14 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.1+2"
-  firebase_database:
+  firebase_storage:
     dependency: "direct main"
     description:
-      name: firebase_database
+      name: firebase_storage
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.5"
+<<<<<<< HEAD
   firebase_storage:
     dependency: "direct main"
     description:
@@ -178,6 +183,8 @@ packages:
       url: "git://github.com/danysz/flutterfire.git"
     source: git
     version: "3.1.0"
+=======
+>>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   flutter:
     dependency: "direct main"
     description: flutter
@@ -269,7 +276,7 @@ packages:
       name: google_maps_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.27+1"
+    version: "0.5.27"
   google_maps_flutter_platform_interface:
     dependency: transitive
     description:
@@ -311,14 +318,7 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.6+1"
-  image_picker_platform_interface:
-    dependency: transitive
-    description:
-      name: image_picker_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
+    version: "0.6.5+3"
   intl:
     dependency: "direct main"
     description:
@@ -367,7 +367,11 @@ packages:
       name: path_provider_macos
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.0.4+2"
+=======
+    version: "0.0.4+1"
+>>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   path_provider_platform_interface:
     dependency: transitive
     description:
@@ -568,7 +572,11 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.1.1+4"
+=======
+    version: "0.1.1+2"
+>>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   utf:
     dependency: transitive
     description:
