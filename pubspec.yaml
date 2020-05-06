@@ -35,7 +35,7 @@ dependencies:
 
   font_awesome_flutter: ^8.5.0
   pdf_viewer_plugin: ^1.0.0+2
-  path_provider: ^1.6.1
+  path_provider: ^1.6.7
   http: ^0.12.0+4
   pdf: ^1.5.0
   intl: ^0.16.1 

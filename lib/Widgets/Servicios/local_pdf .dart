@@ -365,16 +365,18 @@ Future<String> myiPDF(
       ],
     ),
   );
+  Directory output = await getTemporaryDirectory();
+  String tempPath = output.path;
+//  final output = await getExternalStorageDirectory();
 
-  final output = await getExternalStorageDirectory();
-  final file = File("${output.path}/SOLICI_UBICA_$nofi.pdf");
+  final file = File("$tempPath/SOLICI_UBICA_$nofi.pdf");
   await file.writeAsBytes(pdf.save());
   final Email email = Email(
     body: 'Generado desde Sezami Digital Móvil',
     subject: 'Solicitud de Localización',
     recipients: ['laetfuensanta@hotmail.com'],
     cc: ['sezami.zac@gmail.com', 'sezamiapp@gmail.com'],
-    attachmentPath: "${output.path}/SOLICI_UBICA_$nofi.pdf",
+    attachmentPath: "$tempPath/SOLICI_UBICA_$nofi.pdf",
     isHTML: false,
   );
   await FlutterEmailSender.send(email);
