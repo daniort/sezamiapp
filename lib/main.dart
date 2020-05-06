@@ -102,11 +102,14 @@ class _MiBannerState extends State<MiBanner> {
         if (snapshot.connectionState == ConnectionState.done)
           //return renderCustomCarousel();
           return CarouselSlider(
-            autoPlay: true,
+            options: CarouselOptions(
+                   autoPlay: true,
             autoPlayInterval: Duration(seconds: 3),
             autoPlayAnimationDuration: Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
             scrollDirection: Axis.horizontal,
+            ),
+       
             items: names_url.map((i) {
               return Builder(
                 builder: (BuildContext context) {
@@ -259,12 +262,15 @@ class Img1 extends StatelessWidget {
           width: queryData.size.width,
           height: (queryData.size.height) * .6,
           child: CarouselSlider(
-            height: (queryData.size.height) * .6,
+            options: CarouselOptions(
+                  height: (queryData.size.height) * .6,
             autoPlay: true,
             autoPlayInterval: Duration(seconds: 3),
             autoPlayAnimationDuration: Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
             scrollDirection: Axis.horizontal,
+            ),
+        
             items: ureles.map((i) {
               return Builder(
                 builder: (BuildContext context) {
