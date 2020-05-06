@@ -42,11 +42,7 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "2.2.0+1"
-=======
     version: "2.2.0"
->>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   carousel_slider:
     dependency: "direct main"
     description:
@@ -173,18 +169,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.5"
-<<<<<<< HEAD
-  firebase_storage:
-    dependency: "direct main"
-    description:
-      path: "packages/firebase_storage"
-      ref: master
-      resolved-ref: "799566a9ae701decac09b445d859b685d7123166"
-      url: "git://github.com/danysz/flutterfire.git"
-    source: git
-    version: "3.1.0"
-=======
->>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   flutter:
     dependency: "direct main"
     description: flutter
@@ -367,11 +351,7 @@ packages:
       name: path_provider_macos
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "0.0.4+2"
-=======
     version: "0.0.4+1"
->>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   path_provider_platform_interface:
     dependency: transitive
     description:
@@ -572,11 +552,7 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-<<<<<<< HEAD
-    version: "0.1.1+4"
-=======
     version: "0.1.1+2"
->>>>>>> be6a140b89b43c627f9eed9b33a1b05dbf6484f9
   utf:
     dependency: transitive
     description:

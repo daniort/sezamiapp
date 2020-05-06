@@ -96,7 +96,7 @@ class _MiBannerState extends State<MiBanner> {
       stream: Firestore.instance.collection('banner_mini').snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
-          return const Text('Loading...');
+          return Container(child: Image.asset('images/banner/cone.png'));
         } else {
           final int messageCount = snapshot.data.documents.length;
           print(messageCount);
@@ -141,7 +141,9 @@ class _MiBannerState extends State<MiBanner> {
                                     builder: (BuildContext context,
                                         AsyncSnapshot<QuerySnapshot> snapshot) {
                                       if (!snapshot.hasData) {
-                                        return const Text('Loading...');
+                                        return Container(
+                                            child: Image.asset(
+                                                'images/banner/cone.png'));
                                       } else {
                                         final int messageCount =
                                             snapshot.data.documents.length;
@@ -332,8 +334,10 @@ class _MiBannerState extends State<MiBanner> {
 
   Future<void> _saveIma(BuildContext context, String path) async {
     try {
-      await FireStorageService.loadImage(context, path).then((downloadUrl) async {
-        var imageId = await ImageDownloader.downloadImage("${downloadUrl.toString()}");
+      await FireStorageService.loadImage(context, path)
+          .then((downloadUrl) async {
+        var imageId =
+            await ImageDownloader.downloadImage("${downloadUrl.toString()}");
         if (imageId == null) {
           return;
         }
