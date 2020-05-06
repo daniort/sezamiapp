@@ -43,7 +43,8 @@ dependencies:
   intl: ^0.16.1
   photo_view: ^0.9.2
   cached_network_image: ^2.0.0
-  
+  data_connection_checker: ^0.3.4
+  image_downloader: ^0.19.2
   cloud_firestore: ^0.13.3
   firebase_database: ^3.1.1
   #firebase_storage: ^3.0.8
