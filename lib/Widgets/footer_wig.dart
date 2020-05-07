@@ -3,7 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
-  void customLaunch(command) async {
+  void customLaunch(command) async { 
+    
     if (await canLaunch(command)) {
       await launch(command);
     } else {
@@ -51,6 +52,7 @@ class Footer extends StatelessWidget {
             onPressed: () {
               customLaunch('http://www.twitter.com/_sezami');
             },
+
           ),
         ],
       ),

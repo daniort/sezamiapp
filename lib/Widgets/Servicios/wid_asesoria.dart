@@ -159,10 +159,9 @@ class _AsesoriaState extends State<Asesoria> {
                                 String c = correo.text.toLowerCase();
                                 String ase = asesoria.text.toLowerCase();
                                 String msj = '''
-                                      Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.                                      
-                                      ''';
+                                      Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.''';
                                 FlutterOpenWhatsapp.sendSingleMessage(
-                                    " +52 1 492 892 2638", "$msj");
+                                    "524928922638", "$msj");
                               }
                             },
                             child: Container(

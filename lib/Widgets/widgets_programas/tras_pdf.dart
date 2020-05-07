@@ -739,8 +739,13 @@ Future<String> myPDF(
     ),
   );
 
+  Directory output = await getTemporaryDirectory();
+  
+//  final output = await getExternalStorageDirectory();
+
+
  
-  final output = await getExternalStorageDirectory();
+  //final output = await getExternalStorageDirectory();
   final file = File("${output.path}/SOLICI_TRASL_$nofi.pdf");
   await file.writeAsBytes(pdf.save());
   final Email email = Email(

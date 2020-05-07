@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -231,8 +232,16 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        customLaunch(
-                                            "whatsapp://send?phone=$data");
+                                        final direurl = data.replaceAll("+", "");
+                                        final direurl2 = direurl.replaceAll("-", "");
+                                        final direurl3 = direurl2.replaceAll(" ", "");
+                                        final direurl4 = direurl3.replaceAll("(", "");
+                                        final direurl5 = direurl4.replaceAll(")", "");
+                                        print(direurl5);
+                                        FlutterOpenWhatsapp.sendSingleMessage(
+                                    "$direurl5", " ");
+                                        //customLaunch(
+                                          //  "whatsapp://send?phone=$data");
                                       },
                                       child: Center(
                                         child: Icon(

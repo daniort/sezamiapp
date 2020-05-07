@@ -26,7 +26,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   table_calendar: ^2.2.2
     
-  url_launcher: ^5.4.1
+  
+  url_launcher: ^5.4.5
   google_maps_flutter: ^0.5.22+1
   google_fonts: ^0.3.9
   
@@ -43,6 +44,8 @@ dependencies:
   
   cached_network_image: ^2.0.0
   gesture_zoom_box: ^0.0.2
+
+  
   cloud_firestore: ^0.13.3
   firebase_database: ^3.1.1
   #firebase_storage: ^3.0.8
