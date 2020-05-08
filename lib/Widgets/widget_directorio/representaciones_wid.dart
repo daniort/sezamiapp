@@ -232,16 +232,21 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        final direurl = data.replaceAll("+", "");
-                                        final direurl2 = direurl.replaceAll("-", "");
-                                        final direurl3 = direurl2.replaceAll(" ", "");
-                                        final direurl4 = direurl3.replaceAll("(", "");
-                                        final direurl5 = direurl4.replaceAll(")", "");
+                                        final direurl =
+                                            data.replaceAll("+", "");
+                                        final direurl2 =
+                                            direurl.replaceAll("-", "");
+                                        final direurl3 =
+                                            direurl2.replaceAll(" ", "");
+                                        final direurl4 =
+                                            direurl3.replaceAll("(", "");
+                                        final direurl5 =
+                                            direurl4.replaceAll(")", "");
                                         print(direurl5);
                                         FlutterOpenWhatsapp.sendSingleMessage(
-                                    "$direurl5", " ");
+                                            "$direurl5", " ");
                                         //customLaunch(
-                                          //  "whatsapp://send?phone=$data");
+                                        //  "whatsapp://send?phone=$data");
                                       },
                                       child: Center(
                                         child: Icon(
@@ -272,7 +277,7 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        customLaunch("tel:$data");
+                                        customLaunch("tel:+$data");
                                       },
                                       child: Center(
                                         child: Icon(
@@ -303,7 +308,10 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        customLaunch("sms:$data");
+                                        var string = '$data';
+                                        var a = string.substring(1);
+                                        var b = a.substring(1);
+                                        customLaunch("sms:$a");
                                       },
                                       child: Center(
                                         child: Icon(
