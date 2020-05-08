@@ -277,7 +277,13 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        customLaunch("tel:+$data");
+                                        if (data[1] == 0) {
+                                          var a = data.substring(3);
+                                          customLaunch("tel:+$a");
+                                        } else {
+                                          var a = data.substring(2);
+                                          customLaunch("tel:+$a");
+                                        }
                                       },
                                       child: Center(
                                         child: Icon(
