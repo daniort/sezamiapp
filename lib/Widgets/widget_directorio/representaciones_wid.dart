@@ -232,19 +232,16 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        final direurl =
-                                            data.replaceAll("+", "");
-                                        final direurl2 =
-                                            direurl.replaceAll("-", "");
-                                        final direurl3 =
-                                            direurl2.replaceAll(" ", "");
-                                        final direurl4 =
-                                            direurl3.replaceAll("(", "");
-                                        final direurl5 =
-                                            direurl4.replaceAll(")", "");
-                                        print(direurl5);
+                                        if (data[1] == 0) {
+                                          var a = data.substring(3);
+                                          customLaunch('https://wa.me/1$a');
+                                        } else {
+                                          customLaunch('https://wa.me/$data');
+                                        }
+
+                                        
                                         FlutterOpenWhatsapp.sendSingleMessage(
-                                            "$direurl5", " ");
+                                            "$data", " ");
                                         //customLaunch(
                                         //  "whatsapp://send?phone=$data");
                                       },
