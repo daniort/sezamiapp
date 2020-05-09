@@ -230,6 +230,7 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
+                                          
                                         if (data[1] == 0) {
                                           var a = data.substring(3);
                                           customLaunch('https://wa.me/1$a');

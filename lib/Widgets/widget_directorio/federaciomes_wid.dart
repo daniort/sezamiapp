@@ -228,11 +228,12 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        if (data[1] == 0) {
-                                          var a = data.substring(3);
+                                        var b = data.toString().replaceAll(' ', '');
+                                        if (b[1] == 0) {
+                                          var a = b.substring(3);
                                           customLaunch('https://wa.me/1$a');
                                         } else {
-                                          customLaunch('https://wa.me/$data');
+                                          customLaunch('https://wa.me/$b');
                                         }
 
                                     
@@ -266,11 +267,12 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        if (data[1] == 0) {
-                                          var a = data.substring(3);
+                                        var b = data.toString().replaceAll(' ', '');
+                                        if (b[1] == 0) {
+                                          var a = b.substring(3);
                                           customLaunch("tel:+$a");
                                         } else {
-                                          var a = data.substring(2);
+                                          var a = b.substring(2);
                                           customLaunch("tel:+$a");
                                         }
                                       },
@@ -306,7 +308,7 @@ class BotomModal extends StatelessWidget {
                                         var string = '$data';
                                         var a = string.substring(1);
                                         var b = a.substring(1);
-                                        customLaunch("sms:$a");
+                                        customLaunch("sms:$b");
                                       },
                                       child: Center(
                                         child: Icon(
