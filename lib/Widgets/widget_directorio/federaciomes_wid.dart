@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -78,24 +79,30 @@ class Federaciones extends StatelessWidget {
                               ListTile(
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo']),
-                                onTap: () {
+                                 onTap: () async {
+                                  String text =
+                                      data['correo'].replaceAll(' ', '');
 
-                                     String text =  data['correo'].replaceAll(' ', '');
-                                  customLaunch("mailto:$text?subject=Asunto: ");
-
-                               
+                                  final Email email = Email(
+                                    recipients: ['$text'],
+                                  );
+                                  await FlutterEmailSender.send(email);
+                                  
                                 },
                               ),
                             if (data['correo1'] != null)
                               ListTile(
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo1']),
-                                onTap: () {
+                                onTap: () async {
+                                  String text =
+                                      data['correo1'].replaceAll(' ', '');
 
-                                   String text =  data['correo1'].replaceAll(' ', '');
-                                  customLaunch("mailto:$text?subject=Asunto: ");
-
-
+                                  final Email email = Email(
+                                    recipients: ['$text'],
+                                  );
+                                  await FlutterEmailSender.send(email);
+                                  
                                 },
                               ),
                             if (data['direccion'] != null)
@@ -171,7 +178,6 @@ class Federaciones extends StatelessWidget {
   }
 }
 
-
 class BotomModal extends StatelessWidget {
   void customLaunch(command) async {
     if (await canLaunch(command)) {
@@ -228,15 +234,14 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        var b = data.toString().replaceAll(' ', '');
+                                        var b =
+                                            data.toString().replaceAll(' ', '');
                                         if (b[1] == 0) {
                                           var a = b.substring(3);
                                           customLaunch('https://wa.me/1$a');
                                         } else {
                                           customLaunch('https://wa.me/$b');
                                         }
-
-                                    
                                       },
                                       child: Center(
                                         child: Icon(
@@ -267,7 +272,8 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        var b = data.toString().replaceAll(' ', '');
+                                        var b =
+                                            data.toString().replaceAll(' ', '');
                                         if (b[1] == 0) {
                                           var a = b.substring(3);
                                           customLaunch("tel:+$a");

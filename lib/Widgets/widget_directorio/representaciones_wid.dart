@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
@@ -76,18 +77,30 @@ class Representaciones extends StatelessWidget {
                               ListTile(
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo']),
-                                onTap: () {
-                                  String text =  data['correo'].replaceAll(' ', '');
-                                  customLaunch("mailto:$text?subject=Asunto: ");
+                               onTap: () async {
+                                  String text =
+                                      data['correo'].replaceAll(' ', '');
+                                  final Email email = Email(
+                                    body: ' ',
+                                    recipients: ['$text'],
+                                  );
+                                  await FlutterEmailSender.send(email);
+                                  //customLaunch("mailto:$text?subject=Asunto: ");
                                 },
                               ),
                             if (data['correo1'] != null)
                               ListTile(
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo1']),
-                                onTap: () {
-                                  String text =  data['correo'].replaceAll(' ', '');
-                                  customLaunch("mailto:$text?subject=Asunto: ");
+                                onTap: () async {
+                                  String text =
+                                      data['correo1'].replaceAll(' ', '');
+                                  final Email email = Email(
+                                    body: ' ',
+                                    recipients: ['$text'],
+                                  );
+                                  await FlutterEmailSender.send(email);
+                                  //customLaunch("mailto:$text?subject=Asunto: ");
                                 },
                               ),
                             ListTile(
@@ -230,15 +243,12 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                          
                                         if (data[1] == 0) {
                                           var a = data.substring(3);
                                           customLaunch('https://wa.me/1$a');
                                         } else {
                                           customLaunch('https://wa.me/$data');
                                         }
-
-                                    
                                       },
                                       child: Center(
                                         child: Icon(

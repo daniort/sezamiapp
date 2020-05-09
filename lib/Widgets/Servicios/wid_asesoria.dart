@@ -162,18 +162,16 @@ class _AsesoriaState extends State<Asesoria> {
                         child: InkWell(
                             onTap: () {
                               if (validar()) {
-                                String n = nombre.text.toUpperCase().replaceAll(' ', '%20');
-                                String d = direccion.text.toUpperCase().replaceAll(' ', '%20');
-                                String t = tel.text..replaceAll(' ', '%20');
-                                String c = correo.text.toLowerCase().replaceAll(' ', '%20');
-                                String ase = asesoria.text.toLowerCase().replaceAll(' ', '%20');
-                                String msj =
-                                    '''Hola, LAET Fuensanta Santacrúz.\nConsulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.''';
-
+                                String n = nombre.text.toUpperCase();
+                                String d = direccion.text.toUpperCase();
+                                String t = tel.text;
+                                String c = correo.text.toLowerCase();
+                                String ase = asesoria.text.toLowerCase();
+                                String msj ="Hola, LAET Fuensanta Santacrúz.\nConsulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.";
                                 String text = msj.replaceAll(' ', '%20');
                                 //
                                 customLaunch(
-                                    "https://wa.me/529531078273?text=$text");
+                                    "https://wa.me/524928922638?text=$text");
                               }
                             },
                             child: Container(
