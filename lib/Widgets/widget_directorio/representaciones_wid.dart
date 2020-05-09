@@ -77,9 +77,8 @@ class Representaciones extends StatelessWidget {
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo']),
                                 onTap: () {
-                                  customLaunch('mailto:' +
-                                      data['correo'] +
-                                      '?subject=Asunto: ');
+                                  String text =  data['correo'].replaceAll(' ', '');
+                                  customLaunch("mailto:$text?subject=Asunto: ");
                                 },
                               ),
                             if (data['correo1'] != null)
@@ -87,9 +86,8 @@ class Representaciones extends StatelessWidget {
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo1']),
                                 onTap: () {
-                                  customLaunch('mailto:' +
-                                      data['correo1'] +
-                                      '?subject=Asunto: ');
+                                  String text =  data['correo'].replaceAll(' ', '');
+                                  customLaunch("mailto:$text?subject=Asunto: ");
                                 },
                               ),
                             ListTile(
@@ -239,11 +237,7 @@ class BotomModal extends StatelessWidget {
                                           customLaunch('https://wa.me/$data');
                                         }
 
-                                        
-                                        FlutterOpenWhatsapp.sendSingleMessage(
-                                            "$data", " ");
-                                        //customLaunch(
-                                        //  "whatsapp://send?phone=$data");
+                                    
                                       },
                                       child: Center(
                                         child: Icon(

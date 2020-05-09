@@ -3,6 +3,7 @@ import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Asesoria extends StatefulWidget {
   @override
@@ -24,6 +25,14 @@ class _AsesoriaState extends State<Asesoria> {
     correo = TextEditingController();
     asesoria = TextEditingController();
     super.initState();
+  }
+
+  void customLaunch(command) async {
+    if (await canLaunch(command)) {
+      await launch(command);
+    } else {
+      print(' could not launch $command');
+    }
   }
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -153,15 +162,18 @@ class _AsesoriaState extends State<Asesoria> {
                         child: InkWell(
                             onTap: () {
                               if (validar()) {
-                                String n = nombre.text.toUpperCase();
-                                String d = direccion.text.toUpperCase();
-                                String t = tel.text;
-                                String c = correo.text.toLowerCase();
-                                String ase = asesoria.text.toLowerCase();
-                                String msj = '''
-                                      Hola, LAET Fuensanta Santacrúz.\n ------------------ \n Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.''';
-                                FlutterOpenWhatsapp.sendSingleMessage(
-                                    "524928922638", "$msj");
+                                String n = nombre.text.toUpperCase().replaceAll(' ', '%20');
+                                String d = direccion.text.toUpperCase().replaceAll(' ', '%20');
+                                String t = tel.text..replaceAll(' ', '%20');
+                                String c = correo.text.toLowerCase().replaceAll(' ', '%20');
+                                String ase = asesoria.text.toLowerCase().replaceAll(' ', '%20');
+                                String msj =
+                                    '''Hola, LAET Fuensanta Santacrúz.\nConsulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría hacerca de:\n$ase \n\n Gracias.''';
+
+                                String text = msj.replaceAll(' ', '%20');
+                                //
+                                customLaunch(
+                                    "https://wa.me/529531078273?text=$text");
                               }
                             },
                             child: Container(
@@ -223,7 +235,7 @@ class _AsesoriaState extends State<Asesoria> {
                                   body: msj,
                                   subject:
                                       'Asesoría Migratoria de Sezami Digital Movil',
-                                    recipients: ['laetfuensanta@hotmail.com'],
+                                  recipients: ['laetfuensanta@hotmail.com'],
                                   cc: [
                                     'sezami.zac@gmail.com',
                                     'sezamiapp@gmail.com'

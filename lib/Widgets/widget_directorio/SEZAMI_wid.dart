@@ -72,16 +72,16 @@ class Sezami extends StatelessWidget {
                                   ' Ext: ' +
                                   data['extension']),
                               onTap: () {
-                                customLaunch('tel:492 49 15000');
+                                customLaunch('tel:+4924915000');
                               },
                             ),
                             ListTile(
                               leading: Icon(Icons.mail),
                               title: Text(data['correo']),
                               onTap: () {
-                                customLaunch('mailto:' +
-                                    data['correo'] +
-                                    '?subject=Asunto: ');
+                                String text =
+                                    data['correo'].replaceAll(' ', '');
+                                customLaunch("mailto:$text?subject=Asunto: ");
                               },
                             ),
                           ],

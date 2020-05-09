@@ -198,8 +198,7 @@ class DosporUno extends StatelessWidget {
                       title: Text('Teléfono'),
                       subtitle: Text('+52 1 492 103 2849'),
                       onTap: () {
-                        customLaunch(
-                            "whatsapp://send?phone=+52 1 492 103 2849");
+                        customLaunch('https://wa.me/524921032849');
                       },
                     )
                   ],

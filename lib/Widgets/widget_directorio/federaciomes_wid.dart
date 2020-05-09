@@ -79,9 +79,11 @@ class Federaciones extends StatelessWidget {
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo']),
                                 onTap: () {
-                                  customLaunch('mailto:' +
-                                      data['correo'] +
-                                      '?subject=Asunto: ');
+
+                                     String text =  data['correo'].replaceAll(' ', '');
+                                  customLaunch("mailto:$text?subject=Asunto: ");
+
+                               
                                 },
                               ),
                             if (data['correo1'] != null)
@@ -89,9 +91,11 @@ class Federaciones extends StatelessWidget {
                                 leading: Icon(Icons.mail),
                                 title: Text(data['correo1']),
                                 onTap: () {
-                                  customLaunch('mailto:' +
-                                      data['correo1'] +
-                                      '?subject=Asunto: ');
+
+                                   String text =  data['correo1'].replaceAll(' ', '');
+                                  customLaunch("mailto:$text?subject=Asunto: ");
+
+
                                 },
                               ),
                             if (data['direccion'] != null)
@@ -167,6 +171,7 @@ class Federaciones extends StatelessWidget {
   }
 }
 
+
 class BotomModal extends StatelessWidget {
   void customLaunch(command) async {
     if (await canLaunch(command)) {
@@ -223,8 +228,14 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        customLaunch(
-                                            "whatsapp://send?phone=$data");
+                                        if (data[1] == 0) {
+                                          var a = data.substring(3);
+                                          customLaunch('https://wa.me/1$a');
+                                        } else {
+                                          customLaunch('https://wa.me/$data');
+                                        }
+
+                                    
                                       },
                                       child: Center(
                                         child: Icon(
@@ -255,7 +266,13 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        customLaunch("tel:$data");
+                                        if (data[1] == 0) {
+                                          var a = data.substring(3);
+                                          customLaunch("tel:+$a");
+                                        } else {
+                                          var a = data.substring(2);
+                                          customLaunch("tel:+$a");
+                                        }
                                       },
                                       child: Center(
                                         child: Icon(
@@ -286,7 +303,10 @@ class BotomModal extends StatelessWidget {
                                     flex: 2,
                                     child: InkWell(
                                       onTap: () {
-                                        customLaunch("sms:$data");
+                                        var string = '$data';
+                                        var a = string.substring(1);
+                                        var b = a.substring(1);
+                                        customLaunch("sms:$a");
                                       },
                                       child: Center(
                                         child: Icon(
