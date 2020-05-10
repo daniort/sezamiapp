@@ -167,8 +167,8 @@ class _AsesoriaState extends State<Asesoria> {
                                 String t = tel.text;
                                 String c = correo.text.toLowerCase();
                                 String ase = asesoria.text.toLowerCase();
-                                String msj ="Hola,%20LAET%20Fuensanta%20Santacrúz.%20Consulta%20de%20Asesoria%20Migratoria%20Desde%20Sezami%20Digital%20Móvil.%20Datos:%20*%20$n,%20*%20$d,%20*%20$t,%20*%20$c,Necesito%20Asesoría%20acerca%20de:${ase}Gracias.";
-                                String text = msj.replaceAll(' ','%20');
+                                String msj ="Hola, LAET Fuensanta Santacrúz. Consulta de Asesoria Migratoria Desde Sezami Digital Móvil.\n \nDatos:\n * $n,\n * $d,\n * $t,\n * $c,\n\nNecesito Asesoría acerca de:\n$ase\n\nGracias.";
+                                String text = Uri.encodeFull(msj);
                                 customLaunch(
                                     "https://wa.me/524928922638?text=$text");
                               }
