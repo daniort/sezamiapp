@@ -64,532 +64,572 @@ class _TrasladosState extends State<Traslados> {
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
     return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        title: Text('Traslados'),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(
-                top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
-            child: actionIcon,
-          ),
-        ],
-      ),
-      body: Form(
-        key: _formDom,
-        child: Column(
-        children: <Widget>[
-          new Expanded(
-            flex: 9,
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                child: new Container(
-                  child: Column(
-                    children: <Widget>[
-                      dividerSeccion('Datos del Fallecido'),                      
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextFormField(
-                          maxLength: 45,
-                          controller: nombre,
-                          decoration: InputDecoration(
-                            labelText: 'Nombre del Fallecido:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.account_circle),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF0F0F0),
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Color(0xFF838383),
-                                ),
-                              )),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(Icons.date_range,
-                                          color: Color(0xFF838383)),
-                                    ),
-                                    Expanded(
-                                        flex: 2,
-                                        child: Center(
-                                            child: Text(
-                                          'Fecha de Nacimiento:',
-                                          style: TextStyle(
-                                              fontSize: 13.0,
-                                              color: Color(0xFF838383)),
-                                        ))),
-                                    Expanded(
-                                        flex: 4,
-                                        child: FlatButton(
-                                            onPressed: () {
-                                              DatePicker.showDatePicker(context,
-                                                  showTitleActions: true,
-                                                  minTime: DateTime(5, 3, 1950),
-                                                  maxTime: DateTime.now(),
-                                                  onChanged: (date) {
-                                                dan = date;
-                                              }, onConfirm: (date) {
-                                                dan = date;
-                                              },
-                                                  currentTime: dan,
-                                                  locale: LocaleType.es);
-                                            },
-                                            child: Text(
-                                              '$dan',
-                                              style: TextStyle(
-                                                  color: Color(0xff838383)),
-                                            ))),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF0F0F0),
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Color(0xFF838383),
-                                ),
-                              )),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(Icons.date_range,
-                                          color: Color(0xFF838383)),
-                                    ),
-                                    Expanded(
-                                        flex: 2,
-                                        child: Center(
-                                            child: Text(
-                                          'Fecha de Deceso:',
-                                          style: TextStyle(
-                                              fontSize: 13.0,
-                                              color: Color(0xFF838383)),
-                                        ))),
-                                    Expanded(
-                                        flex: 4,
-                                        child: FlatButton(
-                                            onPressed: () {
-                                              DatePicker.showDatePicker(context,
-                                                  showTitleActions: true,
-                                                  minTime: DateTime(5, 3, 2019),
-                                                  maxTime: DateTime.now(),
-                                                  onChanged: (date) {
-                                                daf = date;
-                                              }, onConfirm: (date) {
-                                                daf = date;
-                                              },
-                                                  currentTime: daf,
-                                                  locale: LocaleType.es);
-                                            },
-                                            child: Text(
-                                              '$daf',
-                                              style: TextStyle(
-                                                  color: Color(0xff838383)),
-                                            ))),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextField(
-                          controller: causa,
-                          decoration: InputDecoration(
-                            labelText: 'Causa de la Muerte:',
-                            //icon: Icon(Icons.account_circle),
-                            filled: true,
-                            prefixIcon: Icon(Icons.fiber_manual_record),
-                          ),
-                          onSubmitted: (String textfinal) {},
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextField(
-                          controller: lugarmuerte,
-                          decoration: InputDecoration(
-                            labelText: 'Lugar del Deceso:',
-                            //icon: Icon(Icons.account_circle),
-                            filled: true,
-                            prefixIcon: Icon(Icons.location_on),
-                          ),
-                          onSubmitted: (String textfinal) {},
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: TextField(
-                          controller: lugarorigen,
-                          decoration: InputDecoration(
-                            labelText: 'Lugar del Origen:',
-                            //icon: Icon(Icons.account_circle),
-                            filled: true,
-                            prefixIcon: Icon(Icons.location_on),
-                          ),
-                          onSubmitted: (String textfinal) {},
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF0F0F0),
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Color(0xFF838383),
-                                ),
-                              )),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(Icons.timelapse,
-                                          color: Color(0xFF838383)),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'Tiempo en Estados Unidos:',
-                                        style: TextStyle(
-                                          color: Color(0xFF838383),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                        flex: 3,
-                                        child: Center(
-                                          child: DropdownButton<String>(
-                                            items: [
-                                              DropdownMenuItem<String>(
-                                                child: Text('Menos de 1 Año'),
-                                                value: 'Menos de 1 Año',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('1 a 3 Años'),
-                                                value: '1 a 3 Años',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('3 a 5 Años'),
-                                                value: '3 a 5 Años',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Más de 5 Años'),
-                                                value: 'Más de 5 Años',
-                                              ),
-                                            ],
-                                            onChanged: (String value) {
-                                              setState(() {
-                                                time = value;
-                                              });
-                                            },
-                                            hint: Text('Elegir...'),
-                                            value: time,
-                                          ),
-                                        )),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(2.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF0F0F0),
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: Color(0xFF838383),
-                                ),
-                              )),
-                          child: Column(
-                            children: <Widget>[
-                              Container(
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 1,
-                                      child: Icon(Icons.timelapse,
-                                          color: Color(0xFF838383)),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        'Situación Migratoria:',
-                                        style: TextStyle(
-                                          color: Color(0xFF838383),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                        flex: 3,
-                                        child: Center(
-                                          child: DropdownButton<String>(
-                                            items: [
-                                              DropdownMenuItem<String>(
-                                                child: Text('Residente'),
-                                                value: 'Residente',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Ciudadano'),
-                                                value: 'Ciudadano',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Turista'),
-                                                value: 'Turista',
-                                              ),
-                                              DropdownMenuItem<String>(
-                                                child: Text('Indocumentado'),
-                                                value: 'Indocumentado',
-                                              ),
-                                            ],
-                                            onChanged: (String value) {
-                                              setState(() {
-                                                situ = value;
-                                              });
-                                            },
-                                            hint: Text('Elegir...'),
-                                            value: situ,
-                                          ),
-                                        )),
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      dividerSeccion('Datos de Familiar en México'),
-                      TextField(
-                        decoration: InputDecoration(
-                            labelText: 'Nombre de Familiar en Mex.:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.account_circle)),
-                        controller: nombreparmex,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: telparmex,
-                        maxLength: 10,
-                        decoration: InputDecoration(
-                            labelText: 'Telefono:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.phone)),
-                        keyboardType: TextInputType.phone,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: parmex,
-                        decoration: InputDecoration(
-                            labelText: 'Parentesco:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.people)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Center(
-                                child: Text(
-                              'Datos de Familiar en EU',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
-                      TextField(
-                        controller: nombrepareu,
-                        decoration: InputDecoration(
-                          labelText: 'Nombre de Familiar en EU:',
-                          filled: true,
-                          prefixIcon: Icon(Icons.account_circle),
-                        ),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: telpareu,
-                        maxLength: 10,
-                        decoration: InputDecoration(
-                            labelText: 'Telefono:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.phone)),
-                        keyboardType: TextInputType.phone,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: pareu,
-                        decoration: InputDecoration(
-                            labelText: 'Parentesco:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.people)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      
-                                            dividerSeccion('Datos de Funeraria en EU'),
-
-                     
-                      TextField(
-                        controller: nombrefune,
-                        decoration: InputDecoration(
-                            labelText: 'Nombre de Funeraria en EU:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.home)),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: telfune,
-                        maxLength: 10,
-                        decoration: InputDecoration(
-                          labelText: 'Telefono:',
-                          filled: true,
-                          prefixIcon: Icon(Icons.phone),
-                        ),
-                        keyboardType: TextInputType.phone,
-                        onSubmitted: (String textfinal) {},
-                      ),
-                      TextField(
-                        controller: correofune,
-                        decoration: InputDecoration(
-                            labelText: 'Email:',
-                            filled: true,
-                            prefixIcon: Icon(Icons.email)),
-                        keyboardType: TextInputType.emailAddress,
-                        onSubmitted: (String textfinal) {},
-                      ),
-
-                                                                  dividerSeccion('Extras'),
-
-                      
-                      TextField(
-                        controller: extra,
-                        decoration: InputDecoration(
-                          counterText: 'No Obligatorio',
-                          labelText: 'Anotaciones Extras:',
-                          filled: true,
-                        ),
-                        onSubmitted: (String textfinal) {},
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+        key: _scaffoldKey,
+        appBar: AppBar(
+          title: Text('Traslados'),
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 0.0, bottom: 0.0, left: 0.0, right: 20.0),
+              child: actionIcon,
             ),
-          ),
-          new Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {
-                    //print(time);
-                    //print(">$situ");
-                    if (validar() == true) {
-                      print('truHHHHe');
-                      int edad = returnaedad(dan, daf);
-                      if (edad > 0) {
-                        print('EDAD BIEN');
-                        String dian = dan.day.toString();
-                        String mesn = dan.month.toString();
-                        String anon = dan.year.toString();
-                        String diaf = daf.day.toString();
-                        String mesf = daf.month.toString();
-                        String anof = daf.year.toString();
-                        String nofi = returnaOFI();
-                        myPDF(
-                          nofi,
-                          nombre.text.toUpperCase(),
-                          edad,
-                          causa.text.toUpperCase(),
-                          lugarmuerte.text.toUpperCase(),
-                          lugarorigen.text.toUpperCase(),
-                          nombreparmex.text.toUpperCase(),
-                          telparmex.text.toUpperCase(),
-                          nombrepareu.text.toUpperCase(),
-                          telpareu.text.toUpperCase(),
-                          nombrefune.text.toUpperCase(),
-                          telfune.text.toUpperCase(),
-                          correofune.text.toLowerCase(),
-                          parmex.text.toUpperCase(),
-                          pareu.text.toUpperCase(),
-                          extra.text.toUpperCase(),
-                          situ.toUpperCase(),
-                          time.toUpperCase(),
-                          dian,
-                          mesn,
-                          anon,
-                          diaf,
-                          mesf,
-                          anof,
-                        );
-                      } else {
-                        print('error de edad');
-                        _scaffoldKey.currentState.showSnackBar(SnackBar(
-                          content: Text('Incongruencia de Fechas'),
-                          duration: Duration(milliseconds: 1000),
-                          backgroundColor: Color(0xffd1495b),
-                        ));
-                      }
-                    }
-                  },
-                  child: Container(
-                    width: (queryData.size.width),
-                    color: Colors.blue,
-                    child: Center(
-                      child: Text(
-                        'Enviar Solicitud',
-                        style: TextStyle(color: Colors.white, fontSize: 15.0),
+          ],
+        ),
+        body: Form(
+          key: _formDom,
+          child: Column(
+            children: <Widget>[
+              new Expanded(
+                flex: 9,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: new Container(
+                      child: Column(
+                        children: <Widget>[
+                          dividerSeccion('Datos del Fallecido'),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: TextFormField(
+                              maxLength: 45,
+                              controller: nombre,
+                              decoration: InputDecoration(
+                                labelText: 'Nombre del Fallecido:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.account_circle),
+                              ),
+                              // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(2.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF0F0F0),
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Color(0xFF838383),
+                                    ),
+                                  )),
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Icon(Icons.date_range,
+                                              color: Color(0xFF838383)),
+                                        ),
+                                        Expanded(
+                                            flex: 2,
+                                            child: Center(
+                                                child: Text(
+                                              'Fecha de Nacimiento:',
+                                              style: TextStyle(
+                                                  fontSize: 13.0,
+                                                  color: Color(0xFF838383)),
+                                            ))),
+                                        Expanded(
+                                            flex: 4,
+                                            child: FlatButton(
+                                                onPressed: () {
+                                                  DatePicker.showDatePicker(
+                                                      context,
+                                                      showTitleActions: true,
+                                                      minTime:
+                                                          DateTime(5, 3, 1950),
+                                                      maxTime: DateTime.now(),
+                                                      onChanged: (date) {
+                                                    dan = date;
+                                                  }, onConfirm: (date) {
+                                                    dan = date;
+                                                  },
+                                                      currentTime: dan,
+                                                      locale: LocaleType.es);
+                                                },
+                                                child: Text(
+                                                  '$dan',
+                                                  style: TextStyle(
+                                                      color: Color(0xff838383)),
+                                                ))),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(2.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF0F0F0),
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Color(0xFF838383),
+                                    ),
+                                  )),
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Icon(Icons.date_range,
+                                              color: Color(0xFF838383)),
+                                        ),
+                                        Expanded(
+                                            flex: 2,
+                                            child: Center(
+                                                child: Text(
+                                              'Fecha de Deceso:',
+                                              style: TextStyle(
+                                                  fontSize: 13.0,
+                                                  color: Color(0xFF838383)),
+                                            ))),
+                                        Expanded(
+                                            flex: 4,
+                                            child: FlatButton(
+                                                onPressed: () {
+                                                  DatePicker.showDatePicker(
+                                                      context,
+                                                      showTitleActions: true,
+                                                      minTime:
+                                                          DateTime(5, 3, 2019),
+                                                      maxTime: DateTime.now(),
+                                                      onChanged: (date) {
+                                                    daf = date;
+                                                  }, onConfirm: (date) {
+                                                    daf = date;
+                                                  },
+                                                      currentTime: daf,
+                                                      locale: LocaleType.es);
+                                                },
+                                                child: Text(
+                                                  '$daf',
+                                                  style: TextStyle(
+                                                      color: Color(0xff838383)),
+                                                ))),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: TextFormField(
+                              controller: causa,
+                              decoration: InputDecoration(
+                                labelText: 'Causa de la Muerte:',
+                                //icon: Icon(Icons.account_circle),
+                                filled: true,
+                                prefixIcon: Icon(Icons.fiber_manual_record),
+                              ),
+                              // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: TextFormField(
+                              controller: lugarmuerte,
+                              decoration: InputDecoration(
+                                labelText: 'Lugar del Deceso:',
+                                //icon: Icon(Icons.account_circle),
+                                filled: true,
+                                prefixIcon: Icon(Icons.location_on),
+                              ),
+                              // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: TextFormField(
+                              controller: lugarorigen,
+                              decoration: InputDecoration(
+                                labelText: 'Lugar del Origen:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.location_on)
+                              ),
+                              // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(2.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF0F0F0),
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Color(0xFF838383),
+                                    ),
+                                  )),
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Icon(Icons.timelapse,
+                                              color: Color(0xFF838383)),
+                                        ),
+                                        Expanded(
+                                          flex: 3,
+                                          child: Text(
+                                            'Tiempo en Estados Unidos:',
+                                            style: TextStyle(
+                                              color: Color(0xFF838383),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                            flex: 3,
+                                            child: Center(
+                                              child: DropdownButton<String>(
+                                                items: [
+                                                  DropdownMenuItem<String>(
+                                                    child:
+                                                        Text('Menos de 1 Año'),
+                                                    value: 'Menos de 1 Año',
+                                                  ),
+                                                  DropdownMenuItem<String>(
+                                                    child: Text('1 a 3 Años'),
+                                                    value: '1 a 3 Años',
+                                                  ),
+                                                  DropdownMenuItem<String>(
+                                                    child: Text('3 a 5 Años'),
+                                                    value: '3 a 5 Años',
+                                                  ),
+                                                  DropdownMenuItem<String>(
+                                                    child:
+                                                        Text('Más de 5 Años'),
+                                                    value: 'Más de 5 Años',
+                                                  ),
+                                                ],
+                                                onChanged: (String value) {
+                                                  setState(() {
+                                                    time = value;
+                                                  });
+                                                },
+                                                hint: Text('Elegir...'),
+                                                value: time,
+                                              ),
+                                            )),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(2.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF0F0F0),
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Color(0xFF838383),
+                                    ),
+                                  )),
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Icon(Icons.timelapse,
+                                              color: Color(0xFF838383)),
+                                        ),
+                                        Expanded(
+                                          flex: 3,
+                                          child: Text(
+                                            'Situación Migratoria:',
+                                            style: TextStyle(
+                                              color: Color(0xFF838383),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                            flex: 3,
+                                            child: Center(
+                                              child: DropdownButton<String>(
+                                                items: [
+                                                  DropdownMenuItem<String>(
+                                                    child: Text('Residente'),
+                                                    value: 'Residente',
+                                                  ),
+                                                  DropdownMenuItem<String>(
+                                                    child: Text('Ciudadano'),
+                                                    value: 'Ciudadano',
+                                                  ),
+                                                  DropdownMenuItem<String>(
+                                                    child: Text('Turista'),
+                                                    value: 'Turista',
+                                                  ),
+                                                  DropdownMenuItem<String>(
+                                                    child:
+                                                        Text('Indocumentado'),
+                                                    value: 'Indocumentado',
+                                                  ),
+                                                ],
+                                                onChanged: (String value) {
+                                                  setState(() {
+                                                    situ = value;
+                                                  });
+                                                },
+                                                hint: Text('Elegir...'),
+                                                value: situ,
+                                              ),
+                                            )),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          dividerSeccion('Datos de Familiar en México'),
+                          TextFormField(
+                            decoration: InputDecoration(
+                                labelText: 'Nombre de Familiar en Mex.:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.account_circle)),
+                            controller: nombreparmex,
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                          ),
+                          TextFormField(
+                            controller: telparmex,
+                            maxLength: 10,
+                            decoration: InputDecoration(
+                                labelText: 'Telefono:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.phone)),
+                            keyboardType: TextInputType.phone,
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                          ),
+                          TextFormField(
+                            controller: parmex,
+                            decoration: InputDecoration(
+                                labelText: 'Parentesco:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.people)),
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(children: <Widget>[
+                              Expanded(
+                                child: Divider(
+                                  color: Color(0xFF0076a6),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Center(
+                                    child: Text(
+                                  'Datos de Familiar en EU',
+                                  style: TextStyle(
+                                    color: Color(0xFF0076a6),
+                                  ),
+                                )),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                  color: Color(0xFF0076a6),
+                                ),
+                              ),
+                            ]),
+                          ),
+                          TextFormField(
+                            controller: nombrepareu,
+                            decoration: InputDecoration(
+                              labelText: 'Nombre de Familiar en EU:',
+                              filled: true,
+                              prefixIcon: Icon(Icons.account_circle),
+                            ),
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                          ),
+                          TextFormField(
+                            controller: telpareu,
+                            maxLength: 10,
+                            decoration: InputDecoration(
+                                labelText: 'Telefono:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.phone)),
+                            keyboardType: TextInputType.phone,
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'No puedes dejar vacio';
+                            },
+                          ),
+                          TextFormField(
+                            controller: pareu,
+                            decoration: InputDecoration(
+                                labelText: 'Parentesco:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.people)),
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'No puedes dejar vacio';
+                            },
+                          ),
+                          dividerSeccion('Datos de Funeraria en EU'),
+                          TextFormField(
+                            controller: nombrefune,
+                            decoration: InputDecoration(
+                                labelText: 'Nombre de Funeraria en EU:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.home)),
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'No puedes dejar vacio';
+                            },
+                          ),
+                          TextFormField(
+                            controller: telfune,
+                            maxLength: 10,
+                            decoration: InputDecoration(
+                              labelText: 'Telefono:',
+                              filled: true,
+                              prefixIcon: Icon(Icons.phone),
+                            ),
+                            keyboardType: TextInputType.phone,
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'No puedes dejar vacio';
+                            },
+                          ),
+                          TextFormField(
+                            controller: correofune,
+                            decoration: InputDecoration(
+                                labelText: 'Email:',
+                                filled: true,
+                                prefixIcon: Icon(Icons.email)),
+                            keyboardType: TextInputType.emailAddress,
+                          ),
+                          dividerSeccion('Extras'),
+                          TextFormField(
+                            controller: extra,
+                            decoration: InputDecoration(
+                              counterText: 'No Obligatorio',
+                              labelText: 'Anotaciones Extras:',
+                              filled: true,
+                            ),
+                            // ignore: missing_return
+                            validator: (val) {
+                              if (val.isEmpty) return 'Campo requerido';
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              )),
-         
-        ],
-      ),
-      )
-    );
+              ),
+              new Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: InkWell(
+                      onTap: () {
+                        //print(time);
+                        //print(">$situ");
+                        if (_formDom.currentState.validate()) {
+                          if (validar() == true) {
+                            print('truHHHHe');
+                            int edad = returnaedad(dan, daf);
+                            if (edad > 0) {
+                              print('EDAD BIEN');
+                              String dian = dan.day.toString();
+                              String mesn = dan.month.toString();
+                              String anon = dan.year.toString();
+                              String diaf = daf.day.toString();
+                              String mesf = daf.month.toString();
+                              String anof = daf.year.toString();
+                              String nofi = returnaOFI();
+                              myPDF(
+                                nofi,
+                                nombre.text.toUpperCase(),
+                                edad,
+                                causa.text.toUpperCase(),
+                                lugarmuerte.text.toUpperCase(),
+                                lugarorigen.text.toUpperCase(),
+                                nombreparmex.text.toUpperCase(),
+                                telparmex.text.toUpperCase(),
+                                nombrepareu.text.toUpperCase(),
+                                telpareu.text.toUpperCase(),
+                                nombrefune.text.toUpperCase(),
+                                telfune.text.toUpperCase(),
+                                correofune.text.toLowerCase(),
+                                parmex.text.toUpperCase(),
+                                pareu.text.toUpperCase(),
+                                extra.text.toUpperCase(),
+                                situ.toUpperCase(),
+                                time.toUpperCase(),
+                                dian,
+                                mesn,
+                                anon,
+                                diaf,
+                                mesf,
+                                anof,
+                              );
+                            } else {
+                              print('error de edad');
+                              _scaffoldKey.currentState.showSnackBar(SnackBar(
+                                content: Text('Incongruencia de Fechas'),
+                                duration: Duration(milliseconds: 1000),
+                                backgroundColor: Color(0xffd1495b),
+                              ));
+                            }
+                          }
+                        }
+                      },
+                      child: Container(
+                        width: (queryData.size.width),
+                        color: Colors.blue,
+                        child: Center(
+                          child: Text(
+                            'Enviar Solicitud',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 15.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )),
+            ],
+          ),
+        ));
   }
 
   int returnaedad(DateTime dan, DateTime daf) {
@@ -862,8 +902,6 @@ class _TrasladosState extends State<Traslados> {
       }
     }
 
-
- 
     print(_final);
     if (_final) {
       return true;
