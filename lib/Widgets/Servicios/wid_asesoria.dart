@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_open_whatsapp/flutter_open_whatsapp.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 
 class Asesoria extends StatefulWidget {
   @override
@@ -277,9 +276,6 @@ class _AsesoriaState extends State<Asesoria> {
                   ],
                 )),
           ),
-          new Container(
-            child: Footer(),
-          )
         ],
       ),
     );

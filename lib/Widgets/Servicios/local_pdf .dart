@@ -34,9 +34,7 @@ Future<String> myiPDF(
             alignment: Alignment.centerRight,
             margin: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
             padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
-            decoration: const BoxDecoration(
-                border:
-                    BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)),
+            
             child: Text('Portable Document Format',
                 style: Theme.of(context)
                     .defaultTextStyle
@@ -101,8 +99,9 @@ Future<String> myiPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$nombre',
@@ -131,8 +130,9 @@ Future<String> myiPDF(
               child: Container(
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
-                    border: BoxBorder(
-                        bottom: true, width: 0.5, color: PdfColors.grey)),
+                    // border: BoxBorder(
+                    //     bottom: true, width: 0.5, color: PdfColors.grey)
+                    ),
                 child: Text(' $dian  -  $mesn  -  $anon',
                     style: TextStyle(
                       fontSize: 12.0,
@@ -156,8 +156,9 @@ Future<String> myiPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$direccion',
@@ -196,8 +197,9 @@ Future<String> myiPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$nombresoli',
@@ -225,8 +227,9 @@ Future<String> myiPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$telsoli',
@@ -254,8 +257,9 @@ Future<String> myiPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$parsoli',
@@ -295,8 +299,9 @@ Future<String> myiPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '-',
@@ -323,8 +328,9 @@ Future<String> myiPDF(
               child: Container(
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
-                    border: BoxBorder(
-                        bottom: true, width: 0.5, color: PdfColors.grey)),
+                    // border: BoxBorder(
+                    //     bottom: true, width: 0.5, color: PdfColors.grey)
+                    ),
                 child: Text(' $diaf  -  $mesf  -  $anof',
                     style: TextStyle(
                       fontSize: 12.0,
@@ -348,8 +354,9 @@ Future<String> myiPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$direccionu',

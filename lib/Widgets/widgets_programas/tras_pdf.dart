@@ -46,8 +46,9 @@ Future<String> myPDF(
             margin: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
             padding: const EdgeInsets.only(bottom: 3.0 * PdfPageFormat.mm),
             decoration: const BoxDecoration(
-                border:
-                    BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)),
+                // border:
+                //     BoxBorder(bottom: true, width: 0.5, color: PdfColors.grey)7
+                ),
             child: Text('Portable Document Format',
                 style: Theme.of(context)
                     .defaultTextStyle
@@ -117,16 +118,18 @@ Future<String> myPDF(
                 child: Column(children: <Widget>[
                   Container(
                     decoration: const BoxDecoration(
-                        border: BoxBorder(
-                            bottom: true, width: 0.5, color: PdfColors.grey)),
+                        // border: BoxBorder(
+                        //     bottom: true, width: 0.5, color: PdfColors.grey)
+                        ),
                     alignment: Alignment.center,
                     child: Text(' $diaf - $mesf - $anof ',
                         style: TextStyle(fontSize: 10.0)),
                   ),
                   Container(
                     decoration: const BoxDecoration(
-                        border: BoxBorder(
-                            bottom: true, width: 0.5, color: PdfColors.grey)),
+                        // border: BoxBorder(
+                        //     bottom: true, width: 0.5, color: PdfColors.grey)
+                        ),
                     alignment: Alignment.center,
                     child: Text('  -',
                         style:
@@ -134,8 +137,9 @@ Future<String> myPDF(
                   ),
                   Container(
                     decoration: const BoxDecoration(
-                        border: BoxBorder(
-                            bottom: true, width: 0.5, color: PdfColors.grey)),
+                        // border: BoxBorder(
+                        //     bottom: true, width: 0.5, color: PdfColors.grey)
+                        ),
                     alignment: Alignment.center,
                     child: Text(' - ',
                         style:
@@ -176,8 +180,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$nombre',
@@ -205,8 +210,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$edad AÑOS',
@@ -230,8 +236,9 @@ Future<String> myPDF(
               child: Container(
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
-                    border: BoxBorder(
-                        bottom: true, width: 0.5, color: PdfColors.grey)),
+                    // border: BoxBorder(
+                    //     bottom: true, width: 0.5, color: PdfColors.grey)
+                    ),
                 child: Text(' $dian  -  $mesn  -  $anon',
                     style: TextStyle(
                       fontSize: 12.0,
@@ -256,8 +263,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$causa',
@@ -286,8 +294,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$lugarmuerte',
@@ -315,8 +324,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$lugarorigen',
@@ -345,8 +355,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$situ',
@@ -375,8 +386,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$time',
@@ -418,8 +430,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$nombreparmex',
@@ -447,8 +460,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$telparmex',
@@ -476,8 +490,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$parmex',
@@ -519,8 +534,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$nombrepareu',
@@ -548,8 +564,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$telpareu',
@@ -577,8 +594,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$pareu',
@@ -619,8 +637,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$nombrefune',
@@ -648,8 +667,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$telfune',
@@ -677,8 +697,9 @@ Future<String> myPDF(
               child: Center(
                 child: Container(
                   decoration: const BoxDecoration(
-                      border: BoxBorder(
-                          bottom: true, width: 0.5, color: PdfColors.grey)),
+                      // border: BoxBorder(
+                      //     bottom: true, width: 0.5, color: PdfColors.grey)
+                      ),
                   alignment: Alignment.center,
                   child: Text(
                     '$correofune',
@@ -692,6 +713,7 @@ Future<String> myPDF(
           ]),
         ),
 
+        // ignore: sdk_version_ui_as_code
         if (!extra.isEmpty)
           Header(
               level: 3,
@@ -704,6 +726,7 @@ Future<String> myPDF(
                       style: TextStyle(color: PdfColors.blue),
                     ),
                   ])),
+        // ignore: sdk_version_ui_as_code
         if (!extra.isEmpty)
           Padding(
             padding: EdgeInsets.all(4.0),
@@ -721,8 +744,9 @@ Future<String> myPDF(
                 child: Center(
                   child: Container(
                     decoration: const BoxDecoration(
-                        border: BoxBorder(
-                            bottom: true, width: 0.5, color: PdfColors.grey)),
+                        // border: BoxBorder(
+                        //     bottom: true, width: 0.5, color: PdfColors.grey)
+                        ),
                     alignment: Alignment.center,
                     child: Text(
                       '$extra',

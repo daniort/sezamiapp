@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Corazon extends StatefulWidget {
@@ -117,7 +116,7 @@ class _CorazonState extends State<Corazon> {
                             child: InkWell(
                               onTap: () {
                                 customLaunch(
-                                    'http://sezami.zacatecas.gob.mx/docs/rop2019.pdf');
+                                    'http://sezami.zacatecas.gob.mx/docs/lszm2021.pdf');
                               },
                               child: Text('Descargar',
                                   style: TextStyle(
@@ -129,13 +128,6 @@ class _CorazonState extends State<Corazon> {
                         ],
                       ),
                     ),
-
-                    //color: Colors.amber, SingleChildScrollView(
-// height: ((MediaQuery.of(context).size.width) * 1),
-                    //child: SingleChildScrollView(
-                    // child: PDF(),
-                    //,
-                    //),
                   ],
                 ),
                 ExpansionTile(
@@ -149,10 +141,10 @@ class _CorazonState extends State<Corazon> {
                     ListTile(
                       leading: new Icon(FontAwesomeIcons.whatsapp),
                       title: Text('Teléfono'),
-                      subtitle: Text('+52 1 492 892 2638'),
+                      subtitle: Text('+52 492 892 26 38'),
                       onTap: () {
                         customLaunch(
-                            "whatsapp://send?phone=+52 1 492 892 2638");
+                            "whatsapp://send?phone=+52 492 892 2638");
                       },
                     )
                   ],
@@ -160,9 +152,7 @@ class _CorazonState extends State<Corazon> {
               ],
             ),
           ),
-          new Container(
-            child: Footer(),
-          )
+        
         ],
       ),
     );

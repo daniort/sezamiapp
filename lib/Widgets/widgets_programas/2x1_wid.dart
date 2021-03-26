@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DosporUno extends StatelessWidget {
@@ -165,7 +164,7 @@ class DosporUno extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 customLaunch(
-                                    'http://sezami.zacatecas.gob.mx/docs/2x1.pdf');
+                                    'http://sezami.zacatecas.gob.mx/docs/rop2x12021.pdf');
                               },
                               child: Text('Descargar',
                                   style: TextStyle(
@@ -196,10 +195,10 @@ class DosporUno extends StatelessWidget {
                     ListTile(
                       leading: new Icon(FontAwesomeIcons.whatsapp),
                       title: Text('Teléfono'),
-                      subtitle: Text('+52 1 492 103 2849'),
+                      subtitle: Text('+52 492 103 28 49'),
                       onTap: () {
                         customLaunch(
-                            "whatsapp://send?phone=+52 1 492 103 2849");
+                            "whatsapp://send?phone=+52 492 103 2849");
                       },
                     )
                   ],
@@ -207,9 +206,6 @@ class DosporUno extends StatelessWidget {
               ],
             ),
           ),
-          new Container(
-            child: Footer(),
-          )
         ],
       ),
     );

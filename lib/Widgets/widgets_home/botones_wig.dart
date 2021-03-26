@@ -8,8 +8,10 @@ import 'package:sezamiapp/Widgets/widget_directorio/federaciomes_wid.dart';
 import 'package:sezamiapp/Widgets/widget_directorio/representaciones_wid.dart';
 
 import 'package:sezamiapp/Widgets/widgets_programas/2x1_wid.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/apostilla_page.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/corazonplata_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/exbraceros_wid.dart';
+import 'package:sezamiapp/Widgets/widgets_programas/feria_page.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/mariposa_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/wid_fam.dart';
 
@@ -806,499 +808,130 @@ class BotonesProgramas extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
       ),
-      width: queryData.size.width,
-      height: (queryData.size.height) * 0.6,
+      width: queryData.size.width, // height: (queryData.size.height) * 0.6,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new InkWell(
-              onTap: () => {
-                Navigator.pop(context),
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Corazon(),
-                  ),
-                ),
-              },
-              child: Container(
-                width: (queryData.size.width) * 0.90,
-                height: (queryData.size.height) * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.20,
-                      child: Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.06,
-                          child: Image(
-                            image: AssetImage("images/icons/ico10.png"),
-                            color: Color(0xFF006CAB),
-                          ),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.60,
-                      height: (queryData.size.height) * 0.08,
-                      child: Container(
-                        child: Row(
-                          children: <Widget>[
-                            new Container(
-                              height: (queryData.size.height) * 0.06,
-                              child: VerticalDivider(
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                            new Container(
-                              child: Text(
-                                "Corazón de Plata",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 16.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.1,
-                      height: (queryData.size.height) * 0.08,
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 40.0,
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+           botonesOpciones(
+            context,
+            Color(0xFFFE8510),
+            'icoFBS_.png',
+            'Ferias binacionales de Servicios',
+            MaterialPageRoute(builder: (context) => FeriaPage()),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new InkWell(
-              onTap: () => {
-                Navigator.pop(context),
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Mariposa(),
-                  ),
-                ),
-              },
-              child: Container(
-                width: (queryData.size.width) * 0.90,
-                height: (queryData.size.height) * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.20,
-                      child: Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.06,
-                          child: Image(
-                            image: AssetImage("images/icons/ico15.png"),
-                            color: Color(0xFFC85C06),
-                          ),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.60,
-                      height: (queryData.size.height) * 0.08,
-                      child: Container(
-                        child: Row(
-                          children: <Widget>[
-                            new Container(
-                              height: (queryData.size.height) * 0.06,
-                              child: VerticalDivider(
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                            new Container(
-                              child: Text(
-                                "Mariposa",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 16.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.1,
-                      height: (queryData.size.height) * 0.08,
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 40.0,
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+          // dfgfdgdfg
+          botonesOpciones(
+            context,
+            Color(0xFF006CAB),
+            'ico10.png',
+            'Corazón de Plata',
+            MaterialPageRoute(builder: (context) => Corazon()),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new InkWell(
-              onTap: () => {
-                Navigator.pop(context),
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Fam(),
-                  ),
-                ),
-              },
-              child: Container(
-                width: (queryData.size.width) * 0.90,
-                height: (queryData.size.height) * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.20,
-                      child: Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.06,
-                          child: Image(
-                            image: AssetImage("images/icons/ico13.png"),
-                            color: Color(0xFFBD8F00),
-                          ),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.60,
-                      height: (queryData.size.height) * 0.08,
-                      child: Container(
-                        child: Row(
-                          children: <Widget>[
-                            new Container(
-                              height: (queryData.size.height) * 0.06,
-                              child: VerticalDivider(
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                            new Container(
-                              child: Text(
-                                "Apoyo a Deportados",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 16.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.1,
-                      height: (queryData.size.height) * 0.08,
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 40.0,
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+          botonesOpciones(
+            context,
+            Color(0xFFC85C06),
+            'ico15.png',
+            'Mariposa',
+            MaterialPageRoute(builder: (context) => Mariposa()),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new InkWell(
-              onTap: () => {
-                Navigator.pop(context),
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DosporUno(),
-                  ),
-                ),
-              },
-              child: Container(
-                width: (queryData.size.width) * 0.90,
-                height: (queryData.size.height) * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.20,
-                      child: Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.06,
-                          child: Image(
-                            image: AssetImage("images/icons/ico11.png"),
-                            color: Color(0xFF8B9020),
-                          ),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.60,
-                      height: (queryData.size.height) * 0.08,
-                      child: Container(
-                        child: Row(
-                          children: <Widget>[
-                            new Container(
-                              height: (queryData.size.height) * 0.06,
-                              child: VerticalDivider(
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                            new Container(
-                              child: Text(
-                                "2x1",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 16.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.1,
-                      height: (queryData.size.height) * 0.08,
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 40.0,
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+          botonesOpciones(
+            context,
+            Color(0xFFBD8F00),
+            'ico13.png',
+            'Apoyo a Deportados',
+            MaterialPageRoute(builder: (context) => Fam()),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new InkWell(
-              onTap: () => {
-                Navigator.pop(context),
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Exbraceros(),
-                  ),
-                ),
-              },
-              child: Container(
-                width: (queryData.size.width) * 0.90,
-                height: (queryData.size.height) * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.20,
-                      child: Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.06,
-                          child: Image(
-                            image: AssetImage("images/icons/ico12.png"),
-                            color: Color(0xFF005DFB),
-                          ),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.60,
-                      height: (queryData.size.height) * 0.08,
-                      child: Container(
-                        child: Row(
-                          children: <Widget>[
-                            new Container(
-                              height: (queryData.size.height) * 0.06,
-                              child: VerticalDivider(
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                            new Container(
-                              child: Text(
-                                "Exbraceros",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 16.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.1,
-                      height: (queryData.size.height) * 0.08,
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 40.0,
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+
+           botonesOpciones(
+            context,
+            Color(0xFF8B9020),
+            'ico11.png',
+            '2x1',
+            MaterialPageRoute(builder: (context) => DosporUno()),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: new InkWell(
-              onTap: () => {
-                Navigator.pop(context),
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Traslados(),
-                  ),
-                ),
-              },
-              child: Container(
-                width: (queryData.size.width) * 0.90,
-                height: (queryData.size.height) * 0.08,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.20,
-                      child: Center(
-                        child: Container(
-                          width: (queryData.size.width) * 0.20,
-                          height: (queryData.size.height) * 0.06,
-                          child: Image(
-                            image: AssetImage("images/icons/ico14.png"),
-                            color: Color(0xFF454545),
-                          ),
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.60,
-                      height: (queryData.size.height) * 0.08,
-                      child: Container(
-                        child: Row(
-                          children: <Widget>[
-                            new Container(
-                              height: (queryData.size.height) * 0.06,
-                              child: VerticalDivider(
-                                color: Colors.blueGrey,
-                              ),
-                            ),
-                            new Container(
-                              child: Text(
-                                "Traslados",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Colors.blueGrey, fontSize: 16.0),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    new Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      width: (queryData.size.width) * 0.1,
-                      height: (queryData.size.height) * 0.08,
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 40.0,
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+
+           botonesOpciones(
+            context,
+            Color(0xFF005DFB),
+            'ico12.png',
+            'Exbraceros',
+            MaterialPageRoute(builder: (context) => Exbraceros()),
           ),
-        ],
+
+
+           botonesOpciones(
+            context,
+            Color(0xFF454545),
+            'ico14.png',
+            'Traslados',
+            MaterialPageRoute(builder: (context) => Traslados()),
+          ),
+
+           botonesOpciones(
+            context,
+            Color(0xFFD2A700),
+            'icoestrella.png',
+            'Apostilla de Documentos Americanos',
+            MaterialPageRoute(builder: (context) => ApostillaPage()),
+          ),
+
+
+           
+         ],
       ),
     );
   }
+
+
+  Widget botonesOpciones(
+    BuildContext context, Color col,String img, String label, MaterialPageRoute materialPageRoute) {
+  final size = MediaQuery.of(context).size;
+  return InkWell(
+    onTap: () => {
+      Navigator.pop(context),
+      Navigator.push(context, materialPageRoute),
+    },
+    child: Container(
+      width: size.width * 0.90,
+      height: 55,
+      margin:  const EdgeInsets.symmetric(vertical: 3.0),
+      padding: const EdgeInsets.all(4.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5.0),
+        color: Colors.white,
+      ),
+      child: Row(
+        children: <Widget>[
+          Container(
+            height: 50,
+            padding: EdgeInsets.all(4.0),
+            child: Image(
+              image: AssetImage("images/icons/$img"),
+              color: col,
+            ),
+          ),
+          VerticalDivider(color: Colors.grey[300]),
+          Expanded(
+            child: Text(
+              label,
+              textAlign: TextAlign.left,
+              style: TextStyle(color: Colors.blueGrey, fontSize: 16.0),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            child: Icon(
+              Icons.chevron_right,
+              size: 30.0,
+              color: Colors.blueGrey,
+            ),
+          )
+        ],
+      ),
+    ),
+  );
+}
+
 }
