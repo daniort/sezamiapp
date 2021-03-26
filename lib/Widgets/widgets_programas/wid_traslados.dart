@@ -1,9 +1,9 @@
 //import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:sezamiapp/Widgets/widgets_programas/tras_pdf.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:sezamiapp/Widgets/widgets_metodos.dart';
 
 class Traslados extends StatefulWidget {
   @override
@@ -11,6 +11,7 @@ class Traslados extends StatefulWidget {
 }
 
 class _TrasladosState extends State<Traslados> {
+  final _formDom = GlobalKey<FormState>();
   TextEditingController nombre;
   TextEditingController edad;
   TextEditingController causa;
@@ -74,7 +75,9 @@ class _TrasladosState extends State<Traslados> {
           ),
         ],
       ),
-      body: Column(
+      body: Form(
+        key: _formDom,
+        child: Column(
         children: <Widget>[
           new Expanded(
             flex: 9,
@@ -82,34 +85,9 @@ class _TrasladosState extends State<Traslados> {
               padding: EdgeInsets.all(8.0),
               child: SingleChildScrollView(
                 child: new Container(
-                  //color: Colors.blueGrey,
                   child: Column(
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Center(
-                                child: Text(
-                              'Datos del Fallecido',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
+                      dividerSeccion('Datos del Fallecido'),                      
                       Padding(
                         padding: const EdgeInsets.all(2.0),
                         child: TextFormField(
@@ -409,31 +387,7 @@ class _TrasladosState extends State<Traslados> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Center(
-                                child: Text(
-                              'Datos de Familiar en México',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
+                      dividerSeccion('Datos de Familiar en México'),
                       TextField(
                         decoration: InputDecoration(
                             labelText: 'Nombre de Familiar en Mex.:',
@@ -512,31 +466,10 @@ class _TrasladosState extends State<Traslados> {
                             prefixIcon: Icon(Icons.people)),
                         onSubmitted: (String textfinal) {},
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Center(
-                                child: Text(
-                              'Datos de Funeraria en EU',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
+                      
+                                            dividerSeccion('Datos de Funeraria en EU'),
+
+                     
                       TextField(
                         controller: nombrefune,
                         decoration: InputDecoration(
@@ -565,33 +498,10 @@ class _TrasladosState extends State<Traslados> {
                         keyboardType: TextInputType.emailAddress,
                         onSubmitted: (String textfinal) {},
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(children: <Widget>[
-                          Expanded(
-                            flex: 3,
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Center(
-                                child: Text(
-                              'Extras:',
-                              style: TextStyle(
-                                color: Color(0xFF0076a6),
-                              ),
-                            )),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Divider(
-                              color: Color(0xFF0076a6),
-                            ),
-                          ),
-                        ]),
-                      ),
+
+                                                                  dividerSeccion('Extras'),
+
+                      
                       TextField(
                         controller: extra,
                         decoration: InputDecoration(
@@ -675,11 +585,10 @@ class _TrasladosState extends State<Traslados> {
                   ),
                 ),
               )),
-          new Container(
-            child: Footer(),
-          )
+         
         ],
       ),
+      )
     );
   }
 
@@ -953,6 +862,8 @@ class _TrasladosState extends State<Traslados> {
       }
     }
 
+
+ 
     print(_final);
     if (_final) {
       return true;

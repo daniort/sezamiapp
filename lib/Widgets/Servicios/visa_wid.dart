@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Visa extends StatefulWidget {
@@ -78,9 +77,6 @@ class _VisaState extends State<Visa> {
                 ],
               ),
             ),
-            new Container(
-              child: Footer(),
-            )
           ],
         ),
       ),

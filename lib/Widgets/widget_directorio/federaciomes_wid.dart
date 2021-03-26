@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Federaciones extends StatelessWidget {
@@ -155,11 +154,6 @@ class Federaciones extends StatelessWidget {
                 ),
               ),
             ),
-            new Container(
-              height: ((MediaQuery.of(context).size.height) * .07),
-              width: MediaQuery.of(context).size.width,
-              child: Footer(),
-            )
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Sezami extends StatelessWidget {
@@ -91,11 +90,6 @@ class Sezami extends StatelessWidget {
                   },
                 ),
               ),
-            ),
-            Container(
-              //height: ((MediaQuery.of(context).size.height) * .07),
-              width: MediaQuery.of(context).size.width,
-              child: Footer(),
             ),
           ],
         ),

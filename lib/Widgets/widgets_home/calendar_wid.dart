@@ -63,9 +63,9 @@ class _HomePageState extends State<HomePage> {
               //formatButtonShowsNext: false,
             ),
             //startingDayOfWeek: StartingDayOfWeek.monday,
-            onDaySelected: (date, events) {
-              print(date.toIso8601String());
-            },
+            // onDaySelected: (date, events) {
+            //   // print(date.toIso8601String());
+            // },
             builders: CalendarBuilders(
               selectedDayBuilder: (context, date, events) => Container(
                   margin: const EdgeInsets.all(4.0),

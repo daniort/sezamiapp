@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
@@ -42,10 +41,6 @@ class _CalendarioState extends State<Calendario> {
               child: Container(
                 child: _fun(select),
               )),
-          new Container(
-            color: Colors.amber,
-            child: Footer(),
-          ),
         ],
       ),
     );
@@ -70,7 +65,7 @@ class _CalendarioState extends State<Calendario> {
           borderRadius: BorderRadius.circular(16.0),
         ),
       ),
-      onDaySelected: _onDaySelected,
+      // onDaySelected: _onDaySelected(),
     );
   }
 

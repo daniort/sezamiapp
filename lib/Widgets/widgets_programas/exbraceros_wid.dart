@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Exbraceros extends StatelessWidget {
@@ -78,9 +77,6 @@ class Exbraceros extends StatelessWidget {
                   title: Text('Reglas de Operación'),
                   children: <Widget>[
                     ListTile(
-                      //title: Text('Descargar', style:
-                      //TextStyle(color:Colors.lightBlue,decoration: TextDecoration.underline, fontSize: 14.0)),
-                      //leading: Icon(Icons.file_download, color: Colors.lightBlue,),
                       title: Row(
                         children: <Widget>[
                           new Expanded(
@@ -93,6 +89,10 @@ class Exbraceros extends StatelessWidget {
                           new Expanded(
                             flex: 10,
                             child: InkWell(
+                              onTap: () {
+                                customLaunch(
+                                    'http://sezami.zacatecas.gob.mx/docs/ropazdyex2021.pdf');
+                              },
                               child: Text('Descargar',
                                   style: TextStyle(
                                       color: Colors.lightBlue,
@@ -103,12 +103,6 @@ class Exbraceros extends StatelessWidget {
                         ],
                       ),
                     ),
-                    //Container(
-                    // height: ((MediaQuery.of(context).size.width) * 1),
-                    //child: SingleChildScrollView(
-                    //  child: PDF(),
-                    // ),
-                    //)
                   ],
                 ),
                 ExpansionTile(
@@ -122,10 +116,10 @@ class Exbraceros extends StatelessWidget {
                     ListTile(
                       leading: new Icon(FontAwesomeIcons.whatsapp),
                       title: Text('Teléfono'),
-                      subtitle: Text('+52 1 492 103 0357'),
+                      subtitle: Text('+52 492 103 03 57'),
                       onTap: () {
                         customLaunch(
-                            "whatsapp://send?phone=+52 1 492 103 0357");
+                            "whatsapp://send?phone=+52 492 103 03 57");
                       },
                     )
                   ],
@@ -133,9 +127,6 @@ class Exbraceros extends StatelessWidget {
               ],
             ),
           ),
-          new Container(
-            child: Footer(),
-          )
         ],
       ),
     );

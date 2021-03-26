@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sezamiapp/Widgets/footer_wig.dart';
+import 'package:sezamiapp/Widgets/widgets_metodos.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 
 class Fam extends StatelessWidget {
   void customLaunch(command) async {
@@ -48,90 +49,14 @@ class Fam extends StatelessWidget {
                   backgroundColor: Color(0x1D605e5f),
                   title: Text('Requisitos'),
                   children: <Widget>[
-                    ListTile(
-                      title: Text(
-                        'Credencial INE',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'C.U.R.P.',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Recibo Oficial',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'R.F.C.',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Solictud al Gobernador',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Seguro Popular o Anexo 5',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Hoja de Deportación',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Proyecto Productivo',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Comprobante de Domicilio no mayor a 3 meses a la fecha de apertura del programa',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Cotización',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Constancia de Capacitación',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Factura a nombre de la Secretaría de Finanzas (Esta se sentraga a la SEZAMI el día que se haga entrega del apoyo)',
-                        style: TextStyle(fontSize: 13.0),
-                      ),
-                      leading: Icon(Icons.done),
-                    ),
+                    requitoPrograma("Identificación Oficial con Fotografía"),
+                    requitoPrograma("Hoja de deportación o repatriación"),
+                    requitoPrograma("Comprobante de Domicilio"),
+                    requitoPrograma("Acta de Nacimiento"),
+                    requitoPrograma("Solicitud de apoyo"),
+                    requitoPrograma("CURP"),
+                    requitoPrograma("RFC"),
+                  
                     ListTile(
                       subtitle: Text(
                         'FAVOR DE TRAER LOS DOCUMENTOS EN EL ORDEN LISTADO',
@@ -175,7 +100,7 @@ class Fam extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 customLaunch(
-                                    'http://sezami.zacatecas.gob.mx/docs/2x1.pdf');
+                                    'http://sezami.zacatecas.gob.mx/docs/ropazdyex2021.pdf');                                    
                               },
                               child: Text('Descargar',
                                   style: TextStyle(
@@ -206,10 +131,10 @@ class Fam extends StatelessWidget {
                     ListTile(
                       leading: new Icon(FontAwesomeIcons.whatsapp),
                       title: Text('Teléfono'),
-                      subtitle: Text('+52 1 492 103 0357'),
+                      subtitle: Text('+52 492 103 03 57'),
                       onTap: () {
                         customLaunch(
-                            "whatsapp://send?phone=+52 1 492 103 0357");
+                            "whatsapp://send?phone=+52 492 103 0357");
                       },
                     )
                   ],
@@ -217,13 +142,12 @@ class Fam extends StatelessWidget {
               ],
             ),
           ),
-          new Container(
-            child: Footer(),
-          )
         ],
       ),
     );
   }
+
+  
 }
 
 class Obetivoscorazon extends StatelessWidget {
